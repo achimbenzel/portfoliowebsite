@@ -270,11 +270,11 @@ ${jsonLdBlock}
 /* ===== Contact Form API ===== */
 app.post('/api/contact', async (req, res) => {
   try {
-    const { name, brand, phone, email, hear, timeline, budget, message } = req.body;
+    const { name, email, message } = req.body;
     const turnstileToken = req.body['cf-turnstile-response'];
 
     /* Validate required fields */
-    if (!name || !brand || !email || !message) {
+    if (!name || !email || !message) {
       return res.status(400).json({ error: 'Missing required fields.' });
     }
 
@@ -303,26 +303,26 @@ app.post('/api/contact', async (req, res) => {
           }
         });
 
+    /* Submitted values end up inside an HTML mail — escape them */
+    const esc = s => String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
     const htmlBody = `
       <h2>New Contact Form Submission</h2>
       <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
-        <tr><td style="padding:6px 12px;font-weight:bold">Name</td><td style="padding:6px 12px">${name}</td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Brand</td><td style="padding:6px 12px">${brand}</td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Phone</td><td style="padding:6px 12px">${phone || '—'}</td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Email</td><td style="padding:6px 12px"><a href="mailto:${email}">${email}</a></td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Heard via</td><td style="padding:6px 12px">${hear || '—'}</td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Timeline</td><td style="padding:6px 12px">${timeline || '—'}</td></tr>
-        <tr><td style="padding:6px 12px;font-weight:bold">Budget</td><td style="padding:6px 12px">${budget || '—'}</td></tr>
+        <tr><td style="padding:6px 12px;font-weight:bold">Name</td><td style="padding:6px 12px">${esc(name)}</td></tr>
+        <tr><td style="padding:6px 12px;font-weight:bold">Email</td><td style="padding:6px 12px"><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
       </table>
       <h3>Message</h3>
-      <p style="white-space:pre-wrap;font-family:sans-serif;font-size:14px">${message}</p>
+      <p style="white-space:pre-wrap;font-family:sans-serif;font-size:14px">${esc(message)}</p>
     `;
 
     await transporter.sendMail({
       from: process.env.SMTP_FROM || `"Achim Benzel Portfolio Website" <info@achimbenzel.com>`,
       to: CONTACT_EMAIL,
       replyTo: email,
-      subject: `New Inquiry from ${name} — ${brand}`,
+      subject: `New Inquiry from ${name}`,
       html: htmlBody
     });
 

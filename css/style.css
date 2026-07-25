@@ -836,6 +836,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .cf-submit:hover::before{opacity:1}
 [data-theme="light"] .cf-submit:hover{background:var(--color-accent-hover);color:var(--color-text-on-dark)}
 [data-theme="lightproject"] .cf-submit:hover{background:var(--color-accent-hover);color:var(--color-text-on-dark)}
+/* Alternative contact route, shown under the submit button */
+.cf-alt{font-family:var(--font-primary);font-size:.82rem;font-weight:300;color:var(--text2);line-height:1.6;margin-top:-.2rem}
+.cf-alt a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;transition:color .2s;white-space:nowrap}
+.cf-alt a:hover{color:var(--color-text-primary)}
 .cf-success{display:none;padding:2rem;background:transparent;border:1px solid rgba(var(--color-accent-rgb),.2);border-radius:var(--radius-card);text-align:center;width:100%}
 .cf-success h3{font-family:var(--font-primary);font-size:1.3rem;font-weight:600;text-transform:uppercase;margin-bottom:.6rem}
 .cf-success p{font-size:.92rem;color:var(--text2);font-weight:300}
@@ -2126,16 +2130,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   border-top:1px solid var(--color-border);
 }
 .wcount{font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3)}
-.wsort{display:flex;align-items:center;gap:.5rem}
-.wsort-btn{
-  font-family:var(--font-mono);font-size:.6rem;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--text2);
-  background:transparent;padding:.45rem .9rem;
-  border:1px solid var(--color-border);border-radius:var(--radius-small);
-  transition:all var(--transition-fast);
-}
-.wsort-btn:hover{color:var(--text)}
-.wsort-btn.active{color:var(--accent2);border-color:rgba(var(--color-accent-rgb),.45);background:rgba(var(--color-accent-rgb),.1)}
 
 .wempty{
   margin-top:3rem;text-align:center;

@@ -388,7 +388,7 @@ function svcPg(key){const s=t(key);let bhtml='';let _svcImgIdx=0;if(s.blocks){s.
 
 /* ===== WORK PAGE (filterable) ===== */
 const WRK_CATS=['all','brand-identity','motion-design','3d-design','web-design','type-design'];
-let wrkCat='all',wrkSort='pop';
+let wrkCat='all';
 
 /* ===== WORK ITEMS THAT LIVE ON THEIR OWN PAGE =====
    The type library is listed like any other project, but keeps its existing
@@ -408,7 +408,7 @@ function extraWorkEntries(){
       yr:'2023 – 2025',
       cl:'',
       cats:['type-design'],
-      thumb:'/ownfonts/Perception/specimen.webp',
+      thumb:'/Assets/images/fonthero.webp',
       c:'#5b57b5',
       en:loc('en'),
       de:loc('de')
@@ -429,22 +429,8 @@ function allWorkKeys(){
   });
 }
 
-/* Keys sorted by the active sort mode. `pop` is the build-time order. */
-function wrkKeys(){
-  const keys=allWorkKeys();
-  if(wrkSort==='date'){
-    return keys.slice().sort((a,b)=>{
-      const A=workEntry(a),B=workEntry(b);
-      const da=(A.date?.y||0)*12+(A.date?.m||0);
-      const db=(B.date?.y||0)*12+(B.date?.m||0);
-      return db-da;
-    });
-  }
-  return keys;
-}
-
 function wrkVisible(){
-  return wrkKeys().filter(k=>wrkCat==='all'||(workEntry(k).cats||[]).includes(wrkCat));
+  return allWorkKeys().filter(k=>wrkCat==='all'||(workEntry(k).cats||[]).includes(wrkCat));
 }
 
 function renderWrkGrid(){
@@ -464,14 +450,8 @@ function setWrkCat(id,btn){
   renderWrkGrid();
 }
 
-function setWrkSort(mode,btn){
-  wrkSort=mode;
-  document.querySelectorAll('.wsort-btn').forEach(b=>b.classList.toggle('active',b===btn));
-  renderWrkGrid();
-}
-
 function wrkPg(){
-  wrkCat='all';wrkSort='pop';
+  wrkCat='all';
   const w=t('wrk');
   const keys=allWorkKeys();
   const filters=WRK_CATS.map(id=>`<button type="button" class="wfilter${id==='all'?' active':''}" onclick="setWrkCat('${id}',this)">${catLabel(id)}</button>`).join('');
@@ -482,10 +462,6 @@ function wrkPg(){
       +`<div class="wbar-row"><span class="wbar-label">${w.filterLabel}</span><div class="wfilters">${filters}</div></div>`
       +`<div class="wbar-foot">`
         +`<span class="wcount" id="wcount">${keys.length} ${keys.length===1?w.countOne:w.count}</span>`
-        +`<div class="wsort"><span class="wbar-label">${w.sortLabel}</span>`
-          +`<button type="button" class="wsort-btn active" onclick="setWrkSort('pop',this)">${w.sortPop}</button>`
-          +`<button type="button" class="wsort-btn" onclick="setWrkSort('date',this)">${w.sortDate}</button>`
-        +`</div>`
       +`</div>`
     +`</div>`
     +`<div class="pgrid" id="wgridEl">${keys.map(wC).join('')}</div>`
@@ -493,32 +469,21 @@ function wrkPg(){
   +`</div></section>`
 }
 
-function cselHtml(name,label,opts,ph,req){
-const chevron='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>';
-return`<div class="cf-group"><label>${label}${req?' <span class="req">*</span>':''}</label><div class="csel" data-name="${name}"><input type="hidden" name="${name}" value=""${req?' required':''}/><button type="button" class="csel-trigger placeholder" onclick="cselToggle(this)">${ph} ${chevron}</button><div class="csel-opts">${opts.map(o=>`<div class="csel-opt" onclick="cselPick(this,'${o.replace(/'/g,"\\'")}')">${o}</div>`).join('')}</div></div></div>`}
-
 function cselToggle(btn){
 const csel=btn.parentElement;const wasOpen=csel.classList.contains('open');
 document.querySelectorAll('.csel.open').forEach(el=>el.classList.remove('open'));
 if(!wasOpen)csel.classList.add('open');
 }
-function cselPick(opt,val){
-const csel=opt.closest('.csel');const trigger=csel.querySelector('.csel-trigger');const hidden=csel.querySelector('input[type=hidden]');
-hidden.value=val;
-const svg=trigger.querySelector('svg').outerHTML;
-trigger.innerHTML=val+' '+svg;
-trigger.classList.remove('placeholder');
-csel.querySelectorAll('.csel-opt').forEach(o=>o.classList.remove('active'));
-opt.classList.add('active');
-csel.classList.remove('open');
-}
 document.addEventListener('click',e=>{if(!e.target.closest('.csel'))document.querySelectorAll('.csel.open').forEach(el=>el.classList.remove('open'))});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.csel.open').forEach(el=>el.classList.remove('open'))});
+
+/* Public contact address — shown as the alternative to the form */
+const CONTACT_MAIL='info@achimbenzel.com';
 
 function contactPg(){const c=t('contact');const arrowSVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 const titleHtml=lang==='en'?'Get in <em>touch</em>':'Kontakt <em>aufnehmen</em>';
 const tosAfter=c.tosAfter?' '+c.tosAfter:'';
-return`<div class="contact-page"><div class="contact-top"><div class="contact-header-inner"><h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${titleHtml}</h1><p class="contact-intro" data-anim="words" data-anim-stagger="20" data-anim-delay="200">${c.intro}</p></div></div><div class="contact-body"><div class="contact-form-wrap"><form class="contact-form" id="contactForm" onsubmit="return handleContact(event)"><div class="cf-group"><label>${c.name} <span class="req">*</span></label><input type="text" name="name" required placeholder="${c.name}"/></div><div class="cf-group"><label>${c.brand} <span class="req">*</span></label><input type="text" name="brand" required placeholder="${c.brand}"/></div><div class="cf-group"><label>${c.phone}</label><input type="tel" name="phone" placeholder="${c.phone}"/></div><div class="cf-group"><label>${c.email} <span class="req">*</span></label><input type="email" name="email" required placeholder="${c.email}"/></div>${cselHtml('hear',c.hear,c.hearOpts,c.selectPh,true)}${cselHtml('timeline',c.timeline,c.timeOpts,c.selectPh,true)}${cselHtml('budget',c.budget,c.budgetOpts,c.selectPh,true)}<div class="cf-group"><label>${c.message} <span class="req">*</span></label><p style="font-size:.78rem;color:var(--text3);font-weight:200;margin-bottom:.3rem;line-height:1.5">${c.messageSub}</p><textarea name="message" required maxlength="5000" placeholder="${c.message}…"></textarea></div><div class="cf-tos-group"><label class="cf-tos-label"><input type="checkbox" name="tos" id="cfTos"/><span class="cf-tos-check"></span><span class="cf-tos-text">${c.tos} <a href="${routeToPath('tos')}" onclick="event.preventDefault();go('tos')">${c.tosLink}</a>${tosAfter}</span></label></div><div class="cf-turnstile" id="cfTurnstile"></div><div class="cf-error" id="cfError"></div><div><button type="submit" class="cf-submit" id="cfSubmitBtn">${c.submit} ${arrowSVG}</button></div></form><div class="cf-success" id="cfSuccess"><h3>${c.success}</h3><p>${c.successMsg}</p></div></div></div></div>`}
+return`<div class="contact-page"><div class="contact-top"><div class="contact-header-inner"><h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${titleHtml}</h1><p class="contact-intro" data-anim="words" data-anim-stagger="20" data-anim-delay="200">${c.intro}</p></div></div><div class="contact-body"><div class="contact-form-wrap"><form class="contact-form" id="contactForm" onsubmit="return handleContact(event)"><div class="cf-group"><label>${c.name} <span class="req">*</span></label><input type="text" name="name" required placeholder="${c.name}"/></div><div class="cf-group"><label>${c.email} <span class="req">*</span></label><input type="email" name="email" required placeholder="${c.email}"/></div><div class="cf-group"><label>${c.message} <span class="req">*</span></label><textarea name="message" required maxlength="5000" placeholder="${c.message}…"></textarea></div><div class="cf-tos-group"><label class="cf-tos-label"><input type="checkbox" name="tos" id="cfTos"/><span class="cf-tos-check"></span><span class="cf-tos-text">${c.tos} <a href="${routeToPath('tos')}" onclick="event.preventDefault();go('tos')">${c.tosLink}</a>${tosAfter}</span></label></div><div class="cf-turnstile" id="cfTurnstile"></div><div class="cf-error" id="cfError"></div><div><button type="submit" class="cf-submit" id="cfSubmitBtn">${c.submit} ${arrowSVG}</button></div><p class="cf-alt">${c.altMail} <a href="mailto:${CONTACT_MAIL}">${CONTACT_MAIL}</a></p></form><div class="cf-success" id="cfSuccess"><h3>${c.success}</h3><p>${c.successMsg}</p></div></div></div></div>`}
 function handleContact(e){
   e.preventDefault();
   const c=t('contact');
