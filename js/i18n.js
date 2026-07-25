@@ -31,9 +31,12 @@ const L={en:{
     ],
     tosBtn:'Terms of Service'
   },
-  fonts:{label:'My Fonts',title:'Type <em>Library</em>',text:'A selection of experimental typefaces created by myself.',tester:'Font Tester',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
+  fonts:{label:'My Fonts',title:'Type <em>Library</em>',text:'A selection of experimental typefaces created by myself.',
+    /* Shown as a project card in the work grid — links to /my-fonts */
+    card:{title:'Type Library',type:'Personal Project',ind:'Type Design',tags:['Type Design','Display','Monospace']},
+    tester:'Font Tester',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',sortLabel:'Sort by',sortPop:'Popularity',sortDate:'Date',count:'Projects',countOne:'Project',empty:'No projects in this category yet.'},
-  cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design'},
+  cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
     name:'Achim Benzel',role:'Independent Designer & Art Director',bio:'I\'m Achim, 25, a freelance designer based in Germany.',
     toggles:[
@@ -99,9 +102,12 @@ de:{
     ],
     tosBtn:'Nutzungsbedingungen'
   },
-  fonts:{label:'Meine Schriften',title:'Type <em>Library</em>',text:'Eine Auswahl experimenteller, von mir selbst entwickelter Schriftarten.',tester:'Schrift-Tester',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
+  fonts:{label:'Meine Schriften',title:'Type <em>Library</em>',text:'Eine Auswahl experimenteller, von mir selbst entwickelter Schriftarten.',
+    /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */
+    card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
+    tester:'Schrift-Tester',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',sortLabel:'Sortieren nach',sortPop:'Beliebtheit',sortDate:'Datum',count:'Projekte',countOne:'Projekt',empty:'In dieser Kategorie gibt es noch keine Projekte.'},
-  cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design'},
+  cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
     name:'Achim Benzel',role:'Freiberuflicher Designer & Art Director',bio:'Ich bin Achim, 25, freiberuflicher Designer aus Deutschland.',
     toggles:[
@@ -122,7 +128,7 @@ de:{
         {icon:'tea',label:'Tee & Fokus',text:'Eine gute Tasse Tee und bewusste Routinen halten die Deep-Work-Sessions am Laufen.'}
       ]}
     ]},
-    ftr:{tag:'Klarheit durch Struktur und Gestaltung.',cta:'Kontakt aufnehmen',copy:'© 2026 Design by Achim Benzel. Alle Rechte vorbehalten.',imp:'Impressum',priv:'Datenschutzerklärung',tos:'AGB'},
+    ftr:{tag:'Brand, Motion & Webdesigner',cta:'Kontakt aufnehmen',copy:'© 2026 Design by Achim Benzel. Alle Rechte vorbehalten.',imp:'Impressum',priv:'Datenschutzerklärung',tos:'AGB'},
   contact:{title:'Kontakt aufnehmen',intro:'Ich hoffe, meine Arbeit hat Ihnen einen Einblick in meine Denkweise und meinen kreativen Ansatz gegeben. Wenn Sie an einer Zusammenarbeit interessiert sind, freue ich mich darauf, von Ihnen zu hören.',name:'Ihr Name',brand:'Markenname',phone:'Telefonnummer',email:'E-Mail',hear:'Wie haben Sie von uns erfahren?',hearOpts:['Mundpropaganda','Freunde & Familie','Instagram','Behance','Sonstiges'],timeline:'Wann soll Ihre neue Marke idealerweise fertig sein?',timeOpts:['Weniger als ein Monat','1–2 Monate','2–4 Monate','Laufend'],budget:'Wie hoch ist Ihr Budget?',budgetOpts:['€250 – €500','€1K – €5K','€5K – €10K','€10K – €20K','€20K+'],message:'Erzählen Sie uns von Ihrer Marke',messageSub:'Bitte geben Sie uns so viele Details wie möglich. Das hilft uns zu verstehen, was Sie brauchen, bevor wir weitermachen.',tos:'Ich stimme den',tosLink:'Allgemeine Geschäftsbedingungen',tosAfter:'zu',submit:'Nachricht senden',selectPh:'Bitte wählen…',success:'Vielen Dank!',successMsg:'Ihre Nachricht wurde gesendet. Wir melden uns bald.',errTos:'Bitte akzeptieren Sie die Allgemeine Geschäftsbedingungen.',errTurnstile:'Bitte schließen Sie die Sicherheitsprüfung ab.',errSend:'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',sending:'Wird gesendet…',bio:'Freiberuflicher Markendesigner — Ich kreiere Identitäten mit Substanz.'},
   prj:{back:'Zurück',cl:'Kunde',yr:'Jahr',sc:'Umfang',ind:'Branche',cat:'Kategorie',type:'Typ',sw:'Software',testimonial:'Kundenstimme'},
   imp:{title:'Impressum',h:'<h2>Angaben gemäß § 5 TMG</h2><p>Achim Benzel<br>Design by Achim Benzel<br>Saarstraße 32<br>55768 Hoppstädten-Weiersbach</p><h2>Kontakt</h2><p>Tel: +49 163 9877331<br>E-Mail: info@achimbenzel.com</p><h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>DE366404174</p><h2>Angaben zur Berufshaftpflichtversicherung</h2><p>Name und Sitz des Versicherers: Markel Insurance SE<br>Sophienstr. 26, 80333 München<br><a href="tel:+4989205094000">Tel: +49 89 205094-000</a> / <a href="mailto:service@markel.de">service@markel.de</a> / <a href="www.markel.de">www.markel.de</a><br>Geltungsraum der Versicherung: Deutschland</p><h2>Kleinunternehmerregelung</h2><p>Gemäß § 19 UStG wird keine Umsatzsteuer erhoben (Kleinunternehmerstatus).</p><h2>Redaktionell verantwortlich</h2><p>Achim Benzel</p><h2>Verbraucherstreitbeilegung/ Universalschlichtungsstelle</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>'},

@@ -24,7 +24,6 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
   <div class="island-menu" id="islandMenu">
     <a class="island-menu-link" href="${routeToPath('services')}" onclick="event.preventDefault();go('services')">${n.svc}</a>
     <a class="island-menu-link" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${n.wrk}</a>
-    <a class="island-menu-link" href="${routeToPath('my-fonts')}" onclick="event.preventDefault();go('my-fonts')">${n.fonts}</a>
     <a class="island-menu-link" href="${routeToPath('about')}" onclick="event.preventDefault();go('about')">${n.abt}</a>
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
     <div class="island-menu-footer">
@@ -58,7 +57,7 @@ function toggleFaq(i){
 
 /* ===== HOME PAGE ===== */
 function homePg(){
-  const h=t('hero'),w=t('wrk'),keys=Object.keys(P).slice(0,3);
+  const h=t('hero'),w=t('wrk'),keys=allWorkKeys().slice(0,3);
   const arrowSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
   return`<section class="hero-rickroll">
@@ -106,13 +105,16 @@ function catLabel(id){const c=t('cats');return (c&&c[id])||id||''}
 
 /* ===== PROJECT CARD ===== */
 function wC(slug){
-  const pr=P[slug];if(!pr)return'';
+  const pr=workEntry(slug);if(!pr)return'';
   const p=pr[lang]||pr.en||{};const w=t('wrk');
   const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   const thumb=pr.thumb||vg(1600,900,(p.title||slug).split('\u2014')[0].trim(),pr.c);
   const sub=[p.type,p.ind].filter(Boolean).join(' \u00b7 ');
   const tags=(p.tags||[]).slice(0,3);
-  return`<a class="pcard" data-cats="${(pr.cats||[]).join(' ')}" data-cl="${w.view}" href="${routeToPath('work/'+slug)}" onclick="event.preventDefault();go('work/${slug}')">`
+  /* Entries with their own route (e.g. the type library) link there instead
+     of to a /work/<slug> detail page. */
+  const route=pr.route||('work/'+slug);
+  return`<a class="pcard" data-cats="${(pr.cats||[]).join(' ')}" data-cl="${w.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
     +`<div class="pcard-media"><img src="${thumb}" alt="${p.title||slug}" loading="lazy"/></div>`
     +`<div class="pcard-body">`
       +`<div class="pcard-head"><span class="pcard-cat">${catLabel((pr.cats||[])[0])}</span><span class="pcard-year">${pr.yr||''}</span></div>`
@@ -257,19 +259,19 @@ function toggleAbt(i){
 }
 
 
+/* Legal pages (imprint / privacy / ToS) render without any text animation —
+   the copy has to be readable the moment the page opens. */
 function legPg(type){const d=t(type);
 /* Parse h2 headings from the raw HTML to build navigation */
 const headings=[];
 const contentHtml=d.h.replace(/<h2>(.*?)<\/h2>/g,(match,title)=>{
   const id='lsec-'+headings.length;
   headings.push({id,title});
-  return`<h2 id="${id}" data-anim="words" data-anim-stagger="22">${title}</h2>`;
+  return`<h2 id="${id}">${title}</h2>`;
 });
-/* Add line animations to paragraphs */
-const animatedHtml=contentHtml.replace(/<p>/g,'<p data-anim="lines" data-anim-delay="80">');
 const navLabel=lang==='en'?'Navigate to':'Navigation';
 const navHtml=headings.length?`<nav class="lpage-nav"><div class="lpage-nav-label">${navLabel}</div>${headings.map(h=>`<a class="lpage-nav-link" href="#${h.id}" onclick="event.preventDefault();scrollToLegalSection('${h.id}')">${h.title}</a>`).join('')}</nav>`:'';
-return`<div class="lpage lpage-with-nav"><button class="pback" onclick="history.back()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> ${lang==='en'?'Back':'Zurück'}</button><h1 data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${d.title}</h1><div class="lpage-layout">${navHtml}<div class="lpage-content">${animatedHtml}</div></div></div>`}
+return`<div class="lpage lpage-with-nav"><button class="pback" onclick="history.back()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> ${lang==='en'?'Back':'Zurück'}</button><h1>${d.title}</h1><div class="lpage-layout">${navHtml}<div class="lpage-content">${contentHtml}</div></div></div>`}
 
 /* TOS — now served from i18n like imp/prv */
 function tosPg(){return legPg('tos')}
@@ -385,16 +387,56 @@ function ftCselPick(opt,val,label){
 function svcPg(key){const s=t(key);let bhtml='';let _svcImgIdx=0;if(s.blocks){s.blocks.forEach(b=>{if(b.type==='img'){_svcImgIdx++;const _dk=(theme==='dark'||theme==='darkproject')?'_dark':'';bhtml+=`<div class="reveal"><div class="fullimg fullimg-nobg"><img src="/Assets/images/services${_svcImgIdx}${_dk}.png" alt="${b.label}"/></div></div>`}else if(b.type==='split')bhtml+=`<div class="reveal"><div class="cblock"><div class="cblock-label" data-anim="words" data-anim-stagger="25">${b.h}</div><div class="cblock-body"><p data-anim="lines" data-anim-delay="100">${b.p}</p></div></div></div>`;else if(b.type==='center')bhtml+=`<div class="reveal"><div class="centerblock"><h3 data-anim="words" data-anim-stagger="25">${b.h}</h3><p data-anim="lines" data-anim-delay="100">${b.p}</p></div></div>`})}let toshtml='';return`<section class="section" style="padding-top:9rem"><div class="reveal"><h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${s.title}</h2><p class="section-text" data-anim="words" data-anim-stagger="20">${s.text}</p><div class="services-grid">${s.svcs.map((v,i)=>`<div class="scard"><div class="num">0${i+1}</div><h3>${v.t}</h3><p>${v.d}</p><div class="stags">${v.tags.map(t=>`<span class="stag">${t}</span>`).join('')}</div></div>`).join('')}</div></div>${bhtml}<div class="reveal">${toshtml}</div></section>`}
 
 /* ===== WORK PAGE (filterable) ===== */
-const WRK_CATS=['all','brand-identity','motion-design','3d-design','web-design'];
+const WRK_CATS=['all','brand-identity','motion-design','3d-design','web-design','type-design'];
 let wrkCat='all',wrkSort='pop';
+
+/* ===== WORK ITEMS THAT LIVE ON THEIR OWN PAGE =====
+   The type library is listed like any other project, but keeps its existing
+   /my-fonts route instead of getting a /work/<slug> detail page. Shaped like a
+   P entry so it flows through wC() and the filters unchanged. */
+function extraWorkEntries(){
+  const loc=l=>{
+    const c=((L[l]||L.en).fonts||{}).card||{};
+    return{title:c.title||'',type:c.type||'',scope:'',ind:c.ind||'',desc:'',tags:c.tags||[]};
+  };
+  return{
+    'my-fonts':{
+      slug:'my-fonts',
+      route:'my-fonts',
+      pop:70,
+      date:{m:11,y:2025},
+      yr:'2023 – 2025',
+      cl:'',
+      cats:['type-design'],
+      thumb:'/ownfonts/Perception/specimen.webp',
+      c:'#5b57b5',
+      en:loc('en'),
+      de:loc('de')
+    }
+  };
+}
+
+/* A work item by key — a real project, or one of the extra entries above. */
+function workEntry(slug){return P[slug]||extraWorkEntries()[slug]}
+
+/* All work keys, ordered like the build output: popularity desc, newest first. */
+function allWorkKeys(){
+  const extra=extraWorkEntries();
+  return Object.keys(P).concat(Object.keys(extra)).sort((a,b)=>{
+    const A=P[a]||extra[a],B=P[b]||extra[b];
+    if((B.pop||0)!==(A.pop||0))return(B.pop||0)-(A.pop||0);
+    return((B.date?.y||0)*12+(B.date?.m||0))-((A.date?.y||0)*12+(A.date?.m||0));
+  });
+}
 
 /* Keys sorted by the active sort mode. `pop` is the build-time order. */
 function wrkKeys(){
-  const keys=Object.keys(P);
+  const keys=allWorkKeys();
   if(wrkSort==='date'){
     return keys.slice().sort((a,b)=>{
-      const da=(P[a].date?.y||0)*12+(P[a].date?.m||0);
-      const db=(P[b].date?.y||0)*12+(P[b].date?.m||0);
+      const A=workEntry(a),B=workEntry(b);
+      const da=(A.date?.y||0)*12+(A.date?.m||0);
+      const db=(B.date?.y||0)*12+(B.date?.m||0);
       return db-da;
     });
   }
@@ -402,7 +444,7 @@ function wrkKeys(){
 }
 
 function wrkVisible(){
-  return wrkKeys().filter(k=>wrkCat==='all'||(P[k].cats||[]).includes(wrkCat));
+  return wrkKeys().filter(k=>wrkCat==='all'||(workEntry(k).cats||[]).includes(wrkCat));
 }
 
 function renderWrkGrid(){
@@ -431,7 +473,7 @@ function setWrkSort(mode,btn){
 function wrkPg(){
   wrkCat='all';wrkSort='pop';
   const w=t('wrk');
-  const keys=Object.keys(P);
+  const keys=allWorkKeys();
   const filters=WRK_CATS.map(id=>`<button type="button" class="wfilter${id==='all'?' active':''}" onclick="setWrkCat('${id}',this)">${catLabel(id)}</button>`).join('');
   return`<section class="section" style="padding-top:9rem"><div class="reveal">`
     +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${w.title}</h2>`

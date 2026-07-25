@@ -240,7 +240,9 @@ function metaTags(lang, routeKey, pageTitle, pathAfterLang, slug) {
    invisible to human visitors but fully readable by crawlers/AI.   */
 function appContent(lang, routeKey, slug) {
   const d = L[lang] || L.en;
-  const nav = `<nav aria-label="Main"><a href="/${lang}/services">${d.nav.svc}</a> <a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/my-fonts">${d.nav.fonts || d.fonts.label}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
+  /* Mirrors the client nav — the type library is reached from the work list,
+     not from a nav tab of its own. */
+  const nav = `<nav aria-label="Main"><a href="/${lang}/services">${d.nav.svc}</a> <a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
 
   // Project detail page: render the real, visible project copy
   if (routeKey === 'work' && slug) {
@@ -292,10 +294,13 @@ function appContent(lang, routeKey, slug) {
     }
     case 'work': {
       // Work overview: list all projects with links so crawlers find detail pages
-      const list = Object.keys(P).map(s => {
+      let list = Object.keys(P).map(s => {
         const pr = P[s][lang] || P[s].en;
         return `<li><a href="/${lang}/work/${s}">${stripTags(pr.title)}</a> — ${stripTags(pr.ind)}</li>`;
       }).join('');
+      // The type library is listed as a project but lives on its own route
+      const fc = (d.fonts && d.fonts.card) || {};
+      list += `<li><a href="/${lang}/my-fonts">${stripTags(fc.title || d.fonts.label)}</a> — ${stripTags(fc.ind || '')}</li>`;
       main = `<h1>${stripTags(d.wrk.title)}</h1><p>${stripTags(d.wrk.text)}</p><ul>${list}</ul>`;
       break;
     }

@@ -11,7 +11,8 @@ const CATEGORY_ALIASES = {
   'brand-identity': ['brand identity', 'brandidentity', 'branding', 'brand', 'markenidentitat', 'markenidentität'],
   'motion-design':  ['motion design / animation', 'motion design/animation', 'motion design', 'motion', 'animation', 'motiondesign'],
   '3d-design':      ['3d design', '3d', '3ddesign', '3d-modeling'],
-  'web-design':     ['web design', 'webdesign', 'web', 'ui/ux design', 'ui ux design']
+  'web-design':     ['web design', 'webdesign', 'web', 'ui/ux design', 'ui ux design'],
+  'type-design':    ['type design', 'typedesign', 'type', 'typografie', 'schriftgestaltung', 'schriften', 'fonts']
 };
 
 function normCategory(raw) {
