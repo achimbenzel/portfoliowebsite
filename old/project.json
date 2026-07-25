@@ -1,0 +1,42 @@
+{
+  "slug": "aurora-brand-identity",
+  "featured": true,
+  "color": "#1a2e1a",
+  "en": {
+    "title": "Aurora — Brand Identity",
+    "client": "Aurora Technologies",
+    "year": "2024",
+    "scope": "Brand Strategy, Visual Identity, Digital Design",
+    "industry": "Technology",
+    "category": "Brand Identity",
+    "description": "A comprehensive brand identity for Aurora Technologies, a Berlin-based startup redefining sustainable energy solutions. The visual system draws from the interplay of light and nature, translating complex technology into approachable, human-centered design."
+  },
+  "de": {
+    "title": "Aurora — Markenidentität",
+    "client": "Aurora Technologies",
+    "year": "2024",
+    "scope": "Markenstrategie, Visuelle Identität, Digital Design",
+    "industry": "Technologie",
+    "category": "Markenidentität",
+    "description": "Eine umfassende Markenidentität für Aurora Technologies, ein Berliner Startup, das nachhaltige Energielösungen neu definiert. Das visuelle System schöpft aus dem Zusammenspiel von Licht und Natur und übersetzt komplexe Technologie in ein zugängliches, menschenzentriertes Design."
+  },
+  "images": [
+    "hero.jpg",
+    "detail-01.jpg",
+    "detail-02.jpg",
+    "detail-03.jpg"
+  ],
+  "testimonial": {
+    "photo": "testimonial.jpg",
+    "en": {
+      "name": "Elena Richter",
+      "role": "CEO of Aurora Technologies",
+      "quote": "Working with Noir was a transformative experience for our brand. They didn't just design a visual identity — they understood our mission at a fundamental level and translated it into a design system that truly represents who we are. The strategic depth combined with impeccable craft exceeded every expectation."
+    },
+    "de": {
+      "name": "Elena Richter",
+      "role": "CEO von Aurora Technologies",
+      "quote": "Die Zusammenarbeit mit Noir war eine transformative Erfahrung für unsere Marke. Es wurde nicht nur eine visuelle Identität gestaltet — unsere Mission wurde auf einer grundlegenden Ebene verstanden und in ein Designsystem übersetzt, das wirklich repräsentiert, wer wir sind. Die strategische Tiefe kombiniert mit makellosem Handwerk hat jede Erwartung übertroffen."
+    }
+  }
+}

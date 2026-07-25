@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /de/imprint
+Disallow: /de/privacy
+Disallow: /de/tos
+Disallow: /en/imprint
+Disallow: /en/privacy
+Disallow: /en/tos
+
+Sitemap: https://achimbenzel.com/sitemap.xml

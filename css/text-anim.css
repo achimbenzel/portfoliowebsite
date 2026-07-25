@@ -1,0 +1,103 @@
+/* ============================================================
+   NOIR — Text Animation Styles (designbyrobin.be inspired)
+   ============================================================
+   Companion CSS for text-anim.js
+   Add this AFTER your main style.css
+   ============================================================ */
+
+/* ---- Shared: initial hidden state for split text ---- */
+.na-char-inner,
+.na-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Word group — keeps all chars of one word on the same line */
+.na-word-group {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+/* Char wrapper — inline-block so transforms work */
+.na-char {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+  /* Extra space so italic/cursive glyphs aren't clipped at top-right */
+  padding: 0.05em 0.05em 0 0.01em;
+  margin: -0.05em -0.05em 0 -0.01em;
+}
+
+/* Space chars — preserve whitespace width */
+.na-char.na-space {
+  width: 0.3em;
+  overflow: visible;
+}
+
+/* Word wrapper */
+.na-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+/* ---- Fade-Up (simple) ---- */
+.na-fade {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(.23, 1, .32, 1),
+              transform 0.7s cubic-bezier(.23, 1, .32, 1);
+}
+.na-fade.na-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Mask Reveal ---- */
+.na-mask {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.9s cubic-bezier(.77, 0, .175, 1);
+}
+.na-mask.na-visible {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* ---- Ensure prepared elements don't flash unstyled ---- */
+[data-anim]:not(.na-prepared) {
+  /* Hide until JS kicks in — prevents FOUC */
+}
+
+/* ---- Optional: stagger modifier classes (use in HTML if needed) ---- */
+[data-anim-stagger="fast"]  { --na-stagger: 18ms; }
+[data-anim-stagger="slow"]  { --na-stagger: 50ms; }
+
+/* ---- Responsive: reduce motion for prefers-reduced-motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .na-char-inner,
+  .na-word-inner {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .na-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .na-mask {
+    clip-path: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- Mobile optimisation: slightly faster, simpler ---- */
+@media (max-width: 768px) {
+  .na-char-inner,
+  .na-word-inner {
+    transform: translateY(100%);
+  }
+}

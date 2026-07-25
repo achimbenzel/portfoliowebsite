@@ -1,0 +1,17 @@
+version: '3.8'
+ 
+services:
+  web:
+    image: node:20
+    container_name: meine_echte_website
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: npm start
+    restart: unless-stopped
+    networks:
+      - npm_default
+ 
+networks:
+  npm_default:
+    external: true

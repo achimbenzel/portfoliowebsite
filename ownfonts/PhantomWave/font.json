@@ -1,0 +1,30 @@
+{
+  "slug": "phantomwave",
+  "name": "PhantomWave",
+  "family": "PhantomWave",
+  "order": 3,
+  "hasItalic": false,
+  "cardLabel": "Rounded",
+  "preview": "The quick brown fox jumps over the lazy dog",
+  "en": {
+    "description": "Meine erste selbst erstellte Schrift. Eine runde Display-Schrift mit klarer Y2K-Ästhetik,  verspielt, futuristisch und prägnant."
+  },
+  "de": {
+    "description": "My first created typeface. A rounded display font with a distinct Y2K aesthetic, playful, futuristic, and bold."
+  },
+  "meta": {
+    "designer": "Achim Benzel",
+    "version": "1.0",
+    "update": "2023",
+    "formats": "OTF"
+  },
+  "files": {
+    "regular": "PhantomWave-Round.otf"
+  },
+  "downloadable": false,
+  "images": [
+    "weights.webp",
+    "in-use.webp",
+    "detail.webp"
+  ]
+}

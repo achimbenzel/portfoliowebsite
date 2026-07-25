@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://achimbenzel.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/services</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/work/gute-stube</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/gute-stube"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/gute-stube"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/gute-stube"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/work/joeys-picknick</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/joeys-picknick"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/joeys-picknick"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/joeys-picknick"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/work/logo-types</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/logo-types"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/logo-types"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/logo-types"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/my-fonts</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/my-fonts/perception</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/perception"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/perception"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/perception"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/my-fonts/cybercell</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/cybercell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/cybercell"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/cybercell"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/my-fonts/phantomwave</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/phantomwave"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/phantomwave"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/phantomwave"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/de/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- EN equivalents -->
+  <url>
+    <loc>https://achimbenzel.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/work</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/work/gute-stube</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/gute-stube"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/gute-stube"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/gute-stube"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/work/joeys-picknick</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/joeys-picknick"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/joeys-picknick"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/joeys-picknick"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/work/logo-types</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/logo-types"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/logo-types"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/work/logo-types"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/my-fonts</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/my-fonts/perception</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/perception"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/perception"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/perception"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/my-fonts/cybercell</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/cybercell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/cybercell"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/cybercell"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/my-fonts/phantomwave</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/my-fonts/phantomwave"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/my-fonts/phantomwave"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/my-fonts/phantomwave"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/en/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

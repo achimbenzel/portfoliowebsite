@@ -1,0 +1,33 @@
+{
+  "slug": "perception",
+  "name": "Perception",
+  "family": "Perception",
+  "order": 1,
+  "hasItalic": false,
+  "cardLabel": "Mono",
+  "preview": "The quick brown fox jumps over the lazy dog",
+  "en": {
+    "description": "Eine Monospace-Schrift, inspiriert von der LCD-Ästhetik. Klare Struktur trifft auf subtile Abrundungen."
+  },
+  "de": {
+    "description": "A monospace font inspired by LCD aesthetics. Clean structure meets subtle rounded details."
+  },
+  "meta": {
+    "designer": "Achim Benzel",
+    "version": "1.0",
+    "update": "2025",
+    "formats": "OTF"
+  },
+  "files": {
+    "regular": "Atest-mono.otf"
+  },
+  "downloadable": false,
+  "downloadFile": "Perception.zip",
+  "images": [
+    "specimen.webp",
+    "glyphs.webp",
+    "weights.webp",
+    "in-use.webp",
+    "detail.webp"
+  ]
+}

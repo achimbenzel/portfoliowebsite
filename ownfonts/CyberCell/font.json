@@ -1,0 +1,33 @@
+{
+  "slug": "cybercell",
+  "name": "CyberCell",
+  "family": "CyberCell",
+  "order": 2,
+  "hasItalic": true,
+  "cardLabel": "Regular + Italic",
+  "preview": "The quick brown fox jumps over the lazy dog",
+  "en": {
+    "description": "Eine kantige Y2K-Schrift mit technischer Anmutung. Verfügbar in Regular und Oblique. Für dynamische, digitale Anwendungen."
+  },
+  "de": {
+    "description": "An angular Y2K typeface with a technical feel. Available in regular and oblique. For dynamic, digital use."
+  },
+  "meta": {
+    "designer": "Achim Benzel",
+    "version": "1.2",
+    "update": "2024",
+    "formats": "OTF"
+  },
+  "files": {
+    "regular": "CyberCell.otf",
+    "italic": "CyberCell-Italic.otf"
+  },
+  "downloadable": false,
+  "images": [
+    "specimen.webp",
+    "glyphs.webp",
+    "weights.webp",
+    "in-use.webp",
+    "detail.webp"
+  ]
+}

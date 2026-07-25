@@ -1,0 +1,85 @@
+{
+  "slug": "joeys-picknick",
+  "popularity": 90,
+  "year": "2026",
+  "date": { "month": 1, "year": 2026 },
+  "client": "Joeys Picknick",
+  "categories": ["brand-identity"],
+  "thumbnail": "hero.webp",
+  "color": "#101830",
+  "software": [],
+  "en": {
+    "title": "Joeys Picknick Mainz",
+    "projectType": "Client Project",
+    "scope": "Brand Strategy, Visual Identity, Digital Design",
+    "industry": "Gastronomy",
+    "description": "Joeys Picknick is a modern food truck from Mainz that specializes in renting out thoughtfully curated picnic baskets along the banks of the Rhine. What makes Joeys Picknick unique is the combination of effortless enjoyment, high-quality food, and a relaxed outdoor experience. Instead of classic street food, the focus here is on shared moments, whether with friends, family, or as a couple, right by the water.",
+    "tags": ["Brand Strategy", "Visual Identity", "Digital Design"]
+  },
+  "de": {
+    "title": "Joeys Picknick Mainz",
+    "projectType": "Kundenprojekt",
+    "scope": "Markenstrategie, Visuelle Identität, Digital Design",
+    "industry": "Gastronomie",
+    "description": "Joeys Picknick ist ein moderner Foodtruck aus Mainz, der sich auf die Vermietung liebevoll zusammengestellter Picknickkörbe entlang des Rheinufers spezialisiert hat. Das Besondere an Joeys Picknick ist die Verbindung aus unkompliziertem Genuss, hochwertigem Essen und einem entspannten Outdoor-Erlebnis. Statt klassischem Streetfood steht hier das gemeinsame Erleben im Mittelpunkt, ob mit Freunden, Familie oder zu zweit, direkt am Wasser.",
+    "tags": ["Markenstrategie", "Visuelle Identität", "Digital Design"]
+  },
+  "content": [
+    {
+      "type": "image",
+      "src": "hero.webp",
+      "alt": {
+        "en": "Joeys Picknick — brand identity",
+        "de": "Joeys Picknick — Markenidentität"
+      }
+    },
+    {
+      "type": "imageGrid",
+      "images": [
+        { "src": "detail-01.webp", "alt": { "en": "Joeys Picknick — brand application", "de": "Joeys Picknick — Markenanwendung" } },
+        { "src": "detail-02.webp", "alt": { "en": "Joeys Picknick — brand application", "de": "Joeys Picknick — Markenanwendung" } }
+      ]
+    },
+    {
+      "type": "text",
+      "en": {
+        "eyebrow": "Challenge",
+        "headline": "Intensive process within a tight timeframe",
+        "body": "The key challenge of this project was the tight schedule: a large part of the visual identity was conceived and executed within just two weeks. This compact process required fast, precise decision making and a clear design focus. The goal was to develop a cohesive, high quality brand world within a limited timeframe, one that authentically reflects the character of Joeys Picknick."
+      },
+      "de": {
+        "eyebrow": "Challenge",
+        "headline": "Intensiver Prozess auf kompaktem Zeitrahmen",
+        "body": "Die besondere Herausforderung dieses Projekts lag im engen Zeitrahmen: Ein Großteil der visuellen Identität wurde innerhalb von nur zwei Wochen konzipiert und umgesetzt. Dieser kompakte Prozess erforderte schnelle, präzise Entscheidungen sowie einen klaren gestalterischen Fokus. Ziel war es, trotz des kurzen Zeitfensters eine stimmige und hochwertige Markenwelt zu entwickeln, die den Charakter von Joeys Picknick authentisch widerspiegelt."
+      }
+    },
+    {
+      "type": "image",
+      "src": "detail-03.webp",
+      "alt": {
+        "en": "Joeys Picknick — brand application",
+        "de": "Joeys Picknick — Markenanwendung"
+      }
+    },
+    {
+      "type": "imageGrid",
+      "images": [
+        { "src": "detail-04.webp", "alt": { "en": "Joeys Picknick — brand application", "de": "Joeys Picknick — Markenanwendung" } },
+        { "src": "detail-05.webp", "alt": { "en": "Joeys Picknick — brand application", "de": "Joeys Picknick — Markenanwendung" } }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "photo": "testimonial.webp",
+      "name": "Joël Espenschied",
+      "en": {
+        "role": "Owner",
+        "quote": "I had already worked with Achim during my studies, so it quickly became clear to me that he was the right partner for the design of Joeys Picknick. He developed the entire visual identity, from the logo and website to menus and flyers. What stands out in particular is his deep understanding of my concept, as well as the professional yet straightforward collaboration. He actively contributed ideas, handled feedback constructively at all times, and reliably met every deadline. A clear recommendation for anyone who values well-thought-out, high-quality design."
+      },
+      "de": {
+        "role": "Inhaber",
+        "quote": "Mit Achim habe ich bereits im Studium zusammengearbeitet, weshalb mir schnell klar war, dass er der richtige Partner für das Design von Joeys Picknick ist. Er hat das komplette Erscheinungsbild entwickelt – von Logo und Website bis hin zu Speisekarten und Flyern. Besonders hervorzuheben ist sein tiefes Verständnis für mein Konzept sowie die professionelle und gleichzeitig unkomplizierte Zusammenarbeit. Er hat aktiv mitgedacht, Feedback jederzeit konstruktiv aufgenommen und alle Deadlines zuverlässig eingehalten. Eine klare Empfehlung für alle, die Wert auf durchdachtes und hochwertiges Design legen."
+      }
+    }
+  ]
+}
