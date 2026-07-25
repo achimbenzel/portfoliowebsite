@@ -199,10 +199,6 @@ ${jsonLdBlock}
 </head>
 <body data-theme="dark">
 
-<div class="cursor" id="cur"></div>
-<div class="cdot" id="dot"></div>
-<div class="clbl" id="lbl"></div>
-
 <div class="lightbox" id="lightbox" onclick="lbClick(event)">
   <button class="lightbox-close" onclick="lbClose()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();lbNav(-1)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
@@ -252,7 +248,6 @@ ${jsonLdBlock}
 <\/script>
 
 <!-- Application Scripts -->
-<script src="/js/cursor.js"><\/script>
 <script src="/js/hero.js"><\/script>
 <script src="/js/hero-shader.js"><\/script>
 <script src="/js/i18n.js"><\/script>

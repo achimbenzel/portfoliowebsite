@@ -26,9 +26,14 @@
   overflow: hidden;
   vertical-align: bottom;
   line-height: inherit;
-  /* Extra space so italic/cursive glyphs aren't clipped at top-right */
-  padding: 0.05em 0.05em 0 0.01em;
-  margin: -0.05em -0.05em 0 -0.01em;
+  /* Headroom at the top so ascenders — umlaut dots, accents — survive the
+     mask on tight line-heights (the hero runs at .92). Only the BOTTOM edge
+     hides the glyph before it slides up, so opening the box upwards costs
+     nothing; on tight leading the extra space may overlap the line above.
+     The sides keep their small margin for italic/cursive overhang.
+     Negative margins cancel the padding, so layout is unchanged. */
+  padding: 0.3em 0.05em 0 0.01em;
+  margin: -0.3em -0.05em 0 -0.01em;
 }
 
 /* Space chars — preserve whitespace width */
@@ -37,12 +42,15 @@
   overflow: visible;
 }
 
-/* Word wrapper */
+/* Word wrapper — same headroom as .na-char (chars degrade to words on mobile,
+   and `lines` mode is built on words too) */
 .na-word {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
   line-height: inherit;
+  padding-top: 0.3em;
+  margin-top: -0.3em;
 }
 
 /* ---- Fade-Up (simple) ---- */

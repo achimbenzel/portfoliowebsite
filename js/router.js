@@ -179,7 +179,7 @@ function render(r, trigger) {
     if (r === 'contact') initTurnstile();
     requestAnimationFrame(() => { observe(); });
   });
-  bCur(); ckU();
+  ckU();
 
   /* Dynamic title tag */
   const titleMap = {
