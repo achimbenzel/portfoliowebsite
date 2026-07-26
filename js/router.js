@@ -82,15 +82,6 @@ function tL() {
   window.location.href = newPath;
 }
 
-function tT() {
-  theme = theme === 'dark' ? 'light' : 'dark';
-  document.body.dataset.theme = theme;
-  // Save theme preference in localStorage (functional, no cookie consent needed)
-  try { localStorage.setItem('noir-theme', theme); } catch (e) {}
-  render(hr(), 'theme');
-  ckU();
-}
-
 function tM() {
   mob = !mob;
   const ham = document.getElementById('hamBtn');

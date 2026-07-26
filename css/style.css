@@ -824,6 +824,14 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 [data-theme="light"] .hero-accent-text{color:var(--color-text-primary)}
 [data-theme="lightproject"] .hero-accent-text{color:var(--color-text-primary)}
 .hero-accent-dot{font-size:clamp(1.4rem,3vw,2.8rem);color:var(--color-accent);font-weight:300}
+/* ===== LIGHT SECTIONS =====
+   The site is dark, but individual sections can opt into the light palette by
+   carrying data-theme="light" — the variable blocks at the top of this file are
+   plain attribute selectors, not bound to <body>, so the whole light set applies
+   to the section's subtree. They only need to paint their own background, since
+   the page behind them is dark. */
+.section-light{background:var(--bg);color:var(--text)}
+
 /* STORY SECTION */
 .story-section{padding:4rem var(--gutter);position:relative;display:block;min-height:0;border-bottom:1px solid var(--color-border)}
 .story-text{font-family:var(--font-primary);font-size:clamp(1.6rem,3.2vw,2.8rem);font-weight:300;line-height:1.55;max-width:none;width:100%;text-align:left;color:var(--text)}
@@ -953,6 +961,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .contact-top{margin-bottom:3.5rem}
 .contact-header-inner{margin-bottom:3rem}
 .contact-body{display:flex;justify-content:center}
+/* Without a width the wrapper collapses to the textarea's intrinsic size, which
+   left the form far narrower than the page it sits on. */
+.contact-form-wrap{width:100%;max-width:760px}
 .contact-header-inner h1{font-family:var(--font-primary);font-size:clamp(2.4rem,5.5vw,5rem);font-weight:700;line-height:1.05;margin-bottom:1.5rem;text-transform:uppercase}
 .contact-header-inner h1 em{font-style:normal;font-weight:inherit;position:relative;display:inline;white-space:nowrap}
 .contact-header-inner h1 em::before{content:'';position:absolute;left:-.06em;right:-.06em;bottom:.05em;height:.35em;background:rgba(var(--color-accent-rgb),.15);z-index:-1;border-radius:3px;transform-origin:left;transform:scaleX(0);transition:transform .6s cubic-bezier(.23,1,.32,1)}
@@ -1647,6 +1658,14 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .ft-textarea::-webkit-scrollbar-thumb:hover{background:var(--accent)}
 .ft-textarea::placeholder{color:var(--text3)}
 .ft-controls-divider{display:none}
+/* Appearance toggle — sits with the other controls, sized like the align
+   buttons. The font pages open light; this flips to dark for the current view
+   only and is never stored. */
+.ft-control-group-theme{flex:0 0 auto;min-width:0}
+/* Fixed width so the single button does not stretch to fill the row — on
+   mobile .ft-control-group goes full width and .ft-align-btn is flex:1 */
+.ft-theme-btn{flex:0 0 auto;width:76px}
+.ft-theme-btn svg{width:16px;height:16px}
 /* Font Meta Tags */
 .ft-meta{
   display:flex;

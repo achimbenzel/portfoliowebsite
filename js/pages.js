@@ -2,26 +2,26 @@
    Route keys, in nav order. Each has an entry in i18n svcCat{}. */
 const SVC_CATS=['branding','motion-design','web-design'];
 
-/* ===== FLOATING ISLAND NAV ===== */
+/* Lucide "sun" (ISC) — mirrors /Assets/Icons/sun.svg. Inlined so `currentColor`
+   inherits the button's colour; an <img> tag could not. */
+const SUN_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+/* Lucide "moon" (ISC) — mirrors /Assets/Icons/moon.svg */
+const MOON_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
+
+/* ===== FLOATING ISLAND NAV =====
+   The site has no theme switch: everything runs dark apart from a few sections
+   that opt into the light palette locally, and the font pages, which open light
+   and carry their own toggle in .ft-controls. */
 function navH(r){
-/* Exit project theme on every render; projPg will re-enter if needed */
+/* Exit project theme on every render; projPg / the font pages re-enter it */
 if(r&&!r.startsWith('work/')&&!r.startsWith('my-fonts'))exitProjectTheme();
 const initCls=isFirstRender?' nav-initial':'';
 const n=t('nav');
-const arrowSVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-/* Lucide "sun" (ISC) — mirrors /Assets/Icons/sun.svg. Inlined so `currentColor`
-   inherits the button's theme colour; an <img> tag could not. */
-const sunSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
-/* Lucide "moon" (ISC) — mirrors /Assets/Icons/moon.svg */
-const moonSVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
-const themeSVG=(theme==='dark'||theme==='darkproject')?sunSVG:moonSVG;
-const themeLabel=(theme==='dark'||theme==='darkproject')?'Light':'Dark';
 return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
   <div class="nav-top-row">
     <a class="nav-logo" data-cl="Home" href="${routeToPath('home')}" onclick="event.preventDefault();go('home')"><img class="nav-logo-img nav-logo-dark" src="/Assets/Logo/logo_wide_dark.svg" alt="Achim"/><img class="nav-logo-img nav-logo-light" src="/Assets/Logo/logo_wide_light.svg" alt="Achim"/><img class="nav-logo-img nav-logo-dark-project" src="/Assets/Logo/logo_wide_dark_project.svg" alt="Achim"/><img class="nav-logo-img nav-logo-light-project" src="/Assets/Logo/logo_wide_light_project.svg" alt="Achim"/></a>
     <div class="nav-right">
       <button class="nav-toggle-btn desktop-only" onclick="tL()" title="Language">${lang==='en'?'DE':'EN'}</button>
-      <button class="nav-toggle-btn desktop-only" onclick="tT()" title="${themeLabel} mode">${themeSVG}</button>
       <button class="ham" id="hamBtn" onclick="tM()"><svg viewBox="0 0 100 100"><path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/><path class="line line2" d="M 20,50 H 80"/><path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/></svg></button>
     </div>
   </div>
@@ -32,7 +32,6 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
     <div class="island-menu-footer">
       <button class="nav-toggle-btn" onclick="tL()">${lang==='en'?'DE':'EN'}</button>
-      <button class="nav-toggle-btn" onclick="tT()">${themeSVG}</button>
     </div>
   </div>
 </nav></div>`}
@@ -157,8 +156,9 @@ function faqHtml(){
   const f=t('faq');
   const plusSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
   const heroGraphicSVG='';
-  const faqImgSrc=(theme==='dark'||theme==='darkproject')?'/Assets/images/faq_dark.webp':'/Assets/images/faq.webp';
-  return`<section class="faq-section"><div class="reveal">
+  /* The section always runs light, so it always takes the light artwork */
+  const faqImgSrc='/Assets/images/faq.webp';
+  return`<section class="faq-section section-light" data-theme="light"><div class="reveal">
     <h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${f.title}</h2>
     <div class="faq-layout">
       <div class="faq-hero">
@@ -206,7 +206,7 @@ function homePg(){
     <span class="hero-accent-text">Motion</span><span class="hero-accent-dot">·</span>
     <span class="hero-accent-text">${lang==='en'?'More':'Mehr'}</span>
   </div></section>
-  <section class="story-section"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
+  <section class="story-section section-light" data-theme="light"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
     lang==='en'
       ?'As an independent designer, I build identities with <em>substance</em>. I connect strategy and design, bridging intuitive ideas and well-considered systems. The result: brands that are clearly positioned and built for <em>lasting impact</em>.'
       :'Als freiberuflicher Designer entwickle ich Identitäten mit <em>Substanz</em>. Ich verbinde Strategie und Gestaltung, zwischen intuitiven Ideen und durchdachten Systemen. So entstehen Marken, die klar positioniert sind und <em>nachhaltig wirken</em>.'
@@ -454,7 +454,7 @@ function svcCatPg(key){
   +`</section>`;
 }
 
-function fontsPg(){enterProjectTheme();const f=t('fonts');
+function fontsPg(){enterFontTheme();const f=t('fonts');
 return`<div class="fonts-gallery"><div class="reveal">
   <h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${f.title}</h2>
   <p class="section-text" data-anim="words" data-anim-stagger="20">${f.text}</p>
@@ -468,7 +468,7 @@ return`<div class="fonts-gallery"><div class="reveal">
 </div></div>`}
 
 function fontTesterPg(slug){const fd=FONTS.find(f=>f.slug===slug);if(!fd)return'<section class="section" style="padding-top:9rem"><h2>Font not found</h2></section>';
-enterProjectTheme();
+enterFontTheme();
 const f=t('fonts');
 const alignSVGs={
   left:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 10H3M21 6H3M21 14H3M17 18H3"/></svg>',
@@ -489,6 +489,8 @@ return`<div class="font-tester"><a class="pback" href="${routeToPath('my-fonts')
       <div class="ft-control-group"><div class="ft-control-label"><span>${f.lineH}</span><span class="ft-control-value" id="ftLineVal">1.2</span></div><input type="range" class="ft-slider" id="ftLine" min="80" max="250" value="120" oninput="updateFontPreview()"/></div>
       <div class="ft-controls-divider"></div>
       <div class="ft-control-group"><div class="ft-control-label"><span>${f.align}</span></div><div class="ft-align-btns"><button class="ft-align-btn active" id="ftAlignL" onclick="setFontAlign('left')">${alignSVGs.left}</button><button class="ft-align-btn" id="ftAlignC" onclick="setFontAlign('center')">${alignSVGs.center}</button><button class="ft-align-btn" id="ftAlignR" onclick="setFontAlign('right')">${alignSVGs.right}</button></div></div>
+      <div class="ft-controls-divider"></div>
+      <div class="ft-control-group ft-control-group-theme"><div class="ft-control-label"><span>${f.themeLabel}</span></div><div class="ft-align-btns"><button class="ft-align-btn ft-theme-btn" id="ftThemeBtn" type="button" aria-pressed="false" title="${ftThemeLabel()}" onclick="ftToggleTheme()">${MOON_SVG}</button></div></div>
     </div>
     <div class="ft-preview-area"><textarea class="ft-textarea" id="ftTextarea" placeholder="${f.preview}" data-font="${fd.family}" style="font-family:'${fd.family}',sans-serif;font-size:64px;letter-spacing:0em;line-height:1.2;text-align:left">${fd.preview}</textarea></div>
   </div>
@@ -893,24 +895,40 @@ function observe(){
 
 /* ===== PROJECT THEME MANAGEMENT ===== */
 /* Store the user's base theme preference (dark/light) separately */
-let _baseTheme=null;
 
-function enterProjectTheme(){
-  /* Save current base theme and switch to its project variant */
-  const base=(theme==='dark'||theme==='darkproject')?'dark':'light';
-  _baseTheme=base;
-  theme=base==='dark'?'darkproject':'lightproject';
-  document.body.dataset.theme=theme;
+/* ===== THEME =====
+   There is no site-wide switch any more. The site is dark; project pages use
+   the neutral dark variant; the font pages open on the light variant and carry
+   their own toggle. Nothing is persisted. */
+function setTheme(t){theme=t;document.body.dataset.theme=t}
+
+/* Project detail pages — neutral palette so the work sets the colour */
+function enterProjectTheme(){setTheme('darkproject')}
+
+function exitProjectTheme(){setTheme('dark')}
+
+/* Font pages open light every time. Deliberately not stored: leaving and coming
+   back starts light again. */
+function enterFontTheme(){setTheme('lightproject')}
+
+/* Toggle in .ft-controls. No re-render — nothing in the font pages' markup
+   depends on the theme, so flipping the attribute is enough and keeps the
+   tester's slider state and typed text intact. */
+function ftToggleTheme(){
+  const dark=theme!=='darkproject';
+  setTheme(dark?'darkproject':'lightproject');
+  const btn=document.getElementById('ftThemeBtn');
+  if(btn){
+    btn.innerHTML=dark?SUN_SVG:MOON_SVG;
+    btn.setAttribute('aria-pressed',dark?'true':'false');
+    btn.title=ftThemeLabel();
+  }
 }
-
-function exitProjectTheme(){
-  /* Restore the user's base theme */
-  if(_baseTheme){theme=_baseTheme;_baseTheme=null}
-  else{theme=(theme==='darkproject')?'dark':(theme==='lightproject')?'light':theme}
-  document.body.dataset.theme=theme;
+function ftThemeLabel(){
+  const toLight=theme==='darkproject';
+  if(lang==='en')return toLight?'Switch to light':'Switch to dark';
+  return toLight?'Zu Hell wechseln':'Zu Dunkel wechseln';
 }
-
-/* Override tT to handle project themes — set in DOMContentLoaded to ensure it overrides the original */
 
 /* Escape closes the services submenu first, then the island */
 document.addEventListener('keydown',e=>{
@@ -937,22 +955,6 @@ document.addEventListener('click',e=>{
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
-  /* Override tT after all scripts have loaded */
-  window.tT=function(){
-    const isProject=theme==='darkproject'||theme==='lightproject';
-    if(isProject){
-      if(theme==='darkproject'){theme='lightproject';_baseTheme='light'}
-      else{theme='darkproject';_baseTheme='dark'}
-    }else{
-      theme=theme==='dark'?'light':'dark';
-    }
-    document.body.dataset.theme=theme;
-    try{localStorage.setItem('noir-theme',isProject?_baseTheme:theme)}catch(e){}
-    render(hr());
-  };
-
-  // Restore theme from localStorage if saved
-  try{const saved=localStorage.getItem('noir-theme');if(saved)theme=saved;document.body.dataset.theme=theme}catch(e){}
   const r=hr();
   history.replaceState({r},'',routeToPath(r));
   render(r);

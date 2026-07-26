@@ -95,7 +95,7 @@ const L={en:{
   fonts:{label:'My Fonts',title:'Type <em>Library</em>',text:'A selection of experimental typefaces created by myself.',
     /* Shown as a project card in the work grid — links to /my-fonts */
     card:{title:'Type Library',type:'Personal Project',ind:'Type Design',tags:['Type Design','Display','Monospace']},
-    tester:'Font Tester',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
+    tester:'Font Tester',themeLabel:'Appearance',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.'},
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
@@ -227,7 +227,7 @@ de:{
   fonts:{label:'Meine Schriften',title:'Type <em>Library</em>',text:'Eine Auswahl experimenteller, von mir selbst entwickelter Schriftarten.',
     /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */
     card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
-    tester:'Schrift-Tester',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
+    tester:'Schrift-Tester',themeLabel:'Darstellung',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.'},
   cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
