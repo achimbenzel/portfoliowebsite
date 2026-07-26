@@ -139,7 +139,6 @@ window.addEventListener('resize', () => {
 function render(r, trigger) {
   destroyHeroCanvas();
   destroyFaq3D();
-  destroyStrategy3D();
   const wasOpen = mob;
   const a = document.getElementById('app');
   let h = '';
@@ -147,7 +146,6 @@ function render(r, trigger) {
   else if (r.startsWith('my-fonts/')) h = fontTesterPg(r.slice(9));
   else if (SVC_CATS.includes(r)) h = svcCatPg(r);
   else switch (r) {
-    case 'services': h = servicesPg(); break;
     case 'work': h = wrkPg(); break;
     case 'my-fonts': h = fontsPg(); break;
     case 'about': h = abtPg(); break;
@@ -156,7 +154,7 @@ function render(r, trigger) {
     case 'tos': h = tosPg(); break;
     case 'contact': h = contactPg(); break;
     default: {
-      const knownRoutes=['home','services','work','my-fonts','about','imprint','privacy','tos','contact'].concat(SVC_CATS);
+      const knownRoutes=['home','work','my-fonts','about','imprint','privacy','tos','contact'].concat(SVC_CATS);
       h = (r==='home'||knownRoutes.includes(r)) ? homePg() : notFoundPg();
       break;
     }
@@ -181,9 +179,6 @@ function render(r, trigger) {
       initHeroScroll();
       initFaq3D();
     }
-    if (r === 'services') {
-      initStrategy3D();
-    }
     if (r.startsWith('my-fonts/')) initFontTester();
     if (r === 'contact') initTurnstile();
     requestAnimationFrame(() => { observe(); });
@@ -193,7 +188,6 @@ function render(r, trigger) {
   /* Dynamic title tag */
   const titleMap = {
     home: 'Home',
-    services: lang === 'en' ? 'Services' : 'Leistungen',
     work: lang === 'en' ? 'Work' : 'Projekte',
     'my-fonts': 'My Fonts',
     about: lang === 'en' ? 'About' : 'Über mich',
@@ -223,8 +217,6 @@ function render(r, trigger) {
 /* ===== FAQ 3D — bridge to ES module ===== */
 function initFaq3D() { if (window._startFaq3D) window._startFaq3D(); }
 function destroyFaq3D() { if (window._destroyFaq3D) window._destroyFaq3D(); }
-function initStrategy3D() { if (window._startStrategy3D) window._startStrategy3D(); }
-function destroyStrategy3D() { if (window._destroyStrategy3D) window._destroyStrategy3D(); }
 
 /* ===== Cloudflare Turnstile ===== */
 function initTurnstile(){

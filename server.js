@@ -124,7 +124,6 @@ const SVC_CAT_ROUTES = ['branding', 'motion-design', 'web-design'];
 
 const PAGE_ROUTES = [
   '',              // home
-  'services',
   ...SVC_CAT_ROUTES,
   'work',
   'my-fonts',
@@ -146,8 +145,8 @@ function renderPage(lang, route, req) {
 
   // Map route to page title (will also be set client-side, but good for SEO)
   const titles = {
-    en: { home: 'Home', services: 'Services', work: 'Work', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
-    de: { home: 'Home', services: 'Leistungen', work: 'Projekte', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
+    en: { home: 'Home', work: 'Work', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
+    de: { home: 'Home', work: 'Projekte', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
   };
   /* Category titles come from the same i18n entry the client uses */
   SVC_CAT_ROUTES.forEach(k => {

@@ -81,7 +81,6 @@ function metaDescription(lang, routeKey, slug) {
   const cat = svcCat(lang, routeKey);
   if (cat) return stripTags(cat.text);
   switch (routeKey) {
-    case 'services': return stripTags(d.svc.text);
     case 'work':     return stripTags(d.wrk.text);
     case 'my-fonts': return stripTags(d.fonts.text);
     case 'about':    return stripTags(d.abt.sub) + ' ' + stripTags(d.abt.bio);
@@ -102,8 +101,11 @@ function jsonLd(lang, routeKey, slug) {
     'https://pinterest.com/achimbenzel/_created/'
   ];
 
-  // Derive skills/services from the existing translated service data
-  const knowsAbout = (d.svc && d.svc.svcs) ? d.svc.svcs.map(s => s.t) : [];
+  // Derive skills from the three service categories and the services each lists
+  const knowsAbout = SVC_CAT_KEYS.flatMap(k => {
+    const c = svcCat(lang, k);
+    return c ? [stripTags(c.label)].concat((c.svcs || []).map(s => stripTags(s.t))) : [];
+  });
 
   const person = {
     '@context': 'https://schema.org',
@@ -129,14 +131,21 @@ function jsonLd(lang, routeKey, slug) {
 
   const blocks = [person, website];
 
-  // ProfessionalService block on home + services (where offerings are shown)
-  if (routeKey === 'home' || routeKey === 'services') {
-    const offers = (d.svc && d.svc.svcs)
-      ? d.svc.svcs.map(s => ({
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: s.t, description: stripTags(s.d) }
-        }))
-      : [];
+  // ProfessionalService block on the home page, where the offering is introduced
+  if (routeKey === 'home') {
+    const offers = SVC_CAT_KEYS.map(k => {
+      const c = svcCat(lang, k);
+      if (!c) return null;
+      return {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: stripTags(c.label),
+          description: stripTags(c.short),
+          url: `${SITE}/${lang}/${k}`
+        }
+      };
+    }).filter(Boolean);
     blocks.push({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
@@ -175,8 +184,19 @@ function jsonLd(lang, routeKey, slug) {
     });
   }
 
-  // FAQPage block ONLY where the FAQ content is actually visible (home page).
-  // Built from the real translated FAQ items — no fabricated content.
+  // FAQPage blocks ONLY where the FAQ is actually visible — the home page and
+  // each service category page. Built from the real translated items.
+  if (cat && Array.isArray(cat.faq) && cat.faq.length) {
+    blocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: cat.faq.map(it => ({
+        '@type': 'Question',
+        name: stripTags(it.q),
+        acceptedAnswer: { '@type': 'Answer', text: stripTags(it.a) }
+      }))
+    });
+  }
   if (routeKey === 'home' && d.faq && Array.isArray(d.faq.items)) {
     blocks.push({
       '@context': 'https://schema.org',
@@ -278,13 +298,13 @@ function metaTags(lang, routeKey, pageTitle, pathAfterLang, slug) {
    invisible to human visitors but fully readable by crawlers/AI.   */
 function appContent(lang, routeKey, slug) {
   const d = L[lang] || L.en;
-  /* Mirrors the client nav — services expands into its three categories, and
-     the type library is reached from the work list, not a nav tab of its own. */
+  /* Mirrors the client nav — Services is only a heading for its three category
+     routes, and the type library is reached from the work list. */
   const svcNav = SVC_CAT_KEYS.map(k => {
     const c = svcCat(lang, k);
-    return c ? ` <a href="/${lang}/${k}">${stripTags(c.label)}</a>` : '';
+    return c ? `<a href="/${lang}/${k}">${stripTags(c.label)}</a> ` : '';
   }).join('');
-  const nav = `<nav aria-label="Main"><a href="/${lang}/services">${d.nav.svc}</a>${svcNav} <a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
+  const nav = `<nav aria-label="Main">${svcNav}<a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
 
   // Project detail page: render the real, visible project copy
   if (routeKey === 'work' && slug) {
@@ -327,41 +347,22 @@ function appContent(lang, routeKey, slug) {
   // Service category page: render its real, visible copy
   const catPage = svcCat(lang, routeKey);
   if (catPage) {
+    const sp = d.svcPage || {};
     const main = `<h1>${stripTags(catPage.title)}</h1><p>${stripTags(catPage.text)}</p>` +
       (catPage.svcs || []).map(x => `<section><h2>${x.t}</h2><p>${x.d}</p></section>`).join('') +
-      (catPage.blocks || []).map(bl => `<section><h2>${bl.h}</h2><p>${bl.p}</p></section>`).join('') +
-      `<p><a href="/${lang}/services">${stripTags(d.svc.label)}</a> · <a href="/${lang}/work">${stripTags(d.nav.wrk)}</a></p>`;
+      `<section><h2>${stripTags(sp.process)}</h2>` +
+        (catPage.process || []).map((p, i) => `<h3>${i + 1}. ${p.t}</h3><p>${p.d}</p>`).join('') + '</section>' +
+      `<section><h2>${stripTags(sp.deliver)}</h2><ul>` +
+        (catPage.deliver || []).map(x => `<li>${x}</li>`).join('') + '</ul></section>' +
+      `<section><h2>${stripTags(sp.faq)}</h2>` +
+        (catPage.faq || []).map(f => `<h3>${f.q}</h3><p>${f.a}</p>`).join('') + '</section>' +
+      `<p><a href="/${lang}/work">${stripTags(d.nav.wrk)}</a></p>`;
     const footer = `<footer><p>${d.ftr ? d.ftr.copy : '© 2026 Design by Achim Benzel.'}</p></footer>`;
     return nav + '<main>' + main + '</main>' + footer;
   }
 
   let main = '';
   switch (routeKey) {
-    case 'services': {
-      const s = d.svc;
-      const catLinks = SVC_CAT_KEYS.map(k => {
-        const c = svcCat(lang, k);
-        return c ? `<li><a href="/${lang}/${k}">${stripTags(c.label)}</a> — ${stripTags(c.short)}</li>` : '';
-      }).join('');
-      main = `<h1>${stripTags(s.title)}</h1><p>${stripTags(s.text)}</p>` +
-        s.svcs.map(x => `<section><h2>${x.t}</h2><p>${x.d}</p></section>`).join('') +
-        `<section><h2>${stripTags(s.catsLabel)}</h2><ul>${catLinks}</ul></section>` +
-        s.blocks.filter(b => b.type === 'center')
-          .map(b => `<section><h2>${b.h}</h2><p>${b.p}</p></section>`).join('');
-      break;
-    }
-    case 'work': {
-      // Work overview: list all projects with links so crawlers find detail pages
-      let list = Object.keys(P).map(s => {
-        const pr = P[s][lang] || P[s].en;
-        return `<li><a href="/${lang}/work/${s}">${stripTags(pr.title)}</a> — ${stripTags(pr.ind)}</li>`;
-      }).join('');
-      // The type library is listed as a project but lives on its own route
-      const fc = (d.fonts && d.fonts.card) || {};
-      list += `<li><a href="/${lang}/my-fonts">${stripTags(fc.title || d.fonts.label)}</a> — ${stripTags(fc.ind || '')}</li>`;
-      main = `<h1>${stripTags(d.wrk.title)}</h1><p>${stripTags(d.wrk.text)}</p><ul>${list}</ul>`;
-      break;
-    }
     case 'my-fonts':
       main = `<h1>${stripTags(d.fonts.title)}</h1><p>${d.fonts.text}</p>`;
       break;
@@ -398,7 +399,7 @@ function appContent(lang, routeKey, slug) {
     default: { // home
       const h = d.hero;
       main = `<h1>${stripTags(h.title)}</h1><p>${h.label}</p><p>${h.sub}</p>` +
-        `<p><a href="/${lang}/work">${h.cta1}</a> · <a href="/${lang}/services">${h.cta2}</a></p>`;
+        `<p><a href="/${lang}/work">${h.cta1}</a> · <a href="/${lang}/contact">${h.cta2}</a></p>`;
     }
   }
 

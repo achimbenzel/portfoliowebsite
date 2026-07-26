@@ -376,7 +376,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* ===== SERVICES SUBMENU =====
    Shared by both breakpoints; positioning differs in the media queries below. */
 .island-menu-item{position:relative;display:block}
-.island-menu-link-has-sub{display:flex;align-items:center;gap:.45em}
+/* The services trigger is a <button>; there is no global button reset in this
+   stylesheet, so it clears the UA chrome the way .pback and .faq-question do.
+   Font and colour already come from .island-menu-link. */
+.island-menu-link-has-sub{display:flex;align-items:center;gap:.45em;background:none;border:none;text-align:left}
 .island-sub-chev{
   flex-shrink:0;
   opacity:.65;
@@ -525,7 +528,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     display:flex;
     flex-direction:column;
     gap:2px;
-    min-width:290px;
+    min-width:200px;
     padding:10px;
     background:rgba(38,38,38,.94);
     backdrop-filter:blur(20px) saturate(1.3);
@@ -544,15 +547,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     line-height:1.25;
     color:rgba(255,255,255,.92);
     transition:color var(--transition-fast);
-  }
-  .nav-sub-desc{
-    display:block;
-    margin-top:.15rem;
-    font-size:.75rem;
-    font-weight:300;
-    line-height:1.45;
-    color:rgba(255,255,255,.5);
-    white-space:normal;
   }
   .nav-sub-link:hover,.nav-sub-link:focus-visible{background:rgba(255,255,255,.08)}
   .nav-sub-link:hover .nav-sub-name,.nav-sub-link:focus-visible .nav-sub-name{color:#fff}
@@ -595,8 +589,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     flex-direction:column;
     gap:0;
     padding:2px 0 6px 14px;
-    border-left:1px solid rgba(255,255,255,.14);
-    margin-left:2px;
   }
   .nav-sub-link{
     font-size:clamp(.95rem, 3.4vw, 1.15rem);
@@ -610,8 +602,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .island-menu-item.sub-open .nav-sub-link:nth-child(1){transition-delay:.08s}
   .island-menu-item.sub-open .nav-sub-link:nth-child(2){transition-delay:.14s}
   .island-menu-item.sub-open .nav-sub-link:nth-child(3){transition-delay:.2s}
-  /* Descriptions are desktop-only — they would double the drawer's height */
-  .nav-sub-desc{display:none}
 }
 @media(min-width:1100px){
   .nav-toggle-btn.desktop-only{display:flex}
@@ -856,28 +846,43 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .scard:hover .num{}
 .scard h3{font-family:var(--font-primary);font-size:clamp(1.7rem,2.5vw,2.3rem);font-weight:600;margin-bottom:.8rem;text-transform:uppercase}
 .scard p{font-size:1.5rem;color:var(--text2);line-height:1.7;font-weight:300;hyphens:auto}
-/* Service category chooser (/services) + category page header */
-.svc-cats-block{margin-top:3.5rem}
-.svc-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
-.svc-cat-card{
-  display:flex;flex-direction:column;gap:.5rem;
-  padding:1.5rem 1.6rem;
-  background:var(--bg2);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-card);
-  transition:border-color var(--transition-fast),transform var(--transition-fast);
-}
-.svc-cat-card:hover{border-color:rgba(var(--color-accent-rgb),.45);transform:translateY(-2px)}
-.svc-cat-name{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  font-family:var(--font-primary);font-size:1.1rem;font-weight:600;
-  text-transform:uppercase;color:var(--text);
-}
-.svc-cat-card:hover .svc-cat-name{color:var(--accent)}
-.svc-cat-name svg{flex-shrink:0;color:var(--accent)}
-.svc-cat-text{font-size:.88rem;color:var(--text2);font-weight:300;line-height:1.6}
+/* Service category page */
 .svc-cat-page .pback{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:2.5rem;background:none;border:none;transition:color var(--transition-fast)}
 .svc-cat-page .pback:hover{color:var(--accent)}
+/* Sections below the intro: process, deliverables, FAQ, related work */
+.svc-block{margin-top:5rem}
+.svc-block-title{
+  font-family:var(--font-primary);
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:600;
+  text-transform:uppercase;
+  margin-bottom:2rem;
+}
+.svc-block .abt-journey{max-width:820px}
+.svc-deliver{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:.9rem 2rem;
+  list-style:none;
+  max-width:900px;
+}
+.svc-deliver-item{
+  display:flex;
+  align-items:flex-start;
+  gap:.7rem;
+  font-size:1.05rem;
+  font-weight:300;
+  line-height:1.6;
+  color:var(--text2);
+  padding-bottom:.9rem;
+  border-bottom:1px solid var(--color-border);
+}
+.svc-deliver-item svg{flex-shrink:0;margin-top:.35rem;color:var(--accent)}
+@media(max-width:600px){
+  .svc-block{margin-top:3.5rem}
+  .svc-block-title{margin-bottom:1.4rem}
+  .svc-deliver-item{font-size:.95rem}
+}
 .stags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.3rem}
 .stag{font-size:.6rem;padding:.3rem .7rem;background:transparent;color:var(--tag-text);letter-spacing:.08em;border-radius:var(--radius-btn);font-weight:500;font-family:var(--font-mono);border:1px solid var(--color-border);text-transform:uppercase;transition:all var(--transition-fast)}
 .scard:hover .stag{}

@@ -11,46 +11,35 @@ const L={en:{
     title:'Freelance Designer for Branding, Graphic, Motion & 3D',
     sub:'From static identities to moving stories. I create design that connects, communicates, and inspires.',
     cta1:'Explore Work',
-    cta2:'My Process'
-  },
-  svc:{label:'Services',title:'Strategy, Design &amp; <em>Communication</em>',text:'From research to launch — I deliver end-to-end brand solutions that connect strategy with craft.',
-    svcs:[
-      {t:'Brand & Corporate Design',d:'Comprehensive visual identity systems that scale across every medium.',tags:['Logo','Typography','Color Systems']},
-      {t:'Digital & Interactive',d:'User interfaces and digital experiences balancing aesthetics with usability.',tags:['UX/UI','Web Design','Prototyping']},
-      {t:'Editorial & Print',d:'Publications, packaging, and environmental design with tactile quality.',tags:['Editorial','Packaging','Spatial']}
-    ],
-    blocks:[
-      {type:'img',label:'STRATEGY & RESEARCH'},
-      {type:'center',h:'Design starts with understanding',p:'Every project begins with a clear intention: understanding what truly matters. I analyze brands, contexts, and audiences to build a solid foundation. Instead of rushing into solutions, this creates a strategic starting point where design becomes purposeful and sustainable.'},
-      {type:'img',label:'DESIGN PROCESS'},
-      {type:'center',h:'Iterative processes over one-off solutions',p:'Good design rarely happens on the first attempt. Through an iterative approach, concepts are continuously tested, questioned, and refined. This results in solutions that don’t just look good, but perform and evolve over time.'},
-      {type:'img',label:'COMMUNICATION & CAMPAIGNS'},
-      {type:'center',h:'Co-creation at the core',p:'The strongest results are built through dialogue. I work closely with clients, integrating feedback early and keeping processes transparent. Design becomes a shared tool, not a black box.'},
-      {type:'img',label:'MOTION & FILM'},
-      {type:'center',h:'Design systems across all touchpoints',p:'From Brand & Corporate Design to digital interfaces and editorial or print solutions, I create consistent systems. Whether it’s logos, typography, and color systems, UI/UX and prototyping, or packaging and spatial applications, each element contributes to a cohesive overall experience.'}
-    ],
-    tosBtn:'Terms of Service',
-    catsLabel:'Service areas',
-    catsText:'Three focus areas — pick the one that matches your project.'
+    cta2:'Get in touch'
   },
   /* ===== SERVICE CATEGORIES =====
-     One entry per /:lang/<key> route. Rendered by svcCatPg() with the same
-     components the /services overview uses. `work` maps to a cats{} id so the
-     page can pull in matching projects. */
+     One entry per /:lang/<key> route, rendered by svcCatPg(). Each page runs
+     intro → what's included → process → deliverables → FAQ → related work.
+     `work` maps to a cats{} id so the page can pull in matching projects. */
+  svcPage:{process:'How it runs',deliver:'What you get',faq:'Good to know',work:'Related work'},
   svcCat:{
     'branding':{
       label:'Branding',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positioning, identity systems and everything that makes a brand recognisable.',
-      text:'Positioning, visual identity, and the systems that keep a brand consistent across every medium.',
+      text:'A brand is not a logo — it is the sum of every decision that makes a company recognisable. I work out what a brand stands for, translate that into a visual system, and hand it over documented so it still holds together a year later.',
       svcs:[
         {t:'Brand Strategy',d:'Positioning, tone of voice, and the reasoning a brand is built on.',tags:['Research','Positioning','Messaging']},
         {t:'Visual Identity',d:'Comprehensive visual identity systems that scale across every medium.',tags:['Logo','Typography','Color Systems']},
         {t:'Editorial & Print',d:'Publications, packaging, and print work with tactile quality.',tags:['Editorial','Packaging','Print']}
       ],
-      blocks:[
-        {img:1,h:'Design starts with understanding',p:'Every project begins with a clear intention: understanding what truly matters. I analyze brands, contexts, and audiences to build a solid foundation. Instead of rushing into solutions, this creates a strategic starting point where design becomes purposeful and sustainable.'},
-        {img:2,h:'A system, not a single logo',p:'An identity has to hold up far beyond its first application. Type scales, colour, layout rules, and asset libraries are built so that everything produced later still reads as the same brand — whether I make it or your team does.'}
+      process:[
+        {t:'Discovery',d:'We talk through where the company came from, what it sells, and who it is up against. I look at the market and the existing material before drawing anything.'},
+        {t:'Strategy & Positioning',d:'The findings become a short, usable brief: what the brand stands for, how it speaks, and which decisions follow from that. Everything after this is measured against it.'},
+        {t:'Identity System',d:'Logo, type scale, colour and layout rules are developed together rather than one after the other, so they already work as a set when you first see them.'},
+        {t:'Rollout & Guidelines',d:'The system is applied to your real touchpoints and written down, so whoever produces the next piece of material can stay on brand without asking me.'}
+      ],
+      deliver:['Positioning and messaging brief','Primary logo plus responsive variants','Type scale and colour system','Layout and grid rules','Print-ready source files','Brand guidelines as PDF'],
+      faq:[
+        {q:'How long does a brand identity take?',a:'Usually six to ten weeks from kick-off to handover. The variable is feedback: the faster rounds come back, the faster we finish. You get a dated schedule before we start.'},
+        {q:'Can you work with an existing logo?',a:'Yes. A refresh that keeps the logo and rebuilds everything around it is a common brief, and often the more sensible one when there is recognition worth keeping.'},
+        {q:'What do I need to prepare?',a:'Whatever exists already — old files, competitor names, photos, a rough sense of who you are selling to. Missing pieces are part of the discovery, so nothing needs to be complete beforehand.'}
       ],
       work:'brand-identity'
     },
@@ -58,15 +47,23 @@ const L={en:{
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D and film that give a brand movement and rhythm.',
-      text:'Animation, 3D, and film that turn a static identity into something with movement and rhythm.',
+      text:'How a brand moves says as much as how it looks. I define timing, easing and rhythm alongside the static identity, so animation is a documented part of the system rather than decoration added at the end.',
       svcs:[
         {t:'Brand Animation',d:'Logo animations, transitions, and motion rules that extend an identity into time.',tags:['Logo Animation','Transitions','Motion Rules']},
         {t:'3D & Visualisation',d:'Modelling, lighting, and rendering for products, type, and abstract brand imagery.',tags:['3D Design','Rendering','Product Visuals']},
         {t:'Film & Social',d:'Short-form content, title sequences, and campaign cutdowns for social platforms.',tags:['Editing','Title Design','Social Cuts']}
       ],
-      blocks:[
-        {img:4,h:'Motion as part of the identity',p:'How a brand moves says as much as how it looks. Timing, easing, and rhythm are defined alongside the static identity, so animation is never decoration added at the end but a documented part of the system.'},
-        {img:3,h:'Built to be reused',p:'Deliverables come as editable projects and templates, not just finished files. That keeps recurring formats — social posts, intros, product loops — producible without starting over each time.'}
+      process:[
+        {t:'Discovery',d:'We settle what the piece has to achieve, where it will run, and how long it may be. Format and platform shape every decision after this, so they come first.'},
+        {t:'Concept & Storyboard',d:'You see the idea as frames and a written beat sheet before anything moves. Changing a storyboard costs minutes; changing a finished render costs days.'},
+        {t:'Design & Animation',d:'Frames are built out, then animated. Timing and easing follow the same rules across every piece so separate clips still read as one brand.'},
+        {t:'Delivery & Templates',d:'You get the exports you need per platform, plus the editable project files, so recurring formats can be produced again without starting over.'}
+      ],
+      deliver:['Storyboard and beat sheet','Animated master file','Platform exports (16:9, 1:1, 9:16)','Editable project files','Motion rules — timing and easing','Reusable templates for recurring formats'],
+      faq:[
+        {q:'How long is a typical animation?',a:'A logo animation takes one to two weeks. A longer piece with 3D or a full storyboard usually runs three to six weeks, depending on how many scenes are involved.'},
+        {q:'Do I get the source files?',a:'Yes. Editable project files are part of every handover, along with a note on which fonts and plugins they need, so another editor can pick them up later.'},
+        {q:'Can you animate an identity you did not design?',a:'Yes. I work from your existing guidelines and, where motion rules are missing, define and document them as part of the project.'}
       ],
       work:'motion-design'
     },
@@ -74,15 +71,23 @@ const L={en:{
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces and websites where the identity actually works in the browser.',
-      text:'Interfaces and websites that balance aesthetics with usability — and hold up once they are in the browser.',
+      text:'Screens are not posters. I design at real breakpoints with real content, so the layout that gets approved is the one that can actually be built — and the identity survives the move into the browser.',
       svcs:[
         {t:'UX & Interface Design',d:'User interfaces and digital experiences balancing aesthetics with usability.',tags:['UX/UI','Wireframes','Design Systems']},
         {t:'Website Design',d:'Portfolio, brand, and campaign sites designed from the content outwards.',tags:['Web Design','Responsive','Art Direction']},
         {t:'Prototyping & Build',d:'Interactive prototypes and hand-built front-ends for smaller projects.',tags:['Prototyping','Front-End','Animation']}
       ],
-      blocks:[
-        {img:2,h:'Designed in the medium it ships in',p:'Screens are not posters. Layouts are checked at real breakpoints, with real content and real interaction, so the design that gets approved is the design that can actually be built.'},
-        {img:3,h:'Consistency across touchpoints',p:'A website is one surface of a larger system. Type, colour, and component rules are shared with the rest of the identity, so the digital presence never drifts away from the printed and moving material.'}
+      process:[
+        {t:'Discovery',d:'We map what the site has to do — who visits, what they need to find, and what counts as success. That decides the pages before it decides the pixels.'},
+        {t:'Structure & Wireframes',d:'Content and hierarchy are settled in low fidelity first. It is far cheaper to argue about the order of things while it still looks like boxes.'},
+        {t:'Design System & Pages',d:'A set of components — type, colour, spacing, states — comes first, then every page is drawn from it. That keeps later pages consistent and quick.'},
+        {t:'Iterations & Handoff',d:'Short rounds on each section at real breakpoints, then a documented file with the specs and assets a developer needs to build it without guessing.'}
+      ],
+      deliver:['Sitemap and wireframes','Design system — type, colour, spacing, states','Desktop, tablet and mobile layouts','Interactive prototype','Exported assets and icons','Developer handoff with specs'],
+      faq:[
+        {q:'How long does a website take?',a:'A focused site of five to eight pages usually takes four to eight weeks in design. Larger projects are split into phases so you can see and approve work as it lands.'},
+        {q:'Do you build the site as well?',a:'For smaller projects, yes — I hand-build the front-end. For larger ones I hand off to your developers with a documented file and stay available for questions during the build.'},
+        {q:'Is the design mobile-friendly?',a:'Every layout is drawn at mobile, tablet and desktop widths. Small screens are designed, not derived, so nothing important is left to chance in the narrowest view.'}
       ],
       work:'web-design'
     }
@@ -138,46 +143,35 @@ de:{
     title:'Freiberuflicher Designer für Branding, Grafik, Motion und 3D',
     sub:'Von statischen Identitäten bis zu bewegten Geschichten. Ich entwickle Design, das verbindet, kommuniziert und begeistert.',
     cta1:'Projekte entdecken',
-    cta2:'Mein Prozess'
-  },
-  svc:{label:'Leistungen',title:'Strategie, Design &amp; <em>Kommunikation</em>',text:'Von der Konzeption bis zur Umsetzung entstehen ganzheitliche Markenlösungen, die Strategie und Handwerk miteinander verbinden.',
-    svcs:[
-      {t:'Brand & Corporate Design',d:'Umfassende visuelle Identitätssysteme.',tags:['Logo','Typografie','Farbsysteme']},
-      {t:'Digital & Interaktiv',d:'Erlebnisse zwischen Ästhetik und Usability.',tags:['UX/UI','Webdesign','Prototyping']},
-      {t:'Editorial & Print',d:'Publikationen, Packaging und Raumgestaltung.',tags:['Editorial','Packaging','Spatial']}
-    ],
-    blocks:[
-      {type:'img',label:'STRATEGIE & FORSCHUNG'},
-      {type:'center',h:'Design beginnt mit Verständnis',p:'Jedes Projekt startet mit einem klaren Ziel: verstehen, was wirklich zählt. Ich analysiere Marken, Kontexte und Zielgruppen, um eine fundierte Basis zu schaffen. Statt vorschneller Lösungen entsteht so ein strategischer Ausgangspunkt, der Gestaltung sinnvoll und nachhaltig macht.'},
-      {type:'img',label:'DESIGNPROZESS'},
-      {type:'center',h:'Iterative Prozesse statt Einzellösungen',p:'Gutes Design entsteht nicht im ersten Versuch. Durch iterative Arbeitsweisen entwickle ich Konzepte Schritt für Schritt weiter. Testen, hinterfragen, optimieren. So entstehen Lösungen, die nicht nur gut aussehen, sondern funktionieren und sich weiterentwickeln können.'},
-      {type:'img',label:'KOMMUNIKATION & KAMPAGNEN'},
-      {type:'center',h:'Co-Creation als Kern der Zusammenarbeit',p:'Die besten Ergebnisse entstehen im Dialog. Ich arbeite eng mit meinen Kunden zusammen, integriere Feedback frühzeitig und mache Prozesse transparent. So wird Design zu einem gemeinsamen Werkzeug – nicht zu einer Blackbox.'},
-      {type:'img',label:'MOTION & FILM'},
-      {type:'center',h:'Ganzheitliche Gestaltung über alle Touchpoints',p:'Von Brand & Corporate Design über digitale Interfaces bis hin zu Editorial- und Printlösungen entwickle ich konsistente Systeme. Ob Logo, Typografie und Farbwelten, UI/UX und Prototyping oder Packaging und räumliche Anwendungen, jedes Element trägt zu einem klaren und konsistenten Gesamtbild bei.'}
-    ],
-    tosBtn:'Nutzungsbedingungen',
-    catsLabel:'Leistungsbereiche',
-    catsText:'Drei Schwerpunkte — wählen Sie den, der zu Ihrem Projekt passt.'
+    cta2:'Kontakt aufnehmen'
   },
   /* ===== LEISTUNGSBEREICHE =====
-     Ein Eintrag pro /:lang/<key>-Route. Wird von svcCatPg() mit denselben
-     Komponenten gerendert wie die /services-Übersicht. `work` verweist auf eine
-     cats{}-ID, damit die Seite passende Projekte einbinden kann. */
+     Ein Eintrag pro /:lang/<key>-Route, gerendert von svcCatPg(). Jede Seite
+     läuft Intro → Leistungen → Ablauf → Ergebnis → FAQ → passende Projekte.
+     `work` verweist auf eine cats{}-ID für die Projektauswahl. */
+  svcPage:{process:'So läuft es ab',deliver:'Was Sie bekommen',faq:'Gut zu wissen',work:'Passende Projekte'},
   svcCat:{
     'branding':{
       label:'Branding',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
-      text:'Positionierung, visuelle Identität und die Systeme, die eine Marke über alle Medien hinweg konsistent halten.',
+      text:'Eine Marke ist kein Logo, sondern die Summe aller Entscheidungen, die ein Unternehmen wiedererkennbar machen. Ich arbeite heraus, wofür eine Marke steht, übersetze das in ein visuelles System und übergebe es dokumentiert — damit es auch ein Jahr später noch zusammenhält.',
       svcs:[
         {t:'Markenstrategie',d:'Positionierung, Tonalität und die Argumente, auf denen eine Marke aufbaut.',tags:['Recherche','Positionierung','Messaging']},
         {t:'Visuelle Identität',d:'Umfassende visuelle Identitätssysteme, die in jedem Medium funktionieren.',tags:['Logo','Typografie','Farbsysteme']},
         {t:'Editorial & Print',d:'Publikationen, Verpackungen und Printarbeiten mit haptischer Qualität.',tags:['Editorial','Packaging','Print']}
       ],
-      blocks:[
-        {img:1,h:'Design beginnt mit Verstehen',p:'Jedes Projekt startet mit einer klaren Absicht: verstehen, worauf es wirklich ankommt. Ich analysiere Marken, Kontexte und Zielgruppen, um ein tragfähiges Fundament zu schaffen. Statt vorschnell in Lösungen zu springen, entsteht so ein strategischer Ausgangspunkt, an dem Gestaltung zielgerichtet und nachhaltig wird.'},
-        {img:2,h:'Ein System, kein einzelnes Logo',p:'Eine Identität muss weit über ihre erste Anwendung hinaus tragen. Typo-Skalen, Farben, Layoutregeln und Asset-Bibliotheken entstehen so, dass später Produziertes weiterhin nach derselben Marke aussieht — ob ich es gestalte oder Ihr Team.'}
+      process:[
+        {t:'Kennenlernen',d:'Wir sprechen darüber, woher das Unternehmen kommt, was es verkauft und gegen wen es antritt. Ich sehe mir Markt und vorhandenes Material an, bevor ich etwas zeichne.'},
+        {t:'Strategie & Positionierung',d:'Aus den Erkenntnissen wird ein kurzes, benutzbares Briefing: wofür die Marke steht, wie sie spricht und welche Entscheidungen daraus folgen. Alles Weitere wird daran gemessen.'},
+        {t:'Identitätssystem',d:'Logo, Typo-Skala, Farbe und Layoutregeln entstehen gemeinsam statt nacheinander. So funktionieren sie schon als Set, wenn Sie sie zum ersten Mal sehen.'},
+        {t:'Rollout & Guidelines',d:'Das System wird auf Ihre echten Touchpoints angewendet und schriftlich festgehalten, damit die nächste Anwendung ohne Rückfrage markenkonform bleibt.'}
+      ],
+      deliver:['Positionierungs- und Messaging-Briefing','Hauptlogo plus responsive Varianten','Typo-Skala und Farbsystem','Layout- und Rasterregeln','Druckfertige Quelldateien','Marken-Guidelines als PDF'],
+      faq:[
+        {q:'Wie lange dauert eine Markenidentität?',a:'In der Regel sechs bis zehn Wochen vom Kick-off bis zur Übergabe. Die Variable ist das Feedback: je schneller die Runden zurückkommen, desto schneller sind wir fertig. Einen datierten Zeitplan bekommen Sie vor dem Start.'},
+        {q:'Können Sie mit einem bestehenden Logo arbeiten?',a:'Ja. Ein Refresh, der das Logo behält und alles darum herum neu aufbaut, ist ein häufiger und oft der sinnvollere Auftrag — überall dort, wo es Wiedererkennung zu bewahren gibt.'},
+        {q:'Was muss ich vorbereiten?',a:'Was ohnehin da ist: alte Dateien, Namen von Wettbewerbern, Fotos, eine grobe Vorstellung Ihrer Zielgruppe. Lücken zu schließen ist Teil der ersten Phase, es muss vorher nichts vollständig sein.'}
       ],
       work:'brand-identity'
     },
@@ -185,15 +179,23 @@ de:{
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D und Film, die einer Marke Bewegung und Rhythmus geben.',
-      text:'Animation, 3D und Film, die aus einer statischen Identität etwas mit Bewegung und Rhythmus machen.',
+      text:'Wie sich eine Marke bewegt, sagt genauso viel aus wie ihr Aussehen. Timing, Easing und Rhythmus definiere ich gemeinsam mit der statischen Identität. So ist Animation ein dokumentierter Teil des Systems und keine nachträgliche Dekoration.',
       svcs:[
         {t:'Brand Animation',d:'Logo-Animationen, Übergänge und Bewegungsregeln, die eine Identität in die Zeit verlängern.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
         {t:'3D & Visualisierung',d:'Modeling, Licht und Rendering für Produkte, Schrift und abstrakte Markenbilder.',tags:['3D Design','Rendering','Produktvisuals']},
         {t:'Film & Social',d:'Kurzformate, Titelsequenzen und Kampagnen-Cutdowns für Social Media.',tags:['Schnitt','Titeldesign','Social Cuts']}
       ],
-      blocks:[
-        {img:4,h:'Bewegung als Teil der Identität',p:'Wie sich eine Marke bewegt, sagt genauso viel aus wie ihr Aussehen. Timing, Easing und Rhythmus werden gemeinsam mit der statischen Identität definiert. So ist Animation nie nachträgliche Dekoration, sondern ein dokumentierter Teil des Systems.'},
-        {img:3,h:'Auf Wiederverwendung gebaut',p:'Geliefert werden editierbare Projektdateien und Vorlagen, nicht nur fertige Exporte. Wiederkehrende Formate — Social Posts, Intros, Produkt-Loops — bleiben so produzierbar, ohne jedes Mal von vorn anzufangen.'}
+      process:[
+        {t:'Kennenlernen',d:'Wir klären, was das Stück leisten soll, wo es läuft und wie lang es sein darf. Format und Plattform prägen jede weitere Entscheidung und stehen deshalb am Anfang.'},
+        {t:'Konzept & Storyboard',d:'Sie sehen die Idee als Frames und geschriebenen Ablauf, bevor sich etwas bewegt. Ein Storyboard zu ändern kostet Minuten, ein fertiges Rendering Tage.'},
+        {t:'Design & Animation',d:'Die Frames werden ausgearbeitet und dann animiert. Timing und Easing folgen überall denselben Regeln, damit einzelne Clips als eine Marke lesbar bleiben.'},
+        {t:'Auslieferung & Vorlagen',d:'Sie bekommen die Exporte pro Plattform und dazu die editierbaren Projektdateien, damit wiederkehrende Formate ohne Neuanfang produzierbar bleiben.'}
+      ],
+      deliver:['Storyboard und Ablaufplan','Animiertes Masterfile','Plattform-Exporte (16:9, 1:1, 9:16)','Editierbare Projektdateien','Bewegungsregeln — Timing und Easing','Wiederverwendbare Vorlagen für feste Formate'],
+      faq:[
+        {q:'Wie lange dauert eine Animation?',a:'Eine Logo-Animation dauert ein bis zwei Wochen. Ein längeres Stück mit 3D oder vollem Storyboard liegt meist bei drei bis sechs Wochen, je nach Anzahl der Szenen.'},
+        {q:'Bekomme ich die Quelldateien?',a:'Ja. Editierbare Projektdateien gehören zu jeder Übergabe, zusammen mit einer Notiz zu den benötigten Schriften und Plugins, damit später auch jemand anderes damit arbeiten kann.'},
+        {q:'Animieren Sie auch fremde Identitäten?',a:'Ja. Ich arbeite mit Ihren bestehenden Guidelines und definiere fehlende Bewegungsregeln als Teil des Projekts — dokumentiert, nicht nur angewendet.'}
       ],
       work:'motion-design'
     },
@@ -201,15 +203,23 @@ de:{
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
-      text:'Interfaces und Websites, die Ästhetik und Bedienbarkeit verbinden — und im Browser standhalten.',
+      text:'Bildschirme sind keine Plakate. Ich gestalte an echten Breakpoints mit echten Inhalten, damit das freigegebene Layout auch das ist, was sich umsetzen lässt — und die Identität den Weg in den Browser übersteht.',
       svcs:[
         {t:'UX & Interface Design',d:'Benutzeroberflächen und digitale Erlebnisse zwischen Ästhetik und Bedienbarkeit.',tags:['UX/UI','Wireframes','Designsysteme']},
         {t:'Website-Gestaltung',d:'Portfolio-, Marken- und Kampagnenseiten, vom Inhalt her gedacht.',tags:['Web Design','Responsive','Art Direction']},
         {t:'Prototyping & Umsetzung',d:'Interaktive Prototypen und handgebaute Frontends für kleinere Projekte.',tags:['Prototyping','Front-End','Animation']}
       ],
-      blocks:[
-        {img:2,h:'Im Medium gestaltet, in dem es erscheint',p:'Bildschirme sind keine Plakate. Layouts werden an echten Breakpoints geprüft, mit echten Inhalten und echter Interaktion. So ist das freigegebene Design auch das, was sich umsetzen lässt.'},
-        {img:3,h:'Konsistenz über alle Touchpoints',p:'Eine Website ist eine Fläche eines größeren Systems. Typografie, Farben und Komponentenregeln teilt sie sich mit dem Rest der Identität, damit der digitale Auftritt nicht vom gedruckten und bewegten Material abdriftet.'}
+      process:[
+        {t:'Kennenlernen',d:'Wir halten fest, was die Seite leisten muss: wer sie besucht, was diese Menschen finden wollen und woran sich Erfolg messen lässt. Das entscheidet über die Seiten, bevor es über die Pixel entscheidet.'},
+        {t:'Struktur & Wireframes',d:'Inhalt und Hierarchie werden zuerst grob geklärt. Über die Reihenfolge zu streiten ist deutlich günstiger, solange alles noch nach Kästen aussieht.'},
+        {t:'Designsystem & Seiten',d:'Zuerst entsteht ein Baukasten aus Typografie, Farbe, Abständen und Zuständen, daraus dann jede einzelne Seite. Das hält spätere Seiten konsistent und schnell.'},
+        {t:'Iterationen & Übergabe',d:'Kurze Runden pro Abschnitt an echten Breakpoints, danach eine dokumentierte Datei mit den Angaben und Assets, die eine Umsetzung ohne Raten möglich machen.'}
+      ],
+      deliver:['Sitemap und Wireframes','Designsystem — Typo, Farbe, Abstände, Zustände','Layouts für Desktop, Tablet und Mobil','Interaktiver Prototyp','Exportierte Assets und Icons','Entwickler-Übergabe mit Spezifikationen'],
+      faq:[
+        {q:'Wie lange dauert eine Website?',a:'Eine fokussierte Seite mit fünf bis acht Unterseiten braucht im Design meist vier bis acht Wochen. Größere Projekte teile ich in Phasen, damit Sie Zwischenstände sehen und freigeben können.'},
+        {q:'Setzen Sie die Seite auch um?',a:'Bei kleineren Projekten ja, dann baue ich das Frontend selbst. Bei größeren übergebe ich an Ihre Entwicklung — mit dokumentierter Datei und während der Umsetzung erreichbar für Rückfragen.'},
+        {q:'Ist das Design mobiloptimiert?',a:'Jedes Layout wird für Mobil, Tablet und Desktop gezeichnet. Kleine Bildschirme werden gestaltet und nicht abgeleitet, damit in der schmalsten Ansicht nichts dem Zufall überlassen bleibt.'}
       ],
       work:'web-design'
     }
