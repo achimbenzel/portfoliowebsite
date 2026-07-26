@@ -29,7 +29,63 @@ const L={en:{
       {type:'img',label:'MOTION & FILM'},
       {type:'center',h:'Design systems across all touchpoints',p:'From Brand & Corporate Design to digital interfaces and editorial or print solutions, I create consistent systems. Whether it’s logos, typography, and color systems, UI/UX and prototyping, or packaging and spatial applications, each element contributes to a cohesive overall experience.'}
     ],
-    tosBtn:'Terms of Service'
+    tosBtn:'Terms of Service',
+    catsLabel:'Service areas',
+    catsText:'Three focus areas — pick the one that matches your project.'
+  },
+  /* ===== SERVICE CATEGORIES =====
+     One entry per /:lang/<key> route. Rendered by svcCatPg() with the same
+     components the /services overview uses. `work` maps to a cats{} id so the
+     page can pull in matching projects. */
+  svcCat:{
+    'branding':{
+      label:'Branding',
+      title:'Brand &amp; <em>Identity</em>',
+      short:'Positioning, identity systems and everything that makes a brand recognisable.',
+      text:'Positioning, visual identity, and the systems that keep a brand consistent across every medium.',
+      svcs:[
+        {t:'Brand Strategy',d:'Positioning, tone of voice, and the reasoning a brand is built on.',tags:['Research','Positioning','Messaging']},
+        {t:'Visual Identity',d:'Comprehensive visual identity systems that scale across every medium.',tags:['Logo','Typography','Color Systems']},
+        {t:'Editorial & Print',d:'Publications, packaging, and print work with tactile quality.',tags:['Editorial','Packaging','Print']}
+      ],
+      blocks:[
+        {img:1,h:'Design starts with understanding',p:'Every project begins with a clear intention: understanding what truly matters. I analyze brands, contexts, and audiences to build a solid foundation. Instead of rushing into solutions, this creates a strategic starting point where design becomes purposeful and sustainable.'},
+        {img:2,h:'A system, not a single logo',p:'An identity has to hold up far beyond its first application. Type scales, colour, layout rules, and asset libraries are built so that everything produced later still reads as the same brand — whether I make it or your team does.'}
+      ],
+      work:'brand-identity'
+    },
+    'motion-design':{
+      label:'Motion Design',
+      title:'Motion <em>Design</em>',
+      short:'Animation, 3D and film that give a brand movement and rhythm.',
+      text:'Animation, 3D, and film that turn a static identity into something with movement and rhythm.',
+      svcs:[
+        {t:'Brand Animation',d:'Logo animations, transitions, and motion rules that extend an identity into time.',tags:['Logo Animation','Transitions','Motion Rules']},
+        {t:'3D & Visualisation',d:'Modelling, lighting, and rendering for products, type, and abstract brand imagery.',tags:['3D Design','Rendering','Product Visuals']},
+        {t:'Film & Social',d:'Short-form content, title sequences, and campaign cutdowns for social platforms.',tags:['Editing','Title Design','Social Cuts']}
+      ],
+      blocks:[
+        {img:4,h:'Motion as part of the identity',p:'How a brand moves says as much as how it looks. Timing, easing, and rhythm are defined alongside the static identity, so animation is never decoration added at the end but a documented part of the system.'},
+        {img:3,h:'Built to be reused',p:'Deliverables come as editable projects and templates, not just finished files. That keeps recurring formats — social posts, intros, product loops — producible without starting over each time.'}
+      ],
+      work:'motion-design'
+    },
+    'web-design':{
+      label:'Web Design',
+      title:'Web <em>Design</em>',
+      short:'Interfaces and websites where the identity actually works in the browser.',
+      text:'Interfaces and websites that balance aesthetics with usability — and hold up once they are in the browser.',
+      svcs:[
+        {t:'UX & Interface Design',d:'User interfaces and digital experiences balancing aesthetics with usability.',tags:['UX/UI','Wireframes','Design Systems']},
+        {t:'Website Design',d:'Portfolio, brand, and campaign sites designed from the content outwards.',tags:['Web Design','Responsive','Art Direction']},
+        {t:'Prototyping & Build',d:'Interactive prototypes and hand-built front-ends for smaller projects.',tags:['Prototyping','Front-End','Animation']}
+      ],
+      blocks:[
+        {img:2,h:'Designed in the medium it ships in',p:'Screens are not posters. Layouts are checked at real breakpoints, with real content and real interaction, so the design that gets approved is the design that can actually be built.'},
+        {img:3,h:'Consistency across touchpoints',p:'A website is one surface of a larger system. Type, colour, and component rules are shared with the rest of the identity, so the digital presence never drifts away from the printed and moving material.'}
+      ],
+      work:'web-design'
+    }
   },
   fonts:{label:'My Fonts',title:'Type <em>Library</em>',text:'A selection of experimental typefaces created by myself.',
     /* Shown as a project card in the work grid — links to /my-fonts */
@@ -100,7 +156,63 @@ de:{
       {type:'img',label:'MOTION & FILM'},
       {type:'center',h:'Ganzheitliche Gestaltung über alle Touchpoints',p:'Von Brand & Corporate Design über digitale Interfaces bis hin zu Editorial- und Printlösungen entwickle ich konsistente Systeme. Ob Logo, Typografie und Farbwelten, UI/UX und Prototyping oder Packaging und räumliche Anwendungen, jedes Element trägt zu einem klaren und konsistenten Gesamtbild bei.'}
     ],
-    tosBtn:'Nutzungsbedingungen'
+    tosBtn:'Nutzungsbedingungen',
+    catsLabel:'Leistungsbereiche',
+    catsText:'Drei Schwerpunkte — wählen Sie den, der zu Ihrem Projekt passt.'
+  },
+  /* ===== LEISTUNGSBEREICHE =====
+     Ein Eintrag pro /:lang/<key>-Route. Wird von svcCatPg() mit denselben
+     Komponenten gerendert wie die /services-Übersicht. `work` verweist auf eine
+     cats{}-ID, damit die Seite passende Projekte einbinden kann. */
+  svcCat:{
+    'branding':{
+      label:'Branding',
+      title:'Brand &amp; <em>Identity</em>',
+      short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
+      text:'Positionierung, visuelle Identität und die Systeme, die eine Marke über alle Medien hinweg konsistent halten.',
+      svcs:[
+        {t:'Markenstrategie',d:'Positionierung, Tonalität und die Argumente, auf denen eine Marke aufbaut.',tags:['Recherche','Positionierung','Messaging']},
+        {t:'Visuelle Identität',d:'Umfassende visuelle Identitätssysteme, die in jedem Medium funktionieren.',tags:['Logo','Typografie','Farbsysteme']},
+        {t:'Editorial & Print',d:'Publikationen, Verpackungen und Printarbeiten mit haptischer Qualität.',tags:['Editorial','Packaging','Print']}
+      ],
+      blocks:[
+        {img:1,h:'Design beginnt mit Verstehen',p:'Jedes Projekt startet mit einer klaren Absicht: verstehen, worauf es wirklich ankommt. Ich analysiere Marken, Kontexte und Zielgruppen, um ein tragfähiges Fundament zu schaffen. Statt vorschnell in Lösungen zu springen, entsteht so ein strategischer Ausgangspunkt, an dem Gestaltung zielgerichtet und nachhaltig wird.'},
+        {img:2,h:'Ein System, kein einzelnes Logo',p:'Eine Identität muss weit über ihre erste Anwendung hinaus tragen. Typo-Skalen, Farben, Layoutregeln und Asset-Bibliotheken entstehen so, dass später Produziertes weiterhin nach derselben Marke aussieht — ob ich es gestalte oder Ihr Team.'}
+      ],
+      work:'brand-identity'
+    },
+    'motion-design':{
+      label:'Motion Design',
+      title:'Motion <em>Design</em>',
+      short:'Animation, 3D und Film, die einer Marke Bewegung und Rhythmus geben.',
+      text:'Animation, 3D und Film, die aus einer statischen Identität etwas mit Bewegung und Rhythmus machen.',
+      svcs:[
+        {t:'Brand Animation',d:'Logo-Animationen, Übergänge und Bewegungsregeln, die eine Identität in die Zeit verlängern.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
+        {t:'3D & Visualisierung',d:'Modeling, Licht und Rendering für Produkte, Schrift und abstrakte Markenbilder.',tags:['3D Design','Rendering','Produktvisuals']},
+        {t:'Film & Social',d:'Kurzformate, Titelsequenzen und Kampagnen-Cutdowns für Social Media.',tags:['Schnitt','Titeldesign','Social Cuts']}
+      ],
+      blocks:[
+        {img:4,h:'Bewegung als Teil der Identität',p:'Wie sich eine Marke bewegt, sagt genauso viel aus wie ihr Aussehen. Timing, Easing und Rhythmus werden gemeinsam mit der statischen Identität definiert. So ist Animation nie nachträgliche Dekoration, sondern ein dokumentierter Teil des Systems.'},
+        {img:3,h:'Auf Wiederverwendung gebaut',p:'Geliefert werden editierbare Projektdateien und Vorlagen, nicht nur fertige Exporte. Wiederkehrende Formate — Social Posts, Intros, Produkt-Loops — bleiben so produzierbar, ohne jedes Mal von vorn anzufangen.'}
+      ],
+      work:'motion-design'
+    },
+    'web-design':{
+      label:'Web Design',
+      title:'Web <em>Design</em>',
+      short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
+      text:'Interfaces und Websites, die Ästhetik und Bedienbarkeit verbinden — und im Browser standhalten.',
+      svcs:[
+        {t:'UX & Interface Design',d:'Benutzeroberflächen und digitale Erlebnisse zwischen Ästhetik und Bedienbarkeit.',tags:['UX/UI','Wireframes','Designsysteme']},
+        {t:'Website-Gestaltung',d:'Portfolio-, Marken- und Kampagnenseiten, vom Inhalt her gedacht.',tags:['Web Design','Responsive','Art Direction']},
+        {t:'Prototyping & Umsetzung',d:'Interaktive Prototypen und handgebaute Frontends für kleinere Projekte.',tags:['Prototyping','Front-End','Animation']}
+      ],
+      blocks:[
+        {img:2,h:'Im Medium gestaltet, in dem es erscheint',p:'Bildschirme sind keine Plakate. Layouts werden an echten Breakpoints geprüft, mit echten Inhalten und echter Interaktion. So ist das freigegebene Design auch das, was sich umsetzen lässt.'},
+        {img:3,h:'Konsistenz über alle Touchpoints',p:'Eine Website ist eine Fläche eines größeren Systems. Typografie, Farben und Komponentenregeln teilt sie sich mit dem Rest der Identität, damit der digitale Auftritt nicht vom gedruckten und bewegten Material abdriftet.'}
+      ],
+      work:'web-design'
+    }
   },
   fonts:{label:'Meine Schriften',title:'Type <em>Library</em>',text:'Eine Auswahl experimenteller, von mir selbst entwickelter Schriftarten.',
     /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */

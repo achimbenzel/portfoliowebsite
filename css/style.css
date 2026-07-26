@@ -359,12 +359,44 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   opacity:1;
   transform:translateY(0);
 }
-.nav.island-open .island-menu-link:nth-child(1){transition-delay:.06s}
-.nav.island-open .island-menu-link:nth-child(2){transition-delay:.1s}
-.nav.island-open .island-menu-link:nth-child(3){transition-delay:.14s}
-.nav.island-open .island-menu-link:nth-child(4){transition-delay:.18s}
-.nav.island-open .island-menu-link:nth-child(5){transition-delay:.22s}
+/* Stagger targets the menu's direct children — the services entry is wrapped
+   in .island-menu-item, so it is the wrapper that carries the delay. */
+.nav.island-open .island-menu>*:nth-child(1) .island-menu-link,
+.nav.island-open .island-menu>.island-menu-link:nth-child(1){transition-delay:.06s}
+.nav.island-open .island-menu>*:nth-child(2) .island-menu-link,
+.nav.island-open .island-menu>.island-menu-link:nth-child(2){transition-delay:.1s}
+.nav.island-open .island-menu>*:nth-child(3) .island-menu-link,
+.nav.island-open .island-menu>.island-menu-link:nth-child(3){transition-delay:.14s}
+.nav.island-open .island-menu>*:nth-child(4) .island-menu-link,
+.nav.island-open .island-menu>.island-menu-link:nth-child(4){transition-delay:.18s}
+.nav.island-open .island-menu>*:nth-child(5) .island-menu-link,
+.nav.island-open .island-menu>.island-menu-link:nth-child(5){transition-delay:.22s}
 .island-menu-link:hover{color:#fff}
+
+/* ===== SERVICES SUBMENU =====
+   Shared by both breakpoints; positioning differs in the media queries below. */
+.island-menu-item{position:relative;display:block}
+.island-menu-link-has-sub{display:flex;align-items:center;gap:.45em}
+.island-sub-chev{
+  flex-shrink:0;
+  opacity:.65;
+  transition:transform .35s cubic-bezier(.76,0,.24,1), opacity var(--transition-fast);
+}
+.island-menu-item.sub-open .island-sub-chev{transform:rotate(180deg);opacity:1}
+.island-menu-link-has-sub:hover .island-sub-chev{opacity:1}
+.nav-sub-link{
+  display:block;
+  font-family:var(--font-primary);
+  color:rgba(255,255,255,.68);
+  white-space:nowrap;
+  transition:color var(--transition-fast), background var(--transition-fast);
+}
+.nav-sub-link:hover,.nav-sub-link:focus-visible{color:#fff}
+.nav-sub-link:focus-visible,.island-menu-link:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+  border-radius:var(--radius-small);
+}
 /* Island menu footer — mobile controls */
 .island-menu-footer{
   display:none;
@@ -414,6 +446,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     flex-wrap:nowrap;
     width:auto;
     flex:1 1 auto;
+    /* Fill the nav's content box so .island-menu-item can stretch down to its
+       bottom edge — that is what makes the hover bridge to .nav-sub touch.
+       Links stay vertically centred via align-items above. */
+    align-self:stretch;
     gap:2px;
     padding:0;
     margin:0;
@@ -450,6 +486,65 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   }
   .nav-toggle-btn{height:38px;width:38px;font-size:.65rem}
   .nav-logo-img{height:1.85rem}
+
+  /* --- Floating secondary header bar ---
+     Positioned against .nav (the nearest positioned ancestor, which is
+     overflow:visible at this breakpoint), so it never affects page layout.
+
+     Hover continuity: .nav-sub is a DOM child of #svcMenuItem, so the pointer
+     never leaves the item while it is over the panel. The two boxes have to
+     actually touch, though — hence (a) the item stretches to the full height
+     of the nav's content box instead of hugging the link, and (b) .nav-sub
+     starts at that same edge (100% is the padding box, so -10px lands on the
+     content box) with transparent padding spanning the visual gap. Without
+     both, a ~17px dead strip of nav padding sits between them and a slow
+     downward move fires mouseleave. */
+  .island-menu-item{position:static;align-self:stretch;display:flex;align-items:center}
+  .nav-sub{
+    position:absolute;
+    top:calc(100% - 10px);
+    left:0;
+    right:0;
+    z-index:1001;
+    padding-top:20px;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-8px);
+    transition:opacity .3s cubic-bezier(.16,1,.3,1),
+               transform .3s cubic-bezier(.16,1,.3,1),
+               visibility 0s linear .3s;
+  }
+  .island-menu-item.sub-open .nav-sub{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    transition:opacity .3s cubic-bezier(.16,1,.3,1),
+               transform .3s cubic-bezier(.16,1,.3,1),
+               visibility 0s;
+  }
+  .nav-sub-inner{
+    display:flex;
+    align-items:center;
+    /* Right-aligned like .island-menu, so the categories continue the rhythm
+       of the nav links they hang from instead of drifting to the far left */
+    justify-content:flex-end;
+    gap:2px;
+    padding:8px 14px;
+    background:rgba(38,38,38,.88);
+    backdrop-filter:blur(20px) saturate(1.3);
+    -webkit-backdrop-filter:blur(20px) saturate(1.3);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;
+    box-shadow:0 8px 32px rgba(0,0,0,.2);
+  }
+  .nav-sub-link{
+    font-size:.9rem;
+    font-weight:500;
+    line-height:1;
+    padding:9px 12px;
+    border-radius:var(--radius-small);
+  }
+  .nav-sub-link:hover,.nav-sub-link:focus-visible{background:rgba(255,255,255,.08)}
 }
 @media(max-width:1099px){
   .island-menu{position:static;flex-direction:column}
@@ -469,6 +564,36 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .nav-top-row{min-height:42px;align-items:center}
   .island-menu{padding:10px 0 0}
   .island-menu-link{font-size:clamp(1.1rem, 4vw, 1.5rem);padding:10px 0}
+
+  /* --- Drawer accordion ---
+     display none/flex rather than an animated height: the island's own height
+     transition (driven by the measured --island-h) does the growing, so the
+     row simply becomes taller. Sub-links fade in on top of that. */
+  .island-menu-link-has-sub{justify-content:space-between;width:100%}
+  .island-sub-chev{width:18px;height:18px}
+  .nav-sub{display:none}
+  .island-menu-item.sub-open .nav-sub{display:block}
+  .nav-sub-inner{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    padding:2px 0 6px 14px;
+    border-left:1px solid rgba(255,255,255,.14);
+    margin-left:2px;
+  }
+  .nav-sub-link{
+    font-size:clamp(.95rem, 3.4vw, 1.15rem);
+    font-weight:400;
+    /* Comfortable tap target without stretching the drawer */
+    padding:11px 0;
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .35s cubic-bezier(.76,0,.24,1), transform .35s cubic-bezier(.76,0,.24,1), color var(--transition-fast);
+  }
+  .island-menu-item.sub-open .nav-sub-link{opacity:1;transform:translateY(0)}
+  .island-menu-item.sub-open .nav-sub-link:nth-child(1){transition-delay:.05s}
+  .island-menu-item.sub-open .nav-sub-link:nth-child(2){transition-delay:.1s}
+  .island-menu-item.sub-open .nav-sub-link:nth-child(3){transition-delay:.15s}
 }
 @media(min-width:1100px){
   .nav-toggle-btn.desktop-only{display:flex}
@@ -713,6 +838,28 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .scard:hover .num{}
 .scard h3{font-family:var(--font-primary);font-size:clamp(1.7rem,2.5vw,2.3rem);font-weight:600;margin-bottom:.8rem;text-transform:uppercase}
 .scard p{font-size:1.5rem;color:var(--text2);line-height:1.7;font-weight:300;hyphens:auto}
+/* Service category chooser (/services) + category page header */
+.svc-cats-block{margin-top:3.5rem}
+.svc-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.svc-cat-card{
+  display:flex;flex-direction:column;gap:.5rem;
+  padding:1.5rem 1.6rem;
+  background:var(--bg2);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-card);
+  transition:border-color var(--transition-fast),transform var(--transition-fast);
+}
+.svc-cat-card:hover{border-color:rgba(var(--color-accent-rgb),.45);transform:translateY(-2px)}
+.svc-cat-name{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  font-family:var(--font-primary);font-size:1.1rem;font-weight:600;
+  text-transform:uppercase;color:var(--text);
+}
+.svc-cat-card:hover .svc-cat-name{color:var(--accent)}
+.svc-cat-name svg{flex-shrink:0;color:var(--accent)}
+.svc-cat-text{font-size:.88rem;color:var(--text2);font-weight:300;line-height:1.6}
+.svc-cat-page .pback{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:2.5rem;background:none;border:none;transition:color var(--transition-fast)}
+.svc-cat-page .pback:hover{color:var(--accent)}
 .stags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.3rem}
 .stag{font-size:.6rem;padding:.3rem .7rem;background:transparent;color:var(--tag-text);letter-spacing:.08em;border-radius:var(--radius-btn);font-weight:500;font-family:var(--font-mono);border:1px solid var(--color-border);text-transform:uppercase;transition:all var(--transition-fast)}
 .scard:hover .stag{}
@@ -2188,4 +2335,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 @media(prefers-reduced-motion:reduce){
   .pcard,.pcard-media img,.pcard-cta svg,.pgrid-more-btn svg{transition:none!important;transform:none!important}
   .pcard{opacity:1}
+  /* Submenu appears instantly. The chevron keeps its rotation — it is a state
+     indicator, not decoration — it just stops animating into place. */
+  .nav-sub,.nav-sub-link,.island-sub-chev{transition:none!important}
+  .nav-sub{transform:none!important}
+  .nav-sub-link{opacity:1!important;transform:none!important}
 }

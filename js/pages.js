@@ -1,3 +1,7 @@
+/* ===== SERVICE CATEGORIES =====
+   Route keys, in nav order. Each has an entry in i18n svcCat{}. */
+const SVC_CATS=['branding','motion-design','web-design'];
+
 /* ===== FLOATING ISLAND NAV ===== */
 function navH(r){
 /* Exit project theme on every render; projPg will re-enter if needed */
@@ -22,7 +26,7 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
     </div>
   </div>
   <div class="island-menu" id="islandMenu">
-    <a class="island-menu-link" href="${routeToPath('services')}" onclick="event.preventDefault();go('services')">${n.svc}</a>
+    ${svcMenuH()}
     <a class="island-menu-link" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${n.wrk}</a>
     <a class="island-menu-link" href="${routeToPath('about')}" onclick="event.preventDefault();go('about')">${n.abt}</a>
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
@@ -32,6 +36,93 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
     </div>
   </div>
 </nav></div>`}
+
+/* ===== SERVICES NAV ITEM + SUBMENU =====
+   One markup tree drives both breakpoints: at >=1100px .nav-sub is absolutely
+   positioned under the bar (floating secondary header), below that it sits in
+   the drawer flow as an accordion. */
+function svcMenuH(){
+  const n=t('nav'),cats=t('svcCat');
+  const chev='<svg class="island-sub-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>';
+  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')">${cats[k].label}</a>`).join('');
+  return`<div class="island-menu-item" id="svcMenuItem" onmouseenter="svcSubHover(true)" onmouseleave="svcSubHover(false)">
+      <a class="island-menu-link island-menu-link-has-sub" id="svcMenuLink" href="${routeToPath('services')}" aria-haspopup="true" aria-expanded="false" aria-controls="svcSubmenu" onclick="svcMenuClick(event)" onkeydown="svcMenuKey(event)">${n.svc}${chev}</a>
+      <div class="nav-sub" id="svcSubmenu" aria-labelledby="svcMenuLink" inert onmouseenter="svcSubHover(true)"><div class="nav-sub-inner">${links}</div></div>
+    </div>`;
+}
+
+/* Layout mode: the floating bar only exists where the horizontal nav does. */
+function svcSubBarMode(){return window.matchMedia('(min-width:1100px)').matches}
+/* Hover mode: bar layout AND a pointer that can actually hover. Touch devices
+   and narrow windows fall through to the tap-to-toggle accordion instead. */
+function svcSubHoverMode(){return svcSubBarMode()&&window.matchMedia('(hover:hover) and (pointer:fine)').matches}
+
+let _svcSubTimer=null;
+/* Set while Escape hands focus back to the trigger, so the focusin listener
+   below doesn't immediately re-open what the user just dismissed. */
+let _svcSubSuppressFocus=false;
+
+function svcSubSet(open){
+  const item=document.getElementById('svcMenuItem'),link=document.getElementById('svcMenuLink');
+  if(!item||!link)return;
+  clearTimeout(_svcSubTimer);_svcSubTimer=null;
+  item.classList.toggle('sub-open',open);
+  link.setAttribute('aria-expanded',open?'true':'false');
+  /* The closed panel fades out over 300ms before visibility:hidden lands, so
+     without this its links stay tabbable for a moment after Escape. `inert`
+     drops them from the tab order and the a11y tree immediately, and still
+     lets the fade play out. */
+  const sub=document.getElementById('svcSubmenu');
+  if(sub){if(open)sub.removeAttribute('inert');else sub.setAttribute('inert','')}
+  /* Drawer mode: the island's height is a measured pixel value, so it has to be
+     recalculated whenever the submenu adds or removes rows. */
+  if(!svcSubBarMode()){
+    const island=document.getElementById('navIsland');
+    if(island&&island.classList.contains('island-open'))lbMeasureIsland(island);
+  }
+}
+function svcSubClose(){svcSubSet(false)}
+function svcSubIsOpen(){const i=document.getElementById('svcMenuItem');return !!(i&&i.classList.contains('sub-open'))}
+
+/* The panel is a DOM child of the item, so moving the cursor from the link into
+   the bar never fires mouseleave. The transparent bridge on .nav-sub keeps the
+   two boxes touching across the visual gap; the delay only catches fast exits. */
+function svcSubHover(entering){
+  if(!svcSubHoverMode())return;
+  clearTimeout(_svcSubTimer);
+  if(entering)svcSubSet(true);
+  else _svcSubTimer=setTimeout(svcSubClose,200);
+}
+
+/* Opening on focus keeps the panel reachable with Tab alone. Delegated from the
+   document because focusin bubbles — no per-render wiring, and it survives the
+   nav being re-rendered on every route change. */
+document.addEventListener('focusin',e=>{
+  const item=document.getElementById('svcMenuItem');
+  if(!item||!svcSubBarMode())return;
+  if(item.contains(e.target)){if(!_svcSubSuppressFocus)svcSubSet(true)}
+  else if(svcSubIsOpen())svcSubClose();
+});
+
+function svcMenuClick(e){
+  e.preventDefault();
+  /* With hover available the item stays a plain link to the overview — the
+     flyout has already opened on hover. Otherwise the tap toggles the
+     accordion instead of navigating away. */
+  if(svcSubHoverMode()){svcSubClose();go('services');return}
+  svcSubSet(!svcSubIsOpen());
+}
+
+function svcMenuKey(e){
+  if(e.key==='ArrowDown'||e.key===' '||e.key==='Spacebar'){
+    e.preventDefault();
+    svcSubSet(true);
+    const first=document.querySelector('#svcSubmenu .nav-sub-link');
+    if(first)requestAnimationFrame(()=>first.focus());
+  }else if(e.key==='Escape'){
+    svcSubClose();
+  }
+}
 
 /* ===== FAQ ACCORDION ===== */
 function faqHtml(){
@@ -279,6 +370,53 @@ function tosPg(){return legPg('tos')}
 /* ===== FONTS DATA ===== */
 /* FONTS array is loaded from fonts-data.js (generated by build-fonts.js) */
 
+/* Category chooser shown on the /services overview — same three destinations
+   as the nav submenu, so the split is reachable from the page too. */
+function svcCatLinksH(){
+  const s=t('svc'),cats=t('svcCat');
+  const arrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>';
+  return`<div class="reveal"><div class="svc-cats-block">`
+    +`<div class="wbar-label">${s.catsLabel}</div>`
+    +`<div class="svc-cats">${SVC_CATS.map(k=>`<a class="svc-cat-card" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="svc-cat-name">${cats[k].label} ${arrow}</span><span class="svc-cat-text">${cats[k].short}</span></a>`).join('')}</div>`
+  +`</div></div>`;
+}
+
+/* ===== SERVICE CATEGORY PAGE (/branding, /motion-design, /web-design) =====
+   Built from the same components as the /services overview: .services-grid
+   cards, full-width image + .centerblock pairs, and the project grid filtered
+   to the category's cats{} id. */
+function svcCatPg(key){
+  const cats=t('svcCat')||{};const c=cats[key];
+  if(!c)return notFoundPg();
+  const s=t('svc'),w=t('wrk');
+  const _dk=(theme==='dark'||theme==='darkproject')?'_dark':'';
+  const arrowSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  const backSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+
+  const cards=(c.svcs||[]).map((v,i)=>`<div class="scard" data-anim="fade" data-anim-delay="${150+i*120}"><div class="num" data-anim="mask" data-anim-delay="${200+i*120}">0${i+1}</div><h3 data-anim="words" data-anim-stagger="25" data-anim-delay="${250+i*120}">${v.t}</h3><p data-anim="words" data-anim-stagger="15" data-anim-delay="${300+i*120}">${v.d}</p><div class="stags">${(v.tags||[]).map(tg=>`<span class="stag">${tg}</span>`).join('')}</div></div>`).join('');
+
+  const blocks=(c.blocks||[]).map(b=>`<div class="reveal"><div class="fullimg fullimg-nobg"><img src="/Assets/images/services${b.img}${_dk}.webp" alt="${b.h}"/></div><div class="centerblock"><h3 data-anim="words" data-anim-stagger="25">${b.h}</h3><p data-anim="lines" data-anim-delay="100">${b.p}</p></div></div>`).join('');
+
+  /* Related work — reuses the project cards and the category ids from cats{} */
+  const rel=c.work?allWorkKeys().filter(k=>(workEntry(k).cats||[]).includes(c.work)):[];
+  const relHtml=rel.length?`<div class="reveal">`
+    +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${w.title}</h2>`
+    +`<div class="pgrid">${rel.map(wC).join('')}</div>`
+    +`<div class="pgrid-more"><a class="pgrid-more-btn" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${w.allBtn} ${arrowSVG}</a></div>`
+  +`</div>`:'';
+
+  return`<section class="section svc-cat-page" style="padding-top:9rem">`
+    +`<button class="pback" onclick="go('services')">${backSVG} ${s.label}</button>`
+    +`<div class="reveal">`
+      +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${c.title}</h2>`
+      +`<p class="section-text" data-anim="words" data-anim-stagger="20">${c.text}</p>`
+      +`<div class="services-grid">${cards}</div>`
+    +`</div>`
+    +blocks
+    +relHtml
+  +`</section>`;
+}
+
 function servicesPg(){const s=t('svc');
 let bhtml='';let _svcImgIdx=0;
 if(s.blocks){const _blocks=s.blocks;for(let _bi=0;_bi<_blocks.length;_bi++){const b=_blocks[_bi];
@@ -292,6 +430,7 @@ return`<section class="section" style="padding-top:9rem"><div class="reveal">
   <p class="section-text" data-anim="words" data-anim-stagger="20">${s.text}</p>
   <div class="services-grid">${s.svcs.map((v,i)=>`<div class="scard" data-anim="fade" data-anim-delay="${150 + i * 120}"><div class="num" data-anim="mask" data-anim-delay="${200 + i * 120}">0${i+1}</div><h3 data-anim="words" data-anim-stagger="25" data-anim-delay="${250 + i * 120}">${v.t}</h3><p data-anim="words" data-anim-stagger="15" data-anim-delay="${300 + i * 120}">${v.d}</p><div class="stags">${v.tags.map(t=>`<span class="stag">${t}</span>`).join('')}</div></div>`).join('')}</div>
 </div>
+  ${svcCatLinksH()}
   ${bhtml}
 
   <div class="reveal">${toshtml}</div>
@@ -756,8 +895,29 @@ function exitProjectTheme(){
 
 /* Override tT to handle project themes — set in DOMContentLoaded to ensure it overrides the original */
 
-/* Close island on Escape */
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mob)tM()});
+/* Escape closes the services submenu first, then the island */
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  if(svcSubIsOpen()){
+    const link=document.getElementById('svcMenuLink');
+    /* Only pull focus back if it was inside the submenu we just closed */
+    const refocus=!!(link&&document.activeElement&&link.parentElement.contains(document.activeElement));
+    _svcSubSuppressFocus=true;
+    svcSubClose();
+    if(refocus)link.focus();
+    /* Released after the focusin from .focus() has been dispatched */
+    setTimeout(()=>{_svcSubSuppressFocus=false},0);
+    return;
+  }
+  if(mob)tM();
+});
+
+/* Pointer outside the services item closes the flyout (bar mode only — in the
+   drawer the item is collapsed by tapping it again) */
+document.addEventListener('click',e=>{
+  if(!svcSubBarMode()||!svcSubIsOpen())return;
+  if(!e.target.closest('#svcMenuItem'))svcSubClose();
+});
 
 document.addEventListener('DOMContentLoaded',()=>{
   /* Override tT after all scripts have loaded */

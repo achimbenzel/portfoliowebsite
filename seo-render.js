@@ -29,6 +29,18 @@ function attr(s) {
   return stripTags(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+/* ---- Service category helpers ---- */
+/* Keys must match SVC_CATS in js/pages.js and SVC_CAT_ROUTES in server.js */
+const SVC_CAT_KEYS = ['branding', 'motion-design', 'web-design'];
+function svcCat(lang, key) {
+  const d = L[lang] || L.en;
+  return (d.svcCat || {})[key] || null;
+}
+function svcCatLabel(lang, key) {
+  const c = svcCat(lang, key);
+  return c ? stripTags(c.label) : null;
+}
+
 /* ---- Project helpers ---- */
 function projectData(lang, slug) {
   const proj = P[slug];
@@ -66,6 +78,8 @@ function metaDescription(lang, routeKey, slug) {
       return stripTags(`${pd.p.title}${loc} — ${pd.p.ind}. ${pd.p.desc}`);
     }
   }
+  const cat = svcCat(lang, routeKey);
+  if (cat) return stripTags(cat.text);
   switch (routeKey) {
     case 'services': return stripTags(d.svc.text);
     case 'work':     return stripTags(d.wrk.text);
@@ -134,6 +148,30 @@ function jsonLd(lang, routeKey, slug) {
       availableLanguage: ['de', 'en'],
       sameAs: SAME_AS,
       makesOffer: offers
+    });
+  }
+
+  // Service schema on a category page, built from its real card list
+  const cat = svcCat(lang, routeKey);
+  if (cat) {
+    blocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: stripTags(cat.title),
+      serviceType: stripTags(cat.label),
+      description: stripTags(cat.text),
+      provider: { '@type': 'Person', name: BRAND, url: SITE },
+      areaServed: 'Europe',
+      availableLanguage: ['de', 'en'],
+      url: `${SITE}/${lang}/${routeKey}`,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: stripTags(cat.label),
+        itemListElement: (cat.svcs || []).map(s => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: stripTags(s.t), description: stripTags(s.d) }
+        }))
+      }
     });
   }
 
@@ -240,9 +278,13 @@ function metaTags(lang, routeKey, pageTitle, pathAfterLang, slug) {
    invisible to human visitors but fully readable by crawlers/AI.   */
 function appContent(lang, routeKey, slug) {
   const d = L[lang] || L.en;
-  /* Mirrors the client nav — the type library is reached from the work list,
-     not from a nav tab of its own. */
-  const nav = `<nav aria-label="Main"><a href="/${lang}/services">${d.nav.svc}</a> <a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
+  /* Mirrors the client nav — services expands into its three categories, and
+     the type library is reached from the work list, not a nav tab of its own. */
+  const svcNav = SVC_CAT_KEYS.map(k => {
+    const c = svcCat(lang, k);
+    return c ? ` <a href="/${lang}/${k}">${stripTags(c.label)}</a>` : '';
+  }).join('');
+  const nav = `<nav aria-label="Main"><a href="/${lang}/services">${d.nav.svc}</a>${svcNav} <a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
 
   // Project detail page: render the real, visible project copy
   if (routeKey === 'work' && slug) {
@@ -282,12 +324,28 @@ function appContent(lang, routeKey, slug) {
     }
   }
 
+  // Service category page: render its real, visible copy
+  const catPage = svcCat(lang, routeKey);
+  if (catPage) {
+    const main = `<h1>${stripTags(catPage.title)}</h1><p>${stripTags(catPage.text)}</p>` +
+      (catPage.svcs || []).map(x => `<section><h2>${x.t}</h2><p>${x.d}</p></section>`).join('') +
+      (catPage.blocks || []).map(bl => `<section><h2>${bl.h}</h2><p>${bl.p}</p></section>`).join('') +
+      `<p><a href="/${lang}/services">${stripTags(d.svc.label)}</a> · <a href="/${lang}/work">${stripTags(d.nav.wrk)}</a></p>`;
+    const footer = `<footer><p>${d.ftr ? d.ftr.copy : '© 2026 Design by Achim Benzel.'}</p></footer>`;
+    return nav + '<main>' + main + '</main>' + footer;
+  }
+
   let main = '';
   switch (routeKey) {
     case 'services': {
       const s = d.svc;
+      const catLinks = SVC_CAT_KEYS.map(k => {
+        const c = svcCat(lang, k);
+        return c ? `<li><a href="/${lang}/${k}">${stripTags(c.label)}</a> — ${stripTags(c.short)}</li>` : '';
+      }).join('');
       main = `<h1>${stripTags(s.title)}</h1><p>${stripTags(s.text)}</p>` +
         s.svcs.map(x => `<section><h2>${x.t}</h2><p>${x.d}</p></section>`).join('') +
+        `<section><h2>${stripTags(s.catsLabel)}</h2><ul>${catLinks}</ul></section>` +
         s.blocks.filter(b => b.type === 'center')
           .map(b => `<section><h2>${b.h}</h2><p>${b.p}</p></section>`).join('');
       break;
@@ -348,4 +406,4 @@ function appContent(lang, routeKey, slug) {
   return nav + '<main>' + main + '</main>' + footer;
 }
 
-module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle };
+module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle, svcCatLabel };

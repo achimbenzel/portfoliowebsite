@@ -119,9 +119,13 @@ app.get('/', (req, res) => {
 });
 
 /* ===== All page routes under /:lang/ ===== */
+/* Service categories — must match SVC_CATS in js/pages.js and svcCat{} in i18n */
+const SVC_CAT_ROUTES = ['branding', 'motion-design', 'web-design'];
+
 const PAGE_ROUTES = [
   '',              // home
   'services',
+  ...SVC_CAT_ROUTES,
   'work',
   'my-fonts',
   'my-fonts/:fontSlug',
@@ -145,6 +149,10 @@ function renderPage(lang, route, req) {
     en: { home: 'Home', services: 'Services', work: 'Work', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
     de: { home: 'Home', services: 'Leistungen', work: 'Projekte', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
   };
+  /* Category titles come from the same i18n entry the client uses */
+  SVC_CAT_ROUTES.forEach(k => {
+    ['en', 'de'].forEach(l => { titles[l][k] = seo.svcCatLabel(l, k) || k; });
+  });
   const pageKey = route || 'home';
 
   // For nested routes (work/:slug, my-fonts/:slug) extract the slug from the URL

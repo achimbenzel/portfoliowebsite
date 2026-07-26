@@ -107,13 +107,18 @@ function tM() {
 }
 
 function lbMeasureIsland(island) {
-  /* Temporarily remove height constraint so content flows naturally */
-  island.style.setProperty('--island-h', '9999px');
-  /* scrollHeight already includes this flex container's top AND bottom
-     padding, but NOT the borders — and .nav is border-box, so only the
-     border width needs adding back for symmetrical spacing. */
+  /* Sum the natural heights of the flex children rather than reading
+     scrollHeight: scrollHeight never reports less than the element's current
+     box, so a drawer that has to SHRINK (services submenu collapsing) would
+     keep measuring its old, taller self. The children are never height-
+     constrained, so their boxes are the real content height. */
   const cs = getComputedStyle(island);
-  const h = Math.ceil(island.scrollHeight
+  let content = 0;
+  for (const child of island.children) content += child.getBoundingClientRect().height;
+  /* .nav is border-box, so padding is inside the height but borders are not */
+  const h = Math.ceil(content
+    + (parseFloat(cs.paddingTop) || 0)
+    + (parseFloat(cs.paddingBottom) || 0)
     + (parseFloat(cs.borderTopWidth) || 0)
     + (parseFloat(cs.borderBottomWidth) || 0));
   /* Set the exact pixel value for the CSS transition to work */
@@ -137,6 +142,7 @@ function render(r, trigger) {
   let h = '';
   if (r.startsWith('work/')) h = projPg(r.slice(5));
   else if (r.startsWith('my-fonts/')) h = fontTesterPg(r.slice(9));
+  else if (SVC_CATS.includes(r)) h = svcCatPg(r);
   else switch (r) {
     case 'services': h = servicesPg(); break;
     case 'work': h = wrkPg(); break;
@@ -147,7 +153,7 @@ function render(r, trigger) {
     case 'tos': h = tosPg(); break;
     case 'contact': h = contactPg(); break;
     default: {
-      const knownRoutes=['home','services','work','my-fonts','about','imprint','privacy','tos','contact'];
+      const knownRoutes=['home','services','work','my-fonts','about','imprint','privacy','tos','contact'].concat(SVC_CATS);
       h = (r==='home'||knownRoutes.includes(r)) ? homePg() : notFoundPg();
       break;
     }
@@ -193,6 +199,9 @@ function render(r, trigger) {
     privacy: lang === 'en' ? 'Privacy Policy' : 'Datenschutzerklärung',
     tos: lang === 'en' ? 'Terms of Service' : 'Allgemeine Geschäftsbedingungen'
   };
+  /* Service categories take their title from the same i18n entry the page uses */
+  SVC_CATS.forEach(k => { const c = (t('svcCat') || {})[k]; if (c) titleMap[k] = c.label; });
+
   let pageTitle = 'Achim Benzel';
   if (r.startsWith('work/')) {
     const slug = r.slice(5);
