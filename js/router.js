@@ -106,7 +106,10 @@ function tM() {
   }
 }
 
-function lbMeasureIsland(island) {
+/* `adjust` accounts for a child that is about to animate to a different height
+   (the services submenu): its current box is still the old value, so the caller
+   passes the pixel delta and both transitions land together. */
+function lbMeasureIsland(island, adjust = 0) {
   /* Sum the natural heights of the flex children rather than reading
      scrollHeight: scrollHeight never reports less than the element's current
      box, so a drawer that has to SHRINK (services submenu collapsing) would
@@ -116,7 +119,7 @@ function lbMeasureIsland(island) {
   let content = 0;
   for (const child of island.children) content += child.getBoundingClientRect().height;
   /* .nav is border-box, so padding is inside the height but borders are not */
-  const h = Math.ceil(content
+  const h = Math.ceil(content + adjust
     + (parseFloat(cs.paddingTop) || 0)
     + (parseFloat(cs.paddingBottom) || 0)
     + (parseFloat(cs.borderTopWidth) || 0)

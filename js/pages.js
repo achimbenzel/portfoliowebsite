@@ -44,7 +44,7 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
 function svcMenuH(){
   const n=t('nav'),cats=t('svcCat');
   const chev='<svg class="island-sub-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>';
-  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')">${cats[k].label}</a>`).join('');
+  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="nav-sub-name">${cats[k].label}</span><span class="nav-sub-desc">${cats[k].short}</span></a>`).join('');
   return`<div class="island-menu-item" id="svcMenuItem" onmouseenter="svcSubHover(true)" onmouseleave="svcSubHover(false)">
       <a class="island-menu-link island-menu-link-has-sub" id="svcMenuLink" href="${routeToPath('services')}" aria-haspopup="true" aria-expanded="false" aria-controls="svcSubmenu" onclick="svcMenuClick(event)" onkeydown="svcMenuKey(event)">${n.svc}${chev}</a>
       <div class="nav-sub" id="svcSubmenu" aria-labelledby="svcMenuLink" inert onmouseenter="svcSubHover(true)"><div class="nav-sub-inner">${links}</div></div>
@@ -73,13 +73,26 @@ function svcSubSet(open){
      drops them from the tab order and the a11y tree immediately, and still
      lets the fade play out. */
   const sub=document.getElementById('svcSubmenu');
-  if(sub){if(open)sub.removeAttribute('inert');else sub.setAttribute('inert','')}
-  /* Drawer mode: the island's height is a measured pixel value, so it has to be
-     recalculated whenever the submenu adds or removes rows. */
-  if(!svcSubBarMode()){
-    const island=document.getElementById('navIsland');
-    if(island&&island.classList.contains('island-open'))lbMeasureIsland(island);
+  if(!sub)return;
+  if(open)sub.removeAttribute('inert');else sub.setAttribute('inert','');
+
+  if(svcSubBarMode()){
+    /* Flyout sizes itself; drop any inline height left over from drawer mode
+       (e.g. the window was resized across the breakpoint while expanded). */
+    sub.style.height='';
+    return;
   }
+
+  /* Drawer mode: the row and the island have to grow as one movement, so the
+     submenu gets an explicit target height sharing the island's duration and
+     easing. The island is measured with the submenu's TARGET height — reading
+     it mid-transition would otherwise lock in the half-animated value. */
+  const inner=sub.querySelector('.nav-sub-inner');
+  const target=open?inner.getBoundingClientRect().height:0;
+  const delta=target-sub.getBoundingClientRect().height;
+  const island=document.getElementById('navIsland');
+  if(island&&island.classList.contains('island-open'))lbMeasureIsland(island,delta);
+  sub.style.height=target+'px';
 }
 function svcSubClose(){svcSubSet(false)}
 function svcSubIsOpen(){const i=document.getElementById('svcMenuItem');return !!(i&&i.classList.contains('sub-open'))}
@@ -93,6 +106,21 @@ function svcSubHover(entering){
   if(entering)svcSubSet(true);
   else _svcSubTimer=setTimeout(svcSubClose,200);
 }
+
+/* Crossing the layout breakpoint swaps the submenu between an absolutely
+   positioned panel and an in-flow accordion — the inline height belongs only to
+   the latter. Re-syncing here also keeps an expanded drawer correct when the
+   viewport is resized (the links rewrap, so the target height changes).
+   Registered before router.js's resize handler, so the island is re-measured
+   after the submenu has its new height. */
+window.addEventListener('resize',()=>{
+  const sub=document.getElementById('svcSubmenu');
+  if(!sub)return;
+  if(svcSubBarMode()){sub.style.height='';return}
+  if(!svcSubIsOpen()){sub.style.height='0px';return}
+  const inner=sub.querySelector('.nav-sub-inner');
+  if(inner)sub.style.height=inner.getBoundingClientRect().height+'px';
+});
 
 /* Opening on focus keeps the panel reachable with Tab alone. Delegated from the
    document because focusin bubbles — no per-render wiring, and it survives the
@@ -405,8 +433,12 @@ function svcCatPg(key){
     +`<div class="pgrid-more"><a class="pgrid-more-btn" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${w.allBtn} ${arrowSVG}</a></div>`
   +`</div>`:'';
 
+  /* The back button sits in its own <div> so it picks up the same inner rail as
+     the .reveal blocks — from 1920px up .section drops its horizontal padding
+     and hands it to `.section > .reveal, .section > div`, which a bare <button>
+     would miss and end up flush against the viewport edge. */
   return`<section class="section svc-cat-page" style="padding-top:9rem">`
-    +`<button class="pback" onclick="go('services')">${backSVG} ${s.label}</button>`
+    +`<div class="svc-cat-back"><button class="pback" onclick="go('services')">${backSVG} ${s.label}</button></div>`
     +`<div class="reveal">`
       +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${c.title}</h2>`
       +`<p class="section-text" data-anim="words" data-anim-stagger="20">${c.text}</p>`
