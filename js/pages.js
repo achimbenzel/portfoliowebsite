@@ -47,7 +47,8 @@ function svcMenuH(){
   const n=t('nav'),cats=t('svcCat');
   const chev='<svg class="island-sub-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>';
   const cardArrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>';
-  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="nav-sub-name">${cats[k].label}</span><span class="nav-sub-go">${cardArrow}</span></a>`).join('');
+  /* Description and arrow are desktop-only — the drawer shows the label alone */
+  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="nav-sub-text"><span class="nav-sub-name">${cats[k].label}</span><span class="nav-sub-desc">${cats[k].short}</span></span><span class="nav-sub-go">${cardArrow}</span></a>`).join('');
   /* A <button>, not a link: there is no services overview page behind it, so
      the item is purely a disclosure for the three category routes. */
   return`<div class="island-menu-item" id="svcMenuItem" onmouseenter="svcSubHover(true)" onmouseleave="svcSubHover(false)">
@@ -212,9 +213,8 @@ function faqHtml(){
   const f=t('faq');
   const plusSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
   const heroGraphicSVG='';
-  /* The section always runs light, so it always takes the light artwork */
-  const faqImgSrc='/Assets/images/faq.webp';
-  return`<section class="faq-section section-light" data-theme="light"><div class="reveal">
+  const faqImgSrc=(theme==='dark'||theme==='darkproject')?'/Assets/images/faq_dark.webp':'/Assets/images/faq.webp';
+  return`<section class="faq-section"><div class="reveal">
     <h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${f.title}</h2>
     <div class="faq-layout">
       <div class="faq-hero">
@@ -262,7 +262,7 @@ function homePg(){
     <span class="hero-accent-text">Motion</span><span class="hero-accent-dot">·</span>
     <span class="hero-accent-text">${lang==='en'?'More':'Mehr'}</span>
   </div></section>
-  <section class="story-section section-light" data-theme="light"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
+  <section class="story-section"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
     lang==='en'
       ?'As an independent designer, I build identities with <em>substance</em>. I connect strategy and design, bridging intuitive ideas and well-considered systems. The result: brands that are clearly positioned and built for <em>lasting impact</em>.'
       :'Als freiberuflicher Designer entwickle ich Identitäten mit <em>Substanz</em>. Ich verbinde Strategie und Gestaltung, zwischen intuitiven Ideen und durchdachten Systemen. So entstehen Marken, die klar positioniert sind und <em>nachhaltig wirken</em>.'
@@ -287,18 +287,17 @@ function wC(slug){
   /* Osmo-style card: image, then name + type on the left, year and the view
      link on the right. No border, no tag row, nothing truncated. */
   const route=pr.route||('work/'+slug);
-  const type=p.type||catLabel((pr.cats||[])[0]);
+  /* The category ("Brand Identity"), not p.type ("Client Project") */
+  const type=catLabel((pr.cats||[])[0])||p.type;
   return`<a class="pcard" data-cats="${(pr.cats||[]).join(' ')}" data-cl="${w.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
     +`<div class="pcard-media"><img src="${thumb}" alt="${p.title||slug}" loading="lazy"/></div>`
     +`<div class="pcard-body">`
       +`<div class="pcard-main">`
         +`<h3 class="pcard-title">${p.title||slug}</h3>`
         +(type?`<span class="pcard-type">${type}</span>`:'')
-      +`</div>`
-      +`<div class="pcard-meta">`
-        +(pr.yr?`<span class="pcard-year">${pr.yr}</span>`:'')
         +`<span class="pcard-cta">${w.view} ${arrow}</span>`
       +`</div>`
+      +(pr.yr?`<div class="pcard-meta"><span class="pcard-year">${pr.yr}</span></div>`:'')
     +`</div></a>`
 }
 
@@ -976,6 +975,10 @@ function setBaseTheme(next){
   if(next===baseTheme)return;
   baseTheme=next;
   try{localStorage.setItem('noir-theme',next)}catch(e){}
+  /* Paint it before rendering: page builders run before navH() and some of them
+     pick assets by theme (the FAQ artwork, the services images). Project and
+     font pages re-enter their own variant during their render. */
+  setTheme(next);
   render(hr(),'theme');
 }
 
