@@ -17,6 +17,9 @@ function scrollTopNow() {
 
 /* ===== Language & Theme State ===== */
 let lang = window.__LANG__ || 'en';
+/* The user's dark|light choice — the only theme state that is stored. `theme`
+   is what is actually painted and may be a project variant of it. */
+let baseTheme = 'dark';
 let theme = 'dark';
 let mob = false;
 let isFirstRender = true;

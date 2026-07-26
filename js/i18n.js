@@ -6,6 +6,7 @@ function letterize(text){
 /* ===== i18n ===== */
 const L={en:{
   nav:{svc:'Services',wrk:'Work',fonts:'My Fonts',abt:'About',contact:'Get in Touch'},
+  settings:{title:'Settings',appearance:'Appearance',language:'Language',dark:'Dark',light:'Light'},
   hero:{
     label:'Independent Graphic Designer',
     title:'Freelance Designer for Branding, Graphic, Motion & 3D',
@@ -138,6 +139,7 @@ const L={en:{
 },
 de:{
   nav:{svc:'Leistungen',wrk:'Projekte',fonts:'Schriften',abt:'Über mich',contact:'Kontakt'},
+  settings:{title:'Einstellungen',appearance:'Darstellung',language:'Sprache',dark:'Dunkel',light:'Hell'},
   hero:{
     label:'Freiberuflicher Grafikdesigner',
     title:'Freiberuflicher Designer für Branding, Grafik, Motion und 3D',

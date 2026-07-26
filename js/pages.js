@@ -5,6 +5,8 @@ const SVC_CATS=['branding','motion-design','web-design'];
 /* Lucide "sun" (ISC) — mirrors /Assets/Icons/sun.svg. Inlined so `currentColor`
    inherits the button's colour; an <img> tag could not. */
 const SUN_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+/* Lucide "settings" (ISC) — mirrors /Assets/Icons/settings.svg */
+const SETTINGS_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>';
 /* Lucide "moon" (ISC) — mirrors /Assets/Icons/moon.svg */
 const MOON_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
 
@@ -21,7 +23,7 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
   <div class="nav-top-row">
     <a class="nav-logo" data-cl="Home" href="${routeToPath('home')}" onclick="event.preventDefault();go('home')"><img class="nav-logo-img nav-logo-dark" src="/Assets/Logo/logo_wide_dark.svg" alt="Achim"/><img class="nav-logo-img nav-logo-light" src="/Assets/Logo/logo_wide_light.svg" alt="Achim"/><img class="nav-logo-img nav-logo-dark-project" src="/Assets/Logo/logo_wide_dark_project.svg" alt="Achim"/><img class="nav-logo-img nav-logo-light-project" src="/Assets/Logo/logo_wide_light_project.svg" alt="Achim"/></a>
     <div class="nav-right">
-      <button class="nav-toggle-btn desktop-only" onclick="tL()" title="Language">${lang==='en'?'DE':'EN'}</button>
+      ${settingsMenuH()}
       <button class="ham" id="hamBtn" onclick="tM()"><svg viewBox="0 0 100 100"><path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"/><path class="line line2" d="M 20,50 H 80"/><path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"/></svg></button>
     </div>
   </div>
@@ -31,7 +33,8 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
     <a class="island-menu-link" href="${routeToPath('about')}" onclick="event.preventDefault();go('about')">${n.abt}</a>
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
     <div class="island-menu-footer">
-      <button class="nav-toggle-btn" onclick="tL()">${lang==='en'?'DE':'EN'}</button>
+      <button class="nav-toggle-btn" onclick="tL()" title="${lang==='en'?'Sprache':'Language'}">${lang==='en'?'DE':'EN'}</button>
+      <button class="nav-toggle-btn" onclick="setBaseTheme(baseTheme==='dark'?'light':'dark')" title="${themeBtnLabel()}">${baseTheme==='dark'?SUN_SVG:MOON_SVG}</button>
     </div>
   </div>
 </nav></div>`}
@@ -43,13 +46,66 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
 function svcMenuH(){
   const n=t('nav'),cats=t('svcCat');
   const chev='<svg class="island-sub-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>';
-  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="nav-sub-name">${cats[k].label}</span></a>`).join('');
+  const cardArrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>';
+  const links=SVC_CATS.map(k=>`<a class="nav-sub-link" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')"><span class="nav-sub-name">${cats[k].label}</span><span class="nav-sub-go">${cardArrow}</span></a>`).join('');
   /* A <button>, not a link: there is no services overview page behind it, so
      the item is purely a disclosure for the three category routes. */
   return`<div class="island-menu-item" id="svcMenuItem" onmouseenter="svcSubHover(true)" onmouseleave="svcSubHover(false)">
       <button type="button" class="island-menu-link island-menu-link-has-sub" id="svcMenuLink" aria-haspopup="true" aria-expanded="false" aria-controls="svcSubmenu" onclick="svcMenuClick(event)" onkeydown="svcMenuKey(event)">${n.svc}${chev}</button>
       <div class="nav-sub" id="svcSubmenu" aria-labelledby="svcMenuLink" inert onmouseenter="svcSubHover(true)"><div class="nav-sub-inner">${links}</div></div>
     </div>`;
+}
+
+/* ===== SETTINGS MENU (desktop) =====
+   Replaces the loose language and appearance buttons with one gear that opens a
+   small panel — that is what lets the bar shrink to fit its links. On mobile the
+   drawer keeps the two direct buttons instead. */
+function themeBtnLabel(){
+  const toLight=baseTheme==='dark';
+  if(lang==='en')return toLight?'Light mode':'Dark mode';
+  return toLight?'Heller Modus':'Dunkler Modus';
+}
+function settingsMenuH(){
+  const s=t('settings');
+  const opt=(val,label,icon)=>`<button type="button" class="set-opt${baseTheme===val?' active':''}" role="menuitemradio" aria-checked="${baseTheme===val}" onclick="setBaseTheme('${val}')">${icon}<span>${label}</span></button>`;
+  return`<div class="set-menu desktop-only" id="setMenu" onmouseleave="setMenuHover(false)" onmouseenter="setMenuHover(true)">
+      <button type="button" class="nav-toggle-btn set-trigger" id="setTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="setPanel" title="${s.title}" onclick="setMenuClick(event)" onkeydown="setMenuKey(event)">${SETTINGS_SVG}</button>
+      <div class="set-panel" id="setPanel" aria-label="${s.title}" role="menu" inert>
+        <div class="set-panel-inner">
+          <div class="set-group"><div class="set-label">${s.appearance}</div><div class="set-opts">${opt('dark',s.dark,MOON_SVG)}${opt('light',s.light,SUN_SVG)}</div></div>
+          <div class="set-group"><div class="set-label">${s.language}</div><div class="set-opts">
+            <button type="button" class="set-opt${lang==='de'?' active':''}" role="menuitemradio" aria-checked="${lang==='de'}" onclick="if(lang!=='de')tL()"><span>Deutsch</span></button>
+            <button type="button" class="set-opt${lang==='en'?' active':''}" role="menuitemradio" aria-checked="${lang==='en'}" onclick="if(lang!=='en')tL()"><span>English</span></button>
+          </div></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+let _setMenuTimer=null;
+function setMenuIsOpen(){const m=document.getElementById('setMenu');return !!(m&&m.classList.contains('set-open'))}
+function setMenuSet(open){
+  const m=document.getElementById('setMenu'),b=document.getElementById('setTrigger'),p=document.getElementById('setPanel');
+  if(!m||!b||!p)return;
+  clearTimeout(_setMenuTimer);_setMenuTimer=null;
+  m.classList.toggle('set-open',open);
+  b.setAttribute('aria-expanded',open?'true':'false');
+  if(open)p.removeAttribute('inert');else p.setAttribute('inert','');
+}
+function setMenuClose(){setMenuSet(false)}
+function setMenuHover(entering){
+  if(!svcSubHoverMode())return;
+  clearTimeout(_setMenuTimer);
+  if(entering){svcSubClose();setMenuSet(true)}
+  else _setMenuTimer=setTimeout(setMenuClose,200);
+}
+function setMenuClick(e){e.preventDefault();setMenuSet(!setMenuIsOpen())}
+function setMenuKey(e){
+  if(e.key==='ArrowDown'){
+    e.preventDefault();setMenuSet(true);
+    const f=document.querySelector('#setPanel .set-opt');
+    if(f)requestAnimationFrame(()=>f.focus());
+  }else if(e.key==='Escape')setMenuClose();
 }
 
 /* Layout mode: the floating bar only exists where the horizontal nav does. */
@@ -104,7 +160,7 @@ function svcSubIsOpen(){const i=document.getElementById('svcMenuItem');return !!
 function svcSubHover(entering){
   if(!svcSubHoverMode())return;
   clearTimeout(_svcSubTimer);
-  if(entering)svcSubSet(true);
+  if(entering){setMenuClose();svcSubSet(true)}
   else _svcSubTimer=setTimeout(svcSubClose,200);
 }
 
@@ -228,19 +284,21 @@ function wC(slug){
   const p=pr[lang]||pr.en||{};const w=t('wrk');
   const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   const thumb=pr.thumb||vg(1600,900,(p.title||slug).split('\u2014')[0].trim(),pr.c);
-  const sub=[p.type,p.ind].filter(Boolean).join(' \u00b7 ');
-  const tags=(p.tags||[]).slice(0,3);
-  /* Entries with their own route (e.g. the type library) link there instead
-     of to a /work/<slug> detail page. */
+  /* Osmo-style card: image, then name + type on the left, year and the view
+     link on the right. No border, no tag row, nothing truncated. */
   const route=pr.route||('work/'+slug);
+  const type=p.type||catLabel((pr.cats||[])[0]);
   return`<a class="pcard" data-cats="${(pr.cats||[]).join(' ')}" data-cl="${w.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
     +`<div class="pcard-media"><img src="${thumb}" alt="${p.title||slug}" loading="lazy"/></div>`
     +`<div class="pcard-body">`
-      +`<div class="pcard-head"><span class="pcard-cat">${catLabel((pr.cats||[])[0])}</span><span class="pcard-year">${pr.yr||''}</span></div>`
-      +`<h3 class="pcard-title">${p.title||slug}</h3>`
-      +(sub?`<p class="pcard-sub">${sub}</p>`:'')
-      +(tags.length?`<div class="pcard-tags">${tags.map(tg=>`<span class="pcard-tag">${tg}</span>`).join('')}</div>`:'')
-      +`<span class="pcard-cta">${w.view} ${arrow}</span>`
+      +`<div class="pcard-main">`
+        +`<h3 class="pcard-title">${p.title||slug}</h3>`
+        +(type?`<span class="pcard-type">${type}</span>`:'')
+      +`</div>`
+      +`<div class="pcard-meta">`
+        +(pr.yr?`<span class="pcard-year">${pr.yr}</span>`:'')
+        +`<span class="pcard-cta">${w.view} ${arrow}</span>`
+      +`</div>`
     +`</div></a>`
 }
 
@@ -490,7 +548,7 @@ return`<div class="font-tester"><a class="pback" href="${routeToPath('my-fonts')
       <div class="ft-controls-divider"></div>
       <div class="ft-control-group"><div class="ft-control-label"><span>${f.align}</span></div><div class="ft-align-btns"><button class="ft-align-btn active" id="ftAlignL" onclick="setFontAlign('left')">${alignSVGs.left}</button><button class="ft-align-btn" id="ftAlignC" onclick="setFontAlign('center')">${alignSVGs.center}</button><button class="ft-align-btn" id="ftAlignR" onclick="setFontAlign('right')">${alignSVGs.right}</button></div></div>
       <div class="ft-controls-divider"></div>
-      <div class="ft-control-group ft-control-group-theme"><div class="ft-control-label"><span>${f.themeLabel}</span></div><div class="ft-align-btns"><button class="ft-align-btn ft-theme-btn" id="ftThemeBtn" type="button" aria-pressed="false" title="${ftPreviewLabel(false)}" onclick="ftTogglePreview()">${SUN_SVG}</button></div></div>
+      <div class="ft-control-group ft-control-group-theme"><div class="ft-control-label"><span>${f.themeLabel}</span></div><div class="ft-align-btns"><button class="ft-align-btn ft-theme-btn" id="ftThemeBtn" type="button" aria-pressed="false" title="${ftPreviewLabel(baseTheme==='light')}" onclick="ftTogglePreview()">${baseTheme==='light'?MOON_SVG:SUN_SVG}</button></div></div>
     </div>
     <div class="ft-preview-area" id="ftPreviewArea"><textarea class="ft-textarea" id="ftTextarea" placeholder="${f.preview}" data-font="${fd.family}" style="font-family:'${fd.family}',sans-serif;font-size:64px;letter-spacing:0em;line-height:1.2;text-align:left">${fd.preview}</textarea></div>
   </div>
@@ -897,18 +955,29 @@ function observe(){
 /* Store the user's base theme preference (dark/light) separately */
 
 /* ===== THEME =====
-   There is no site-wide switch any more. The site is dark; project pages use
-   the neutral dark variant; the font pages open on the light variant and carry
-   their own toggle. Nothing is persisted. */
+   `baseTheme` is the user's choice (dark | light) and is the only thing stored.
+   Project detail and font pages render it as the neutral "project" variant so
+   the work sets the colour; individual sections can still opt into the light
+   palette locally via data-theme. */
 function setTheme(t){theme=t;document.body.dataset.theme=t}
+function projectVariant(){return baseTheme==='light'?'lightproject':'darkproject'}
 
 /* Project detail pages — neutral palette so the work sets the colour */
-function enterProjectTheme(){setTheme('darkproject')}
+function enterProjectTheme(){setTheme(projectVariant())}
 
-function exitProjectTheme(){setTheme('dark')}
+function exitProjectTheme(){setTheme(baseTheme)}
 
-/* Font pages run on the same neutral dark palette as the project pages */
-function enterFontTheme(){setTheme('darkproject')}
+/* Font pages use the same neutral variant as the project pages */
+function enterFontTheme(){setTheme(projectVariant())}
+
+/* Switch between dark and light. Stored as a functional preference (no cookie
+   consent needed) and re-rendered, because a few pages pick assets by theme. */
+function setBaseTheme(next){
+  if(next===baseTheme)return;
+  baseTheme=next;
+  try{localStorage.setItem('noir-theme',next)}catch(e){}
+  render(hr(),'theme');
+}
 
 /* Toggle in .ft-controls — it only repaints the preview area so the specimen
    can be judged on a light ground; the page around it stays dark. Same trick as
@@ -918,14 +987,17 @@ function enterFontTheme(){setTheme('darkproject')}
 function ftTogglePreview(){
   const area=document.getElementById('ftPreviewArea');
   if(!area)return;
-  const toLight=area.getAttribute('data-theme')!=='lightproject';
-  if(toLight)area.setAttribute('data-theme','lightproject');
+  /* Flips to the opposite of the page it sits on, so it works in either theme */
+  const opposite=baseTheme==='light'?'darkproject':'lightproject';
+  const flipped=area.getAttribute('data-theme')!==opposite;
+  if(flipped)area.setAttribute('data-theme',opposite);
   else area.removeAttribute('data-theme');
   const btn=document.getElementById('ftThemeBtn');
   if(btn){
-    btn.innerHTML=toLight?MOON_SVG:SUN_SVG;
-    btn.setAttribute('aria-pressed',toLight?'true':'false');
-    btn.title=ftPreviewLabel(toLight);
+    const showsLight=flipped?opposite==='lightproject':baseTheme==='light';
+    btn.innerHTML=showsLight?MOON_SVG:SUN_SVG;
+    btn.setAttribute('aria-pressed',flipped?'true':'false');
+    btn.title=ftPreviewLabel(showsLight);
   }
 }
 function ftPreviewLabel(isLight){
@@ -936,6 +1008,13 @@ function ftPreviewLabel(isLight){
 /* Escape closes the services submenu first, then the island */
 document.addEventListener('keydown',e=>{
   if(e.key!=='Escape')return;
+  if(setMenuIsOpen()){
+    const trig=document.getElementById('setTrigger');
+    const refocus=!!(trig&&document.activeElement&&trig.parentElement.contains(document.activeElement));
+    setMenuClose();
+    if(refocus)trig.focus();
+    return;
+  }
   if(svcSubIsOpen()){
     const link=document.getElementById('svcMenuLink');
     /* Only pull focus back if it was inside the submenu we just closed */
@@ -953,11 +1032,15 @@ document.addEventListener('keydown',e=>{
 /* Pointer outside the services item closes the flyout (bar mode only — in the
    drawer the item is collapsed by tapping it again) */
 document.addEventListener('click',e=>{
-  if(!svcSubBarMode()||!svcSubIsOpen())return;
-  if(!e.target.closest('#svcMenuItem'))svcSubClose();
+  if(!svcSubBarMode())return;
+  if(svcSubIsOpen()&&!e.target.closest('#svcMenuItem'))svcSubClose();
+  if(setMenuIsOpen()&&!e.target.closest('#setMenu'))setMenuClose();
 });
 
 document.addEventListener('DOMContentLoaded',()=>{
+  /* Restore the stored appearance before the first render */
+  try{const saved=localStorage.getItem('noir-theme');if(saved==='light'||saved==='dark')baseTheme=saved}catch(e){}
+  setTheme(baseTheme);
   const r=hr();
   history.replaceState({r},'',routeToPath(r));
   render(r);

@@ -373,6 +373,60 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .nav.island-open .island-menu>.island-menu-link:nth-child(5){transition-delay:.22s}
 .island-menu-link:hover{color:#fff}
 
+/* ===== SETTINGS MENU (desktop only) ===== */
+.set-menu{position:relative;display:flex;align-items:center}
+.set-trigger svg{width:18px;height:18px}
+.set-menu.set-open .set-trigger{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.25)}
+.set-panel{
+  position:absolute;
+  top:100%;right:0;
+  z-index:1002;
+  padding-top:20px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .3s cubic-bezier(.16,1,.3,1),
+             transform .3s cubic-bezier(.16,1,.3,1),
+             visibility 0s linear .3s;
+}
+.set-menu.set-open .set-panel{
+  opacity:1;visibility:visible;transform:translateY(0);
+  transition:opacity .3s cubic-bezier(.16,1,.3,1),
+             transform .3s cubic-bezier(.16,1,.3,1),
+             visibility 0s;
+}
+.set-panel-inner{
+  display:flex;flex-direction:column;gap:14px;
+  min-width:210px;padding:14px;
+  background:rgba(38,38,38,.94);
+  backdrop-filter:blur(20px) saturate(1.3);
+  -webkit-backdrop-filter:blur(20px) saturate(1.3);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+.set-label{
+  font-family:var(--font-mono);font-size:.58rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);
+  margin-bottom:8px;
+}
+.set-opts{display:flex;gap:6px}
+.set-opt{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  padding:9px 10px;
+  font-family:var(--font-primary);font-size:.82rem;font-weight:500;
+  color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.05);
+  border:1px solid transparent;border-radius:var(--radius-small);
+  transition:all var(--transition-fast);
+}
+.set-opt svg{width:15px;height:15px;flex-shrink:0}
+.set-opt:hover{background:rgba(255,255,255,.12);color:#fff}
+.set-opt.active{
+  background:rgba(var(--color-accent-rgb),.9);
+  color:var(--color-text-on-dark);
+  border-color:rgba(var(--color-accent-rgb),.9);
+}
+.set-opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 /* ===== SERVICES SUBMENU =====
    Shared by both breakpoints; positioning differs in the media queries below. */
 .island-menu-item{position:relative;display:block}
@@ -419,10 +473,14 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   /* .island-menu is a SIBLING of .nav-top-row in the markup,
      so .nav itself must be the horizontal flex row. */
   .nav{
-    width:100%;
-    max-width:1400px;
-    height:68px;
-    padding:10px 14px;
+    /* Fit-content, not the old 1400px rail: the dropdown panel below spans the
+       bar's width, so a shorter bar is what makes the block style work. */
+    width:auto;
+    max-width:min(96vw,1120px);
+    height:72px;
+    --nav-px-l:20px;
+    --nav-px-r:12px;
+    padding:10px var(--nav-px-r) 10px var(--nav-px-l);
     flex-direction:row;
     align-items:center;
     /* Tightens the space between the last nav link and the language button.
@@ -432,8 +490,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     overflow:visible;
   }
   .nav.island-open{
-    height:68px;
-    padding:10px 14px;
+    height:72px;
+    padding:10px var(--nav-px-r) 10px var(--nav-px-l);
     box-shadow:0 8px 32px rgba(0,0,0,.2);
   }
   .ham{display:none !important}
@@ -456,9 +514,11 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
        bottom edge — that is what makes the hover bridge to .nav-sub touch.
        Links stay vertically centred via align-items above. */
     align-self:stretch;
-    gap:2px;
+    gap:4px;
     padding:0;
-    margin:0;
+    /* Breathing room after the logo; .nav's own gap stays tight so the links
+       sit close to the settings button. */
+    margin:0 0 0 28px;
     order:2;
     opacity:1 !important;
     pointer-events:auto !important;
@@ -467,11 +527,11 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   }
   .island-menu-link{
     font-family:var(--font-primary);
-    font-size:.9rem;
+    font-size:1.05rem;
     font-weight:500;
     line-height:1;
     white-space:nowrap;
-    padding:9px 12px;
+    padding:11px 16px;
     border-radius:var(--radius-small);
     color:rgba(255,255,255,.72);
     opacity:1 !important;
@@ -493,25 +553,28 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .nav-toggle-btn{height:38px;width:38px;font-size:.65rem}
   .nav-logo-img{height:1.85rem}
 
-  /* --- Dropdown panel ---
-     Anchored to the Services item and absolutely positioned, so the page never
-     reflows when it opens.
+  /* --- Dropdown block ---
+     Spans the full width of the bar and matches its glass panel, so it reads as
+     a second header block rather than a small menu. Absolutely positioned, so
+     the page never reflows when it opens.
 
      Hover continuity: .nav-sub is a DOM child of #svcMenuItem, so the pointer
      never leaves the item while it is over the panel. The two boxes have to
-     actually touch, though — hence (a) the item stretches to the full height of
-     the nav's content box instead of hugging the link, and (b) the panel's
-     transparent padding-top bridges from that edge down to the visible box:
-     10px nav padding-bottom + 1px border + the 10px gap. Without both, a ~17px
-     dead strip of nav padding sits between them and a slow downward move fires
-     mouseleave. */
-  .island-menu-item{position:relative;align-self:stretch;display:flex;align-items:center}
+     actually touch — hence (a) the item stretches to the full height of the
+     nav's content box instead of hugging the link, and (b) the panel starts at
+     that same edge (100% is the padding box, so -10px lands on the content box)
+     with transparent padding spanning the visual gap. Without both, a dead
+     strip of nav padding sits between them and a slow move fires mouseleave. */
+  .island-menu-item{position:static;align-self:stretch;display:flex;align-items:center}
   .nav-sub{
     position:absolute;
-    top:100%;
-    left:0;
+    top:calc(100% - 10px);
+    /* The containing block is .nav's PADDING box, so only the border has to be
+       stepped over for the panel's edges to line up with the bar's. */
+    left:-1px;
+    right:-1px;
     z-index:1001;
-    padding-top:21px;
+    padding-top:20px;
     opacity:0;
     visibility:hidden;
     transform:translateY(-8px);
@@ -528,11 +591,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
                visibility 0s;
   }
   .nav-sub-inner{
-    display:flex;
-    flex-direction:column;
-    gap:2px;
-    min-width:200px;
-    padding:10px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    padding:12px;
     background:rgba(38,38,38,.94);
     backdrop-filter:blur(20px) saturate(1.3);
     -webkit-backdrop-filter:blur(20px) saturate(1.3);
@@ -541,18 +603,35 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     box-shadow:0 12px 40px rgba(0,0,0,.35);
   }
   .nav-sub-link{
-    padding:10px 12px;
-    border-radius:var(--radius-small);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:1.4rem;
+    min-height:118px;
+    padding:16px 18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.05);
+    transition:background var(--transition-fast);
   }
   .nav-sub-name{
-    font-size:.9rem;
-    font-weight:500;
+    font-size:1.05rem;
+    font-weight:600;
     line-height:1.25;
     color:rgba(255,255,255,.92);
     transition:color var(--transition-fast);
   }
-  .nav-sub-link:hover,.nav-sub-link:focus-visible{background:rgba(255,255,255,.08)}
+  .nav-sub-go{
+    align-self:flex-end;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;
+    border-radius:8px;
+    background:rgba(var(--color-accent-rgb),.9);
+    color:var(--color-text-on-dark);
+    transition:transform var(--transition-fast),background var(--transition-fast);
+  }
+  .nav-sub-link:hover,.nav-sub-link:focus-visible{background:rgba(255,255,255,.1)}
   .nav-sub-link:hover .nav-sub-name,.nav-sub-link:focus-visible .nav-sub-name{color:#fff}
+  .nav-sub-link:hover .nav-sub-go{transform:translate(2px,-2px)}
 }
 @media(max-width:1099px){
   .island-menu{position:static;flex-direction:column}
@@ -560,6 +639,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* Hide desktop controls on mobile, show footer controls instead */
 @media(max-width:1099px){
   .nav-toggle-btn.desktop-only{display:none}
+  .set-menu.desktop-only{display:none}
   .island-menu-footer{display:flex;margin-top:6px}
   .nav-outer{padding:10px 10px 0}
   /* height = button (42) + 10px top + 10px bottom  */
@@ -608,6 +688,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 @media(min-width:1100px){
   .nav-toggle-btn.desktop-only{display:flex}
+  .set-menu.desktop-only{display:flex}
   .island-menu-footer{display:none}
 }
 .mmenu{display:none!important}
@@ -2230,51 +2311,51 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
    ============================================================ */
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;align-items:stretch}
 
+/* ===== PROJECT CARD (osmo-style) =====
+   No frame: the image is the card, the meta row sits underneath it. Nothing is
+   truncated, so a longer title simply wraps. */
 .pcard{
   display:flex;flex-direction:column;
-  background:var(--bg2);
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-card);
-  overflow:hidden;
+  background:transparent;
+  border:none;
   text-decoration:none;
-  transition:border-color var(--transition-med),transform var(--transition-med),box-shadow var(--transition-med);
+  transition:transform var(--transition-med);
 }
-.pcard:hover{
-  border-color:rgba(var(--color-accent-rgb),.35);
-  transform:translateY(-4px);
-  box-shadow:0 18px 40px rgba(0,0,0,.28);
-}
+.pcard:hover{transform:translateY(-4px)}
 
-.pcard-media{aspect-ratio:4/3;overflow:hidden;background:var(--bg3);flex:none}
+.pcard-media{aspect-ratio:4/3;overflow:hidden;background:var(--bg2);border-radius:var(--radius-card);flex:none}
 .pcard-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.16,1,.3,1)}
 .pcard:hover .pcard-media img{transform:scale(1.04)}
 
-.pcard-body{display:flex;flex-direction:column;flex:1;padding:1.5rem 1.6rem 1.4rem;gap:.55rem}
-
-.pcard-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
-.pcard-cat{font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2)}
-.pcard-year{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;color:var(--text3);white-space:nowrap}
-
-.pcard-title{font-family:var(--font-primary);font-size:1.5rem;font-weight:700;line-height:1.15;color:var(--text);margin:.1rem 0 0}
-.pcard-sub{font-size:.92rem;font-weight:300;line-height:1.5;color:var(--text2);margin:0}
-
-.pcard-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem}
-.pcard-tag{
-  font-family:var(--font-mono);font-size:.58rem;font-weight:500;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--tag-text);
-  padding:.32rem .6rem;border:1px solid var(--color-border);
-  border-radius:var(--radius-small);white-space:nowrap;
+.pcard-body{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:1.5rem;padding:1rem .15rem 0;
 }
+.pcard-main{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.pcard-title{
+  font-family:var(--font-primary);font-size:1.05rem;font-weight:600;
+  line-height:1.3;color:var(--text);margin:0;
+}
+.pcard-type{font-size:.92rem;font-weight:300;line-height:1.4;color:var(--text2)}
 
+.pcard-meta{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;flex-shrink:0;text-align:right}
+.pcard-year{font-size:.92rem;font-weight:300;color:var(--text2);white-space:nowrap}
 .pcard-cta{
-  display:inline-flex;align-items:center;gap:.45rem;margin-top:auto;padding-top:1rem;
-  font-family:var(--font-mono);font-size:.62rem;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--text2);
-  transition:color var(--transition-fast);
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.92rem;font-weight:400;color:var(--text2);
+  white-space:nowrap;
+  border-bottom:1px solid var(--color-border-strong);
+  padding-bottom:1px;
+  transition:color var(--transition-fast),border-color var(--transition-fast);
 }
 .pcard-cta svg{transition:transform var(--transition-fast)}
-.pcard:hover .pcard-cta{color:var(--accent2)}
+.pcard:hover .pcard-cta{color:var(--text);border-color:var(--text)}
 .pcard:hover .pcard-cta svg{transform:translate(2px,-2px)}
+
+@media(max-width:600px){
+  .pcard-body{flex-direction:column;gap:.5rem;align-items:flex-start}
+  .pcard-meta{flex-direction:row;align-items:baseline;gap:.9rem;text-align:left}
+}
 
 /* Home: "Discover all projects" */
 .pgrid-more{display:flex;justify-content:center;margin-top:3rem}
@@ -2377,8 +2458,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* Entrance stagger — mirrors the existing .reveal system */
 .pcard{opacity:0;transform:translateY(16px) scale(.985);
   transition:opacity .7s cubic-bezier(.25,.1,.25,1),
-             transform .7s cubic-bezier(.25,.1,.25,1),
-             border-color .35s ease,box-shadow .35s ease}
+             transform .7s cubic-bezier(.25,.1,.25,1)}
 .reveal.vis .pcard,.vis .pcard{opacity:1;transform:translateY(0) scale(1)}
 .reveal.vis .pcard:nth-child(2){transition-delay:.09s}
 .reveal.vis .pcard:nth-child(3){transition-delay:.18s}
