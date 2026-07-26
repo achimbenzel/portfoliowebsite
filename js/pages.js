@@ -490,9 +490,9 @@ return`<div class="font-tester"><a class="pback" href="${routeToPath('my-fonts')
       <div class="ft-controls-divider"></div>
       <div class="ft-control-group"><div class="ft-control-label"><span>${f.align}</span></div><div class="ft-align-btns"><button class="ft-align-btn active" id="ftAlignL" onclick="setFontAlign('left')">${alignSVGs.left}</button><button class="ft-align-btn" id="ftAlignC" onclick="setFontAlign('center')">${alignSVGs.center}</button><button class="ft-align-btn" id="ftAlignR" onclick="setFontAlign('right')">${alignSVGs.right}</button></div></div>
       <div class="ft-controls-divider"></div>
-      <div class="ft-control-group ft-control-group-theme"><div class="ft-control-label"><span>${f.themeLabel}</span></div><div class="ft-align-btns"><button class="ft-align-btn ft-theme-btn" id="ftThemeBtn" type="button" aria-pressed="false" title="${ftThemeLabel()}" onclick="ftToggleTheme()">${MOON_SVG}</button></div></div>
+      <div class="ft-control-group ft-control-group-theme"><div class="ft-control-label"><span>${f.themeLabel}</span></div><div class="ft-align-btns"><button class="ft-align-btn ft-theme-btn" id="ftThemeBtn" type="button" aria-pressed="false" title="${ftPreviewLabel(false)}" onclick="ftTogglePreview()">${SUN_SVG}</button></div></div>
     </div>
-    <div class="ft-preview-area"><textarea class="ft-textarea" id="ftTextarea" placeholder="${f.preview}" data-font="${fd.family}" style="font-family:'${fd.family}',sans-serif;font-size:64px;letter-spacing:0em;line-height:1.2;text-align:left">${fd.preview}</textarea></div>
+    <div class="ft-preview-area" id="ftPreviewArea"><textarea class="ft-textarea" id="ftTextarea" placeholder="${f.preview}" data-font="${fd.family}" style="font-family:'${fd.family}',sans-serif;font-size:64px;letter-spacing:0em;line-height:1.2;text-align:left">${fd.preview}</textarea></div>
   </div>
   <div class="ft-about">
     <p class="ft-about-desc">${fd.desc[lang]}</p>
@@ -907,27 +907,30 @@ function enterProjectTheme(){setTheme('darkproject')}
 
 function exitProjectTheme(){setTheme('dark')}
 
-/* Font pages open light every time. Deliberately not stored: leaving and coming
-   back starts light again. */
-function enterFontTheme(){setTheme('lightproject')}
+/* Font pages run on the same neutral dark palette as the project pages */
+function enterFontTheme(){setTheme('darkproject')}
 
-/* Toggle in .ft-controls. No re-render — nothing in the font pages' markup
-   depends on the theme, so flipping the attribute is enough and keeps the
-   tester's slider state and typed text intact. */
-function ftToggleTheme(){
-  const dark=theme!=='darkproject';
-  setTheme(dark?'darkproject':'lightproject');
+/* Toggle in .ft-controls — it only repaints the preview area so the specimen
+   can be judged on a light ground; the page around it stays dark. Same trick as
+   the light sections on the home page: data-theme is an attribute selector, so
+   putting it on the element gives that subtree the light palette. Not stored,
+   and no re-render, which keeps the typed text and slider positions. */
+function ftTogglePreview(){
+  const area=document.getElementById('ftPreviewArea');
+  if(!area)return;
+  const toLight=area.getAttribute('data-theme')!=='lightproject';
+  if(toLight)area.setAttribute('data-theme','lightproject');
+  else area.removeAttribute('data-theme');
   const btn=document.getElementById('ftThemeBtn');
   if(btn){
-    btn.innerHTML=dark?SUN_SVG:MOON_SVG;
-    btn.setAttribute('aria-pressed',dark?'true':'false');
-    btn.title=ftThemeLabel();
+    btn.innerHTML=toLight?MOON_SVG:SUN_SVG;
+    btn.setAttribute('aria-pressed',toLight?'true':'false');
+    btn.title=ftPreviewLabel(toLight);
   }
 }
-function ftThemeLabel(){
-  const toLight=theme==='darkproject';
-  if(lang==='en')return toLight?'Switch to light':'Switch to dark';
-  return toLight?'Zu Hell wechseln':'Zu Dunkel wechseln';
+function ftPreviewLabel(isLight){
+  if(lang==='en')return isLight?'Dark preview':'Light preview';
+  return isLight?'Dunkle Vorschau':'Helle Vorschau';
 }
 
 /* Escape closes the services submenu first, then the island */

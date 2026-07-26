@@ -425,7 +425,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     padding:10px 14px;
     flex-direction:row;
     align-items:center;
-    gap:20px;
+    /* Tightens the space between the last nav link and the language button.
+       The logo-to-menu gap is unaffected visually — .island-menu is flex:1 and
+       right-aligns its links. */
+    gap:8px;
     overflow:visible;
   }
   .nav.island-open{
@@ -485,7 +488,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     order:3;
     flex:0 0 auto;
     gap:6px;
-    margin-left:4px;
+    margin-left:0;
   }
   .nav-toggle-btn{height:38px;width:38px;font-size:.65rem}
   .nav-logo-img{height:1.85rem}
@@ -994,7 +997,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .cf-submit{
   display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 2.4rem;
   background:rgba(var(--color-accent-rgb),.12);
-  color:var(--accent);
+  color:var(--color-text-on-dark);
   font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   border:1px solid rgba(var(--color-accent-rgb),.35);
   border-radius:var(--radius-btn);
@@ -1268,7 +1271,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .fcta{
   display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 2.4rem;
   background:rgba(var(--color-accent-rgb),.12);
-  color:var(--accent);
+  /* Accent-tinted buttons carry near-white text, not accent-on-accent — same
+     token .hero-cta-primary already uses, so it adapts per theme */
+  color:var(--color-text-on-dark);
   font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   border:1px solid rgba(var(--color-accent-rgb),.35);
   border-radius:var(--radius-btn);
@@ -1294,12 +1299,17 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 [data-theme="lightproject"] .fcta:hover{background:#3290b3;color:#e0e0e4}
 [data-theme="darkproject"] .fcta:hover{background:rgba(0,180,210,.2);border-color:rgba(0,180,210,.6);color:#63b7ed}
 .fmid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;padding:2rem 0;margin-bottom:1.8rem;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
-.fsocial{display:flex;gap:2.5rem;align-items:center}
+/* Wraps onto more rows rather than squeezing: each .letter-link is
+   overflow:hidden for the roll-up hover, so a label that gets narrower than its
+   text breaks inside and the clipped second line exposes the clone underneath. */
+.fsocial{display:flex;flex-wrap:wrap;gap:1.2rem 2.5rem;align-items:center}
 /* ===== LETTER-ANIMATED SOCIAL LINKS ===== */
 .letter-link{
   display:inline-block;
   overflow:hidden;
   position:relative;
+  /* Never let a label be squeezed below its own width — .fsocial wraps instead */
+  flex:0 0 auto;
 }
 .letter-link a{
   font-family:var(--font-mono);
@@ -1309,6 +1319,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   text-transform:uppercase;
   color:var(--text);
   display:inline-flex;
+  flex-wrap:nowrap;
+  white-space:nowrap;
   position:relative;
 }
 .letter-link a .letter{
@@ -1438,7 +1450,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .ckbtn:hover{border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
 .ckbtn.acc{
   background:rgba(var(--color-accent-rgb),.12);
-  color:var(--accent);
+  color:var(--color-text-on-dark);
   border-color:rgba(var(--color-accent-rgb),.35);
 }
 .ckbtn.acc:hover{
@@ -1482,7 +1494,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .faq-hero{position:relative;width:65%;aspect-ratio:1/1;max-height:220px;margin:1rem auto 0}
 }
 /* SCROLL TOP */
-.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:900;width:48px;height:48px;border-radius:99px;background:rgba(var(--color-accent-rgb),.12);color:var(--accent);border:1px solid rgba(var(--color-accent-rgb),.35);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .4s cubic-bezier(.23,1,.32,1);pointer-events:none}
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:900;width:48px;height:48px;border-radius:99px;background:rgba(var(--color-accent-rgb),.12);color:var(--color-text-on-dark);border:1px solid rgba(var(--color-accent-rgb),.35);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .4s cubic-bezier(.23,1,.32,1);pointer-events:none}
 .scroll-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
 .scroll-top:hover{background:rgba(var(--color-accent-rgb),.2);border-color:rgba(var(--color-accent-rgb),.6);transform:translateY(-2px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -1629,14 +1641,16 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .ft-align-btns{display:flex;gap:.4rem}
 .ft-align-btn{flex:1;height:38px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--color-border);border-radius:var(--radius-small);color:var(--text3);transition:all var(--transition-fast)}
 .ft-align-btn:hover{border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
-.ft-align-btn.active{background:rgba(var(--color-accent-rgb),.12);border-color:rgba(var(--color-accent-rgb),.4);color:var(--accent)}
+.ft-align-btn.active{background:rgba(var(--color-accent-rgb),.12);border-color:rgba(var(--color-accent-rgb),.4);color:var(--color-text-on-dark)}
 .ft-preview-area{
   min-height:50vh;
   background:var(--bg2);
   border:1px solid var(--color-border);
   border-radius:var(--radius-card);
   padding:3rem;
-  transition:border-color .3s,box-shadow .3s;
+  /* data-theme="lightproject" is toggled on this element alone, so the specimen
+     can be judged on a light ground while the page stays dark */
+  transition:background .35s ease,border-color .35s ease,color .35s ease,box-shadow .3s;
   overflow:hidden;
 }
 .ft-preview-area:focus-within{border-color:rgba(var(--color-accent-rgb),.3)}
@@ -1780,7 +1794,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .fbot{flex-direction:column;align-items:flex-start}
   .mmenu a{font-size:2rem}
   .ckb{padding:1.2rem 1.5rem;flex-direction:column;align-items:flex-start}
-  .fsocial{gap:1.5rem}
+  .fsocial{gap:1rem 1.5rem}
   .letter-link a{font-size:.75rem}
   .lightbox-zoom-controls{bottom:1rem;right:.5rem;gap:.3rem}
   .lightbox-zoom-slider{width:60px}
@@ -2205,11 +2219,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .ft-about-desc,
   .faq-answer-inner,
   .notfound-sub,
+  .ptesti-quote,
   .hero-rickroll-sub{
     font-size:1.2rem;
-  }
-  .ptesti-quote{
-    font-size:.6rem;
   }
 }
 
@@ -2308,7 +2320,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 .wfilter:hover{color:var(--text);border-color:var(--color-border-strong)}
 .wfilter.active{
-  color:var(--accent2);
+  color:var(--color-text-on-dark);
   border-color:rgba(var(--color-accent-rgb),.45);
   background:rgba(var(--color-accent-rgb),.1);
 }
