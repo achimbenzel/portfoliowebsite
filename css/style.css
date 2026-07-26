@@ -2124,13 +2124,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   background:rgba(var(--color-accent-rgb),.1);
 }
 
-.wbar-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
-  padding:.9rem 1.4rem;
-  border-top:1px solid var(--color-border);
-}
-.wcount{font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3)}
-
 .wempty{
   margin-top:3rem;text-align:center;
   font-size:.95rem;font-weight:300;color:var(--text2);
@@ -2176,7 +2169,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .pgrid{grid-template-columns:1fr;gap:1.6rem}
   .pcard-title{font-size:1.35rem}
   .wbar-row{flex-direction:column;align-items:flex-start;gap:.8rem}
-  .wbar-foot{flex-direction:column;align-items:flex-start;gap:.8rem}
   .wfilters{width:100%}
   .pgrid-more-btn{width:100%;justify-content:center}
 }

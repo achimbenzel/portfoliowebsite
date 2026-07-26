@@ -437,9 +437,6 @@ function renderWrkGrid(){
   const grid=document.getElementById('wgridEl');if(!grid)return;
   const keys=wrkVisible();
   grid.innerHTML=keys.map(wC).join('');
-  const w=t('wrk');
-  const cnt=document.getElementById('wcount');
-  if(cnt)cnt.textContent=`${keys.length} ${keys.length===1?w.countOne:w.count}`;
   const empty=document.getElementById('wempty');
   if(empty)empty.hidden=keys.length>0;
 }
@@ -460,9 +457,6 @@ function wrkPg(){
     +`<p class="section-text" data-anim="words" data-anim-stagger="20">${w.text}</p>`
     +`<div class="wbar">`
       +`<div class="wbar-row"><span class="wbar-label">${w.filterLabel}</span><div class="wfilters">${filters}</div></div>`
-      +`<div class="wbar-foot">`
-        +`<span class="wcount" id="wcount">${keys.length} ${keys.length===1?w.countOne:w.count}</span>`
-      +`</div>`
     +`</div>`
     +`<div class="pgrid" id="wgridEl">${keys.map(wC).join('')}</div>`
     +`<p class="wempty" id="wempty" hidden>${w.empty}</p>`
