@@ -21,7 +21,7 @@ const L={en:{
   svcPage:{process:'How it runs',deliver:'What you get',faq:'Good to know',work:'Related work'},
   svcCat:{
     'branding':{
-      label:'Branding',
+      label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positioning, identity systems and everything that makes a brand recognisable.',
       text:'A brand is not a logo — it is the sum of every decision that makes a company recognisable. I work out what a brand stands for, translate that into a visual system, and hand it over documented so it still holds together a year later.',
@@ -98,7 +98,7 @@ const L={en:{
     card:{title:'Type Library',type:'Personal Project',ind:'Type Design',tags:['Type Design','Display','Monospace']},
     tester:'Font Tester',themeLabel:'Preview',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.'},
-  cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Type Design'},
+  cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
     name:'Achim Benzel',role:'Independent Designer & Art Director',bio:'I\'m Achim, 25, a freelance designer based in Germany.',
     toggles:[
@@ -154,7 +154,7 @@ de:{
   svcPage:{process:'So läuft es ab',deliver:'Was Sie bekommen',faq:'Gut zu wissen',work:'Passende Projekte'},
   svcCat:{
     'branding':{
-      label:'Branding',
+      label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
       text:'Eine Marke ist kein Logo, sondern die Summe aller Entscheidungen, die ein Unternehmen wiedererkennbar machen. Ich arbeite heraus, wofür eine Marke steht, übersetze das in ein visuelles System und übergebe es dokumentiert — damit es auch ein Jahr später noch zusammenhält.',
@@ -231,7 +231,7 @@ de:{
     card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
     tester:'Schrift-Tester',themeLabel:'Vorschau',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.'},
-  cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','type-design':'Schriftgestaltung'},
+  cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
     name:'Achim Benzel',role:'Freiberuflicher Designer & Art Director',bio:'Ich bin Achim, 25, freiberuflicher Designer aus Deutschland.',
     toggles:[

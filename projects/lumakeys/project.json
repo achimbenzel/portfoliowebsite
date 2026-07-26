@@ -1,0 +1,110 @@
+{
+  "slug": "lumakeys",
+  "popularity": 85,
+  "year": "2026",
+  "date": {
+    "month": 6,
+    "year": 2026
+  },
+  "client": "LumaKeys",
+  "categories": [
+    "logo-design"
+  ],
+  "thumbnail": "hero.webp",
+  "color": "#3d1155",
+  "software": [
+    { "name": "Illustrator", "icon": "illustrator" }
+  ],
+  "en": {
+    "title": "LumaKeys",
+    "projectType": "Client Project",
+    "scope": "Logo Design, Wordmark, Icon Design",
+    "industry": "Software",
+    "description": "A logo and wordmark for LumaKeys, a keyboard app at lumakeys.app. The mark reads as three stylised keys in perspective — a repeated form that stays legible from a favicon up to a full-width brand board. Drawn entirely in Illustrator as vectors, so it holds up at every size and in a single colour.",
+    "tags": [
+      "Logo Design",
+      "Wordmark",
+      "App Icon"
+    ]
+  },
+  "de": {
+    "title": "LumaKeys",
+    "projectType": "Kundenprojekt",
+    "scope": "Logo Design, Wortmarke, Icon Design",
+    "industry": "Software",
+    "description": "Logo und Wortmarke für LumaKeys, eine Tastatur-App unter lumakeys.app. Das Zeichen liest sich als drei stilisierte Tasten in der Perspektive — eine wiederholte Form, die vom Favicon bis zum vollflächigen Markenbild lesbar bleibt. Vollständig in Illustrator als Vektor gezeichnet und dadurch in jeder Größe und einfarbig tragfähig.",
+    "tags": [
+      "Logo Design",
+      "Wortmarke",
+      "App Icon"
+    ]
+  },
+  "content": [
+    {
+      "type": "text",
+      "variant": "center",
+      "en": {
+        "eyebrow": "The mark",
+        "headline": "Three keys, one repeated form",
+        "body": "The mark is built from a single shape repeated three times and staggered in depth, so it reads as keys being pressed in sequence. Keeping it to one construction meant the logo could be assembled from a small number of vector paths — quick to redraw at any weight and unambiguous when it is scaled down."
+      },
+      "de": {
+        "eyebrow": "Das Zeichen",
+        "headline": "Drei Tasten, eine wiederholte Form",
+        "body": "Das Zeichen entsteht aus einer einzigen Form, dreifach wiederholt und in der Tiefe versetzt, sodass es sich wie nacheinander angeschlagene Tasten liest. Die Beschränkung auf eine Konstruktion hieß, dass das Logo aus wenigen Vektorpfaden aufgebaut werden konnte — schnell in jeder Stärke neu zu zeichnen und im Kleinen eindeutig."
+      }
+    },
+    {
+      "type": "image",
+      "src": "detail-01.webp",
+      "alt": {
+        "en": "LumaKeys mark in black on light and white on dark",
+        "de": "LumaKeys-Zeichen in Schwarz auf Hell und Weiß auf Dunkel"
+      }
+    },
+    {
+      "type": "text",
+      "variant": "center",
+      "en": {
+        "eyebrow": "Construction",
+        "headline": "Clearspace before colour",
+        "body": "Lockup and clearspace were fixed before any colour was applied: the mark itself defines the minimum margin on all four sides, so the logo keeps its footing whether it sits on a header, a slide or a sticker. The wordmark is set to match the mark's stroke weight rather than an arbitrary type size."
+      },
+      "de": {
+        "eyebrow": "Konstruktion",
+        "headline": "Schutzraum vor Farbe",
+        "body": "Lockup und Schutzraum standen fest, bevor Farbe ins Spiel kam: Das Zeichen selbst definiert den Mindestabstand auf allen vier Seiten, damit das Logo im Header, auf einer Folie oder auf einem Sticker gleichermaßen Halt hat. Die Wortmarke ist auf die Strichstärke des Zeichens abgestimmt statt auf eine beliebige Schriftgröße."
+      }
+    },
+    {
+      "type": "image",
+      "src": "detail-02.webp",
+      "alt": {
+        "en": "LumaKeys lockup with clearspace and construction guides",
+        "de": "LumaKeys-Lockup mit Schutzraum und Konstruktionslinien"
+      }
+    },
+    {
+      "type": "text",
+      "variant": "center",
+      "en": {
+        "eyebrow": "In use",
+        "headline": "From favicon to brand board",
+        "body": "The same paths carry the app icon, the browser favicon and the full-width brand board. Because nothing in the mark depends on fine detail, the version in a 16px tab is the version on the website — no simplified alternate had to be drawn for small sizes."
+      },
+      "de": {
+        "eyebrow": "In der Anwendung",
+        "headline": "Vom Favicon bis zum Markenbild",
+        "body": "Dieselben Pfade tragen App-Icon, Browser-Favicon und vollflächiges Markenbild. Da nichts am Zeichen von feinen Details abhängt, ist die Fassung im 16-Pixel-Tab dieselbe wie auf der Website — eine vereinfachte Variante für kleine Größen war nicht nötig."
+      }
+    },
+    {
+      "type": "image",
+      "src": "detail-03.webp",
+      "alt": {
+        "en": "LumaKeys app icon and browser favicon in use",
+        "de": "LumaKeys App-Icon und Browser-Favicon in der Anwendung"
+      }
+    }
+  ]
+}

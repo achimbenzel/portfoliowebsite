@@ -190,8 +190,11 @@ function render(r, trigger) {
     privacy: lang === 'en' ? 'Privacy Policy' : 'Datenschutzerklärung',
     tos: lang === 'en' ? 'Terms of Service' : 'Allgemeine Geschäftsbedingungen'
   };
-  /* Service categories take their title from the same i18n entry the page uses */
-  SVC_CATS.forEach(k => { const c = (t('svcCat') || {})[k]; if (c) titleMap[k] = c.label; });
+  /* Service categories take their title from the same i18n entry the page uses.
+     Those labels are authored as HTML ("Brand &amp; Logo Design"), so decode
+     them — document.title is plain text and would show the entity verbatim. */
+  const plain = s => { const d = document.createElement('textarea'); d.innerHTML = String(s || ''); return d.value; };
+  SVC_CATS.forEach(k => { const c = (t('svcCat') || {})[k]; if (c) titleMap[k] = plain(c.label); });
 
   let pageTitle = 'Achim Benzel';
   if (r.startsWith('work/')) {

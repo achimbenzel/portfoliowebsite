@@ -12,7 +12,8 @@ const CATEGORY_ALIASES = {
   'motion-design':  ['motion design / animation', 'motion design/animation', 'motion design', 'motion', 'animation', 'motiondesign'],
   '3d-design':      ['3d design', '3d', '3ddesign', '3d-modeling'],
   'web-design':     ['web design', 'webdesign', 'web', 'ui/ux design', 'ui ux design'],
-  'type-design':    ['type design', 'typedesign', 'type', 'typografie', 'schriftgestaltung', 'schriften', 'fonts']
+  'type-design':    ['type design', 'typedesign', 'type', 'typografie', 'schriftgestaltung', 'schriften', 'fonts'],
+  'logo-design':    ['logo design', 'logodesign', 'logo', 'logos', 'wordmark', 'marke']
 };
 
 function normCategory(raw) {

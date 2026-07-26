@@ -182,7 +182,7 @@ function renderPage(lang, route, req) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>${docTitle} — Achim Benzel, Brand, Motion &amp; 3D Designer</title>
+<title>${seo.attr(docTitle)} — Achim Benzel, Brand, Motion &amp; 3D Designer</title>
 ${metaBlock}
 <link rel="icon" type="image/svg+xml" href="/Assets/logo.svg"/>
 <link rel="alternate" hreflang="en" href="https://achimbenzel.com/en${pathAfterLang}"/>

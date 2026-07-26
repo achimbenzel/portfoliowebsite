@@ -258,9 +258,9 @@ function homePg(){
     <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEAAAAALAAAAAABAAEAAAIBAAA=" onload="if(window._startHero3D)window._startHero3D()" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none" alt=""/>
   </section>
   <section class="hero-accent reveal"><div class="hero-accent-inner">
-    <span class="hero-accent-text">Branding</span><span class="hero-accent-dot">·</span>
-    <span class="hero-accent-text">Motion</span><span class="hero-accent-dot">·</span>
-    <span class="hero-accent-text">${lang==='en'?'More':'Mehr'}</span>
+    <span class="hero-accent-text">Brand &amp; Logo Design</span><span class="hero-accent-dot">·</span>
+    <span class="hero-accent-text">Motion Design</span><span class="hero-accent-dot">·</span>
+    <span class="hero-accent-text">Web Design</span>
   </div></section>
   <section class="story-section"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
     lang==='en'
@@ -602,7 +602,7 @@ function ftCselPick(opt,val,label){
 
 
 /* ===== WORK PAGE (filterable) ===== */
-const WRK_CATS=['all','brand-identity','motion-design','3d-design','web-design','type-design'];
+const WRK_CATS=['all','brand-identity','logo-design','motion-design','3d-design','web-design','type-design'];
 let wrkCat='all';
 
 /* ===== WORK ITEMS THAT LIVE ON THEIR OWN PAGE =====

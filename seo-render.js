@@ -20,9 +20,15 @@ try { P = require('./projects-data.js').P || {}; } catch (e) { P = {}; }
 const SITE = 'https://achimbenzel.com';
 const BRAND = 'Achim Benzel';
 
-/* Strip HTML tags for use inside meta attributes */
+/* Strip HTML tags and decode the entities the i18n copy uses, so the result is
+   plain text. Meta tags, JSON-LD and titles all want the decoded form; attr()
+   re-escapes what actually needs escaping. */
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', '#39': "'", '#039': "'" };
 function stripTags(s) {
-  return String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  return String(s || '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&(amp|lt|gt|quot|apos|nbsp|#0?39);/g, (m, e) => ENTITIES[e] || m)
+    .replace(/\s+/g, ' ').trim();
 }
 /* Escape for safe insertion into an HTML attribute */
 function attr(s) {
@@ -407,4 +413,4 @@ function appContent(lang, routeKey, slug) {
   return nav + '<main>' + main + '</main>' + footer;
 }
 
-module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle, svcCatLabel };
+module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle, svcCatLabel, attr };
