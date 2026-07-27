@@ -186,7 +186,7 @@ function render(r, trigger) {
     home: 'Home',
     work: lang === 'en' ? 'Work' : 'Projekte',
     'my-fonts': 'My Fonts',
-    shop: 'Logo Shop',
+    shop: 'Shop',
     about: lang === 'en' ? 'About' : 'Über mich',
     contact: lang === 'en' ? 'Contact' : 'Kontakt',
     imprint: lang === 'en' ? 'Imprint' : 'Impressum',

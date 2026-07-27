@@ -29,8 +29,8 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
   </div>
   <div class="island-menu" id="islandMenu">
     ${svcMenuH()}
-    <a class="island-menu-link" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${n.shop}</a>
     <a class="island-menu-link" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${n.wrk}</a>
+    <a class="island-menu-link" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${n.shop}</a>
     <a class="island-menu-link" href="${routeToPath('about')}" onclick="event.preventDefault();go('about')">${n.abt}</a>
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
     <div class="island-menu-footer">
@@ -488,6 +488,15 @@ function lgPick(i){
   });
 }
 function lgStep(d){lgPick(lgIdx+d)}
+/* Open the project lightbox on the current image. The thumbnails already hold
+   the resolved src — a file that 404'd has been swapped for the placeholder by
+   its own onerror — so read from them rather than re-deriving the URLs. */
+function lgLightbox(){
+  const thumbs=[...document.querySelectorAll('.lgshop-thumb img')];
+  const stage=document.getElementById('lgStage');
+  const list=lgImgs.map((im,i)=>(thumbs[i]&&thumbs[i].getAttribute('src'))||(i===lgIdx&&stage?stage.getAttribute('src'):im.src));
+  if(list.length)lbOpen(list,lgIdx);
+}
 /* Left/Right walk the strip and select as they go (ARIA tabs, automatic
    activation). Step from the FOCUSED thumb, not from lgIdx: the two can differ
    once focus has moved on its own, and stepping from lgIdx would jump. */
@@ -521,9 +530,9 @@ function logoPg(slug){
     +`</div>`
     :'';
 
-  const gallery=`<div class="lgshop-gallery" data-anim="fade">`
+  const gallery=`<div class="lgshop-gallery">`
     +`<div class="lgshop-stage">`
-      +`<img id="lgStage" src="${first.src}" alt="${first.alt}" onerror="this.onerror=null;this.src='${fb}'"/>`
+      +`<img id="lgStage" src="${first.src}" alt="${first.alt}" onclick="lgLightbox()" onerror="this.onerror=null;this.src='${fb}'"/>`
       +(lgImgs.length>1
         ?`<button type="button" class="lgshop-nav prev" onclick="lgStep(-1)" aria-label="${g.prev}">${chev(-1)}</button>`
          +`<button type="button" class="lgshop-nav next" onclick="lgStep(1)" aria-label="${g.next}">${chev(1)}</button>`
@@ -539,28 +548,26 @@ function logoPg(slug){
     :'';
 
   /* Shop layout: images on top, then the title with the price under it, then
-     the description, then what the price covers. */
+     the description, then what the price covers. Nothing here carries a
+     data-anim — a shop item should be readable the moment it opens. */
   return`<div class="pdetail lgdetail">`
     +`<div><a class="pback" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${backSVG} ${g.back}</a></div>`
     +`<div class="lgshop">`
       +gallery
       +`<div class="lgshop-head">`
-        +`<h1 class="lgshop-title" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${d.name||slug}</h1>`
-        +(d.tag?`<p class="lgshop-tagline" data-anim="fade" data-anim-delay="200">${d.tag}</p>`:'')
-        +`<div class="lgshop-buy" data-anim="fade" data-anim-delay="260">`
+        +`<h1 class="lgshop-title">${d.name||slug}</h1>`
+        +(d.tag?`<p class="lgshop-tagline">${d.tag}</p>`:'')
+        +`<div class="lgshop-buy">`
           +`<div class="lgshop-price"><span class="lg-buy-label">${g.price}</span><span class="lg-buy-amount">${lo.price||'—'}</span></div>`
           /* one-of-one: say so where the price is, not in the small print */
-          +`<div class="lgshop-excl">`
-            +`<span class="lgshop-excl-badge">${g.exclusive} · ${sold?g.sold:g.availability}</span>`
-            +`<span class="lgshop-excl-note">${sold?g.soldNote:g.exclusiveNote}</span>`
-          +`</div>`
+          +`<span class="lgshop-excl-badge">${g.exclusive} · ${sold?g.sold:g.availability}</span>`
           +(sold
             ?''
             :`<button type="button" class="lg-buy-btn" onclick="inquireLogo('${slug}')">${g.inquire}</button>`)
         +`</div>`
-        +`<p class="lgshop-wordmark" data-anim="fade" data-anim-delay="300">${checkSVG} ${g.wordmark}</p>`
+        +`<p class="lgshop-wordmark">${checkSVG} ${g.wordmark}</p>`
       +`</div>`
-      +(d.desc?`<p class="lgshop-desc" data-anim="words" data-anim-stagger="18" data-anim-delay="200">${d.desc}</p>`:'')
+      +(d.desc?`<p class="lgshop-desc">${d.desc}</p>`:'')
       +((d.tags||[]).length?`<div class="stags lgshop-tags">${d.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
       +incl
     +`</div>`
