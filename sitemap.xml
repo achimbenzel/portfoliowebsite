@@ -48,19 +48,19 @@
   </url>
 
   <url>
-    <loc>https://achimbenzel.com/de/logos</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/logos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/logos"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/logos"/>
+    <loc>https://achimbenzel.com/de/shop</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/shop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/shop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/shop"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://achimbenzel.com/de/logos/n-monogram</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/logos/n-monogram"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/logos/n-monogram"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/logos/n-monogram"/>
+    <loc>https://achimbenzel.com/de/shop/n-monogram</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/shop/n-monogram"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/shop/n-monogram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/shop/n-monogram"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -211,19 +211,19 @@
   </url>
 
   <url>
-    <loc>https://achimbenzel.com/en/logos</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/logos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/logos"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/logos"/>
+    <loc>https://achimbenzel.com/en/shop</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/shop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/shop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/shop"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://achimbenzel.com/en/logos/n-monogram</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/logos/n-monogram"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/logos/n-monogram"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/logos/n-monogram"/>
+    <loc>https://achimbenzel.com/en/shop/n-monogram</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/shop/n-monogram"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/shop/n-monogram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/shop/n-monogram"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

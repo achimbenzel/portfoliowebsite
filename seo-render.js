@@ -98,7 +98,7 @@ function metaDescription(lang, routeKey, slug) {
     }
   }
   const cat = svcCat(lang, routeKey);
-  if (routeKey === 'logos') {
+  if (routeKey === 'shop') {
     const ld = slug && logoData(lang, slug);
     if (ld) return stripTags(`${ld.l.name} — ${ld.l.tagline || ld.l.tag || ''} ${ld.l.description || ld.l.desc || ''}`);
     return stripTags((d.logos || {}).text || '');
@@ -333,13 +333,13 @@ function appContent(lang, routeKey, slug) {
   /* Logo shop — the listing and each logo's own page. Prices are placeholders
      so far, which is why they appear as ordinary copy and not as an Offer in
      the JSON-LD: nothing quotable gets published as structured data. */
-  if (routeKey === 'logos') {
+  if (routeKey === 'shop') {
     const g = d.logos || {};
     if (slug) {
       const ld = logoData(lang, slug);
       if (ld) {
         const items = (ld.l.incl || ld.l.includes || []).map(x => `<li>${stripTags(x)}</li>`).join('');
-        return `${nav}<main><a href="/${lang}/logos">${stripTags(g.back || 'Logos')}</a>`
+        return `${nav}<main><a href="/${lang}/shop">${stripTags(g.back || 'Logos')}</a>`
           + `<h1>${stripTags(ld.l.name)}</h1>`
           + (ld.l.tag ? `<p>${stripTags(ld.l.tag)}</p>` : '')
           + (ld.l.desc ? `<p>${stripTags(ld.l.desc)}</p>` : '')
@@ -350,7 +350,7 @@ function appContent(lang, routeKey, slug) {
     }
     const list = Object.keys(LG).map(k => {
       const ld = logoData(lang, k);
-      return `<li><a href="/${lang}/logos/${k}">${stripTags(ld.l.name)}</a> — ${stripTags(ld.lo.price)}</li>`;
+      return `<li><a href="/${lang}/shop/${k}">${stripTags(ld.l.name)}</a> — ${stripTags(ld.lo.price)}</li>`;
     }).join('');
     return `${nav}<main><h1>${stripTags(g.title || 'Logos')}</h1><p>${stripTags(g.text || '')}</p><ul>${list}</ul></main>`;
   }

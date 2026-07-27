@@ -137,12 +137,12 @@ function render(r, trigger) {
   const a = document.getElementById('app');
   let h = '';
   if (r.startsWith('work/')) h = projPg(r.slice(5));
-  else if (r.startsWith('logos/')) h = logoPg(r.slice(6));
+  else if (r.startsWith('shop/')) h = logoPg(r.slice(5));
   else if (r.startsWith('my-fonts/')) h = fontTesterPg(r.slice(9));
   else if (SVC_CATS.includes(r)) h = svcCatPg(r);
   else switch (r) {
     case 'work': h = wrkPg(); break;
-    case 'logos': h = logosPg(); break;
+    case 'shop': h = logosPg(); break;
     case 'my-fonts': h = fontsPg(); break;
     case 'about': h = abtPg(); break;
     case 'imprint': h = legPg('imp'); break;
@@ -150,7 +150,7 @@ function render(r, trigger) {
     case 'tos': h = tosPg(); break;
     case 'contact': h = contactPg(); break;
     default: {
-      const knownRoutes=['home','work','logos','my-fonts','about','imprint','privacy','tos','contact'].concat(SVC_CATS);
+      const knownRoutes=['home','work','shop','my-fonts','about','imprint','privacy','tos','contact'].concat(SVC_CATS);
       h = (r==='home'||knownRoutes.includes(r)) ? homePg() : notFoundPg();
       break;
     }
@@ -186,7 +186,7 @@ function render(r, trigger) {
     home: 'Home',
     work: lang === 'en' ? 'Work' : 'Projekte',
     'my-fonts': 'My Fonts',
-    logos: lang === 'en' ? 'Logo Shop' : 'Logo Shop',
+    shop: 'Logo Shop',
     about: lang === 'en' ? 'About' : 'Über mich',
     contact: lang === 'en' ? 'Contact' : 'Kontakt',
     imprint: lang === 'en' ? 'Imprint' : 'Impressum',
@@ -204,8 +204,8 @@ function render(r, trigger) {
     const slug = r.slice(5);
     const proj = P[slug];
     pageTitle = proj ? proj[lang].title : 'Project';
-  } else if (r.startsWith('logos/')) {
-    const lo = (typeof LG !== 'undefined') && LG[r.slice(6)];
+  } else if (r.startsWith('shop/')) {
+    const lo = (typeof LG !== 'undefined') && LG[r.slice(5)];
     pageTitle = lo ? (lo[lang] || lo.en || {}).name || 'Logo' : 'Logo';
   } else if (r.startsWith('my-fonts/')) {
     const fn = r.slice(9);

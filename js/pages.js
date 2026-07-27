@@ -29,6 +29,7 @@ return`<div class="nav-outer${initCls}"><nav class="nav" id="navIsland">
   </div>
   <div class="island-menu" id="islandMenu">
     ${svcMenuH()}
+    <a class="island-menu-link" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${n.shop}</a>
     <a class="island-menu-link" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${n.wrk}</a>
     <a class="island-menu-link" href="${routeToPath('about')}" onclick="event.preventDefault();go('about')">${n.abt}</a>
     <a class="island-menu-link" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${n.contact}</a>
@@ -298,6 +299,7 @@ function pricingHomeHtml(){
 
 /* The three tiers on a service page. Index 1 carries the popular flag. */
 function pricingPlansHtml(c){
+  /* c.key is stamped on by svcCatPg so the CTA can name its own category */
   const plans=c.plans||[];if(!plans.length)return'';
   const pr=t('pricing');
   const tick='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
@@ -309,7 +311,7 @@ function pricingPlansHtml(c){
       +`<div class="pr-plan-price">${pl.price}</div>`
       +(pl.d?`<p class="pr-plan-text">${pl.d}</p>`:'')
       +`<ul class="pr-plan-list">${(pl.f||[]).map(f=>`<li>${tick}<span>${f}</span></li>`).join('')}</ul>`
-      +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${pr.planCta}</a>`
+      +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();inquirePlan('${c.key}',${i})">${pr.planCta}</a>`
     +`</div>`;
   }).join('');
   return`<div class="reveal svc-block" id="svcPlans">`
@@ -419,7 +421,7 @@ function lgC(slug){
   const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   const fb=vg(1600,900,d.name||slug,lo.c);
   const sold=lo.status==='sold';
-  const route='logos/'+slug;
+  const route='shop/'+slug;
   return`<a class="pcard lgcard${sold?' sold':''}" data-cl="${g.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
     +`<div class="pcard-media"><img src="${lo.thumb||fb}" alt="${d.name||slug}" loading="lazy" onerror="this.src='${fb}'"/>`
       +(sold?`<span class="lg-sold-badge">${g.sold}</span>`:'')
@@ -445,14 +447,23 @@ function logosPg(){
   +`</div></section>`
 }
 
-/* Remembered across the in-app jump so the contact form can name the logo.
-   Direct links to /contact simply get an empty form. */
-let logoInquiry='';
-function htmlEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+/* Carried across the in-app jump so the contact form opens with its subject
+   already filled in. Direct links to /contact simply get an empty form. */
+let pendingSubject='';
+function htmlEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+/* i18n labels are authored as HTML ("Brand &amp; Logo Design"); a form value is
+   plain text, so decode before it goes in. */
+function deEnt(s){const d=document.createElement('textarea');d.innerHTML=String(s||'');return d.value}
+function inquire(subject){pendingSubject=deEnt(subject);go('contact')}
 function inquireLogo(slug){
   const lo=LG[slug];const g=t('logos');
-  if(lo)logoInquiry=`${g.inquirySubject}: ${(lo[lang]||lo.en||{}).name||slug}${lo.price?' ('+lo.price+')':''}`;
-  go('contact');
+  inquire(lo?`${g.inquirySubjectPlain}: ${(lo[lang]||lo.en||{}).name||slug}${lo.price?' — '+lo.price:''}`:'');
+}
+/* Service packages: the tier name lands in the subject the same way */
+function inquirePlan(cat,i){
+  const c=(t('svcCat')||{})[cat],pr=t('pricing');
+  const pl=c&&(c.plans||[])[i];
+  inquire(pl?`${pr.planSubject}: ${c.label} — ${pl.name}${pl.price?' ('+pl.price+')':''}`:'');
 }
 
 /* ===== Logo gallery — one stage image plus a scrollable thumbnail strip =====
@@ -495,6 +506,7 @@ function logoPg(slug){
   const d=lo[lang]||lo.en||{};const g=t('logos');
   const backSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
   const tickSVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const checkSVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
   const chev=dir=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M${dir<0?'15 18l-6-6 6-6':'9 18l6-6-6-6'}"/></svg>`;
   const sold=lo.status==='sold';
   const fb=vg(1600,900,d.name||slug,lo.c);
@@ -529,7 +541,7 @@ function logoPg(slug){
   /* Shop layout: images on top, then the title with the price under it, then
      the description, then what the price covers. */
   return`<div class="pdetail lgdetail">`
-    +`<div><a class="pback" href="${routeToPath('logos')}" onclick="event.preventDefault();go('logos')">${backSVG} ${g.back}</a></div>`
+    +`<div><a class="pback" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${backSVG} ${g.back}</a></div>`
     +`<div class="lgshop">`
       +gallery
       +`<div class="lgshop-head">`
@@ -537,10 +549,16 @@ function logoPg(slug){
         +(d.tag?`<p class="lgshop-tagline" data-anim="fade" data-anim-delay="200">${d.tag}</p>`:'')
         +`<div class="lgshop-buy" data-anim="fade" data-anim-delay="260">`
           +`<div class="lgshop-price"><span class="lg-buy-label">${g.price}</span><span class="lg-buy-amount">${lo.price||'—'}</span></div>`
+          /* one-of-one: say so where the price is, not in the small print */
+          +`<div class="lgshop-excl">`
+            +`<span class="lgshop-excl-badge">${g.exclusive} · ${sold?g.sold:g.availability}</span>`
+            +`<span class="lgshop-excl-note">${sold?g.soldNote:g.exclusiveNote}</span>`
+          +`</div>`
           +(sold
-            ?`<div class="lg-buy-sold"><span class="lg-sold-badge lg-sold-inline">${g.sold}</span><span class="lg-buy-note">${g.soldNote}</span></div>`
+            ?''
             :`<button type="button" class="lg-buy-btn" onclick="inquireLogo('${slug}')">${g.inquire}</button>`)
         +`</div>`
+        +`<p class="lgshop-wordmark" data-anim="fade" data-anim-delay="300">${checkSVG} ${g.wordmark}</p>`
       +`</div>`
       +(d.desc?`<p class="lgshop-desc" data-anim="words" data-anim-stagger="18" data-anim-delay="200">${d.desc}</p>`:'')
       +((d.tags||[]).length?`<div class="stags lgshop-tags">${d.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
@@ -755,7 +773,7 @@ function svcCatPg(key){
       +`<h3 class="svc-block-title" data-anim="words" data-anim-stagger="25">${g.ctaTitle}</h3>`
       +`<p class="lg-cta-text" data-anim="words" data-anim-stagger="18">${g.ctaText}</p>`
       +`<div class="pgrid lg-cta-grid">${lgKeys.slice(0,3).map(lgC).join('')}</div>`
-      +`<div class="pgrid-more"><a class="pgrid-more-btn" href="${routeToPath('logos')}" onclick="event.preventDefault();go('logos')">${g.ctaBtn} ${arrowSVG}</a></div>`
+      +`<div class="pgrid-more"><a class="pgrid-more-btn" href="${routeToPath('shop')}" onclick="event.preventDefault();go('shop')">${g.ctaBtn} ${arrowSVG}</a></div>`
     +`</div>`;})():'';
 
   /* Related work — reuses the project cards and the category ids from cats{} */
@@ -777,7 +795,7 @@ function svcCatPg(key){
       +`<p class="section-text" data-anim="words" data-anim-stagger="20">${c.text}</p>`
       +sumHtml+introCta
     +`</div>`
-    +processHtml+deliverHtml+pricingPlansHtml(c)+lgCta+faqHtmlBlock+relHtml
+    +processHtml+deliverHtml+pricingPlansHtml(Object.assign({key},c))+lgCta+faqHtmlBlock+relHtml
   +`</section>`;
 }
 
@@ -1040,13 +1058,13 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelect
 const CONTACT_MAIL='info@achimbenzel.com';
 
 function contactPg(){const c=t('contact');
-/* Carried over from the logo shop's enquiry button; used once, then cleared so
-   a later visit to /contact starts empty. */
-const prefill=logoInquiry?htmlEsc(logoInquiry)+'\n\n':'';logoInquiry='';
+/* Carried over from an enquiry button; used once, then cleared so a later
+   visit to /contact starts empty. */
+const subjPrefill=pendingSubject?htmlEsc(pendingSubject):'';pendingSubject='';
 const arrowSVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 const titleHtml=lang==='en'?'Get in <em>touch</em>':'Kontakt <em>aufnehmen</em>';
 const tosAfter=c.tosAfter?' '+c.tosAfter:'';
-return`<div class="contact-page"><div class="contact-top"><div class="contact-header-inner"><h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${titleHtml}</h1><p class="contact-intro" data-anim="words" data-anim-stagger="20" data-anim-delay="200">${c.intro}</p></div></div><div class="contact-body"><div class="contact-form-wrap"><form class="contact-form" id="contactForm" onsubmit="return handleContact(event)"><div class="cf-group"><label>${c.name} <span class="req">*</span></label><input type="text" name="name" required placeholder="${c.name}"/></div><div class="cf-group"><label>${c.email} <span class="req">*</span></label><input type="email" name="email" required placeholder="${c.email}"/></div><div class="cf-group"><label>${c.message} <span class="req">*</span></label><textarea name="message" required maxlength="5000" placeholder="${c.message}…">${prefill}</textarea></div><div class="cf-tos-group"><label class="cf-tos-label"><input type="checkbox" name="tos" id="cfTos"/><span class="cf-tos-check"></span><span class="cf-tos-text">${c.tos} <a href="${routeToPath('tos')}" onclick="event.preventDefault();go('tos')">${c.tosLink}</a>${tosAfter}</span></label></div><div class="cf-turnstile" id="cfTurnstile"></div><div class="cf-error" id="cfError"></div><div><button type="submit" class="cf-submit" id="cfSubmitBtn">${c.submit} ${arrowSVG}</button></div><p class="cf-alt">${c.altMail} <a href="mailto:${CONTACT_MAIL}">${CONTACT_MAIL}</a></p></form><div class="cf-success" id="cfSuccess"><h3>${c.success}</h3><p>${c.successMsg}</p></div></div></div></div>`}
+return`<div class="contact-page"><div class="contact-top"><div class="contact-header-inner"><h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${titleHtml}</h1><p class="contact-intro" data-anim="words" data-anim-stagger="20" data-anim-delay="200">${c.intro}</p></div></div><div class="contact-body"><div class="contact-form-wrap"><form class="contact-form" id="contactForm" onsubmit="return handleContact(event)"><div class="cf-group"><label>${c.name} <span class="req">*</span></label><input type="text" name="name" required placeholder="${c.name}"/></div><div class="cf-group"><label>${c.email} <span class="req">*</span></label><input type="email" name="email" required placeholder="${c.email}"/></div><div class="cf-group"><label>${c.subject}</label><input type="text" name="subject" maxlength="200" placeholder="${c.subjectPh}" value="${subjPrefill}"/></div><div class="cf-group"><label>${c.message} <span class="req">*</span></label><textarea name="message" required maxlength="5000" placeholder="${c.message}…"></textarea></div><div class="cf-tos-group"><label class="cf-tos-label"><input type="checkbox" name="tos" id="cfTos"/><span class="cf-tos-check"></span><span class="cf-tos-text">${c.tos} <a href="${routeToPath('tos')}" onclick="event.preventDefault();go('tos')">${c.tosLink}</a>${tosAfter}</span></label></div><div class="cf-turnstile" id="cfTurnstile"></div><div class="cf-error" id="cfError"></div><div><button type="submit" class="cf-submit" id="cfSubmitBtn">${c.submit} ${arrowSVG}</button></div><p class="cf-alt">${c.altMail} <a href="mailto:${CONTACT_MAIL}">${CONTACT_MAIL}</a></p></form><div class="cf-success" id="cfSuccess"><h3>${c.success}</h3><p>${c.successMsg}</p></div></div></div></div>`}
 function handleContact(e){
   e.preventDefault();
   const c=t('contact');

@@ -60,7 +60,7 @@ app.use('/projects', (req, res, next) => {
   console.log(`  Exists: ${exists}`);
   next();
 }, express.static(path.join(__dirname, 'projects')));
-/* Logo shop artwork. Page routes are /:lang/logos/... so this cannot collide. */
+/* Logo shop artwork. Page routes are /:lang/shop/... so this cannot collide. */
 app.use('/logos', express.static(path.join(__dirname, 'logos')));
 app.use('/projects-data.js', express.static(path.join(__dirname, 'projects-data.js')));
 app.use('/fonts-data.js', express.static(path.join(__dirname, 'fonts-data.js')));
@@ -129,8 +129,8 @@ const PAGE_ROUTES = [
   '',              // home
   ...SVC_CAT_ROUTES,
   'work',
-  'logos',
-  'logos/:logoSlug',
+  'shop',
+  'shop/:logoSlug',
   'my-fonts',
   'my-fonts/:fontSlug',
   'about',
@@ -150,8 +150,8 @@ function renderPage(lang, route, req) {
 
   // Map route to page title (will also be set client-side, but good for SEO)
   const titles = {
-    en: { home: 'Home', work: 'Work', logos: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
-    de: { home: 'Home', work: 'Projekte', logos: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
+    en: { home: 'Home', work: 'Work', shop: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
+    de: { home: 'Home', work: 'Projekte', shop: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
   };
   /* Category titles come from the same i18n entry the client uses */
   SVC_CAT_ROUTES.forEach(k => {
@@ -162,7 +162,7 @@ function renderPage(lang, route, req) {
   // For nested routes (work/:slug, my-fonts/:slug) extract the slug from the URL
   // so the SEO renderer can build project-specific meta/content.
   let slug = null;
-  const nested = pathAfterLang.match(/^\/(work|my-fonts|logos)\/([^\/]+)/);
+  const nested = pathAfterLang.match(/^\/(work|my-fonts|shop)\/([^\/]+)/);
   if (nested) slug = decodeURIComponent(nested[2]);
 
   // x-default normally falls back to English, but project detail pages
@@ -180,7 +180,7 @@ function renderPage(lang, route, req) {
   let docTitle = pageTitle;
   if (slug && pageKey === 'work') {
     docTitle = seo.projectTitle(lang, slug) || pageTitle;
-  } else if (slug && pageKey === 'logos') {
+  } else if (slug && pageKey === 'shop') {
     docTitle = seo.logoTitle(lang, slug) || pageTitle;
   }
 
@@ -281,6 +281,8 @@ ${jsonLdBlock}
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
+    /* Optional — enquiry buttons prefill it, a direct visitor may leave it blank */
+    const subject = typeof req.body.subject === 'string' ? req.body.subject.trim().slice(0, 200) : '';
     const turnstileToken = req.body['cf-turnstile-response'];
 
     /* Validate required fields */
@@ -323,6 +325,7 @@ app.post('/api/contact', async (req, res) => {
       <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
         <tr><td style="padding:6px 12px;font-weight:bold">Name</td><td style="padding:6px 12px">${esc(name)}</td></tr>
         <tr><td style="padding:6px 12px;font-weight:bold">Email</td><td style="padding:6px 12px"><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
+        ${subject ? `<tr><td style="padding:6px 12px;font-weight:bold">Subject</td><td style="padding:6px 12px">${esc(subject)}</td></tr>` : ''}
       </table>
       <h3>Message</h3>
       <p style="white-space:pre-wrap;font-family:sans-serif;font-size:14px">${esc(message)}</p>
@@ -332,7 +335,9 @@ app.post('/api/contact', async (req, res) => {
       from: process.env.SMTP_FROM || `"Achim Benzel Portfolio Website" <info@achimbenzel.com>`,
       to: CONTACT_EMAIL,
       replyTo: email,
-      subject: `New Inquiry from ${name}`,
+      /* the mail subject is the sender's own subject when they gave one —
+         strip CR/LF so it cannot inject extra headers */
+      subject: (subject ? `${subject} — ${name}` : `New Inquiry from ${name}`).replace(/[\r\n]+/g, ' '),
       html: htmlBody
     });
 
@@ -344,6 +349,13 @@ app.post('/api/contact', async (req, res) => {
 });
 
 /* ===== Page Routes ===== */
+/* The logo shop used to live at /:lang/logos — keep those URLs working. */
+SUPPORTED_LANGS.forEach(lang => {
+  app.get(`/${lang}/logos`, (req, res) => res.redirect(301, `/${lang}/shop`));
+  app.get(`/${lang}/logos/:logoSlug`, (req, res) =>
+    res.redirect(301, `/${lang}/shop/${encodeURIComponent(req.params.logoSlug)}`));
+});
+
 // Register all routes for both languages
 SUPPORTED_LANGS.forEach(lang => {
   PAGE_ROUTES.forEach(route => {

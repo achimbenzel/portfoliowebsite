@@ -2567,8 +2567,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   letter-spacing:.12em;text-transform:uppercase;
 }
 /* --- Single logo: shop layout --- */
-/* images on top, then the title with the price under it, then the copy */
-.lgshop{max-width:820px;margin:0 auto}
+/* images on top at the page's full width, then the title with the price under
+   it, then the copy */
+.lgshop{width:100%}
 
 .lgshop-gallery{display:flex;flex-direction:column;gap:.7rem}
 .lgshop-stage{
@@ -2626,11 +2627,30 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   font-size:clamp(2rem,4vw,3rem);line-height:1.05;color:var(--text);
 }
 .lgshop-tagline{margin-top:.7rem;font-size:1.05rem;font-weight:300;color:var(--text2)}
+/* price left, exclusivity next to it, the enquiry button pushed to the right */
 .lgshop-buy{
-  display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;
-  margin-top:1.4rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 2rem;
+  margin-top:1.6rem;padding-top:1.6rem;
+  border-top:1px solid var(--color-border);
 }
 .lgshop-price{display:flex;flex-direction:column;gap:.15rem;flex:none}
+.lgshop-buy .lg-buy-btn{margin-left:auto}
+.lgshop-excl{display:flex;flex-direction:column;gap:.35rem;min-width:0;flex:1 1 22rem}
+.lgshop-excl-badge{
+  align-self:flex-start;
+  padding:.3rem .7rem;border-radius:99px;
+  background:rgba(var(--color-accent-rgb),.14);
+  border:1px solid rgba(var(--color-accent-rgb),.4);
+  color:var(--text);
+  font-family:var(--font-mono);font-size:.58rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+}
+.lgshop-excl-note{font-size:.85rem;font-weight:300;line-height:1.6;color:var(--text3)}
+.lgshop-wordmark{
+  display:flex;align-items:flex-start;gap:.6rem;
+  margin-top:1.2rem;font-size:.95rem;font-weight:400;color:var(--text2);
+}
+.lgshop-wordmark svg{flex:none;margin-top:.28rem;color:var(--accent)}
 .lg-buy-label{
   font-family:var(--font-mono);font-size:.6rem;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--text3);
@@ -2649,6 +2669,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 .lgshop-desc{
   margin-top:2rem;padding-top:2rem;border-top:1px solid var(--color-border);
+  max-width:70ch;
   font-size:1rem;line-height:1.85;font-weight:300;color:var(--text2);hyphens:auto;
 }
 .lgshop-tags{margin-top:1.4rem}
@@ -2665,8 +2686,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   /* the arrows have no hover on touch — keep them permanently visible */
   .lgshop-nav{opacity:1;width:34px;height:34px}
   .lgshop-thumb{flex-basis:76px}
-  .lgshop-buy{align-items:stretch;flex-direction:column;gap:1rem}
+  .lgshop-buy{align-items:stretch;flex-direction:column;gap:1.1rem}
   .lg-buy-btn{width:100%}
+  .lgshop-buy .lg-buy-btn{margin-left:0}
+  .lgshop-excl{flex:1 1 auto}
 }
 
 /* ============================================================
