@@ -16,6 +16,8 @@ const { L } = require('./js/i18n.js');
 /* Project data (same source the browser uses) — for SSR of /work/:slug pages */
 let P = {};
 try { P = require('./projects-data.js').P || {}; } catch (e) { P = {}; }
+let LG;
+try { LG = require('./logos-data.js').LG || {}; } catch (e) { LG = {}; }
 
 const SITE = 'https://achimbenzel.com';
 const BRAND = 'Achim Benzel';
@@ -58,6 +60,17 @@ function projectTitle(lang, slug) {
   return d ? stripTags(d.p.title) : null;
 }
 
+/* ---- Logo shop helpers ---- */
+function logoData(lang, slug) {
+  const lo = LG[slug];
+  if (!lo) return null;
+  return { lo, l: lo[lang] || lo.en || {} };
+}
+function logoTitle(lang, slug) {
+  const d = logoData(lang, slug);
+  return d ? stripTags(d.l.name) : null;
+}
+
 /* Translated labels for the canonical category ids (see build-projects.js) */
 function categoryLabels(lang, proj) {
   const d = L[lang] || L.en;
@@ -85,6 +98,11 @@ function metaDescription(lang, routeKey, slug) {
     }
   }
   const cat = svcCat(lang, routeKey);
+  if (routeKey === 'logos') {
+    const ld = slug && logoData(lang, slug);
+    if (ld) return stripTags(`${ld.l.name} — ${ld.l.tagline || ld.l.tag || ''} ${ld.l.description || ld.l.desc || ''}`);
+    return stripTags((d.logos || {}).text || '');
+  }
   if (cat) return stripTags(cat.text);
   switch (routeKey) {
     case 'work':     return stripTags(d.wrk.text);
@@ -312,6 +330,31 @@ function appContent(lang, routeKey, slug) {
   }).join('');
   const nav = `<nav aria-label="Main">${svcNav}<a href="/${lang}/work">${d.nav.wrk}</a> <a href="/${lang}/about">${d.nav.abt}</a> <a href="/${lang}/contact">${d.nav.contact}</a></nav>`;
 
+  /* Logo shop — the listing and each logo's own page. Prices are placeholders
+     so far, which is why they appear as ordinary copy and not as an Offer in
+     the JSON-LD: nothing quotable gets published as structured data. */
+  if (routeKey === 'logos') {
+    const g = d.logos || {};
+    if (slug) {
+      const ld = logoData(lang, slug);
+      if (ld) {
+        const items = (ld.l.incl || ld.l.includes || []).map(x => `<li>${stripTags(x)}</li>`).join('');
+        return `${nav}<main><a href="/${lang}/logos">${stripTags(g.back || 'Logos')}</a>`
+          + `<h1>${stripTags(ld.l.name)}</h1>`
+          + (ld.l.tag ? `<p>${stripTags(ld.l.tag)}</p>` : '')
+          + (ld.l.desc ? `<p>${stripTags(ld.l.desc)}</p>` : '')
+          + `<p>${stripTags(g.price || 'Price')}: ${stripTags(ld.lo.price)}</p>`
+          + (items ? `<h2>${stripTags(g.includes || '')}</h2><ul>${items}</ul>` : '')
+          + `</main>`;
+      }
+    }
+    const list = Object.keys(LG).map(k => {
+      const ld = logoData(lang, k);
+      return `<li><a href="/${lang}/logos/${k}">${stripTags(ld.l.name)}</a> — ${stripTags(ld.lo.price)}</li>`;
+    }).join('');
+    return `${nav}<main><h1>${stripTags(g.title || 'Logos')}</h1><p>${stripTags(g.text || '')}</p><ul>${list}</ul></main>`;
+  }
+
   // Project detail page: render the real, visible project copy
   if (routeKey === 'work' && slug) {
     const pd = projectData(lang, slug);
@@ -413,4 +456,4 @@ function appContent(lang, routeKey, slug) {
   return nav + '<main>' + main + '</main>' + footer;
 }
 
-module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle, svcCatLabel, attr };
+module.exports = { metaTags, jsonLd, appContent, metaDescription, projectTitle, logoTitle, svcCatLabel, attr };

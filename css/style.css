@@ -2553,6 +2553,60 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 
 /* ============================================================
+   LOGO SHOP — listing cards + detail page
+   ============================================================ */
+.lgcard .pcard-media{position:relative}
+.lgcard.sold{opacity:.55}
+.lgcard.sold .pcard-media img{filter:grayscale(1)}
+.lg-price{font-variant-numeric:tabular-nums;color:var(--text)}
+.lg-sold-badge{
+  position:absolute;top:.9rem;left:.9rem;
+  padding:.3rem .7rem;border-radius:99px;
+  background:var(--bg);color:var(--text);
+  font-family:var(--font-mono);font-size:.55rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.lgdetail .pheader{margin-bottom:1.2rem}
+.lg-tagline{font-size:1.15rem;font-weight:300;color:var(--text2);margin-top:.8rem}
+
+.lg-buy{
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 1.8rem;
+  margin-top:2.5rem;padding:1.8rem 0;
+  border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);
+}
+.lg-buy-price{display:flex;flex-direction:column;gap:.2rem;flex:none}
+.lg-buy-label{
+  font-family:var(--font-mono);font-size:.6rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--text3);
+}
+.lg-buy-amount{font-size:2rem;font-weight:600;color:var(--text);line-height:1;font-variant-numeric:tabular-nums}
+.lg-buy-btn{
+  padding:.85rem 1.6rem;border-radius:var(--radius-small);
+  background:var(--accent);border:1px solid var(--accent);
+  color:var(--color-text-on-dark);font-size:.95rem;font-weight:500;
+  cursor:pointer;transition:background var(--transition-fast),border-color var(--transition-fast);
+}
+.lg-buy-btn:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
+.lg-buy-sold{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
+.lg-sold-inline{position:static;background:rgba(var(--color-accent-rgb),.12)}
+.lg-buy-note{font-size:.9rem;font-weight:300;color:var(--text3)}
+.lg-tags{margin-top:0;margin-left:auto}
+.lg-incl{margin-top:2.5rem}
+.lg-incl-label{
+  font-family:var(--font-mono);font-size:.6rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:1rem;
+}
+.lg-cta-text{font-size:1rem;font-weight:300;line-height:1.8;color:var(--text2);max-width:60ch;margin-top:.6rem}
+.lg-cta-grid{margin-top:2.5rem}
+
+@media(max-width:600px){
+  .lg-buy{gap:1rem;align-items:stretch;flex-direction:column}
+  .lg-buy-btn{width:100%}
+  .lg-tags{margin-left:0}
+}
+
+/* ============================================================
    SERVICE PAGE INTRO — replaces the old .services-grid cards
    ============================================================ */
 .svc-summary{list-style:none;margin:2.5rem 0 0;padding:0;display:flex;flex-direction:column;gap:0}
@@ -2625,10 +2679,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pr-plan-cta.acc:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
 
 @media(max-width:900px){
-  /* one column: the badge would otherwise be the only thing marking the middle
-     card, and side-by-side tiers get too narrow to read */
+  /* one column — side-by-side tiers get too narrow to read. The tiers keep
+     their order; the badge alone marks the popular one. */
   .pr-plans{grid-template-columns:1fr;gap:1.8rem}
-  .pr-plan.pop{order:-1}
 }
 @media(max-width:600px){
   .htesti,.pr-card,.pr-plan{padding:1.6rem}

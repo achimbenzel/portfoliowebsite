@@ -60,8 +60,11 @@ app.use('/projects', (req, res, next) => {
   console.log(`  Exists: ${exists}`);
   next();
 }, express.static(path.join(__dirname, 'projects')));
+/* Logo shop artwork. Page routes are /:lang/logos/... so this cannot collide. */
+app.use('/logos', express.static(path.join(__dirname, 'logos')));
 app.use('/projects-data.js', express.static(path.join(__dirname, 'projects-data.js')));
 app.use('/fonts-data.js', express.static(path.join(__dirname, 'fonts-data.js')));
+app.use('/logos-data.js', express.static(path.join(__dirname, 'logos-data.js')));
 app.use('/fonts-generated.css', express.static(path.join(__dirname, 'fonts-generated.css')));
 app.use('/ownfonts', express.static(path.join(__dirname, 'ownfonts')));
 app.use('/tos.json', express.static(path.join(__dirname, 'tos.json')));
@@ -126,6 +129,8 @@ const PAGE_ROUTES = [
   '',              // home
   ...SVC_CAT_ROUTES,
   'work',
+  'logos',
+  'logos/:logoSlug',
   'my-fonts',
   'my-fonts/:fontSlug',
   'about',
@@ -145,8 +150,8 @@ function renderPage(lang, route, req) {
 
   // Map route to page title (will also be set client-side, but good for SEO)
   const titles = {
-    en: { home: 'Home', work: 'Work', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
-    de: { home: 'Home', work: 'Projekte', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
+    en: { home: 'Home', work: 'Work', logos: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'About', contact: 'Contact', imprint: 'Imprint', privacy: 'Privacy Policy', tos: 'Terms of Service', '404': '404 — Page Not Found' },
+    de: { home: 'Home', work: 'Projekte', logos: 'Logo Shop', 'my-fonts': 'My Fonts', about: 'Über mich', contact: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutzerklärung', tos: 'Nutzungsbedingungen', '404': '404 — Seite nicht gefunden' }
   };
   /* Category titles come from the same i18n entry the client uses */
   SVC_CAT_ROUTES.forEach(k => {
@@ -157,7 +162,7 @@ function renderPage(lang, route, req) {
   // For nested routes (work/:slug, my-fonts/:slug) extract the slug from the URL
   // so the SEO renderer can build project-specific meta/content.
   let slug = null;
-  const nested = pathAfterLang.match(/^\/(work|my-fonts)\/([^\/]+)/);
+  const nested = pathAfterLang.match(/^\/(work|my-fonts|logos)\/([^\/]+)/);
   if (nested) slug = decodeURIComponent(nested[2]);
 
   // x-default normally falls back to English, but project detail pages
@@ -175,6 +180,8 @@ function renderPage(lang, route, req) {
   let docTitle = pageTitle;
   if (slug && pageKey === 'work') {
     docTitle = seo.projectTitle(lang, slug) || pageTitle;
+  } else if (slug && pageKey === 'logos') {
+    docTitle = seo.logoTitle(lang, slug) || pageTitle;
   }
 
   return `<!DOCTYPE html>
@@ -202,6 +209,7 @@ ${jsonLdBlock}
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"><\/script>
 <script src="/projects-data.js"><\/script>
 <script src="/fonts-data.js"><\/script>
+<script src="/logos-data.js"><\/script>
 <script type="importmap">{"imports":{"three":"/Assets/vendor/three/three.module.js","three/addons/":"/Assets/vendor/three/addons/"}}<\/script>
 </head>
 <body data-theme="dark">

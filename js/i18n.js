@@ -128,6 +128,24 @@ const L={en:{
     planTitle:'Packages',planCta:'Get in touch',
     note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
   },
+  /* Ready-made logos sold at a fixed price. Entries live in /logos. */
+  logos:{
+    label:'Logo Shop',
+    title:'Ready-made <em>logos</em>',
+    text:'Finished logo designs, each drawn for a name that does not exist yet. Pick one, pay the price shown, and it is taken off this page for good.',
+    price:'Price',
+    view:'View logo',
+    inquire:'Enquire about this logo',
+    sold:'Sold',
+    soldNote:'This one has already found an owner.',
+    includes:'What is included',
+    empty:'No logos available at the moment.',
+    back:'Back to the logo shop',
+    ctaTitle:'Or take one that is already finished',
+    ctaText:'Not every brand needs a bespoke mark from scratch. These logos are drawn, documented and ready to hand over at a fixed price.',
+    ctaBtn:'Browse ready-made logos',
+    inquirySubject:'Enquiry about the logo'
+  },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
     filterSearch:'Search category',filterNone:'No category found.'},
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
@@ -151,7 +169,7 @@ const L={en:{
         {icon:'tea',label:'Tea & Focus',text:'A good cup of tea and intentional routines keep the deep work sessions going.'}
       ]}
     ]},
-    ftr:{tag:"Clarity in form and function.",cta:'Get in touch',copy:'© 2026 Design by Achim Benzel. All rights reserved.',imp:'Imprint',priv:'Privacy Policy',tos:'ToS'},
+    ftr:{tag:'Brand, Motion & Webdesigner',cta:'Get in touch',copy:'© 2026 Design by Achim Benzel. All rights reserved.',imp:'Imprint',priv:'Privacy Policy',tos:'ToS'},
   contact:{title:'Get in touch',intro:'I hope my work has given you a glimpse into my approach and creative thinking. If you are interested in working together, I would like to hear from you.',name:'Your Name',email:'E-Mail',message:'Tell us about your brand',tos:'I agree to the',tosLink:'Terms of Service',submit:'Send Message',altMail:'Alternatively, please send us an email:',success:'Thank you!',successMsg:'Your message has been sent. We\'ll be in touch soon.',errTos:'Please accept the Terms of Service.',errTurnstile:'Please complete the security check.',errSend:'Something went wrong. Please try again.',sending:'Sending…',bio:'Independent brand designer crafting identities with substance.'},
   prj:{back:'Back to Work',cl:'Client',yr:'Year',sc:'Scope',ind:'Industry',cat:'Category',type:'Type',sw:'Software',testimonial:'Testimonial'},
   imp:{title:'Imprint',h:'<h2>Information According to § 5 TMG</h2><p>Achim Benzel<br>Design by Achim Benzel<br>Saarstraße 32<br>55768 Hoppstädten-Weiersbach</p><h2>Contact</h2><p>Phone: +49 163 9877331<br>Email: info@achimbenzel.com</p><h2>VAT ID</h2><p>VAT identification number pursuant to § 27 a of the German VAT Act:<br>DE366404174</p><h2>Professional Liability Insurance</h2><p>Name and registered office of the insurer: Markel Insurance SE<br>Sophienstr. 26, 80333 München<br><a href="tel:+4989205094000">Phone: +49 89 205094-000</a> / <a href="mailto:service@markel.de">service@markel.de</a> / <a href="www.markel.de">www.markel.de</a><br>Coverage area: Germany</p><h2>Small Business Regulation</h2><p>In accordance with § 19 UStG, no VAT is charged (small business status).</p><h2>Editorially Responsible</h2><p>Achim Benzel</p><h2>Consumer Dispute Resolution / Universal Arbitration Board</h2><p>We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board.</p>'},
@@ -288,6 +306,23 @@ de:{
     from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
     planTitle:'Pakete',planCta:'Anfragen',
     note:'Alle Angaben sind Richtwerte. Das verbindliche Angebot richtet sich nach Umfang, Zeitrahmen und Anzahl der Korrekturschleifen.'
+  },
+  logos:{
+    label:'Logo Shop',
+    title:'Fertige <em>Logos</em>',
+    text:'Fertig gestaltete Logos, jedes für einen Namen gezeichnet, den es noch nicht gibt. Eines aussuchen, den angegebenen Preis zahlen — danach verschwindet es endgültig von dieser Seite.',
+    price:'Preis',
+    view:'Logo ansehen',
+    inquire:'Dieses Logo anfragen',
+    sold:'Verkauft',
+    soldNote:'Dieses Logo hat bereits einen Besitzer gefunden.',
+    includes:'Im Preis enthalten',
+    empty:'Zurzeit sind keine Logos verfügbar.',
+    back:'Zurück zum Logo Shop',
+    ctaTitle:'Oder nehmen Sie eines, das schon fertig ist',
+    ctaText:'Nicht jede Marke braucht ein Zeichen von Grund auf. Diese Logos sind gezeichnet, dokumentiert und zum Festpreis sofort übergabefertig.',
+    ctaBtn:'Fertige Logos ansehen',
+    inquirySubject:'Anfrage zum Logo'
   },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
