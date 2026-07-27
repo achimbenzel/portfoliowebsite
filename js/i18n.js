@@ -144,6 +144,7 @@ const L={en:{
     ctaTitle:'Or take one that is already finished',
     ctaText:'Not every brand needs a bespoke mark from scratch. These logos are drawn, documented and ready to hand over at a fixed price.',
     ctaBtn:'Browse ready-made logos',
+    prev:'Previous image',next:'Next image',
     inquirySubject:'Enquiry about the logo'
   },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
@@ -322,6 +323,7 @@ de:{
     ctaTitle:'Oder nehmen Sie eines, das schon fertig ist',
     ctaText:'Nicht jede Marke braucht ein Zeichen von Grund auf. Diese Logos sind gezeichnet, dokumentiert und zum Festpreis sofort übergabefertig.',
     ctaBtn:'Fertige Logos ansehen',
+    prev:'Vorheriges Bild',next:'Nächstes Bild',
     inquirySubject:'Anfrage zum Logo'
   },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',

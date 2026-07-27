@@ -455,38 +455,97 @@ function inquireLogo(slug){
   go('contact');
 }
 
+/* ===== Logo gallery — one stage image plus a scrollable thumbnail strip =====
+   Set by logoPg() on every render; the handlers below only touch the DOM. */
+let lgImgs=[],lgIdx=0;
+
+function lgPick(i){
+  if(!lgImgs.length)return;
+  lgIdx=(i%lgImgs.length+lgImgs.length)%lgImgs.length;
+  const stage=document.getElementById('lgStage');if(!stage)return;
+  const im=lgImgs[lgIdx];
+  stage.src=im.src;stage.alt=im.alt;
+  /* a missing file must fall back here too, not just on first paint */
+  stage.onerror=function(){this.onerror=null;this.src=im.fb};
+  const cnt=document.getElementById('lgCount');if(cnt)cnt.textContent=lgIdx+1;
+  document.querySelectorAll('.lgshop-thumb').forEach((b,n)=>{
+    const on=n===lgIdx;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',on?'true':'false');
+    b.tabIndex=on?0:-1;
+    if(on&&b.scrollIntoView)b.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});
+  });
+}
+function lgStep(d){lgPick(lgIdx+d)}
+/* Left/Right walk the strip and select as they go (ARIA tabs, automatic
+   activation). Step from the FOCUSED thumb, not from lgIdx: the two can differ
+   once focus has moved on its own, and stepping from lgIdx would jump. */
+function lgKey(e){
+  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+  e.preventDefault();
+  const all=[...document.querySelectorAll('.lgshop-thumb')];
+  const from=all.indexOf(document.activeElement);
+  lgPick((from<0?lgIdx:from)+(e.key==='ArrowRight'?1:-1));
+  const b=all[lgIdx];if(b)b.focus();
+}
+
 function logoPg(slug){
   const lo=(typeof LG==='undefined')?null:LG[slug];
   if(!lo)return notFoundPg();
   const d=lo[lang]||lo.en||{};const g=t('logos');
   const backSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
   const tickSVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const chev=dir=>`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M${dir<0?'15 18l-6-6 6-6':'9 18l6-6-6-6'}"/></svg>`;
   const sold=lo.status==='sold';
   const fb=vg(1600,900,d.name||slug,lo.c);
-  const gallery=(lo.images||[]).map(im=>{
-    const alt=(im.alt||{})[lang]||(im.alt||{}).en||d.name||'';
-    return`<div class="reveal"><div class="pgal-frame"><img src="${im.src}" alt="${alt}" loading="lazy" onerror="this.src='${fb}'"/></div></div>`;
-  }).join('');
+
+  lgImgs=(lo.images||[]).map(im=>({src:im.src,alt:(im.alt||{})[lang]||(im.alt||{}).en||d.name||'',fb}));
+  lgIdx=0;
+  const first=lgImgs[0]||{src:fb,alt:d.name||slug,fb};
+
+  const thumbs=lgImgs.length>1
+    ?`<div class="lgshop-thumbs" role="tablist" aria-label="${d.name||slug}">`
+      +lgImgs.map((im,i)=>`<button type="button" class="lgshop-thumb${i===0?' active':''}" role="tab" aria-selected="${i===0}" tabindex="${i===0?0:-1}" onclick="lgPick(${i})" onkeydown="lgKey(event)"><img src="${im.src}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${fb}'"/></button>`).join('')
+    +`</div>`
+    :'';
+
+  const gallery=`<div class="lgshop-gallery" data-anim="fade">`
+    +`<div class="lgshop-stage">`
+      +`<img id="lgStage" src="${first.src}" alt="${first.alt}" onerror="this.onerror=null;this.src='${fb}'"/>`
+      +(lgImgs.length>1
+        ?`<button type="button" class="lgshop-nav prev" onclick="lgStep(-1)" aria-label="${g.prev}">${chev(-1)}</button>`
+         +`<button type="button" class="lgshop-nav next" onclick="lgStep(1)" aria-label="${g.next}">${chev(1)}</button>`
+         +`<span class="lgshop-count"><span id="lgCount">1</span> / ${lgImgs.length}</span>`
+        :'')
+    +`</div>`
+    +thumbs
+  +`</div>`;
+
   const incl=(d.incl||[]).length
     ?`<div class="lg-incl"><div class="lg-incl-label">${g.includes}</div>`
       +`<ul class="svc-deliver">${d.incl.map(x=>`<li class="svc-deliver-item">${tickSVG}<span>${x}</span></li>`).join('')}</ul></div>`
     :'';
+
+  /* Shop layout: images on top, then the title with the price under it, then
+     the description, then what the price covers. */
   return`<div class="pdetail lgdetail">`
     +`<div><a class="pback" href="${routeToPath('logos')}" onclick="event.preventDefault();go('logos')">${backSVG} ${g.back}</a></div>`
-    +`<div class="pheader">`
-      +`<h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${d.name||slug}</h1>`
-      +(d.tag?`<p class="lg-tagline" data-anim="fade" data-anim-delay="220">${d.tag}</p>`:'')
+    +`<div class="lgshop">`
+      +gallery
+      +`<div class="lgshop-head">`
+        +`<h1 class="lgshop-title" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${d.name||slug}</h1>`
+        +(d.tag?`<p class="lgshop-tagline" data-anim="fade" data-anim-delay="200">${d.tag}</p>`:'')
+        +`<div class="lgshop-buy" data-anim="fade" data-anim-delay="260">`
+          +`<div class="lgshop-price"><span class="lg-buy-label">${g.price}</span><span class="lg-buy-amount">${lo.price||'—'}</span></div>`
+          +(sold
+            ?`<div class="lg-buy-sold"><span class="lg-sold-badge lg-sold-inline">${g.sold}</span><span class="lg-buy-note">${g.soldNote}</span></div>`
+            :`<button type="button" class="lg-buy-btn" onclick="inquireLogo('${slug}')">${g.inquire}</button>`)
+        +`</div>`
+      +`</div>`
+      +(d.desc?`<p class="lgshop-desc" data-anim="words" data-anim-stagger="18" data-anim-delay="200">${d.desc}</p>`:'')
+      +((d.tags||[]).length?`<div class="stags lgshop-tags">${d.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
+      +incl
     +`</div>`
-    +(d.desc?`<p class="pdesc" data-anim="words" data-anim-stagger="18" data-anim-delay="200">${d.desc}</p>`:'')
-    +`<div class="lg-buy" data-anim="fade" data-anim-delay="320">`
-      +`<div class="lg-buy-price"><span class="lg-buy-label">${g.price}</span><span class="lg-buy-amount">${lo.price||'—'}</span></div>`
-      +(sold
-        ?`<div class="lg-buy-sold"><span class="lg-sold-badge lg-sold-inline">${g.sold}</span><span class="lg-buy-note">${g.soldNote}</span></div>`
-        :`<button type="button" class="lg-buy-btn" onclick="inquireLogo('${slug}')">${g.inquire}</button>`)
-      +((d.tags||[]).length?`<div class="stags lg-tags">${d.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
-    +`</div>`
-    +incl
-    +`<div class="pgal">${gallery}</div>`
   +`</div>`
 }
 
