@@ -2387,21 +2387,17 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* ============================================================
    WORK PAGE — filter bar
    ============================================================ */
-.wbar{
-  margin-top:3.5rem;
-  border:1px solid var(--color-border);
-  border-radius:var(--radius-card);
-  /* no overflow clipping — the category panel drops out of the bar */
-  position:relative;z-index:2;
-}
-.wbar-row{display:flex;align-items:center;gap:1.5rem;padding:1.1rem 1.4rem}
+/* No frame any more — the bar is just the category select with its label
+   stacked above it, kept at the right end of the content rail. */
+.wbar{margin-top:3.5rem;position:relative;z-index:2}
+.wbar-row{display:flex;flex-direction:column;align-items:flex-end;gap:.55rem}
 .wbar-label{
   font-family:var(--font-mono);font-size:.58rem;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--text3);
   flex:none;
 }
 /* Category dropdown — sits at the right end of the bar */
-.wsel{position:relative;margin-left:auto;flex:none}
+.wsel{position:relative;flex:none}
 .wsel-trigger{
   display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
   min-width:15rem;
@@ -2529,6 +2525,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   transition:border-color var(--transition-fast);
 }
 .pr-card:hover{border-color:rgba(var(--color-accent-rgb),.25)}
+/* Big placeholder icon. Loaded as a file so the real artwork can replace it
+   without touching markup — see Assets/Icons/services/. */
+.pr-card-icon{width:48px;height:48px;display:block;margin-bottom:.4rem;object-fit:contain}
 .pr-card-title{font-size:1.35rem;font-weight:600;color:var(--text);margin:0}
 .pr-card-text{font-size:.92rem;font-weight:300;line-height:1.7;color:var(--text2);margin:0;flex:1 1 auto}
 .pr-card-price{display:flex;align-items:baseline;gap:.5rem;margin-top:.6rem}
@@ -2552,6 +2551,37 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   margin-top:1.8rem;font-size:.82rem;font-weight:300;
   color:var(--text3);max-width:60ch;
 }
+
+/* ============================================================
+   SERVICE PAGE INTRO — replaces the old .services-grid cards
+   ============================================================ */
+.svc-summary{list-style:none;margin:2.5rem 0 0;padding:0;display:flex;flex-direction:column;gap:0}
+.svc-summary-item{
+  display:flex;align-items:baseline;gap:1.4rem;
+  padding:1.2rem 0;border-top:1px solid var(--color-border);
+}
+.svc-summary-item:last-child{border-bottom:1px solid var(--color-border)}
+.svc-summary-num{
+  flex:none;width:2rem;
+  font-family:var(--font-mono);font-size:.62rem;font-weight:700;
+  letter-spacing:.12em;color:var(--accent);
+}
+.svc-summary-body{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1.2rem;min-width:0}
+.svc-summary-t{font-size:1.1rem;font-weight:600;color:var(--text);flex:none}
+.svc-summary-d{font-size:.95rem;font-weight:300;line-height:1.7;color:var(--text2);flex:1 1 22rem;min-width:0}
+
+.svc-intro-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin-top:2.2rem}
+.svc-jump{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 1.5rem;border-radius:var(--radius-small);
+  background:var(--accent);border:1px solid var(--accent);
+  color:var(--color-text-on-dark);font-size:.95rem;font-weight:500;
+  transition:background var(--transition-fast),border-color var(--transition-fast);
+}
+.svc-jump:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
+.svc-jump svg{transition:transform var(--transition-fast)}
+.svc-jump:hover svg{transform:translateY(3px)}
+.svc-jump-note{font-size:.88rem;font-weight:300;color:var(--text3)}
 
 /* three tiers, middle one raised */
 .pr-plans{
@@ -2605,6 +2635,12 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .pr-amount{font-size:1.6rem}
   .htesti-cta,.pr-card-cta{align-self:stretch;justify-content:center}
   .htesti-quote{-webkit-line-clamp:12}
+  .svc-summary-item{gap:1rem;padding:1rem 0}
+  .svc-summary-num{width:1.6rem}
+  .svc-summary-body{flex-direction:column;gap:.3rem}
+  .svc-summary-d{flex:1 1 auto}
+  .svc-intro-cta{flex-direction:column;align-items:stretch;gap:.9rem}
+  .svc-jump{justify-content:center}
 }
 
 /* ============================================================
@@ -2646,9 +2682,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 @media(max-width:760px){
   .pgrid{grid-template-columns:1fr;gap:1.6rem}
   .pcard-title{font-size:1.35rem}
-  .wbar-row{flex-direction:column;align-items:flex-start;gap:.8rem}
-  /* full width once the row stacks — "right side" has nothing to align to */
-  .wsel{width:100%;margin-left:0}
+  /* full width on small screens — "right side" has nothing to align to */
+  .wbar-row{align-items:stretch}
+  .wbar-label{align-self:flex-start}
+  .wsel{width:100%}
   .wsel-trigger{width:100%;min-width:0}
   .pgrid-more-btn{width:100%;justify-content:center}
 }

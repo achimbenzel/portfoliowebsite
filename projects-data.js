@@ -414,20 +414,6 @@ const P = {
         }
       },
       {
-        "type": "text",
-        "variant": "center",
-        "en": {
-          "eyebrow": "Outcome",
-          "headline": "Three keys caught mid-strike",
-          "body": "One shape, repeated three times and staggered in depth, reads as keys being struck in sequence — the falling-note motion frozen into a mark. Built from a handful of vector paths in Illustrator, so the same file is the app icon, the favicon and the full-width brand board. Nothing had to be simplified for the small sizes."
-        },
-        "de": {
-          "eyebrow": "Ergebnis",
-          "headline": "Drei Tasten im Anschlag",
-          "body": "Eine Form, dreifach wiederholt und in der Tiefe versetzt, liest sich als nacheinander angeschlagene Tasten — die Bewegung der fallenden Noten im Zeichen eingefroren. Aus wenigen Vektorpfaden in Illustrator gebaut, sodass dieselbe Datei App-Icon, Favicon und vollflächiges Markenbild trägt. Für die kleinen Größen musste nichts vereinfacht werden."
-        }
-      },
-      {
         "type": "image",
         "src": "/projects/lumakeys/detail-01.webp",
         "li": 1,
@@ -452,6 +438,20 @@ const P = {
         "alt": {
           "en": "LumaKeys app icon and browser favicon in use",
           "de": "LumaKeys App-Icon und Browser-Favicon in der Anwendung"
+        }
+      },
+      {
+        "type": "text",
+        "variant": "center",
+        "en": {
+          "eyebrow": "Outcome",
+          "headline": "Three keys caught mid-strike",
+          "body": "One shape, repeated three times and staggered in depth, reads as keys being struck in sequence — the falling-note motion frozen into a mark. Built from a handful of vector paths in Illustrator, so the same file is the app icon, the favicon and the full-width brand board. Nothing had to be simplified for the small sizes."
+        },
+        "de": {
+          "eyebrow": "Ergebnis",
+          "headline": "Drei Tasten im Anschlag",
+          "body": "Eine Form, dreifach wiederholt und in der Tiefe versetzt, liest sich als nacheinander angeschlagene Tasten — die Bewegung der fallenden Noten im Zeichen eingefroren. Aus wenigen Vektorpfaden in Illustrator gebaut, sodass dieselbe Datei App-Icon, Favicon und vollflächiges Markenbild trägt. Für die kleinen Größen musste nichts vereinfacht werden."
         }
       },
       {

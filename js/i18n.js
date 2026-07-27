@@ -18,7 +18,8 @@ const L={en:{
      One entry per /:lang/<key> route, rendered by svcCatPg(). Each page runs
      intro → what's included → process → deliverables → FAQ → related work.
      `work` maps to a cats{} id so the page can pull in matching projects. */
-  svcPage:{process:'How it runs',deliver:'What you get',faq:'Good to know',work:'Related work'},
+  svcPage:{process:'How it runs',deliver:'What you get',faq:'Good to know',work:'Related work',
+    jump:'See the packages',jumpNote:'Fixed packages from {price} — no open-ended hourly billing.'},
   svcCat:{
     'branding':{
       fromPrice:'1.200 €',
@@ -122,10 +123,10 @@ const L={en:{
      three tiers on each service page (index 1 is flagged as the popular one). */
   pricing:{
     title:'<em>Pricing</em>',
-    text:'Every project is quoted individually — the figures below are starting points, not a menu.',
+    text:'Every project is quoted individually. The figures below are entry-level prices, meant to give you a first point of reference before we talk through your actual scope.',
     from:'from',homeCta:'Learn more',popular:'Most popular',
     planTitle:'Packages',planCta:'Get in touch',
-    note:'Indicative prices. The final quote depends on scope, timeline and how many rounds you want.'
+    note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
   },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
     filterSearch:'Search category',filterNone:'No category found.'},
@@ -182,7 +183,8 @@ de:{
      Ein Eintrag pro /:lang/<key>-Route, gerendert von svcCatPg(). Jede Seite
      läuft Intro → Leistungen → Ablauf → Ergebnis → FAQ → passende Projekte.
      `work` verweist auf eine cats{}-ID für die Projektauswahl. */
-  svcPage:{process:'So läuft es ab',deliver:'Was Sie bekommen',faq:'Gut zu wissen',work:'Passende Projekte'},
+  svcPage:{process:'So läuft es ab',deliver:'Was Sie bekommen',faq:'Gut zu wissen',work:'Passende Projekte',
+    jump:'Zu den Paketen',jumpNote:'Feste Pakete ab {price} — keine offene Abrechnung nach Stunden.'},
   svcCat:{
     'branding':{
       fromPrice:'1.200 €',
@@ -282,10 +284,10 @@ de:{
   testi:{title:'Was Kunden <em>sagen</em>',cta:'Projekt ansehen'},
   pricing:{
     title:'<em>Preise</em>',
-    text:'Jedes Projekt wird einzeln kalkuliert — die Zahlen unten sind Startpunkte, keine Speisekarte.',
+    text:'Jedes Projekt wird individuell kalkuliert. Die folgenden Beträge sind Einstiegspreise und geben Ihnen eine erste Orientierung, bevor wir über Ihren konkreten Umfang sprechen.',
     from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
     planTitle:'Pakete',planCta:'Anfragen',
-    note:'Richtwerte. Das finale Angebot hängt von Umfang, Zeitrahmen und Korrekturschleifen ab.'
+    note:'Alle Angaben sind Richtwerte. Das verbindliche Angebot richtet sich nach Umfang, Zeitrahmen und Anzahl der Korrekturschleifen.'
   },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
