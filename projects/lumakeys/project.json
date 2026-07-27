@@ -41,6 +41,14 @@
   },
   "content": [
     {
+      "type": "image",
+      "src": "hero.webp",
+      "alt": {
+        "en": "LumaKeys logo and wordmark in white on a purple gradient",
+        "de": "LumaKeys Logo und Wortmarke in Weiß auf violettem Verlauf"
+      }
+    },
+    {
       "type": "text",
       "variant": "center",
       "en": {

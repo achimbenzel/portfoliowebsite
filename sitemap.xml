@@ -66,6 +66,15 @@
   </url>
 
   <url>
+    <loc>https://achimbenzel.com/de/work/euphorik-berlin</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/euphorik-berlin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/euphorik-berlin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/work/euphorik-berlin"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://achimbenzel.com/de/work/joeys-picknick</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/joeys-picknick"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/joeys-picknick"/>
@@ -197,6 +206,15 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/lumakeys"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/lumakeys"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/work/lumakeys"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achimbenzel.com/en/work/euphorik-berlin</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://achimbenzel.com/de/work/euphorik-berlin"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achimbenzel.com/en/work/euphorik-berlin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://achimbenzel.com/de/work/euphorik-berlin"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

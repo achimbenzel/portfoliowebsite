@@ -656,22 +656,102 @@ function renderWrkGrid(){
   if(empty)empty.hidden=keys.length>0;
 }
 
-function setWrkCat(id,btn){
+/* ===== Category dropdown (trigger + searchable option list) ===== */
+/* Fold case and diacritics so "Schriftgestaltung" is found by "schrift" and
+   a German keyboard is not required to reach any option. */
+function wselNorm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function wselEls(){return{
+  sel:document.getElementById('wselEl'),
+  trig:document.getElementById('wselTrigger'),
+  search:document.getElementById('wselSearch'),
+  none:document.getElementById('wselNone')
+}}
+/* Options still visible after the search filter, in DOM order */
+function wselShown(){return[...document.querySelectorAll('.wsel-opt')].filter(o=>!o.hidden)}
+
+function wselOpen(){
+  const{sel,trig,search}=wselEls();if(!sel)return;
+  sel.classList.add('open');trig.setAttribute('aria-expanded','true');
+  if(search){search.value='';wselFilter();search.focus()}
+}
+function wselClose(focusTrigger){
+  const{sel,trig,search}=wselEls();if(!sel||!sel.classList.contains('open'))return;
+  sel.classList.remove('open');trig.setAttribute('aria-expanded','false');
+  if(search){search.value='';wselFilter()}
+  if(focusTrigger)trig.focus();
+}
+function wselToggle(){
+  const sel=document.getElementById('wselEl');
+  if(sel&&sel.classList.contains('open'))wselClose(true);else wselOpen();
+}
+function wselFilter(){
+  const{search,none}=wselEls();if(!search)return;
+  const q=wselNorm(search.value.trim());
+  document.querySelectorAll('.wsel-opt').forEach(o=>{
+    o.hidden=!!q&&!wselNorm(o.dataset.label).includes(q);
+  });
+  if(none)none.hidden=wselShown().length>0;
+}
+/* Enter picks the first match, Arrow keys walk the list, Escape closes. */
+function wselKey(e){
+  const shown=wselShown();
+  if(e.key==='Escape'){e.preventDefault();wselClose(true);return}
+  if(e.key==='Enter'){
+    if(e.target.classList.contains('wsel-search-input')&&shown.length){e.preventDefault();shown[0].click()}
+    return;
+  }
+  if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;
+  e.preventDefault();
+  if(!shown.length)return;
+  const i=shown.indexOf(document.activeElement);
+  if(i<0){shown[e.key==='ArrowDown'?0:shown.length-1].focus();return}
+  const n=i+(e.key==='ArrowDown'?1:-1);
+  if(n<0){wselEls().search?.focus();return}
+  shown[Math.min(n,shown.length-1)].focus();
+}
+
+function setWrkCat(id){
   wrkCat=id;
-  document.querySelectorAll('.wfilter').forEach(b=>b.classList.toggle('active',b===btn));
+  document.querySelectorAll('.wsel-opt').forEach(o=>{
+    const on=o.dataset.id===id;
+    o.classList.toggle('active',on);o.setAttribute('aria-selected',on?'true':'false');
+  });
+  const val=document.getElementById('wselValue');
+  if(val)val.textContent=catLabel(id);
+  wselClose(true);
   renderWrkGrid();
 }
+
+document.addEventListener('click',e=>{if(!e.target.closest('.wsel'))wselClose(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')wselClose(true)});
 
 function wrkPg(){
   wrkCat='all';
   const w=t('wrk');
   const keys=allWorkKeys();
-  const filters=WRK_CATS.map(id=>`<button type="button" class="wfilter${id==='all'?' active':''}" onclick="setWrkCat('${id}',this)">${catLabel(id)}</button>`).join('');
+  const chevron='<svg class="wsel-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  const magnifier='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>';
+  const opts=WRK_CATS.map(id=>{
+    const lb=catLabel(id),on=id==='all';
+    return`<button type="button" class="wsel-opt${on?' active':''}" role="option" aria-selected="${on}" data-id="${id}" data-label="${lb}" onclick="setWrkCat('${id}')" onkeydown="wselKey(event)">${lb}</button>`;
+  }).join('');
   return`<section class="section" style="padding-top:9rem"><div class="reveal">`
     +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${w.title}</h2>`
     +`<p class="section-text" data-anim="words" data-anim-stagger="20">${w.text}</p>`
     +`<div class="wbar">`
-      +`<div class="wbar-row"><span class="wbar-label">${w.filterLabel}</span><div class="wfilters">${filters}</div></div>`
+      +`<div class="wbar-row">`
+        +`<span class="wbar-label" id="wselLabel">${w.filterLabel}</span>`
+        +`<div class="wsel" id="wselEl">`
+          +`<button type="button" class="wsel-trigger" id="wselTrigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="wselOpts" aria-labelledby="wselLabel wselValue" onclick="wselToggle()">`
+            +`<span class="wsel-value" id="wselValue">${catLabel('all')}</span>${chevron}`
+          +`</button>`
+          +`<div class="wsel-panel">`
+            +`<div class="wsel-search">${magnifier}<input type="text" class="wsel-search-input" id="wselSearch" placeholder="${w.filterSearch}" aria-label="${w.filterSearch}" autocomplete="off" oninput="wselFilter()" onkeydown="wselKey(event)"></div>`
+            +`<div class="wsel-opts" id="wselOpts" role="listbox" aria-label="${w.filterLabel}">${opts}</div>`
+            +`<p class="wsel-none" id="wselNone" hidden>${w.filterNone}</p>`
+          +`</div>`
+        +`</div>`
+      +`</div>`
     +`</div>`
     +`<div class="pgrid" id="wgridEl">${keys.map(wC).join('')}</div>`
     +`<p class="wempty" id="wempty" hidden>${w.empty}</p>`

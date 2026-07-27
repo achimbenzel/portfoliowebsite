@@ -391,6 +391,15 @@ const P = {
     },
     "content": [
       {
+        "type": "image",
+        "src": "/projects/lumakeys/hero.webp",
+        "li": 0,
+        "alt": {
+          "en": "LumaKeys logo and wordmark in white on a purple gradient",
+          "de": "LumaKeys Logo und Wortmarke in Weiß auf violettem Verlauf"
+        }
+      },
+      {
         "type": "text",
         "variant": "center",
         "en": {
@@ -407,7 +416,7 @@ const P = {
       {
         "type": "image",
         "src": "/projects/lumakeys/detail-01.webp",
-        "li": 0,
+        "li": 1,
         "alt": {
           "en": "LumaKeys mark in black on light and white on dark",
           "de": "LumaKeys-Zeichen in Schwarz auf Hell und Weiß auf Dunkel"
@@ -430,7 +439,7 @@ const P = {
       {
         "type": "image",
         "src": "/projects/lumakeys/detail-02.webp",
-        "li": 1,
+        "li": 2,
         "alt": {
           "en": "LumaKeys lockup with clearspace and construction guides",
           "de": "LumaKeys-Lockup mit Schutzraum und Konstruktionslinien"
@@ -453,7 +462,7 @@ const P = {
       {
         "type": "image",
         "src": "/projects/lumakeys/detail-03.webp",
-        "li": 2,
+        "li": 3,
         "alt": {
           "en": "LumaKeys app icon and browser favicon in use",
           "de": "LumaKeys App-Icon und Browser-Favicon in der Anwendung"
@@ -461,6 +470,7 @@ const P = {
       }
     ],
     "imgs": [
+      "/projects/lumakeys/hero.webp",
       "/projects/lumakeys/detail-01.webp",
       "/projects/lumakeys/detail-02.webp",
       "/projects/lumakeys/detail-03.webp"
@@ -688,6 +698,138 @@ const P = {
       "/projects/logo-types/detail-13.webp",
       "/projects/logo-types/detail-14.webp",
       "/projects/logo-types/detail-15.webp"
+    ]
+  },
+  "euphorik-berlin": {
+    "slug": "euphorik-berlin",
+    "pop": 75,
+    "date": {
+      "m": 9,
+      "y": 2024
+    },
+    "yr": "2024",
+    "cl": "Euphorik Berlin",
+    "cats": [
+      "logo-design"
+    ],
+    "thumb": "/projects/euphorik-berlin/hero.webp",
+    "c": "#1f1030",
+    "theme": {},
+    "sw": [
+      {
+        "name": "Illustrator",
+        "icon": "/Assets/software/illustrator.svg"
+      }
+    ],
+    "en": {
+      "title": "Euphorik Berlin",
+      "type": "Client Project",
+      "scope": "Logo Design, Wordmark",
+      "ind": "Music / Nightlife",
+      "desc": "A logo and wordmark for Euphorik Berlin, a DJ act from the Berlin club scene. The mark had to survive the places a DJ logo actually lives: a small avatar on a streaming platform, a corner of a flyer, a projection behind the booth. One shape, drawn as vectors in Illustrator, that stays recognisable at every one of those sizes.",
+      "tags": [
+        "Logo Design",
+        "Wordmark",
+        "Music"
+      ]
+    },
+    "de": {
+      "title": "Euphorik Berlin",
+      "type": "Kundenprojekt",
+      "scope": "Logo Design, Wortmarke",
+      "ind": "Musik / Nightlife",
+      "desc": "Logo und Wortmarke für Euphorik Berlin, ein DJ-Act aus der Berliner Clubszene. Das Zeichen musste dort bestehen, wo ein DJ-Logo tatsächlich auftaucht: als kleines Avatar auf einer Streaming-Plattform, in der Ecke eines Flyers, als Projektion hinter dem Pult. Eine Form, als Vektor in Illustrator gezeichnet, die in jeder dieser Größen erkennbar bleibt.",
+      "tags": [
+        "Logo Design",
+        "Wortmarke",
+        "Musik"
+      ]
+    },
+    "content": [
+      {
+        "type": "image",
+        "src": "/projects/euphorik-berlin/hero.webp",
+        "li": 0,
+        "alt": {
+          "en": "Euphorik Berlin logo and wordmark",
+          "de": "Euphorik Berlin Logo und Wortmarke"
+        }
+      },
+      {
+        "type": "text",
+        "variant": "center",
+        "en": {
+          "eyebrow": "The mark",
+          "headline": "Built for a dark room",
+          "body": "A DJ logo is almost never seen on white paper. It sits on artwork, on a dark stage backdrop, on a phone screen at night — so the mark was drawn as a single solid shape with no thin strokes and no inner detail that a low-resolution export or a projector could swallow. What is left reads the same in one colour as it does in full artwork."
+        },
+        "de": {
+          "eyebrow": "Das Zeichen",
+          "headline": "Für den dunklen Raum gebaut",
+          "body": "Ein DJ-Logo sieht man fast nie auf weißem Papier. Es liegt auf Artwork, auf dunklem Bühnenhintergrund, nachts auf einem Handydisplay — deshalb ist das Zeichen als eine einzige geschlossene Form gezeichnet, ohne dünne Striche und ohne Binnendetails, die ein niedrig aufgelöster Export oder ein Beamer verschluckt. Was übrig bleibt, liest sich einfarbig genauso wie im vollen Artwork."
+        }
+      },
+      {
+        "type": "image",
+        "src": "/projects/euphorik-berlin/detail-01.webp",
+        "li": 1,
+        "alt": {
+          "en": "Euphorik Berlin mark in black on light and white on dark",
+          "de": "Euphorik-Berlin-Zeichen in Schwarz auf Hell und Weiß auf Dunkel"
+        }
+      },
+      {
+        "type": "text",
+        "variant": "center",
+        "en": {
+          "eyebrow": "Lockup",
+          "headline": "Mark and name, together and apart",
+          "body": "The name travels with the mark on a flyer or a poster, but has to come off it for an avatar or a stamp on a track cover. Both states were fixed at the same time: the wordmark is spaced to the mark's own proportions, and the mark alone keeps the clearspace it needs so it never gets crowded by whatever it is placed on."
+        },
+        "de": {
+          "eyebrow": "Lockup",
+          "headline": "Zeichen und Name, zusammen und getrennt",
+          "body": "Auf Flyer und Plakat läuft der Name mit dem Zeichen, für Avatar oder Track-Cover muss er sich davon lösen lassen. Beide Zustände wurden gleichzeitig festgelegt: Die Wortmarke ist auf die Proportionen des Zeichens abgestimmt, und das Zeichen allein behält seinen Schutzraum, damit es nie von dem bedrängt wird, worauf es liegt."
+        }
+      },
+      {
+        "type": "image",
+        "src": "/projects/euphorik-berlin/detail-02.webp",
+        "li": 2,
+        "alt": {
+          "en": "Euphorik Berlin lockup with clearspace and construction guides",
+          "de": "Euphorik-Berlin-Lockup mit Schutzraum und Konstruktionslinien"
+        }
+      },
+      {
+        "type": "text",
+        "variant": "center",
+        "en": {
+          "eyebrow": "In use",
+          "headline": "From avatar to backdrop",
+          "body": "The same paths carry the streaming avatar, the flyer corner and the wall behind the booth. Nothing had to be redrawn for the small end, which means every release and every event goes out with the identical mark instead of a slightly different one each time."
+        },
+        "de": {
+          "eyebrow": "In der Anwendung",
+          "headline": "Vom Avatar bis zur Rückwand",
+          "body": "Dieselben Pfade tragen den Streaming-Avatar, die Flyer-Ecke und die Wand hinter dem Pult. Für den kleinen Einsatz musste nichts neu gezeichnet werden — jedes Release und jedes Event geht damit mit demselben Zeichen raus statt jedes Mal mit einem leicht anderen."
+        }
+      },
+      {
+        "type": "image",
+        "src": "/projects/euphorik-berlin/detail-03.webp",
+        "li": 3,
+        "alt": {
+          "en": "Euphorik Berlin mark used as an avatar and on cover artwork",
+          "de": "Euphorik-Berlin-Zeichen als Avatar und auf Cover-Artwork"
+        }
+      }
+    ],
+    "imgs": [
+      "/projects/euphorik-berlin/hero.webp",
+      "/projects/euphorik-berlin/detail-01.webp",
+      "/projects/euphorik-berlin/detail-02.webp",
+      "/projects/euphorik-berlin/detail-03.webp"
     ]
   }
 };

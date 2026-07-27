@@ -97,7 +97,8 @@ const L={en:{
     /* Shown as a project card in the work grid — links to /my-fonts */
     card:{title:'Type Library',type:'Personal Project',ind:'Type Design',tags:['Type Design','Display','Monospace']},
     tester:'Font Tester',themeLabel:'Preview',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
-  wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.'},
+  wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
+    filterSearch:'Search category',filterNone:'No category found.'},
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
     name:'Achim Benzel',role:'Independent Designer & Art Director',bio:'I\'m Achim, 25, a freelance designer based in Germany.',
@@ -230,7 +231,8 @@ de:{
     /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */
     card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
     tester:'Schrift-Tester',themeLabel:'Vorschau',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
-  wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.'},
+  wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
+    filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
   cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
     name:'Achim Benzel',role:'Freiberuflicher Designer & Art Director',bio:'Ich bin Achim, 25, freiberuflicher Designer aus Deutschland.',
