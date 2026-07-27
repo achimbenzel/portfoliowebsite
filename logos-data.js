@@ -4,6 +4,9 @@ const LG = {
     "slug": "n-monogram",
     "ord": 10,
     "price": "450 €",
+    "cats": [
+      "logo"
+    ],
     "status": "available",
     "thumb": "/logos/n-monogram/hero.webp",
     "c": "#1d3a12",

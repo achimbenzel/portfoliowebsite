@@ -1,5 +1,8 @@
 {
   "slug": "n-monogram",
+  "categories": [
+    "logo"
+  ],
   "order": 10,
   "price": "450 €",
   "status": "available",

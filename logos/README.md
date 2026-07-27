@@ -17,8 +17,9 @@ logos/
 
 | Field | Meaning |
 |---|---|
-| `slug` | URL segment — the page is `/de/logos/<slug>` |
+| `slug` | URL segment — the page is `/de/shop/<slug>` |
 | `order` | Sort order in the listing, lower first (default 999) |
+| `categories` | What kind of item it is, e.g. `["logo"]`. The shop lists everything; pages outside the shop filter on this — the branding page only shows `logo`. Omit it and the item appears in the shop alone. |
 | `price` | Shown verbatim on the card and the detail page, e.g. `"450 €"` |
 | `status` | `available` or `sold`. A sold logo stays listed, greyed out, with the enquiry button disabled |
 | `color` | Card tint, used as the fallback while an image is missing |

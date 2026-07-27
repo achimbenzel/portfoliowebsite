@@ -46,6 +46,12 @@ folders.forEach(folder => {
   if (!images.length) console.warn(`  ! ${folder} lists no images`);
   if (!json.price)    console.warn(`  ! ${folder} has no price — the card will show nothing`);
 
+  /* What kind of item this is. Drives which shop entries show up outside the
+     shop itself — the branding page only lists 'logo'. */
+  const rawCats = json.categories || (json.category ? [json.category] : []);
+  const cats = rawCats.map(c => String(c).trim().toLowerCase()).filter(Boolean);
+  if (!cats.length) console.warn(`  ! ${folder} has no category — shown in the shop only`);
+
   /* Sort key: lower `order` first, then alphabetical. */
   let ord = Number(json.order);
   if (!Number.isFinite(ord)) ord = 999;
@@ -54,6 +60,7 @@ folders.forEach(folder => {
     slug,
     ord,
     price: json.price || '',
+    cats,
     /* 'available' | 'sold' — a sold logo stays listed but cannot be enquired about */
     status: json.status === 'sold' ? 'sold' : 'available',
     thumb: img(json.thumbnail || (json.images && (typeof json.images[0] === 'string' ? json.images[0] : json.images[0]?.src)) || 'hero.webp'),
@@ -92,4 +99,4 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = { LG: LG
 fs.writeFileSync(outputFile, output, 'utf8');
 
 console.log(`Built ${sortedKeys.length} logos → logos-data.js`);
-sortedKeys.forEach(k => console.log(`    ${String(logos[k].ord).padStart(3)}  ${k}  ${logos[k].price || '(no price)'}  [${logos[k].status}]  ${logos[k].images.length} images`));
+sortedKeys.forEach(k => console.log(`    ${String(logos[k].ord).padStart(3)}  ${k}  ${logos[k].price || '(no price)'}  [${logos[k].status}]  {${logos[k].cats.join(', ') || 'no category'}}  ${logos[k].images.length} images`));

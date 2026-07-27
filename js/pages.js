@@ -774,7 +774,8 @@ function svcCatPg(key){
   +`</div>`:'';
 
   /* Logo shop — only on the branding page, and only while something is listed */
-  const lgKeys=(key==='branding')?allLogoKeys():[];
+  /* Only shop items tagged 'logo' belong under the branding page */
+  const lgKeys=(key==='branding')?allLogoKeys().filter(k=>(LG[k].cats||[]).includes('logo')):[];
   const lgCta=lgKeys.length?(()=>{const g=t('logos');
     return`<div class="reveal svc-block lg-cta">`
       +`<h3 class="svc-block-title" data-anim="words" data-anim-stagger="25">${g.ctaTitle}</h3>`
@@ -1258,6 +1259,30 @@ function lbClick(e){if(e.target===document.getElementById('lightbox'))lbClose()}
     lbApplyTransform();
   },{passive:false});
   document.addEventListener('touchend',()=>{lbDragging=false});
+
+  /* Wheel zoom, anchored on the cursor so the point under it stays put.
+     With transform `scale(s) translate(t)` about the centre, a point p maps to
+     s*(p+t); holding the screen offset c fixed across s0 -> s1 gives
+     t1 = t0 + c*(1/s1 - 1/s0). */
+  document.addEventListener('wheel',e=>{
+    const lb=document.getElementById('lightbox');
+    if(!lb||!lb.classList.contains('show'))return;
+    const wrap=e.target.closest('.lightbox-img-wrap');
+    if(!wrap)return;
+    e.preventDefault();
+    /* deltaMode 1 is lines, not pixels — normalise before scaling */
+    const raw=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?wrap.clientHeight:1);
+    const step=Math.max(-60,Math.min(60,-raw*0.35));
+    const next=Math.max(100,Math.min(300,lbZoomVal+step));
+    if(next===lbZoomVal)return;
+    const s0=lbZoomVal/100,s1=next/100;
+    const r=wrap.getBoundingClientRect();
+    const cx=e.clientX-(r.left+r.width/2);
+    const cy=e.clientY-(r.top+r.height/2);
+    lbPanX+=cx*(1/s1-1/s0);
+    lbPanY+=cy*(1/s1-1/s0);
+    lbSetZoom(next);
+  },{passive:false});
 })();
 
 document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('show'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbNav(1);if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='+'||e.key==='=')lbZoom(1);if(e.key==='-')lbZoom(-1)});
