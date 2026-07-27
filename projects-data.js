@@ -460,11 +460,11 @@ const P = {
         "name": "Ramon Melchior",
         "en": {
           "role": "Founder, LumaKeys",
-          "quote": "Placeholder — the real quote is still to come. Achim took a rough idea of what the app does and came back with a mark that says it without a single word of explanation. It works just as well on the app icon as it does across the top of the website, and we have not had to touch it since."
+          "quote": "To take the visual design of my piano app to the next level and help it live up to its full potential, I was looking for a designer who could translate my ideas, wishes, and requirements into professional designs. I quickly came across Achim, and within just a few days, I received a high-quality logo along with a wide range of marketing assets. In addition, he regularly provides valuable feedback on how both my website and product can be further improved from a visual and customer perspective. I look forward to continuing to work with Achim!"
         },
         "de": {
           "role": "Gründer, LumaKeys",
-          "quote": "Platzhalter — das echte Zitat folgt noch. Achim hat aus einer groben Idee davon, was die App macht, ein Zeichen gemacht, das ohne ein Wort Erklärung auskommt. Es funktioniert als App-Icon genauso wie über die volle Breite der Website, und wir mussten es seitdem nicht anfassen."
+          "quote": "Um meine Piano App optisch auf ein neues Level zu bringen und ihrem Potenzial gerecht zu werden, war ich auf der Suche nach einem Designer der meine Ideen, Wünsche und Anforderungen in professionelle Designs übersetzen kann. Ich bin schnell auf Achim gestoßen und habe innerhalb weniger Tage ein hochwertiges Logo sowie verschiedenste Marketing-Assets erhalten. Darüber hinaus bekomme ich regelmäßig wertvolles Feedback, wie meine Website und mein Produkt sowohl optisch als auch aus Kundensicht weiter aufgewertet werden können. Ich freue mich auf die weitere Zusammenarbeit mit Achim!"
         }
       }
     ],

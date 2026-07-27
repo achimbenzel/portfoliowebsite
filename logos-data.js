@@ -6,15 +6,15 @@ const LG = {
     "price": "450 €",
     "status": "available",
     "thumb": "/logos/n-monogram/hero.webp",
-    "c": "#1d2b3a",
+    "c": "#1d3a12",
     "en": {
       "name": "N Monogram",
-      "tag": "A single-letter mark for a name starting with N",
-      "desc": "A geometric N built from one continuous stroke, drawn as vectors so it holds at any size and in a single colour. Ready to use as it is: the price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+      "tag": "A crossed-blade N for a name starting with N",
+      "desc": "An N built from two crossing blades that meet at the centre — the counter of the letter is the space between them rather than a drawn line. Shown here rendered in glass, and supplied flat as well so it works on a business card as readily as on a screen. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
       "tags": [
         "Monogram",
         "Geometric",
-        "One colour"
+        "3D"
       ],
       "incl": [
         "Logo as SVG, PDF, PNG and JPG",
@@ -26,12 +26,12 @@ const LG = {
     },
     "de": {
       "name": "N Monogramm",
-      "tag": "Eine Buchstabenmarke für einen Namen mit N",
-      "desc": "Ein geometrisches N aus einem durchgehenden Strich, als Vektor gezeichnet und dadurch in jeder Größe und einfarbig tragfähig. Sofort einsetzbar: Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+      "tag": "Ein gekreuztes N für einen Namen mit N",
+      "desc": "Ein N aus zwei gekreuzten Klingen, die sich in der Mitte treffen — die Punze des Buchstabens entsteht aus dem Zwischenraum statt aus einer gezogenen Linie. Hier in Glas gerendert, zusätzlich flach ausgeliefert, damit es auf der Visitenkarte genauso funktioniert wie auf dem Bildschirm. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
       "tags": [
         "Monogramm",
         "Geometrisch",
-        "Einfarbig"
+        "3D"
       ],
       "incl": [
         "Logo als SVG, PDF, PNG und JPG",
@@ -46,16 +46,16 @@ const LG = {
         "src": "/logos/n-monogram/hero.webp",
         "i": 0,
         "alt": {
-          "en": "The N monogram on a plain background",
-          "de": "Das N-Monogramm auf einfarbigem Hintergrund"
+          "en": "The N monogram rendered in green glass",
+          "de": "Das N-Monogramm in grünem Glas gerendert"
         }
       },
       {
         "src": "/logos/n-monogram/detail-01.webp",
         "i": 1,
         "alt": {
-          "en": "The monogram in one colour, on light and on dark",
-          "de": "Das Monogramm einfarbig, auf Hell und auf Dunkel"
+          "en": "The flat version of the monogram, on light and on dark",
+          "de": "Die flache Fassung des Monogramms, auf Hell und auf Dunkel"
         }
       },
       {
