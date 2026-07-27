@@ -212,14 +212,10 @@ function svcMenuKey(e){
 function faqHtml(){
   const f=t('faq');
   const plusSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
-  const heroGraphicSVG='';
-  const faqImgSrc=(theme==='dark'||theme==='darkproject')?'/Assets/images/faq_dark.webp':'/Assets/images/faq.webp';
+  /* No artwork any more — the accordion is centred on its own. */
   return`<section class="faq-section"><div class="reveal">
     <h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${f.title}</h2>
     <div class="faq-layout">
-      <div class="faq-hero">
-        <img src="${faqImgSrc}" alt="FAQ" class="faq-hero-img"/>
-      </div>
       <div class="faq-list">${f.items.map((item,i)=>`<div class="faq-item" id="faq${i}"><button class="faq-question" onclick="toggleFaq(${i})">${item.q} ${plusSVG}</button><div class="faq-answer"><div class="faq-answer-inner">${item.a}</div></div></div>`).join('')}</div>
     </div>
   </div></section>`;
@@ -228,6 +224,96 @@ function toggleFaq(i){
   const item=document.getElementById('faq'+i);
   if(!item)return;
   item.classList.toggle('open');
+}
+
+/* ===== TESTIMONIALS =====
+   Collected from the projects themselves: any project carrying a testimonial
+   block shows up here, in the same order the work grid uses. Adding one to a
+   project.json is all it takes — nothing here needs touching. */
+function allTestimonials(){
+  const out=[];
+  allWorkKeys().forEach(slug=>{
+    const pr=P[slug];if(!pr)return;
+    (pr.content||[]).forEach(b=>{
+      if(b.type!=='testimonial')return;
+      const d=b[lang]||b.en||{};
+      if(!d.quote)return;
+      out.push({slug,photo:b.photo||'',name:b.name||'',role:d.role||'',quote:d.quote,
+        project:(pr[lang]||pr.en||{}).title||slug});
+    });
+  });
+  return out;
+}
+
+function testiHomeHtml(){
+  const items=allTestimonials();
+  if(!items.length)return'';
+  const ts=t('testi');
+  const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>';
+  const cards=items.map((it,i)=>{
+    const href=routeToPath('work/'+it.slug);
+    const photo=it.photo?`<img class="htesti-photo" src="${it.photo}" alt="" loading="lazy" onerror="this.remove()"/>`:'';
+    return`<figure class="htesti" data-anim="fade" data-anim-delay="${120+i*110}">`
+      +`<blockquote class="htesti-quote">“${it.quote}”</blockquote>`
+      +`<figcaption class="htesti-foot">`
+        +`<div class="htesti-person">${photo}<div class="htesti-who">`
+          +`<span class="htesti-name">${it.name}</span>`
+          +(it.role?`<span class="htesti-role">${it.role}</span>`:'')
+        +`</div></div>`
+        +`<a class="htesti-cta" href="${href}" onclick="event.preventDefault();go('work/${it.slug}')" aria-label="${ts.cta}: ${it.project}">${ts.cta} ${arrow}</a>`
+      +`</figcaption></figure>`;
+  }).join('');
+  return`<section class="section testi-section"><div class="reveal">`
+    +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${ts.title}</h2>`
+    +`<div class="htesti-grid">${cards}</div>`
+  +`</div></section>`;
+}
+
+/* ===== PRICING =====
+   Home: one card per service category, its cheapest tier and a link through.
+   Service pages: the three tiers, middle one flagged as popular. */
+function pricingHomeHtml(){
+  const pr=t('pricing'),cats=t('svcCat')||{};
+  const arrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  const cards=SVC_CATS.map((k,i)=>{
+    const c=cats[k];if(!c||!c.fromPrice)return'';
+    return`<div class="pr-card" data-anim="fade" data-anim-delay="${120+i*110}">`
+      +`<h3 class="pr-card-title">${c.label}</h3>`
+      +(c.short?`<p class="pr-card-text">${c.short}</p>`:'')
+      +`<div class="pr-card-price"><span class="pr-from">${pr.from}</span><span class="pr-amount">${c.fromPrice}</span></div>`
+      +`<a class="pr-card-cta" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')">${pr.homeCta} ${arrow}</a>`
+    +`</div>`;
+  }).join('');
+  if(!cards)return'';
+  return`<section class="section pricing-section"><div class="reveal">`
+    +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${pr.title}</h2>`
+    +`<p class="section-text" data-anim="words" data-anim-stagger="20">${pr.text}</p>`
+    +`<div class="pr-grid">${cards}</div>`
+    +`<p class="pr-note">${pr.note}</p>`
+  +`</div></section>`;
+}
+
+/* The three tiers on a service page. Index 1 carries the popular flag. */
+function pricingPlansHtml(c){
+  const plans=c.plans||[];if(!plans.length)return'';
+  const pr=t('pricing');
+  const tick='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const cards=plans.map((pl,i)=>{
+    const pop=i===1;
+    return`<div class="pr-plan${pop?' pop':''}">`
+      +(pop?`<span class="pr-plan-badge">${pr.popular}</span>`:'')
+      +`<h4 class="pr-plan-name">${pl.name}</h4>`
+      +`<div class="pr-plan-price">${pl.price}</div>`
+      +(pl.d?`<p class="pr-plan-text">${pl.d}</p>`:'')
+      +`<ul class="pr-plan-list">${(pl.f||[]).map(f=>`<li>${tick}<span>${f}</span></li>`).join('')}</ul>`
+      +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${pr.planCta}</a>`
+    +`</div>`;
+  }).join('');
+  return`<div class="reveal svc-block">`
+    +`<h3 class="svc-block-title" data-anim="words" data-anim-stagger="25">${pr.planTitle}</h3>`
+    +`<div class="pr-plans">${cards}</div>`
+    +`<p class="pr-note">${pr.note}</p>`
+  +`</div>`;
 }
 
 /* ===== HOME PAGE ===== */
@@ -272,6 +358,8 @@ function homePg(){
     <div class="pgrid">${keys.map(wC).join('')}</div>
     <div class="pgrid-more"><a class="pgrid-more-btn" data-cl="${lang==='en'?'Work':'Projekte'}" href="${routeToPath('work')}" onclick="event.preventDefault();go('work')">${w.allBtn} ${arrowSVG}</a></div>
   </div></section>
+  ${testiHomeHtml()}
+  ${pricingHomeHtml()}
   ${faqHtml()}`
 }
 
@@ -507,7 +595,7 @@ function svcCatPg(key){
       +`<p class="section-text" data-anim="words" data-anim-stagger="20">${c.text}</p>`
       +`<div class="services-grid">${cards}</div>`
     +`</div>`
-    +processHtml+deliverHtml+faqHtmlBlock+relHtml
+    +processHtml+deliverHtml+pricingPlansHtml(c)+faqHtmlBlock+relHtml
   +`</section>`;
 }
 

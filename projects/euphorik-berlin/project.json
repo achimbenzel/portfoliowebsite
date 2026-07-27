@@ -11,9 +11,12 @@
     "logo-design"
   ],
   "thumbnail": "hero.webp",
-  "color": "#1f1030",
+  "color": "#3a0f14",
   "software": [
-    { "name": "Illustrator", "icon": "illustrator" }
+    {
+      "name": "Illustrator",
+      "icon": "illustrator"
+    }
   ],
   "en": {
     "title": "Euphorik Berlin",

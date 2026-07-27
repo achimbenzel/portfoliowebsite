@@ -21,6 +21,12 @@ const L={en:{
   svcPage:{process:'How it runs',deliver:'What you get',faq:'Good to know',work:'Related work'},
   svcCat:{
     'branding':{
+      fromPrice:'1.200 €',
+      plans:[
+        {name:'Logo',price:'from 1.200 €',d:'A single mark, done properly.',f:['Up to 3 design routes','2 revision rounds','Logo files for print and screen','Basic usage sheet']},
+        {name:'Identity',price:'from 2.500 €',d:'The mark plus the system around it.',f:['Everything in Logo','Type scale and colour system','Layout and grid rules','Business paper and social templates','Brand guidelines as PDF']},
+        {name:'Full System',price:'from 5.000 €',d:'Positioning, identity and rollout.',f:['Everything in Identity','Positioning and messaging brief','Editorial and packaging design','Rollout across your touchpoints','Handover session with your team']}
+      ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positioning, identity systems and everything that makes a brand recognisable.',
@@ -45,6 +51,12 @@ const L={en:{
       work:'brand-identity'
     },
     'motion-design':{
+      fromPrice:'900 €',
+      plans:[
+        {name:'Single Asset',price:'from 900 €',d:'One animation, start to finish.',f:['Up to 20 seconds','Storyboard and 2 revision rounds','Sound design on request','Exports for every social format']},
+        {name:'Campaign',price:'from 2.200 €',d:'A set of pieces that belong together.',f:['Everything in Single Asset','Up to 5 connected assets','Shared motion language','Cutdowns for each platform','Source files included']},
+        {name:'Motion System',price:'from 4.500 €',d:'Rules your team can keep animating with.',f:['Everything in Campaign','Animated logo and transitions','Reusable templates','Motion guidelines','Handover session with your team']}
+      ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D and film that give a brand movement and rhythm.',
@@ -69,6 +81,12 @@ const L={en:{
       work:'motion-design'
     },
     'web-design':{
+      fromPrice:'1.800 €',
+      plans:[
+        {name:'Landing Page',price:'from 1.800 €',d:'One page that does one job.',f:['Design and build of a single page','Responsive down to mobile','Contact form and basic SEO','2 revision rounds']},
+        {name:'Website',price:'from 3.500 €',d:'The full site, structured to grow.',f:['Everything in Landing Page','Up to 8 pages','Content structure and copy layout','CMS so you can edit it yourself','Performance and accessibility pass']},
+        {name:'Platform',price:'from 7.000 €',d:'Custom build with the design system to match.',f:['Everything in Website','Custom components and interactions','Design system and documentation','Integrations and custom features','Support after launch']}
+      ],
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces and websites where the identity actually works in the browser.',
@@ -97,6 +115,18 @@ const L={en:{
     /* Shown as a project card in the work grid — links to /my-fonts */
     card:{title:'Type Library',type:'Personal Project',ind:'Type Design',tags:['Type Design','Display','Monospace']},
     tester:'Font Tester',themeLabel:'Preview',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
+  /* Client quotes on the home page are collected from the projects themselves —
+     any project with a testimonial block shows up here automatically. */
+  testi:{title:'What clients <em>say</em>',cta:'View project'},
+  /* Placeholder pricing. `from` drives the three home-page cards, `plans` the
+     three tiers on each service page (index 1 is flagged as the popular one). */
+  pricing:{
+    title:'<em>Pricing</em>',
+    text:'Every project is quoted individually — the figures below are starting points, not a menu.',
+    from:'from',homeCta:'Learn more',popular:'Most popular',
+    planTitle:'Packages',planCta:'Get in touch',
+    note:'Indicative prices. The final quote depends on scope, timeline and how many rounds you want.'
+  },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
     filterSearch:'Search category',filterNone:'No category found.'},
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
@@ -155,6 +185,12 @@ de:{
   svcPage:{process:'So läuft es ab',deliver:'Was Sie bekommen',faq:'Gut zu wissen',work:'Passende Projekte'},
   svcCat:{
     'branding':{
+      fromPrice:'1.200 €',
+      plans:[
+        {name:'Logo',price:'ab 1.200 €',d:'Ein Zeichen, sauber gemacht.',f:['Bis zu 3 Entwurfsrichtungen','2 Korrekturschleifen','Logo-Dateien für Print und Screen','Kurze Anwendungsübersicht']},
+        {name:'Identity',price:'ab 2.500 €',d:'Das Zeichen plus das System drumherum.',f:['Alles aus Logo','Typo-Skala und Farbsystem','Layout- und Rasterregeln','Geschäftsausstattung und Social-Vorlagen','Brand Guidelines als PDF']},
+        {name:'Full System',price:'ab 5.000 €',d:'Positionierung, Identität und Rollout.',f:['Alles aus Identity','Positionierungs- und Messaging-Brief','Editorial- und Verpackungsdesign','Rollout auf Ihre Touchpoints','Übergabe-Termin mit Ihrem Team']}
+      ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
@@ -179,6 +215,12 @@ de:{
       work:'brand-identity'
     },
     'motion-design':{
+      fromPrice:'900 €',
+      plans:[
+        {name:'Einzelclip',price:'ab 900 €',d:'Eine Animation, von Anfang bis Ende.',f:['Bis zu 20 Sekunden','Storyboard und 2 Korrekturschleifen','Sounddesign auf Wunsch','Exporte für jedes Social-Format']},
+        {name:'Kampagne',price:'ab 2.200 €',d:'Mehrere Teile, die zusammengehören.',f:['Alles aus Einzelclip','Bis zu 5 zusammenhängende Assets','Gemeinsame Bewegungssprache','Cutdowns für jede Plattform','Projektdateien inklusive']},
+        {name:'Motion System',price:'ab 4.500 €',d:'Regeln, mit denen Ihr Team weiterarbeitet.',f:['Alles aus Kampagne','Logo-Animation und Übergänge','Wiederverwendbare Vorlagen','Motion Guidelines','Übergabe-Termin mit Ihrem Team']}
+      ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D und Film, die einer Marke Bewegung und Rhythmus geben.',
@@ -203,6 +245,12 @@ de:{
       work:'motion-design'
     },
     'web-design':{
+      fromPrice:'1.800 €',
+      plans:[
+        {name:'Landingpage',price:'ab 1.800 €',d:'Eine Seite, die eine Aufgabe erfüllt.',f:['Design und Umsetzung einer Seite','Responsiv bis Mobile','Kontaktformular und Basis-SEO','2 Korrekturschleifen']},
+        {name:'Website',price:'ab 3.500 €',d:'Die ganze Seite, zum Mitwachsen gebaut.',f:['Alles aus Landingpage','Bis zu 8 Seiten','Inhaltsstruktur und Textlayout','CMS zum selbst Pflegen','Performance- und Accessibility-Durchgang']},
+        {name:'Plattform',price:'ab 7.000 €',d:'Individueller Aufbau mit passendem Designsystem.',f:['Alles aus Website','Eigene Komponenten und Interaktionen','Designsystem und Dokumentation','Integrationen und Sonderfunktionen','Support nach dem Launch']}
+      ],
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
@@ -231,6 +279,14 @@ de:{
     /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */
     card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
     tester:'Schrift-Tester',themeLabel:'Vorschau',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
+  testi:{title:'Was Kunden <em>sagen</em>',cta:'Projekt ansehen'},
+  pricing:{
+    title:'<em>Preise</em>',
+    text:'Jedes Projekt wird einzeln kalkuliert — die Zahlen unten sind Startpunkte, keine Speisekarte.',
+    from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
+    planTitle:'Pakete',planCta:'Anfragen',
+    note:'Richtwerte. Das finale Angebot hängt von Umfang, Zeitrahmen und Korrekturschleifen ab.'
+  },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
   cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Schriftgestaltung'},

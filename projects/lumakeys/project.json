@@ -13,14 +13,17 @@
   "thumbnail": "hero.webp",
   "color": "#3d1155",
   "software": [
-    { "name": "Illustrator", "icon": "illustrator" }
+    {
+      "name": "Illustrator",
+      "icon": "illustrator"
+    }
   ],
   "en": {
     "title": "LumaKeys",
     "projectType": "Client Project",
     "scope": "Logo Design, Wordmark, Icon Design",
-    "industry": "Software",
-    "description": "A logo and wordmark for LumaKeys, a keyboard app at lumakeys.app. The mark reads as three stylised keys in perspective — a repeated form that stays legible from a favicon up to a full-width brand board. Drawn entirely in Illustrator as vectors, so it holds up at every size and in a single colour.",
+    "industry": "Music Education / App",
+    "description": "A logo and wordmark for LumaKeys, a piano-learning app at lumakeys.app that teaches with falling notes running into a keyboard, Synthesia-style. The mark takes that idea literally: three keys caught mid-strike, drawn so they still read as keys at favicon size.",
     "tags": [
       "Logo Design",
       "Wordmark",
@@ -31,8 +34,8 @@
     "title": "LumaKeys",
     "projectType": "Kundenprojekt",
     "scope": "Logo Design, Wortmarke, Icon Design",
-    "industry": "Software",
-    "description": "Logo und Wortmarke für LumaKeys, eine Tastatur-App unter lumakeys.app. Das Zeichen liest sich als drei stilisierte Tasten in der Perspektive — eine wiederholte Form, die vom Favicon bis zum vollflächigen Markenbild lesbar bleibt. Vollständig in Illustrator als Vektor gezeichnet und dadurch in jeder Größe und einfarbig tragfähig.",
+    "industry": "Musikbildung / App",
+    "description": "Logo und Wortmarke für LumaKeys, eine Klavier-Lern-App unter lumakeys.app, die im Synthesia-Stil mit herablaufenden Noten auf eine Klaviatur unterrichtet. Das Zeichen nimmt genau das auf: drei Tasten im Anschlag, so gezeichnet, dass sie auch in Favicon-Größe noch als Tasten lesbar sind.",
     "tags": [
       "Logo Design",
       "Wortmarke",
@@ -52,14 +55,28 @@
       "type": "text",
       "variant": "center",
       "en": {
-        "eyebrow": "The mark",
-        "headline": "Three keys, one repeated form",
-        "body": "The mark is built from a single shape repeated three times and staggered in depth, so it reads as keys being pressed in sequence. Keeping it to one construction meant the logo could be assembled from a small number of vector paths — quick to redraw at any weight and unambiguous when it is scaled down."
+        "eyebrow": "Challenge",
+        "headline": "A piano app that looks like a piano app",
+        "body": "LumaKeys teaches piano the way Synthesia does — notes fall down the screen and land on a keyboard. The identity had to carry that motion in a still image, without ending up as another generic music note, and without leaning on the app screenshot to be understood. It also had to survive being 16 pixels wide in a browser tab."
       },
       "de": {
-        "eyebrow": "Das Zeichen",
-        "headline": "Drei Tasten, eine wiederholte Form",
-        "body": "Das Zeichen entsteht aus einer einzigen Form, dreifach wiederholt und in der Tiefe versetzt, sodass es sich wie nacheinander angeschlagene Tasten liest. Die Beschränkung auf eine Konstruktion hieß, dass das Logo aus wenigen Vektorpfaden aufgebaut werden konnte — schnell in jeder Stärke neu zu zeichnen und im Kleinen eindeutig."
+        "eyebrow": "Herausforderung",
+        "headline": "Eine Klavier-App, die nach Klavier-App aussieht",
+        "body": "LumaKeys bringt Klavier so bei wie Synthesia — Noten laufen den Bildschirm herunter und landen auf einer Klaviatur. Die Identität musste diese Bewegung im Standbild transportieren, ohne als weitere generische Note zu enden und ohne den App-Screenshot zu brauchen, um verstanden zu werden. Und sie musste 16 Pixel breit im Browser-Tab noch bestehen."
+      }
+    },
+    {
+      "type": "text",
+      "variant": "center",
+      "en": {
+        "eyebrow": "Outcome",
+        "headline": "Three keys caught mid-strike",
+        "body": "One shape, repeated three times and staggered in depth, reads as keys being struck in sequence — the falling-note motion frozen into a mark. Built from a handful of vector paths in Illustrator, so the same file is the app icon, the favicon and the full-width brand board. Nothing had to be simplified for the small sizes."
+      },
+      "de": {
+        "eyebrow": "Ergebnis",
+        "headline": "Drei Tasten im Anschlag",
+        "body": "Eine Form, dreifach wiederholt und in der Tiefe versetzt, liest sich als nacheinander angeschlagene Tasten — die Bewegung der fallenden Noten im Zeichen eingefroren. Aus wenigen Vektorpfaden in Illustrator gebaut, sodass dieselbe Datei App-Icon, Favicon und vollflächiges Markenbild trägt. Für die kleinen Größen musste nichts vereinfacht werden."
       }
     },
     {
@@ -71,20 +88,6 @@
       }
     },
     {
-      "type": "text",
-      "variant": "center",
-      "en": {
-        "eyebrow": "Construction",
-        "headline": "Clearspace before colour",
-        "body": "Lockup and clearspace were fixed before any colour was applied: the mark itself defines the minimum margin on all four sides, so the logo keeps its footing whether it sits on a header, a slide or a sticker. The wordmark is set to match the mark's stroke weight rather than an arbitrary type size."
-      },
-      "de": {
-        "eyebrow": "Konstruktion",
-        "headline": "Schutzraum vor Farbe",
-        "body": "Lockup und Schutzraum standen fest, bevor Farbe ins Spiel kam: Das Zeichen selbst definiert den Mindestabstand auf allen vier Seiten, damit das Logo im Header, auf einer Folie oder auf einem Sticker gleichermaßen Halt hat. Die Wortmarke ist auf die Strichstärke des Zeichens abgestimmt statt auf eine beliebige Schriftgröße."
-      }
-    },
-    {
       "type": "image",
       "src": "detail-02.webp",
       "alt": {
@@ -93,25 +96,24 @@
       }
     },
     {
-      "type": "text",
-      "variant": "center",
-      "en": {
-        "eyebrow": "In use",
-        "headline": "From favicon to brand board",
-        "body": "The same paths carry the app icon, the browser favicon and the full-width brand board. Because nothing in the mark depends on fine detail, the version in a 16px tab is the version on the website — no simplified alternate had to be drawn for small sizes."
-      },
-      "de": {
-        "eyebrow": "In der Anwendung",
-        "headline": "Vom Favicon bis zum Markenbild",
-        "body": "Dieselben Pfade tragen App-Icon, Browser-Favicon und vollflächiges Markenbild. Da nichts am Zeichen von feinen Details abhängt, ist die Fassung im 16-Pixel-Tab dieselbe wie auf der Website — eine vereinfachte Variante für kleine Größen war nicht nötig."
-      }
-    },
-    {
       "type": "image",
       "src": "detail-03.webp",
       "alt": {
         "en": "LumaKeys app icon and browser favicon in use",
         "de": "LumaKeys App-Icon und Browser-Favicon in der Anwendung"
+      }
+    },
+    {
+      "type": "testimonial",
+      "photo": "testimonial.webp",
+      "name": "Ramon Melchior",
+      "en": {
+        "role": "Founder, LumaKeys",
+        "quote": "Placeholder — the real quote is still to come. Achim took a rough idea of what the app does and came back with a mark that says it without a single word of explanation. It works just as well on the app icon as it does across the top of the website, and we have not had to touch it since."
+      },
+      "de": {
+        "role": "Gründer, LumaKeys",
+        "quote": "Platzhalter — das echte Zitat folgt noch. Achim hat aus einer groben Idee davon, was die App macht, ein Zeichen gemacht, das ohne ein Wort Erklärung auskommt. Es funktioniert als App-Icon genauso wie über die volle Breite der Website, und wir mussten es seitdem nicht anfassen."
       }
     }
   ]

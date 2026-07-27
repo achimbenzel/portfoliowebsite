@@ -1568,14 +1568,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 #hero3dContainer canvas, #faq3dContainer canvas, #strategy3dContainer canvas, #about3dCard1 canvas, #about3dCard2 canvas, #about3dCard3 canvas{background:transparent!important;opacity:0;transition:opacity 0.4s ease}
 #hero3dContainer canvas.visible, #faq3dContainer canvas.visible, #strategy3dContainer canvas.visible, #about3dCard1 canvas.visible, #about3dCard2 canvas.visible, #about3dCard3 canvas.visible{opacity:1}
 .faq-section{padding:5rem var(--gutter);position:relative;border-bottom:1px solid var(--color-border)}
-.faq-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:4.5rem;align-items:start;margin-top:3rem}
-.faq-hero{position:relative;width:75%;aspect-ratio:1/1;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;font-family:var(--font-mono);border:none;overflow:visible}
-.faq-hero img{width:100%;height:100%;object-fit:contain}
-.faq-hero svg{width:64px;height:64px;color:var(--accent);opacity:.45}
-.faq-hero canvas{display:block}
-.faq-hero .faq-3d-wrap{width:100%;height:100%}
-.faq-hero .faq-3d-fallback{width:100%;height:100%}
-.faq-hero .faq-3d-fallback img{width:100%;height:100%;object-fit:contain}
+/* Single centred column — the artwork that used to sit beside it is gone */
+.faq-layout{margin:3rem auto 0;max-width:900px}
+.faq-section .hw{text-align:center}
 .faq-list{display:flex;flex-direction:column;gap:1rem}
 .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;transition:all .3s ease}
 .faq-item:hover,.faq-item.open{border-color:rgba(var(--color-accent-rgb),.2)}
@@ -1587,13 +1582,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .faq-item.open .faq-answer{grid-template-rows:1fr}
 .faq-answer-inner{overflow:hidden;padding:0 1.6rem;font-size:1.5rem;color:var(--text2);line-height:1.8;font-weight:300;transition:padding .4s cubic-bezier(.76,0,.24,1)}
 .faq-item.open .faq-answer-inner{padding:0 1.6rem 1.4rem}
-@media(max-width:1120px){
-  .faq-layout{grid-template-columns:1fr;gap:2rem}
-  .faq-hero{position:relative;width:60%;aspect-ratio:1/1;order:-1;max-height:320px;margin:1rem auto 0}
-}
 @media(max-width:600px){
   .faq-section{padding:4.5rem 1.5rem}
-  .faq-hero{position:relative;width:65%;aspect-ratio:1/1;max-height:220px;margin:1rem auto 0}
 }
 /* SCROLL TOP */
 .scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:900;width:48px;height:48px;border-radius:99px;background:rgba(var(--color-accent-rgb),.12);color:var(--color-text-on-dark);border:1px solid rgba(var(--color-accent-rgb),.35);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .4s cubic-bezier(.23,1,.32,1);pointer-events:none}
@@ -1984,7 +1974,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
     margin:0 auto;
     padding:0 6rem;
   }
-  .faq-layout{gap:5rem}
 
   /* ---- About ---- */
   .abt-page{max-width:1600px;margin:0 auto}
@@ -2479,6 +2468,143 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .wempty{
   margin-top:3rem;text-align:center;
   font-size:.95rem;font-weight:300;color:var(--text2);
+}
+
+/* ============================================================
+   HOME — TESTIMONIALS (collected from the projects)
+   ============================================================ */
+.htesti-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.6rem;margin-top:3.5rem;align-items:stretch;
+}
+.htesti{
+  display:flex;flex-direction:column;gap:1.6rem;
+  padding:2rem;margin:0;
+  border:1px solid var(--color-border);border-radius:var(--radius-card);
+  background:rgba(var(--color-accent-rgb),.02);
+  transition:border-color var(--transition-fast);
+}
+.htesti:hover{border-color:rgba(var(--color-accent-rgb),.25)}
+.htesti-quote{
+  margin:0;flex:1 1 auto;
+  font-size:1rem;line-height:1.8;font-weight:300;font-style:italic;
+  color:var(--text2);hyphens:auto;
+  /* quotes run long on the project pages — clamp here, full text lives there */
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:9;overflow:hidden;
+}
+.htesti-foot{
+  display:flex;flex-direction:column;gap:1.2rem;
+  padding-top:1.4rem;border-top:1px solid var(--color-border);
+}
+.htesti-person{display:flex;align-items:center;gap:.9rem;min-width:0}
+.htesti-photo{
+  width:48px;height:48px;flex:none;border-radius:99px;
+  object-fit:cover;background:var(--bg3);display:block;
+}
+.htesti-who{display:flex;flex-direction:column;min-width:0}
+.htesti-name{font-size:.95rem;font-weight:600;color:var(--text)}
+.htesti-role{font-size:.82rem;font-weight:300;color:var(--text3)}
+.htesti-cta{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--font-mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text2);transition:color var(--transition-fast);
+}
+.htesti-cta:hover{color:var(--accent)}
+.htesti-cta svg{transition:transform var(--transition-fast)}
+.htesti-cta:hover svg{transform:translate(2px,-2px)}
+
+/* ============================================================
+   PRICING — home cards + service-page tiers
+   ============================================================ */
+.pr-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.6rem;margin-top:3.5rem;
+}
+.pr-card{
+  display:flex;flex-direction:column;gap:.8rem;
+  padding:2rem;
+  border:1px solid var(--color-border);border-radius:var(--radius-card);
+  background:rgba(var(--color-accent-rgb),.02);
+  transition:border-color var(--transition-fast);
+}
+.pr-card:hover{border-color:rgba(var(--color-accent-rgb),.25)}
+.pr-card-title{font-size:1.35rem;font-weight:600;color:var(--text);margin:0}
+.pr-card-text{font-size:.92rem;font-weight:300;line-height:1.7;color:var(--text2);margin:0;flex:1 1 auto}
+.pr-card-price{display:flex;align-items:baseline;gap:.5rem;margin-top:.6rem}
+.pr-from{
+  font-family:var(--font-mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text3);
+}
+.pr-amount{font-size:1.9rem;font-weight:600;color:var(--text);line-height:1}
+.pr-card-cta{
+  align-self:flex-start;margin-top:.6rem;
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.9rem;font-weight:500;color:var(--text);
+  padding:.6rem 1.1rem;
+  border:1px solid var(--color-border);border-radius:var(--radius-small);
+  transition:border-color var(--transition-fast),background var(--transition-fast);
+}
+.pr-card-cta:hover{border-color:rgba(var(--color-accent-rgb),.45);background:rgba(var(--color-accent-rgb),.08)}
+.pr-card-cta svg{transition:transform var(--transition-fast)}
+.pr-card-cta:hover svg{transform:translateX(3px)}
+.pr-note{
+  margin-top:1.8rem;font-size:.82rem;font-weight:300;
+  color:var(--text3);max-width:60ch;
+}
+
+/* three tiers, middle one raised */
+.pr-plans{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;margin-top:2.5rem;align-items:stretch;
+}
+.pr-plan{
+  position:relative;display:flex;flex-direction:column;gap:.7rem;
+  padding:2rem 1.8rem;
+  border:1px solid var(--color-border);border-radius:var(--radius-card);
+  background:rgba(var(--color-accent-rgb),.02);
+  transition:border-color var(--transition-fast);
+}
+.pr-plan:hover{border-color:rgba(var(--color-accent-rgb),.25)}
+.pr-plan.pop{
+  border-color:rgba(var(--color-accent-rgb),.45);
+  background:rgba(var(--color-accent-rgb),.07);
+}
+.pr-plan-badge{
+  position:absolute;top:0;left:1.8rem;transform:translateY(-50%);
+  padding:.3rem .7rem;border-radius:99px;
+  background:var(--accent);color:var(--color-text-on-dark);
+  font-family:var(--font-mono);font-size:.55rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+}
+.pr-plan-name{font-size:1.15rem;font-weight:600;color:var(--text);margin:0}
+.pr-plan-price{font-size:1.7rem;font-weight:600;color:var(--text);line-height:1.2}
+.pr-plan-text{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--text2);margin:0}
+.pr-plan-list{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.6rem;flex:1 1 auto}
+.pr-plan-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem;font-weight:300;line-height:1.6;color:var(--text2)}
+.pr-plan-list svg{flex:none;margin-top:.28rem;color:var(--accent)}
+.pr-plan-cta{
+  margin-top:1.4rem;text-align:center;
+  padding:.75rem 1.2rem;border-radius:var(--radius-small);
+  font-size:.9rem;font-weight:500;color:var(--text);
+  border:1px solid var(--color-border);
+  transition:border-color var(--transition-fast),background var(--transition-fast);
+}
+.pr-plan-cta:hover{border-color:rgba(var(--color-accent-rgb),.45);background:rgba(var(--color-accent-rgb),.08)}
+.pr-plan-cta.acc{background:var(--accent);border-color:var(--accent);color:var(--color-text-on-dark)}
+.pr-plan-cta.acc:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
+
+@media(max-width:900px){
+  /* one column: the badge would otherwise be the only thing marking the middle
+     card, and side-by-side tiers get too narrow to read */
+  .pr-plans{grid-template-columns:1fr;gap:1.8rem}
+  .pr-plan.pop{order:-1}
+}
+@media(max-width:600px){
+  .htesti,.pr-card,.pr-plan{padding:1.6rem}
+  .pr-amount{font-size:1.6rem}
+  .htesti-cta,.pr-card-cta{align-self:stretch;justify-content:center}
+  .htesti-quote{-webkit-line-clamp:12}
 }
 
 /* ============================================================
