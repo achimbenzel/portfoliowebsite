@@ -13,7 +13,7 @@ const LG = {
     "en": {
       "name": "N Monogram",
       "tag": "A crossed-blade N for a name starting with N",
-      "desc": "An N built from two crossing blades that meet at the centre — the counter of the letter is the space between them rather than a drawn line. Shown here rendered in glass, and supplied flat as well so it works on a business card as readily as on a screen. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+      "desc": "A mark built from two crossing blades, cut from circles on a fixed grid so every curve has a reason. It comes as the 3D glass rendering shown here and as the flat, single-colour version, with the wordmark lockup and its clearspace already worked out. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
       "tags": [
         "Monogram",
         "Geometric",
@@ -30,7 +30,7 @@ const LG = {
     "de": {
       "name": "N Monogramm",
       "tag": "Ein gekreuztes N für einen Namen mit N",
-      "desc": "Ein N aus zwei gekreuzten Klingen, die sich in der Mitte treffen — die Punze des Buchstabens entsteht aus dem Zwischenraum statt aus einer gezogenen Linie. Hier in Glas gerendert, zusätzlich flach ausgeliefert, damit es auf der Visitenkarte genauso funktioniert wie auf dem Bildschirm. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+      "desc": "Ein Zeichen aus zwei gekreuzten Klingen, aus Kreisen auf einem festen Raster geschnitten, sodass jede Rundung einen Grund hat. Es kommt als die hier gezeigte 3D-Glasfassung und als flache, einfarbige Version, samt Wortmarken-Lockup und ausgearbeitetem Schutzraum. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
       "tags": [
         "Monogramm",
         "Geometrisch",
@@ -49,24 +49,32 @@ const LG = {
         "src": "/logos/n-monogram/hero.webp",
         "i": 0,
         "alt": {
-          "en": "The N monogram rendered in green glass",
-          "de": "Das N-Monogramm in grünem Glas gerendert"
+          "en": "The mark in green glass above the wordmark lockup",
+          "de": "Das Zeichen in grünem Glas über dem Wortmarken-Lockup"
         }
       },
       {
         "src": "/logos/n-monogram/detail-01.webp",
         "i": 1,
         "alt": {
-          "en": "The flat version of the monogram, on light and on dark",
-          "de": "Die flache Fassung des Monogramms, auf Hell und auf Dunkel"
+          "en": "Construction of the mark on a grid, with the circles it is built from",
+          "de": "Konstruktion des Zeichens auf dem Raster, mit den zugrunde liegenden Kreisen"
         }
       },
       {
         "src": "/logos/n-monogram/detail-02.webp",
         "i": 2,
         "alt": {
-          "en": "The monogram in use as an app icon and favicon",
-          "de": "Das Monogramm als App-Icon und Favicon in der Anwendung"
+          "en": "The flat lockup of mark and wordmark with its clearspace grid",
+          "de": "Das flache Lockup aus Zeichen und Wortmarke mit Schutzraum-Raster"
+        }
+      },
+      {
+        "src": "/logos/n-monogram/detail-03.webp",
+        "i": 3,
+        "alt": {
+          "en": "The logo on black business cards",
+          "de": "Das Logo auf schwarzen Visitenkarten"
         }
       }
     ]
