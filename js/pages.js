@@ -311,10 +311,8 @@ function pricingPlansHtml(c){
   const cards=plans.map((pl,i)=>{
     const pop=i===1;
     return`<div class="pr-plan${pop?' pop':''}">`
-      +`<div class="pr-plan-head">`
-        +`<span class="pr-plan-name">${pl.name}</span>`
-        +(pop?`<span class="pr-plan-badge">${pr.popular}</span>`:'')
-      +`</div>`
+      +(pop?`<span class="pr-plan-badge">${pr.popular}</span>`:'')
+      +`<div class="pr-plan-head"><span class="pr-plan-name">${pl.name}</span></div>`
       +`<div class="pr-plan-price">${pl.price}</div>`
       +(pl.d?`<p class="pr-plan-text">${pl.d}</p>`:'')
       +`<ul class="pr-plan-list">${(pl.f||[]).map(f=>`<li>${tick}<span>${f}</span></li>`).join('')}</ul>`
@@ -754,7 +752,6 @@ function svcCatPg(key){
   +`</div>`:'';
   const heroHtml=`<div class="reveal svc-hero">`
     +`<div class="svc-hero-copy">`
-      +`<span class="svc-eyebrow">${c.label}</span>`
       +`<h2 class="svc-hero-title">${c.hero||c.title}</h2>`
       +`<p class="svc-hero-lead">${c.text}</p>`
       +`<div class="svc-hero-cta">`
@@ -774,8 +771,8 @@ function svcCatPg(key){
   /* ---- What you end up with: five cards in one row, media then text ---- */
   const deliverHtml=(c.deliver||[]).length?`<div class="reveal svc-block">`
     +`<h3 class="svc-sec-title">${sp.deliver}</h3>`
-    +`<div class="svcd-grid">${c.deliver.slice(0,5).map((d,i)=>`<div class="svcd-card">`
-        +`<div class="svcd-media"><span class="svcd-num">${String(i+1).padStart(2,'0')}</span></div>`
+    +`<div class="svcd-grid">${c.deliver.slice(0,5).map(d=>`<div class="svcd-card">`
+        +`<div class="svcd-media"></div>`
         +`<div class="svcd-body"><h4 class="svcd-t">${d.t}</h4><p class="svcd-d">${d.d}</p></div>`
       +`</div>`).join('')}</div>`
   +`</div>`:'';

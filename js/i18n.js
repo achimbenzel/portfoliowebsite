@@ -23,7 +23,7 @@ const L={en:{
     jump:'See the packages',
     inquire:'Start a project',
     ctaTitle:'Tell me <em>what your brand</em> has to do',
-    ctaText:'A first call to work out what you need, then a written quote with scope, timeline and a fixed price.',
+    ctaText:'Fill in the form with what you have in mind. You get a written quote back by email, with scope, timeline and a fixed price.',
     ctaBtn:'Get in touch'},
   svcCat:{
     'branding':{
@@ -221,7 +221,7 @@ de:{
     jump:'Pakete ansehen',
     inquire:'Projekt anfragen',
     ctaTitle:'Erzählen Sie mir, <em>was Ihre Marke</em> leisten soll',
-    ctaText:'Ein Erstgespräch, um den Bedarf zu klären, danach ein schriftliches Angebot mit Umfang, Zeitplan und Festpreis.',
+    ctaText:'Schreiben Sie im Formular kurz, worum es geht. Sie bekommen ein schriftliches Angebot per Mail — mit Umfang, Zeitplan und Festpreis.',
     ctaBtn:'Kontakt aufnehmen'},
   svcCat:{
     'branding':{
