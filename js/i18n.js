@@ -18,16 +18,18 @@ const L={en:{
      One entry per /:lang/<key> route, rendered by svcCatPg(). Each page runs
      intro → what's included → process → deliverables → FAQ → related work.
      `work` maps to a cats{} id so the page can pull in matching projects. */
-  svcPage:{process:'How it runs',deliver:'What you end up with',faq:'Good to know',work:'How that looks in real projects',
-    benefits:'What you actually gain from working this way',
+  svcPage:{process:'How it runs',deliver:'What you <em>end up with</em>',faq:'Good to know',work:'How that looks <em>in real projects</em>',
+    benefits:'What you actually <em>gain</em> from working this way',
     jump:'See the packages',
     inquire:'Start a project',
     pickNote:'Pick a package — in the first call we check together whether the scope fits.',
-    ctaTitle:'Tell me what your brand has to do',
+    ctaTitle:'Tell me <em>what your brand</em> has to do',
     ctaText:'A 30-minute first call, then a written quote with scope, timeline and a fixed price.',
     ctaBtn:'Get in touch'},
   svcCat:{
     'branding':{
+      hero:'Brands people <em>recognise</em> — and that still hold together a year later',
+      tiles:['Logo system','Colour & type scale','Print in use'],
       fromPrice:'1.200 €',
       plans:[
         {name:'Logo',price:'from 1.200 €',d:'A single mark, done properly.',f:['Up to 3 design routes','2 revision rounds','Logo files for print and screen','Basic usage sheet']},
@@ -49,7 +51,7 @@ const L={en:{
         {t:'Identity System',d:'Logo, type scale, colour and layout rules are developed together rather than one after the other, so they already work as a set when you first see them.'},
         {t:'Rollout & Guidelines',d:'The system is applied to your real touchpoints and written down, so whoever produces the next piece of material can stay on brand without asking me.'}
       ],
-      deliver:[{t:'Brand guidelines',d:'As a PDF, for any agency to follow.'},{t:'Logo set',d:'Primary, responsive and monochrome.'},{t:'Type and colour',d:'Scale, values, and when to use what.'},{t:'Business paper',d:'Card, letterhead, signature, templates.'},{t:'Social and web templates',d:'Editable layouts for everyday posts.'},{t:'Source files',d:'Open, named, print-ready.'}],
+      deliver:[{t:'Brand guidelines',d:'As a PDF, for any agency to follow.'},{t:'Logo set',d:'Primary, responsive and monochrome.'},{t:'Business paper',d:'Card, letterhead, signature, templates.'},{t:'Social and web templates',d:'Editable layouts for everyday posts.'},{t:'Source files',d:'Open, named, print-ready.'}],
       faq:[
         {q:'How long does a brand identity take?',a:'Usually six to ten weeks from kick-off to handover. The variable is feedback: the faster rounds come back, the faster we finish. You get a dated schedule before we start.'},
         {q:'Can you work with an existing logo?',a:'Yes. A refresh that keeps the logo and rebuilds everything around it is a common brief, and often the more sensible one when there is recognition worth keeping.'},
@@ -58,6 +60,8 @@ const L={en:{
       work:'brand-identity'
     },
     'motion-design':{
+      hero:'Motion that <em>says something</em> — not just motion that looks nice',
+      tiles:['Logo animation','Social cutdowns','3D & visualisation'],
       fromPrice:'900 €',
       plans:[
         {name:'Single Asset',price:'from 900 €',d:'One animation, start to finish.',f:['Up to 20 seconds','Storyboard and 2 revision rounds','Sound design on request','Exports for every social format']},
@@ -79,7 +83,7 @@ const L={en:{
         {t:'Design & Animation',d:'Frames are built out, then animated. Timing and easing follow the same rules across every piece so separate clips still read as one brand.'},
         {t:'Delivery & Templates',d:'You get the exports you need per platform, plus the editable project files, so recurring formats can be produced again without starting over.'}
       ],
-      deliver:[{t:'Master files',d:'The finished piece in full resolution.'},{t:'Social cutdowns',d:'Every format, correctly cropped.'},{t:'Animated logo',d:'Intro, outro and transitions.'},{t:'Motion guidelines',d:'Timing, easing and rhythm, written down.'},{t:'Reusable templates',d:'So your team can keep going.'},{t:'Project files',d:'Open, named, ready to edit.'}],
+      deliver:[{t:'Master files',d:'The finished piece in full resolution.'},{t:'Social cutdowns',d:'Every format, correctly cropped.'},{t:'Motion guidelines',d:'Timing, easing and rhythm, written down.'},{t:'Reusable templates',d:'So your team can keep going.'},{t:'Project files',d:'Open, named, ready to edit.'}],
       faq:[
         {q:'How long is a typical animation?',a:'A logo animation takes one to two weeks. A longer piece with 3D or a full storyboard usually runs three to six weeks, depending on how many scenes are involved.'},
         {q:'Do I get the source files?',a:'Yes. Editable project files are part of every handover, along with a note on which fonts and plugins they need, so another editor can pick them up later.'},
@@ -88,6 +92,8 @@ const L={en:{
       work:'motion-design'
     },
     'web-design':{
+      hero:'Sites that <em>load fast</em> — and are still maintainable in two years',
+      tiles:['Interface design','Components','Build'],
       fromPrice:'1.800 €',
       plans:[
         {name:'Landing Page',price:'from 1.800 €',d:'One page that does one job.',f:['Design and build of a single page','Responsive down to mobile','Contact form and basic SEO','2 revision rounds']},
@@ -109,7 +115,7 @@ const L={en:{
         {t:'Design System & Pages',d:'A set of components — type, colour, spacing, states — comes first, then every page is drawn from it. That keeps later pages consistent and quick.'},
         {t:'Iterations & Handoff',d:'Short rounds on each section at real breakpoints, then a documented file with the specs and assets a developer needs to build it without guessing.'}
       ],
-      deliver:[{t:'The finished site',d:'Live, responsive, and fast.'},{t:'Design system',d:'Components and rules, documented.'},{t:'CMS access',d:'Edit your own content, no developer needed.'},{t:'Performance pass',d:'Loading, images and scripts tuned.'},{t:'Accessibility pass',d:'Contrast, focus order and keyboard use.'},{t:'Handover',d:'Source files and a walkthrough.'}],
+      deliver:[{t:'The finished site',d:'Live, responsive, and fast.'},{t:'Design system',d:'Components and rules, documented.'},{t:'CMS access',d:'Edit your own content, no developer needed.'},{t:'Performance & accessibility',d:'Loading, contrast and keyboard use checked.'},{t:'Handover',d:'Source files and a walkthrough.'}],
       faq:[
         {q:'How long does a website take?',a:'A focused site of five to eight pages usually takes four to eight weeks in design. Larger projects are split into phases so you can see and approve work as it lands.'},
         {q:'Do you build the site as well?',a:'For smaller projects, yes — I hand-build the front-end. For larger ones I hand off to your developers with a documented file and stay available for questions during the build.'},
@@ -131,7 +137,7 @@ const L={en:{
     title:'<em>Pricing</em>',
     text:'Every project is quoted individually. The figures below are entry-level prices, meant to give you a first point of reference before we talk through your actual scope.',
     from:'from',homeCta:'Learn more',popular:'Most popular',
-    planTitle:'Packages',planCta:'Get in touch',planSubject:'Enquiry',
+    planTitle:'Three packages — <em>depending on how far the brand has to carry</em>',planCta:'Get in touch',planSubject:'Enquiry',
     note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
   },
   /* Ready-made logos sold at a fixed price. Entries live in /logos. */
@@ -211,16 +217,18 @@ de:{
      Ein Eintrag pro /:lang/<key>-Route, gerendert von svcCatPg(). Jede Seite
      läuft Intro → Leistungen → Ablauf → Ergebnis → FAQ → passende Projekte.
      `work` verweist auf eine cats{}-ID für die Projektauswahl. */
-  svcPage:{process:'So läuft es ab',deliver:'Was am Ende bei Ihnen liegt',faq:'Gut zu wissen',work:'So sieht das in echten Projekten aus',
-    benefits:'Was Sie an dieser Zusammenarbeit konkret gewinnen',
+  svcPage:{process:'So läuft es ab',deliver:'Was am Ende <em>bei Ihnen liegt</em>',faq:'Gut zu wissen',work:'So sieht das <em>in echten Projekten</em> aus',
+    benefits:'Was Sie an dieser Zusammenarbeit <em>konkret gewinnen</em>',
     jump:'Pakete ansehen',
     inquire:'Projekt anfragen',
     pickNote:'Wählen Sie ein Paket aus — im Erstgespräch prüfen wir gemeinsam, ob der Umfang passt.',
-    ctaTitle:'Erzählen Sie mir, was Ihre Marke leisten soll',
+    ctaTitle:'Erzählen Sie mir, <em>was Ihre Marke</em> leisten soll',
     ctaText:'30 Minuten Erstgespräch, danach ein schriftliches Angebot mit Umfang, Zeitplan und Festpreis.',
     ctaBtn:'Kontakt aufnehmen'},
   svcCat:{
     'branding':{
+      hero:'Marken, die man <em>wiedererkennt</em> — und die ein Jahr später noch zusammenhalten',
+      tiles:['Logo-System','Farb- & Typoskala','Anwendung Print'],
       fromPrice:'1.200 €',
       plans:[
         {name:'Logo',price:'ab 1.200 €',d:'Ein Zeichen, sauber gemacht.',f:['Bis zu 3 Entwurfsrichtungen','2 Korrekturschleifen','Logo-Dateien für Print und Screen','Kurze Anwendungsübersicht']},
@@ -242,7 +250,7 @@ de:{
         {t:'Identitätssystem',d:'Logo, Typo-Skala, Farbe und Layoutregeln entstehen gemeinsam statt nacheinander. So funktionieren sie schon als Set, wenn Sie sie zum ersten Mal sehen.'},
         {t:'Rollout & Guidelines',d:'Das System wird auf Ihre echten Touchpoints angewendet und schriftlich festgehalten, damit die nächste Anwendung ohne Rückfrage markenkonform bleibt.'}
       ],
-      deliver:[{t:'Marken-Guidelines',d:'Als PDF, für jede Agentur nachvollziehbar.'},{t:'Logo-Set',d:'Haupt-, Responsive- und Monochrom-Variante.'},{t:'Typo und Farbe',d:'Skala, Werte und wann was gilt.'},{t:'Geschäftsausstattung',d:'Visitenkarte, Briefbogen, Signatur, Vorlagen.'},{t:'Social- und Web-Vorlagen',d:'Bearbeitbare Layouts für den Alltag.'},{t:'Quelldateien',d:'Offen, benannt, druckfertig.'}],
+      deliver:[{t:'Marken-Guidelines',d:'Als PDF, für jede Agentur nachvollziehbar.'},{t:'Logo-Set',d:'Haupt-, Responsive- und Monochrom-Variante.'},{t:'Geschäftsausstattung',d:'Visitenkarte, Briefbogen, Signatur, Vorlagen.'},{t:'Social- und Web-Vorlagen',d:'Bearbeitbare Layouts für den Alltag.'},{t:'Quelldateien',d:'Offen, benannt, druckfertig.'}],
       faq:[
         {q:'Wie lange dauert eine Markenidentität?',a:'In der Regel sechs bis zehn Wochen vom Kick-off bis zur Übergabe. Die Variable ist das Feedback: je schneller die Runden zurückkommen, desto schneller sind wir fertig. Einen datierten Zeitplan bekommen Sie vor dem Start.'},
         {q:'Können Sie mit einem bestehenden Logo arbeiten?',a:'Ja. Ein Refresh, der das Logo behält und alles darum herum neu aufbaut, ist ein häufiger und oft der sinnvollere Auftrag — überall dort, wo es Wiedererkennung zu bewahren gibt.'},
@@ -251,6 +259,8 @@ de:{
       work:'brand-identity'
     },
     'motion-design':{
+      hero:'Bewegung, die <em>etwas erzählt</em> — und nicht nur nett aussieht',
+      tiles:['Logo-Animation','Social-Cutdowns','3D & Visualisierung'],
       fromPrice:'900 €',
       plans:[
         {name:'Einzelclip',price:'ab 900 €',d:'Eine Animation, von Anfang bis Ende.',f:['Bis zu 20 Sekunden','Storyboard und 2 Korrekturschleifen','Sounddesign auf Wunsch','Exporte für jedes Social-Format']},
@@ -272,7 +282,7 @@ de:{
         {t:'Design & Animation',d:'Die Frames werden ausgearbeitet und dann animiert. Timing und Easing folgen überall denselben Regeln, damit einzelne Clips als eine Marke lesbar bleiben.'},
         {t:'Auslieferung & Vorlagen',d:'Sie bekommen die Exporte pro Plattform und dazu die editierbaren Projektdateien, damit wiederkehrende Formate ohne Neuanfang produzierbar bleiben.'}
       ],
-      deliver:[{t:'Master-Dateien',d:'Der fertige Clip in voller Auflösung.'},{t:'Social-Cutdowns',d:'Jedes Format, richtig beschnitten.'},{t:'Logo-Animation',d:'Intro, Outro und Übergänge.'},{t:'Motion Guidelines',d:'Timing, Easing und Rhythmus, festgehalten.'},{t:'Wiederverwendbare Vorlagen',d:'Damit Ihr Team weiterarbeiten kann.'},{t:'Projektdateien',d:'Offen, benannt, bearbeitbar.'}],
+      deliver:[{t:'Master-Dateien',d:'Der fertige Clip in voller Auflösung.'},{t:'Social-Cutdowns',d:'Jedes Format, richtig beschnitten.'},{t:'Motion Guidelines',d:'Timing, Easing und Rhythmus, festgehalten.'},{t:'Wiederverwendbare Vorlagen',d:'Damit Ihr Team weiterarbeiten kann.'},{t:'Projektdateien',d:'Offen, benannt, bearbeitbar.'}],
       faq:[
         {q:'Wie lange dauert eine Animation?',a:'Eine Logo-Animation dauert ein bis zwei Wochen. Ein längeres Stück mit 3D oder vollem Storyboard liegt meist bei drei bis sechs Wochen, je nach Anzahl der Szenen.'},
         {q:'Bekomme ich die Quelldateien?',a:'Ja. Editierbare Projektdateien gehören zu jeder Übergabe, zusammen mit einer Notiz zu den benötigten Schriften und Plugins, damit später auch jemand anderes damit arbeiten kann.'},
@@ -281,6 +291,8 @@ de:{
       work:'motion-design'
     },
     'web-design':{
+      hero:'Websites, die <em>schnell laden</em> — und sich auch in zwei Jahren noch pflegen lassen',
+      tiles:['Interface-Design','Komponenten','Umsetzung'],
       fromPrice:'1.800 €',
       plans:[
         {name:'Landingpage',price:'ab 1.800 €',d:'Eine Seite, die eine Aufgabe erfüllt.',f:['Design und Umsetzung einer Seite','Responsiv bis Mobile','Kontaktformular und Basis-SEO','2 Korrekturschleifen']},
@@ -302,7 +314,7 @@ de:{
         {t:'Designsystem & Seiten',d:'Zuerst entsteht ein Baukasten aus Typografie, Farbe, Abständen und Zuständen, daraus dann jede einzelne Seite. Das hält spätere Seiten konsistent und schnell.'},
         {t:'Iterationen & Übergabe',d:'Kurze Runden pro Abschnitt an echten Breakpoints, danach eine dokumentierte Datei mit den Angaben und Assets, die eine Umsetzung ohne Raten möglich machen.'}
       ],
-      deliver:[{t:'Die fertige Website',d:'Live, responsiv und schnell.'},{t:'Designsystem',d:'Komponenten und Regeln, dokumentiert.'},{t:'CMS-Zugang',d:'Inhalte selbst pflegen, ohne Entwickler.'},{t:'Performance-Durchgang',d:'Ladezeit, Bilder und Skripte optimiert.'},{t:'Accessibility-Durchgang',d:'Kontrast, Fokusreihenfolge und Tastaturbedienung.'},{t:'Übergabe',d:'Quelldateien und eine Einweisung.'}],
+      deliver:[{t:'Die fertige Website',d:'Live, responsiv und schnell.'},{t:'Designsystem',d:'Komponenten und Regeln, dokumentiert.'},{t:'CMS-Zugang',d:'Inhalte selbst pflegen, ohne Entwickler.'},{t:'Performance & Accessibility',d:'Ladezeit, Kontrast und Tastaturbedienung geprüft.'},{t:'Übergabe',d:'Quelldateien und eine Einweisung.'}],
       faq:[
         {q:'Wie lange dauert eine Website?',a:'Eine fokussierte Seite mit fünf bis acht Unterseiten braucht im Design meist vier bis acht Wochen. Größere Projekte teile ich in Phasen, damit Sie Zwischenstände sehen und freigeben können.'},
         {q:'Setzen Sie die Seite auch um?',a:'Bei kleineren Projekten ja, dann baue ich das Frontend selbst. Bei größeren übergebe ich an Ihre Entwicklung — mit dokumentierter Datei und während der Umsetzung erreichbar für Rückfragen.'},
@@ -320,7 +332,7 @@ de:{
     title:'<em>Preise</em>',
     text:'Jedes Projekt wird individuell kalkuliert. Die folgenden Beträge sind Einstiegspreise und geben Ihnen eine erste Orientierung, bevor wir über Ihren konkreten Umfang sprechen.',
     from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
-    planTitle:'Pakete',planCta:'Anfragen',planSubject:'Anfrage',
+    planTitle:'Drei Pakete — <em>je nachdem, wie weit es tragen soll</em>',planCta:'Anfragen',planSubject:'Anfrage',
     note:'Alle Angaben sind Richtwerte. Das verbindliche Angebot richtet sich nach Umfang, Zeitrahmen und Anzahl der Korrekturschleifen.'
   },
   logos:{

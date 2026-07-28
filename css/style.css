@@ -2725,101 +2725,143 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 
 /* ============================================================
-   SERVICE PAGE — hero, gains, deliverables, closing CTA
+   SERVICE PAGE — sizes taken from the reference layout at 1440px:
+   hero 76px, section titles 50px, benefit 23/15.5px, five deliverables
+   across, three plans across.
    ============================================================ */
-.svc-hero{max-width:900px}
+.svc-cat-page{padding-top:9rem;padding-bottom:8.1rem}
+
+/* section titles: mixed case, the <em> part in the accent colour */
+.svc-sec-title{
+  font-family:var(--font-primary);font-weight:600;
+  font-size:clamp(2rem,3.5vw,3.125rem);line-height:1.08;
+  letter-spacing:-.015em;color:var(--text);
+  max-width:16ch;margin:0 0 2.6rem;
+}
+.svc-sec-title em{font-style:normal;font-weight:inherit;color:var(--accent)}
+
+/* ---- hero: copy left, bento right ---- */
+.svc-hero{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+  gap:3.5rem;align-items:center;
+}
+.svc-hero-copy{min-width:0}
 .svc-eyebrow{
-  display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;
-  font-family:var(--font-mono);font-size:.62rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;
+  font-family:var(--font-mono);font-size:.66rem;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
 }
-.svc-eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
-.svc-hero-lead{
-  margin-top:1.8rem;max-width:62ch;
-  font-size:1.05rem;line-height:1.8;font-weight:300;color:var(--text2);
+.svc-eyebrow::before{content:"";width:34px;height:1.5px;background:currentColor}
+/* scoped past `.section h2`, which is uppercase, capped at 720px and paints
+   its <em> in the body colour with a highlight bar behind it */
+.svc-cat-page h2.svc-hero-title{
+  font-family:var(--font-primary);font-weight:600;
+  font-size:clamp(2.6rem,5.3vw,4.75rem);line-height:1.02;
+  letter-spacing:-.02em;color:var(--text);margin:0;
+  text-transform:none;max-width:none;
 }
-.svc-hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.4rem}
+.svc-cat-page h2.svc-hero-title em{
+  font-style:normal;font-weight:inherit;color:var(--accent);text-transform:none;
+}
+.svc-cat-page h2.svc-hero-title em::before{display:none}
+.svc-hero-lead{
+  margin-top:1.9rem;max-width:44ch;
+  font-size:1.08rem;line-height:1.7;font-weight:400;color:var(--text2);
+}
+.svc-hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.3rem}
 .svc-jump,.svc-hero-alt{
   display:inline-flex;align-items:center;gap:.6rem;
   padding:.85rem 1.5rem;border-radius:var(--radius-small);
   font-size:.95rem;font-weight:500;
-  transition:background var(--transition-fast),border-color var(--transition-fast),color var(--transition-fast);
+  transition:background var(--transition-fast),border-color var(--transition-fast);
 }
 .svc-jump{background:var(--accent);border:1px solid var(--accent);color:var(--color-text-on-dark)}
 .svc-jump:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
 .svc-jump svg{transition:transform var(--transition-fast)}
 .svc-jump:hover svg{transform:translateY(3px)}
-.svc-hero-alt{background:transparent;border:1px solid var(--color-border);color:var(--text)}
-.svc-hero-alt:hover{border-color:rgba(var(--color-accent-rgb),.45);background:rgba(var(--color-accent-rgb),.08)}
+.svc-hero-alt{background:var(--bg2);border:1px solid var(--color-border);color:var(--text)}
+.svc-hero-alt:hover{border-color:rgba(var(--color-accent-rgb),.45)}
 .svc-hero-alt svg{transition:transform var(--transition-fast)}
 .svc-hero-alt:hover svg{transform:translateX(3px)}
 
-/* what you gain — three numbered columns */
-.svc-gain{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;
-  margin-top:2.5rem;
+/* bento — one tall tile beside two stacked ones. Placeholders for now. */
+.svc-bento{
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+  gap:16px;aspect-ratio:1/.98;min-width:0;
 }
-.svc-gain-item{display:flex;flex-direction:column;gap:.5rem}
-.svc-gain-num{
-  font-family:var(--font-mono);font-size:.7rem;font-weight:700;
-  letter-spacing:.1em;color:var(--accent);
-}
-.svc-gain-t{font-size:1.1rem;font-weight:600;color:var(--text);margin:0}
-.svc-gain-d{font-size:.92rem;line-height:1.75;font-weight:300;color:var(--text2);margin:0}
-
-/* what you end up with — media on top, text underneath */
-/* three across so the six deliverables fill two even rows rather than 5 + 1 */
-.svcd-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1.8rem 1.4rem;margin-top:2.5rem;
-}
-.svcd-card{display:flex;flex-direction:column;gap:.9rem}
-.svcd-media{
-  aspect-ratio:4/3;border-radius:var(--radius-card);
+.svc-tile{
+  position:relative;border-radius:var(--radius-card);
   border:1px solid var(--color-border);
-  background:linear-gradient(150deg,rgba(var(--color-accent-rgb),.14),rgba(var(--color-accent-rgb),.03));
-  display:flex;align-items:flex-end;padding:1rem 1.1rem;
+  background:
+    repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 9px),
+    var(--bg2);
+  display:flex;align-items:flex-end;padding:1rem 1.1rem;overflow:hidden;
+}
+[data-theme="light"] .svc-tile,[data-theme="lightproject"] .svc-tile{
+  background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 2px,transparent 2px 9px),var(--bg2);
+}
+.svc-tile-1{grid-row:1 / span 2}
+.svc-tile-label{
+  font-family:var(--font-mono);font-size:.6rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--text3);
+}
+
+/* ---- what you gain ---- */
+.svc-gain{display:grid;grid-template-columns:repeat(3,1fr);gap:3.15rem}
+.svc-gain-item{display:flex;gap:1.1rem;align-items:flex-start}
+.svc-gain-num{
+  flex:none;padding-top:.35rem;
+  font-family:var(--font-mono);font-size:.78rem;font-weight:500;color:var(--accent);
+}
+.svc-gain-body{min-width:0}
+.svc-gain-t{font-size:1.44rem;font-weight:600;line-height:1.2;color:var(--text);margin:0 0 .7rem}
+.svc-gain-d{font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);margin:0}
+
+/* ---- what you end up with: five across, media then text ---- */
+.svcd-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.875rem}
+.svcd-card{display:flex;flex-direction:column;gap:1rem}
+.svcd-media{
+  aspect-ratio:1/1.15;border-radius:var(--radius-card);
+  border:1px solid var(--color-border);
+  background:
+    repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 9px),
+    var(--bg2);
+  display:flex;align-items:flex-end;padding:.9rem 1rem;
+}
+[data-theme="light"] .svcd-media,[data-theme="lightproject"] .svcd-media{
+  background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 2px,transparent 2px 9px),var(--bg2);
 }
 .svcd-num{
-  font-family:var(--font-mono);font-size:1.6rem;font-weight:700;
-  line-height:1;color:rgba(var(--color-accent-rgb),.55);
+  font-family:var(--font-mono);font-size:.72rem;font-weight:600;
+  letter-spacing:.1em;color:var(--text3);
 }
-.svcd-body{display:flex;flex-direction:column;gap:.3rem}
-.svcd-t{font-size:1rem;font-weight:600;color:var(--text);margin:0}
-.svcd-d{font-size:.88rem;line-height:1.6;font-weight:300;color:var(--text2);margin:0}
+.svcd-body{display:flex;flex-direction:column;gap:.35rem}
+.svcd-t{font-size:.98rem;font-weight:600;line-height:1.25;color:var(--text);margin:0}
+.svcd-d{font-size:.84rem;line-height:1.55;font-weight:400;color:var(--text2);margin:0}
 
-/* packages band — inverted against the rest of the page */
+/* ---- packages band — inverted against the page ---- */
 .svc-plans-band{
   background:var(--bg);color:var(--text);
-  padding:6rem var(--gutter);
-  margin:6rem 0;
-  border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);
+  padding:8.1rem var(--gutter);
 }
 .svc-plans-head{
-  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
-  gap:1.2rem 3rem;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:1.5rem 4rem;align-items:start;
 }
-.svc-plans-title{
-  font-family:var(--font-primary);font-weight:600;
-  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.15;color:var(--text);
-  max-width:22ch;
-}
+.svc-plans-title{max-width:20ch;margin-bottom:0}
 .svc-plans-note{
-  font-size:.95rem;line-height:1.7;font-weight:300;color:var(--text2);
-  max-width:40ch;
+  font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);
+  max-width:38ch;padding-top:.5rem;
 }
 
-/* closing CTA — headline left, practicalities and button right */
+/* ---- closing CTA ---- */
 .svc-close{
-  display:grid;grid-template-columns:1.2fr 1fr;gap:2rem 4rem;align-items:end;
-  padding-top:2rem;border-top:1px solid var(--color-border);
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:1.5rem 4rem;align-items:start;
 }
-.svc-close-title{
-  font-family:var(--font-primary);font-weight:600;
-  font-size:clamp(1.8rem,3.2vw,2.8rem);line-height:1.15;color:var(--text);margin:0;
-}
-.svc-close-side{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
-.svc-close-text{font-size:.95rem;line-height:1.75;font-weight:300;color:var(--text2);margin:0}
+.svc-close-title{max-width:16ch;margin-bottom:0}
+.svc-close-side{display:flex;flex-direction:column;gap:1.6rem;align-items:flex-start;padding-top:.5rem}
+.svc-close-text{font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);margin:0;max-width:38ch}
 .svc-close-btn{
   display:inline-flex;align-items:center;gap:.6rem;
   padding:.85rem 1.5rem;border-radius:var(--radius-small);
@@ -2831,63 +2873,94 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-close-btn svg{transition:transform var(--transition-fast)}
 .svc-close-btn:hover svg{transform:translateX(3px)}
 
-@media(max-width:900px){
-  .svc-gain{grid-template-columns:1fr;gap:1.8rem}
-  .svcd-grid{grid-template-columns:repeat(2,1fr)}
-  .svc-close{grid-template-columns:1fr;align-items:start}
+.svc-block{margin-top:8.1rem}
+.lg-cta-text{font-size:.97rem;font-weight:400;line-height:1.7;color:var(--text2);max-width:52ch;margin-top:-1.6rem}
+.lg-cta-grid{margin-top:2.5rem}
+
+@media(max-width:1000px){
+  .svc-hero{grid-template-columns:1fr;gap:2.5rem}
+  .svc-bento{aspect-ratio:16/11}
+  .svc-gain{grid-template-columns:1fr;gap:2rem}
+  .svc-plans-head,.svc-close{grid-template-columns:1fr;gap:1rem}
+  .svc-sec-title{max-width:none}
+  .svcd-grid{grid-template-columns:repeat(3,1fr);gap:1.1rem}
 }
 @media(max-width:600px){
-  .svc-plans-band{padding:4rem 1.5rem;margin:4rem 0}
+  .svc-cat-page{padding-bottom:5rem}
+  .svc-block{margin-top:5rem}
+  .svc-plans-band{padding:5rem 1.5rem}
   .svc-hero-cta{flex-direction:column;align-items:stretch}
   .svc-jump,.svc-hero-alt,.svc-close-btn{justify-content:center}
-  .svcd-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}
+  .svcd-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .svc-bento{aspect-ratio:1/.85;gap:10px}
 }
 
-/* three tiers, middle one raised */
-.pr-plans{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1.4rem;margin-top:2.5rem;align-items:stretch;
-}
+/* three tiers, styled like the reference: white cards on the light band, the
+   middle one inverted with the accent button */
+.pr-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.375rem;margin-top:3rem;align-items:stretch}
 .pr-plan{
-  position:relative;display:flex;flex-direction:column;gap:.7rem;
-  padding:2rem 1.8rem;
+  position:relative;display:flex;flex-direction:column;
+  padding:2.2rem 2rem;
   border:1px solid var(--color-border);border-radius:var(--radius-card);
-  background:rgba(var(--color-accent-rgb),.02);
-  transition:border-color var(--transition-fast);
+  background:var(--bg);
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
 }
-.pr-plan:hover{border-color:rgba(var(--color-accent-rgb),.25)}
 .pr-plan.pop{
-  border-color:rgba(var(--color-accent-rgb),.45);
-  background:rgba(var(--color-accent-rgb),.07);
+  background:var(--color-bg-card-dark);border-color:var(--color-bg-card-dark);
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+  transform:translateY(-14px);padding-bottom:2.9rem;
+}
+.pr-plan.pop .pr-plan-name{color:var(--accent)}
+.pr-plan.pop .pr-plan-price,.pr-plan.pop .pr-plan-list li{color:#f4f6f6}
+.pr-plan.pop .pr-plan-text{color:#9fa7a8}
+.pr-plan.pop .pr-plan-list{border-color:rgba(255,255,255,.12)}
+.pr-plan-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:1.7rem}
+.pr-plan-name{
+  font-family:var(--font-mono);font-size:.66rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  /* --text3 falls to 2.3:1 on the inverted band — this label has to be read */
+  color:var(--text2);
 }
 .pr-plan-badge{
-  position:absolute;top:0;left:1.8rem;transform:translateY(-50%);
   padding:.3rem .7rem;border-radius:99px;
   background:var(--accent);color:var(--color-text-on-dark);
-  font-family:var(--font-mono);font-size:.55rem;font-weight:700;
+  font-family:var(--font-mono);font-size:.54rem;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
 }
-.pr-plan-name{font-size:1.15rem;font-weight:600;color:var(--text);margin:0}
-.pr-plan-price{font-size:1.7rem;font-weight:600;color:var(--text);line-height:1.2}
-.pr-plan-text{font-size:.88rem;font-weight:300;line-height:1.7;color:var(--text2);margin:0}
-.pr-plan-list{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:.6rem;flex:1 1 auto}
-.pr-plan-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.88rem;font-weight:300;line-height:1.6;color:var(--text2)}
-.pr-plan-list svg{flex:none;margin-top:.28rem;color:var(--accent)}
+.pr-plan-price{
+  margin-top:1.1rem;
+  font-size:2.4rem;font-weight:600;line-height:1.1;color:var(--text);
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.pr-plan-text{margin-top:.6rem;font-size:.93rem;line-height:1.6;font-weight:400;color:var(--text2)}
+.pr-plan-list{
+  list-style:none;margin:1.6rem 0 0;padding:1.6rem 0 0;
+  border-top:1px solid var(--color-border);
+  display:flex;flex-direction:column;gap:.75rem;flex:1 1 auto;
+}
+.pr-plan-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.92rem;line-height:1.5;font-weight:400;color:var(--text)}
+.pr-plan-list svg{flex:none;margin-top:.22rem;color:var(--accent)}
 .pr-plan-cta{
-  margin-top:1.4rem;text-align:center;
-  padding:.75rem 1.2rem;border-radius:var(--radius-small);
-  font-size:.9rem;font-weight:500;color:var(--text);
-  border:1px solid var(--color-border);
+  margin-top:2rem;
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.85rem 1.2rem;border-radius:var(--radius-small);
+  font-size:.93rem;font-weight:500;color:var(--text);
+  border:1px solid var(--color-border-strong);
   transition:border-color var(--transition-fast),background var(--transition-fast);
 }
-.pr-plan-cta:hover{border-color:rgba(var(--color-accent-rgb),.45);background:rgba(var(--color-accent-rgb),.08)}
+.pr-plan-cta:hover{border-color:var(--accent)}
 .pr-plan-cta.acc{background:var(--accent);border-color:var(--accent);color:var(--color-text-on-dark)}
 .pr-plan-cta.acc:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
+.pr-plan-cta svg{transition:transform var(--transition-fast)}
+.pr-plan-cta:hover svg{transform:translateX(3px)}
+.pr-note{margin-top:2rem;font-size:.85rem;font-weight:400;color:var(--text3);max-width:62ch}
 
 @media(max-width:900px){
   /* one column — side-by-side tiers get too narrow to read. The tiers keep
-     their order; the badge alone marks the popular one. */
-  .pr-plans{grid-template-columns:1fr;gap:1.8rem}
+     their order; the badge alone marks the popular one, and the raised middle
+     card drops back in line so the spacing stays even. */
+  .pr-plans{grid-template-columns:1fr;gap:1.4rem}
+  .pr-plan.pop{transform:none;padding-bottom:2.2rem}
 }
 @media(max-width:600px){
   .htesti,.pr-card,.pr-plan{padding:1.6rem}
