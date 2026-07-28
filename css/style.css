@@ -2743,7 +2743,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* ---- hero: copy left, bento right ---- */
 .svc-hero{
   display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
-  gap:3.5rem;align-items:center;
+  gap:3.5rem;align-items:stretch;
 }
 .svc-hero-copy{min-width:0}
 .svc-eyebrow{
@@ -2785,9 +2785,11 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-hero-alt:hover svg{transform:translateX(3px)}
 
 /* bento — one tall tile beside two stacked ones. Placeholders for now. */
+/* height comes from the copy column beside it, never from its own ratio, so it
+   can never grow taller than the text it sits next to */
 .svc-bento{
   display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
-  gap:16px;aspect-ratio:1/.98;min-width:0;
+  gap:16px;min-width:0;height:100%;
 }
 .svc-tile{
   position:relative;border-radius:var(--radius-card);
@@ -2840,19 +2842,12 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svcd-d{font-size:.84rem;line-height:1.55;font-weight:400;color:var(--text2);margin:0}
 
 /* ---- packages band — inverted against the page ---- */
-.svc-plans-band{
-  background:var(--bg);color:var(--text);
-  padding:8.1rem var(--gutter);
-}
-.svc-plans-head{
-  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
-  gap:1.5rem 4rem;align-items:start;
-}
-.svc-plans-title{max-width:20ch;margin-bottom:0}
-.svc-plans-note{
-  font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);
-  max-width:38ch;padding-top:.5rem;
-}
+/* The band is full-bleed, but its content must sit on exactly the same rail as
+   every .section — including the wide-screen overrides, which .section > .reveal
+   gets and this element would otherwise miss. */
+.svc-plans-band{background:var(--bg);color:var(--text);padding:8.1rem 0}
+.svc-plans-band > .reveal{padding:0 var(--gutter)}
+.svc-plans-title{max-width:20ch;margin-bottom:2.6rem}
 
 /* ---- closing CTA ---- */
 .svc-close{
@@ -2873,15 +2868,17 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-close-btn svg{transition:transform var(--transition-fast)}
 .svc-close-btn:hover svg{transform:translateX(3px)}
 
-.svc-block{margin-top:8.1rem}
+/* Sections on the same background are separated by a rule, as on the home page */
+.svc-block{margin-top:8.1rem;padding-top:8.1rem;border-top:1px solid var(--color-border)}
+.svc-cat-page > .reveal:first-of-type{border-top:none;padding-top:0;margin-top:0}
 .lg-cta-text{font-size:.97rem;font-weight:400;line-height:1.7;color:var(--text2);max-width:52ch;margin-top:-1.6rem}
 .lg-cta-grid{margin-top:2.5rem}
 
 @media(max-width:1000px){
   .svc-hero{grid-template-columns:1fr;gap:2.5rem}
-  .svc-bento{aspect-ratio:16/11}
+  .svc-bento{height:auto;aspect-ratio:16/11}
   .svc-gain{grid-template-columns:1fr;gap:2rem}
-  .svc-plans-head,.svc-close{grid-template-columns:1fr;gap:1rem}
+  .svc-close{grid-template-columns:1fr;gap:1rem}
   .svc-sec-title{max-width:none}
   .svcd-grid{grid-template-columns:repeat(3,1fr);gap:1.1rem}
 }
@@ -2892,7 +2889,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .svc-hero-cta{flex-direction:column;align-items:stretch}
   .svc-jump,.svc-hero-alt,.svc-close-btn{justify-content:center}
   .svcd-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
-  .svc-bento{aspect-ratio:1/.85;gap:10px}
+  .svc-bento{height:auto;aspect-ratio:1/.85;gap:10px}
 }
 
 /* three tiers, styled like the reference: white cards on the light band, the
@@ -2908,7 +2905,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pr-plan.pop{
   background:var(--color-bg-card-dark);border-color:var(--color-bg-card-dark);
   box-shadow:0 18px 44px rgba(0,0,0,.28);
-  transform:translateY(-14px);padding-bottom:2.9rem;
 }
 .pr-plan.pop .pr-plan-name{color:var(--accent)}
 .pr-plan.pop .pr-plan-price,.pr-plan.pop .pr-plan-list li{color:#f4f6f6}
@@ -2960,7 +2956,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
      their order; the badge alone marks the popular one, and the raised middle
      card drops back in line so the spacing stays even. */
   .pr-plans{grid-template-columns:1fr;gap:1.4rem}
-  .pr-plan.pop{transform:none;padding-bottom:2.2rem}
 }
 @media(max-width:600px){
   .htesti,.pr-card,.pr-plan{padding:1.6rem}
@@ -3035,4 +3030,20 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .nav-sub,.nav-sub-link,.island-sub-chev{transition:none!important}
   .nav-sub{transform:none!important}
   .nav-sub-link{opacity:1!important;transform:none!important}
+}
+
+/* ============================================================
+   PACKAGES BAND — wide-screen rail
+   These have to live after the base `.svc-plans-band > .reveal` rule: it is
+   declared further down the sheet than the wide-screen section blocks, so an
+   override placed up there loses on source order regardless of the media query.
+   ============================================================ */
+@media(min-width:1920px){
+  .svc-plans-band > .reveal{max-width:1600px;margin-left:auto;margin-right:auto;padding:0 6rem}
+}
+@media(min-width:2560px){
+  .svc-plans-band > .reveal{max-width:2000px;padding:0 8rem}
+}
+@media(min-width:3440px){
+  .svc-plans-band > .reveal{max-width:2600px;padding:0 10rem}
 }

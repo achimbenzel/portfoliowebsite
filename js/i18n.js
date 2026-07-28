@@ -22,9 +22,8 @@ const L={en:{
     benefits:'What you actually <em>gain</em> from working this way',
     jump:'See the packages',
     inquire:'Start a project',
-    pickNote:'Pick a package — in the first call we check together whether the scope fits.',
     ctaTitle:'Tell me <em>what your brand</em> has to do',
-    ctaText:'A 30-minute first call, then a written quote with scope, timeline and a fixed price.',
+    ctaText:'A first call to work out what you need, then a written quote with scope, timeline and a fixed price.',
     ctaBtn:'Get in touch'},
   svcCat:{
     'branding':{
@@ -221,9 +220,8 @@ de:{
     benefits:'Was Sie an dieser Zusammenarbeit <em>konkret gewinnen</em>',
     jump:'Pakete ansehen',
     inquire:'Projekt anfragen',
-    pickNote:'Wählen Sie ein Paket aus — im Erstgespräch prüfen wir gemeinsam, ob der Umfang passt.',
     ctaTitle:'Erzählen Sie mir, <em>was Ihre Marke</em> leisten soll',
-    ctaText:'30 Minuten Erstgespräch, danach ein schriftliches Angebot mit Umfang, Zeitplan und Festpreis.',
+    ctaText:'Ein Erstgespräch, um den Bedarf zu klären, danach ein schriftliches Angebot mit Umfang, Zeitplan und Festpreis.',
     ctaBtn:'Kontakt aufnehmen'},
   svcCat:{
     'branding':{

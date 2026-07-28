@@ -301,7 +301,7 @@ function pricingHomeHtml(){
 function pricingPlansHtml(c){
   /* c.key is stamped on by svcCatPg so the CTA can name its own category */
   const plans=c.plans||[];if(!plans.length)return'';
-  const pr=t('pricing'),sp=t('svcPage');
+  const pr=t('pricing');
   /* The packages sit on an inverted band: light against the dark site, dark
      once the visitor has switched to light. Attribute themes are not bound to
      <body>, so the subtree simply opts into the other palette. */
@@ -322,10 +322,7 @@ function pricingPlansHtml(c){
     +`</div>`;
   }).join('');
   return`<section class="svc-plans-band" data-theme="${band}" id="svcPlans"><div class="reveal">`
-    +`<div class="svc-plans-head">`
-      +`<h3 class="svc-sec-title svc-plans-title">${pr.planTitle}</h3>`
-      +`<p class="svc-plans-note">${sp.pickNote}</p>`
-    +`</div>`
+    +`<h3 class="svc-sec-title svc-plans-title">${pr.planTitle}</h3>`
     +`<div class="pr-plans">${cards}</div>`
     +`<p class="pr-note">${pr.note}</p>`
   +`</div></section>`;
@@ -747,7 +744,6 @@ function svcCatPg(key){
   if(!c)return notFoundPg();
   const sp=t('svcPage'),w=t('wrk');
   const arrowSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-  const backSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
   const downSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>';
   const subj=deEnt(c.label).replace(/'/g,"\\'");
 
@@ -817,7 +813,6 @@ function svcCatPg(key){
      and hands it to `.section > .reveal, .section > div`, which a bare <button>
      would miss and end up flush against the viewport edge. */
   return`<section class="section svc-cat-page" style="padding-top:9rem">`
-    +`<div class="svc-cat-back"><button class="pback" onclick="history.back()">${backSVG} ${lang==='en'?'Back':'Zurück'}</button></div>`
     +heroHtml+gainHtml+deliverHtml
   +`</section>`
   /* The packages sit on their own inverted band, so they leave the .section */
