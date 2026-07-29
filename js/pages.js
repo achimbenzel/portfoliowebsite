@@ -427,12 +427,14 @@ function lgC(slug){
   const fb=vg(1600,900,d.name||slug,lo.c);
   const sold=lo.status==='sold';
   const route='shop/'+slug;
-  /* Second image (detail-01) revealed on hover instead of a zoom — see
-     .lgcard-hover in the CSS. Falls back to no swap if the logo has no detail. */
-  const hover=(lo.images&&lo.images[1]&&lo.images[1].src)||'';
+  /* The flat mark, revealed on hover instead of a zoom — shown a little smaller
+     and recoloured for dark mode (see .lgcard-mark). Falls back to detail-01, then
+     to no swap. */
+  const hover=lo.svg||(lo.images&&lo.images[1]&&lo.images[1].src)||'';
+  const hoverIsMark=/\.svg(\?|$)/i.test(hover);
   return`<a class="pcard lgcard${sold?' sold':''}" data-cl="${g.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
     +`<div class="pcard-media"><img class="lgcard-base" src="${lo.thumb||fb}" alt="${d.name||slug}" loading="lazy" onerror="this.src='${fb}'"/>`
-      +(hover?`<img class="lgcard-hover" src="${hover}" alt="" loading="lazy" aria-hidden="true" onerror="this.remove()"/>`:'')
+      +(hover?`<img class="lgcard-hover${hoverIsMark?' lgcard-mark':''}" src="${hover}" alt="" loading="lazy" aria-hidden="true" onerror="this.remove()"/>`:'')
       +(sold?`<span class="lg-sold-badge">${g.sold}</span>`:'')
     +`</div>`
     +`<div class="pcard-body">`
@@ -559,7 +561,7 @@ function logoPg(slug){
   /* Logo tester — type a brand name and preview the mark beside it. Built in the
      same spirit as the font tester (sliders + a live canvas). The mark SVGs are
      pure #000000, so the preview recolours them per its own light/dark ground. */
-  const brand=htmlEsc(d.name||slug);
+  const brand='Brand';
   const tester=lo.svg
     ?`<div class="lgtester">`
       +`<div class="lgt-top">`
@@ -567,7 +569,6 @@ function logoPg(slug){
         +`<div class="lgt-modes" role="group" aria-label="${g.testerLabel}">`
           +`<button type="button" class="lgt-mode active" data-m="light" onclick="setLgtMode('light')">${g.tLight}</button>`
           +`<button type="button" class="lgt-mode" data-m="dark" onclick="setLgtMode('dark')">${g.tDark}</button>`
-          +`<button type="button" class="lgt-mode" data-m="paper" onclick="setLgtMode('paper')">${g.tPaper}</button>`
         +`</div>`
       +`</div>`
       +`<p class="lgt-hint">${g.testerHint}</p>`

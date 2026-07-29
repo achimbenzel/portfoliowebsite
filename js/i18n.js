@@ -161,11 +161,11 @@ const L={en:{
     inquirySubjectPlain:'Logo enquiry',
     inquirySubject:'Enquiry about the logo',
     testerLabel:'See it with your name',
-    testerHint:'Type your brand name to preview the lockup. Adjust the size, letter spacing and the gap, and switch the background between light, dark and paper.',
+    testerHint:'Type your brand name to preview the lockup. Adjust the size, letter spacing and the gap, and switch the background between light and dark.',
     tBrand:'Brand name',tBrandPh:'Your brand',
     tSize:'Size',tSpacing:'Letter spacing',tGap:'Gap',
     tLayout:'Layout',tSide:'Side by side',tStack:'Stacked',
-    tLight:'Light',tDark:'Dark',tPaper:'Paper'
+    tLight:'Light',tDark:'Dark'
   },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
     filterSearch:'Search category',filterNone:'No category found.'},
@@ -360,11 +360,11 @@ de:{
     inquirySubjectPlain:'Logo-Anfrage',
     inquirySubject:'Anfrage zum Logo',
     testerLabel:'Mit Ihrem Namen ansehen',
-    testerHint:'Geben Sie Ihren Markennamen ein und sehen Sie das Lockup. Passen Sie Größe, Laufweite und Abstand an und wechseln Sie den Hintergrund zwischen Hell, Dunkel und Papier.',
+    testerHint:'Geben Sie Ihren Markennamen ein und sehen Sie das Lockup. Passen Sie Größe, Laufweite und Abstand an und wechseln Sie den Hintergrund zwischen Hell und Dunkel.',
     tBrand:'Markenname',tBrandPh:'Ihre Marke',
     tSize:'Größe',tSpacing:'Laufweite',tGap:'Abstand',
     tLayout:'Layout',tSide:'Nebeneinander',tStack:'Gestapelt',
-    tLight:'Hell',tDark:'Dunkel',tPaper:'Papier'
+    tLight:'Hell',tDark:'Dunkel'
   },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
