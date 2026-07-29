@@ -8,6 +8,7 @@
   "status": "available",
   "color": "#2a1436",
   "thumbnail": "hero.webp",
+  "svg": "X.svg",
   "images": [
     {
       "src": "hero.webp",
@@ -29,6 +30,20 @@
         "en": "The mark in use as an app icon and favicon",
         "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
       }
+    },
+    {
+      "src": "detail-03.webp",
+      "alt": {
+        "en": "The mark on a dark brand board",
+        "de": "Das Zeichen auf einem dunklen Markenbild"
+      }
+    },
+    {
+      "src": "X.svg",
+      "alt": {
+        "en": "The flat, single-colour mark on its own",
+        "de": "Das flache, einfarbige Zeichen für sich"
+      }
     }
   ],
   "en": {
@@ -44,6 +59,7 @@
       "Logo as SVG, PDF, PNG and JPG",
       "Editable source file",
       "Light and dark versions",
+      "Full rights to use the logo",
       "Exclusive rights — removed from sale after purchase",
       "Colour adjusted to your brand on request"
     ]
@@ -61,6 +77,7 @@
       "Logo als SVG, PDF, PNG und JPG",
       "Bearbeitbare Quelldatei",
       "Helle und dunkle Fassung",
+      "Volle Nutzungsrechte am Logo",
       "Exklusiv — nach dem Kauf nicht mehr erhältlich",
       "Farbanpassung an Ihre Marke auf Wunsch"
     ]

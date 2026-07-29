@@ -427,8 +427,12 @@ function lgC(slug){
   const fb=vg(1600,900,d.name||slug,lo.c);
   const sold=lo.status==='sold';
   const route='shop/'+slug;
+  /* Second image (detail-01) revealed on hover instead of a zoom — see
+     .lgcard-hover in the CSS. Falls back to no swap if the logo has no detail. */
+  const hover=(lo.images&&lo.images[1]&&lo.images[1].src)||'';
   return`<a class="pcard lgcard${sold?' sold':''}" data-cl="${g.view}" href="${routeToPath(route)}" onclick="event.preventDefault();go('${route}')">`
-    +`<div class="pcard-media"><img src="${lo.thumb||fb}" alt="${d.name||slug}" loading="lazy" onerror="this.src='${fb}'"/>`
+    +`<div class="pcard-media"><img class="lgcard-base" src="${lo.thumb||fb}" alt="${d.name||slug}" loading="lazy" onerror="this.src='${fb}'"/>`
+      +(hover?`<img class="lgcard-hover" src="${hover}" alt="" loading="lazy" aria-hidden="true" onerror="this.remove()"/>`:'')
       +(sold?`<span class="lg-sold-badge">${g.sold}</span>`:'')
     +`</div>`
     +`<div class="pcard-body">`
@@ -480,6 +484,7 @@ function lgPick(i){
   const stage=document.getElementById('lgStage');if(!stage)return;
   const im=lgImgs[lgIdx];
   stage.src=im.src;stage.alt=im.alt;
+  stage.classList.toggle('lg-svgimg',!!im.svg);
   /* a missing file must fall back here too, not just on first paint */
   stage.onerror=function(){this.onerror=null;this.src=im.fb};
   const cnt=document.getElementById('lgCount');if(cnt)cnt.textContent=lgIdx+1;
@@ -524,19 +529,19 @@ function logoPg(slug){
   const sold=lo.status==='sold';
   const fb=vg(1600,900,d.name||slug,lo.c);
 
-  lgImgs=(lo.images||[]).map(im=>({src:im.src,alt:(im.alt||{})[lang]||(im.alt||{}).en||d.name||'',fb}));
+  lgImgs=(lo.images||[]).map(im=>({src:im.src,alt:(im.alt||{})[lang]||(im.alt||{}).en||d.name||'',fb,svg:/\.svg(\?|$)/i.test(im.src||'')}));
   lgIdx=0;
   const first=lgImgs[0]||{src:fb,alt:d.name||slug,fb};
 
   const thumbs=lgImgs.length>1
     ?`<div class="lgshop-thumbs" role="tablist" aria-label="${d.name||slug}">`
-      +lgImgs.map((im,i)=>`<button type="button" class="lgshop-thumb${i===0?' active':''}" role="tab" aria-selected="${i===0}" tabindex="${i===0?0:-1}" onclick="lgPick(${i})" onkeydown="lgKey(event)"><img src="${im.src}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${fb}'"/></button>`).join('')
+      +lgImgs.map((im,i)=>`<button type="button" class="lgshop-thumb${i===0?' active':''}" role="tab" aria-selected="${i===0}" tabindex="${i===0?0:-1}" onclick="lgPick(${i})" onkeydown="lgKey(event)"><img class="${im.svg?'lg-svgimg':''}" src="${im.src}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${fb}'"/></button>`).join('')
     +`</div>`
     :'';
 
   const gallery=`<div class="lgshop-gallery">`
     +`<div class="lgshop-stage">`
-      +`<img id="lgStage" src="${first.src}" alt="${first.alt}" onclick="lgLightbox()" onerror="this.onerror=null;this.src='${fb}'"/>`
+      +`<img id="lgStage" class="${first.svg?'lg-svgimg':''}" src="${first.src}" alt="${first.alt}" onclick="lgLightbox()" onerror="this.onerror=null;this.src='${fb}'"/>`
       +(lgImgs.length>1
         ?`<button type="button" class="lgshop-nav prev" onclick="lgStep(-1)" aria-label="${g.prev}">${chev(-1)}</button>`
          +`<button type="button" class="lgshop-nav next" onclick="lgStep(1)" aria-label="${g.next}">${chev(1)}</button>`
@@ -549,6 +554,45 @@ function logoPg(slug){
   const incl=(d.incl||[]).length
     ?`<div class="lg-incl"><div class="lg-incl-label">${g.includes}</div>`
       +`<ul class="svc-deliver">${d.incl.map(x=>`<li class="svc-deliver-item">${tickSVG}<span>${x}</span></li>`).join('')}</ul></div>`
+    :'';
+
+  /* Logo tester — type a brand name and preview the mark beside it. Built in the
+     same spirit as the font tester (sliders + a live canvas). The mark SVGs are
+     pure #000000, so the preview recolours them per its own light/dark ground. */
+  const brand=htmlEsc(d.name||slug);
+  const tester=lo.svg
+    ?`<div class="lgtester">`
+      +`<div class="lgt-top">`
+        +`<div class="lg-incl-label">${g.testerLabel}</div>`
+        +`<div class="lgt-modes" role="group" aria-label="${g.testerLabel}">`
+          +`<button type="button" class="lgt-mode active" data-m="light" onclick="setLgtMode('light')">${g.tLight}</button>`
+          +`<button type="button" class="lgt-mode" data-m="dark" onclick="setLgtMode('dark')">${g.tDark}</button>`
+          +`<button type="button" class="lgt-mode" data-m="paper" onclick="setLgtMode('paper')">${g.tPaper}</button>`
+        +`</div>`
+      +`</div>`
+      +`<p class="lgt-hint">${g.testerHint}</p>`
+      +`<div class="lgt-layout">`
+        +`<div class="lgt-controls">`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tBrand}</span></div>`
+            +`<input type="text" class="lgt-input" id="lgtText" value="${brand}" maxlength="28" placeholder="${g.tBrandPh}" oninput="updateLogoTester()"/></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSize}</span><span class="ft-control-value" id="lgtSizeVal">64px</span></div>`
+            +`<input type="range" class="ft-slider" id="lgtSize" min="24" max="120" value="64" oninput="updateLogoTester()"/></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSpacing}</span><span class="ft-control-value" id="lgtSpaceVal">0px</span></div>`
+            +`<input type="range" class="ft-slider" id="lgtSpace" min="-4" max="16" value="0" oninput="updateLogoTester()"/></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tGap}</span><span class="ft-control-value" id="lgtGapVal">24px</span></div>`
+            +`<input type="range" class="ft-slider" id="lgtGap" min="0" max="80" value="24" oninput="updateLogoTester()"/></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tLayout}</span></div>`
+            +`<div class="ft-align-btns"><button type="button" class="ft-align-btn active" id="lgtLayoutRow" onclick="setLgtLayout('row')">${g.tSide}</button>`
+              +`<button type="button" class="ft-align-btn" id="lgtLayoutCol" onclick="setLgtLayout('col')">${g.tStack}</button></div></div>`
+        +`</div>`
+        +`<div class="lgt-preview" id="lgtPreview" data-lgt="dark">`
+          +`<div class="lgt-lockup" id="lgtLockup">`
+            +`<img class="lgt-mark" id="lgtMark" src="${lo.svg}" alt="${d.name||slug}"/>`
+            +`<span class="lgt-word" id="lgtWord">${brand}</span>`
+          +`</div>`
+        +`</div>`
+      +`</div>`
+    +`</div>`
     :'';
 
   /* Shop layout: images on top, then the title with the price under it, then
@@ -577,8 +621,44 @@ function logoPg(slug){
       +(d.desc?`<p class="lgshop-desc">${d.desc}</p>`:'')
       +((d.tags||[]).length?`<div class="stags lgshop-tags">${d.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
       +incl
+      +tester
     +`</div>`
   +`</div>`
+}
+
+/* ===== Logo tester handlers — mirror the font tester: read the controls, push
+   the values onto the live lockup. The mark scales with the wordmark so the two
+   stay in proportion from one size slider. ===== */
+function updateLogoTester(){
+  const word=document.getElementById('lgtWord');if(!word)return;
+  const size=+document.getElementById('lgtSize').value;
+  const space=+document.getElementById('lgtSpace').value;
+  const gap=+document.getElementById('lgtGap').value;
+  word.textContent=document.getElementById('lgtText').value;
+  word.style.fontSize=size+'px';
+  word.style.letterSpacing=space+'px';
+  const mark=document.getElementById('lgtMark');if(mark)mark.style.height=Math.round(size*1.5)+'px';
+  const lockup=document.getElementById('lgtLockup');if(lockup)lockup.style.gap=gap+'px';
+  document.getElementById('lgtSizeVal').textContent=size+'px';
+  document.getElementById('lgtSpaceVal').textContent=space+'px';
+  document.getElementById('lgtGapVal').textContent=gap+'px';
+}
+function setLgtLayout(dir){
+  const lockup=document.getElementById('lgtLockup');if(!lockup)return;
+  lockup.classList.toggle('lgt-stacked',dir==='col');
+  const row=document.getElementById('lgtLayoutRow'),col=document.getElementById('lgtLayoutCol');
+  if(row)row.classList.toggle('active',dir==='row');
+  if(col)col.classList.toggle('active',dir==='col');
+}
+function setLgtMode(m){
+  const pv=document.getElementById('lgtPreview');if(!pv)return;
+  pv.setAttribute('data-lgt',m);
+  document.querySelectorAll('.lgt-mode').forEach(b=>b.classList.toggle('active',b.dataset.m===m));
+}
+function initLogoTester(){
+  if(!document.getElementById('lgtPreview'))return;
+  setLgtMode(baseTheme==='light'?'light':'dark');
+  updateLogoTester();
 }
 
 /* ===== PROJECT DETAIL PAGE ===== */
@@ -1214,6 +1294,9 @@ function lbOpen(imgs,idx){
   if(!lb||!img)return;
   img.style.opacity='1';img.style.transform='scale(1)';
   img.src=lbImages[lbIdx];
+  /* A flat SVG mark is pure black on transparent — give it a light plate so it
+     stays visible on the dark lightbox overlay */
+  img.classList.toggle('lb-svgimg',/\.svg(\?|$)/i.test(lbImages[lbIdx]||''));
   document.getElementById('lbCounter').textContent=`${lbIdx+1} / ${lbImages.length}`;
   lb.classList.add('show');document.body.style.overflow='hidden';
 }
@@ -1233,6 +1316,7 @@ function lbNav(dir){
   img.style.opacity='0';img.style.transform='scale(.96)';
   setTimeout(()=>{
     img.src=lbImages[lbIdx];
+    img.classList.toggle('lb-svgimg',/\.svg(\?|$)/i.test(lbImages[lbIdx]||''));
     document.getElementById('lbCounter').textContent=`${lbIdx+1} / ${lbImages.length}`;
     img.style.opacity='1';lbApplyTransform();
   },180);

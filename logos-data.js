@@ -10,6 +10,7 @@ const LG = {
     "status": "available",
     "thumb": "/logos/n-monogram/hero.webp",
     "c": "#1d3a12",
+    "svg": "/logos/n-monogram/N.svg",
     "en": {
       "name": "N Monogram",
       "tag": "A crossed-blade N for a name starting with N",
@@ -23,6 +24,7 @@ const LG = {
         "Logo as SVG, PDF, PNG and JPG",
         "Editable Illustrator source file",
         "Light and dark versions",
+        "Full rights to use the logo",
         "Exclusive rights — removed from sale after purchase",
         "Colour adjusted to your brand on request"
       ]
@@ -40,6 +42,7 @@ const LG = {
         "Logo als SVG, PDF, PNG und JPG",
         "Bearbeitbare Illustrator-Datei",
         "Helle und dunkle Fassung",
+        "Volle Nutzungsrechte am Logo",
         "Exklusiv — nach dem Kauf nicht mehr erhältlich",
         "Farbanpassung an Ihre Marke auf Wunsch"
       ]
@@ -76,6 +79,14 @@ const LG = {
           "en": "The logo on black business cards",
           "de": "Das Logo auf schwarzen Visitenkarten"
         }
+      },
+      {
+        "src": "/logos/n-monogram/N.svg",
+        "i": 4,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
       }
     ]
   },
@@ -89,6 +100,7 @@ const LG = {
     "status": "available",
     "thumb": "/logos/cyber-circle/hero.webp",
     "c": "#0f2a33",
+    "svg": "/logos/cyber-circle/cyber_circle.svg",
     "en": {
       "name": "Cyber Circle",
       "tag": "A circular tech mark for a software or security brand",
@@ -102,6 +114,7 @@ const LG = {
         "Logo as SVG, PDF, PNG and JPG",
         "Editable source file",
         "Light and dark versions",
+        "Full rights to use the logo",
         "Exclusive rights — removed from sale after purchase",
         "Colour adjusted to your brand on request"
       ]
@@ -119,6 +132,7 @@ const LG = {
         "Logo als SVG, PDF, PNG und JPG",
         "Bearbeitbare Quelldatei",
         "Helle und dunkle Fassung",
+        "Volle Nutzungsrechte am Logo",
         "Exklusiv — nach dem Kauf nicht mehr erhältlich",
         "Farbanpassung an Ihre Marke auf Wunsch"
       ]
@@ -147,6 +161,22 @@ const LG = {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
         }
+      },
+      {
+        "src": "/logos/cyber-circle/detail-03.webp",
+        "i": 3,
+        "alt": {
+          "en": "The mark on a dark brand board",
+          "de": "Das Zeichen auf einem dunklen Markenbild"
+        }
+      },
+      {
+        "src": "/logos/cyber-circle/cyber_circle.svg",
+        "i": 4,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
       }
     ]
   },
@@ -160,6 +190,7 @@ const LG = {
     "status": "available",
     "thumb": "/logos/flower-symbol/hero.webp",
     "c": "#33203a",
+    "svg": "/logos/flower-symbol/flower.svg",
     "en": {
       "name": "Flower Symbol",
       "tag": "An organic petal mark for a beauty, wellness or care brand",
@@ -173,6 +204,7 @@ const LG = {
         "Logo as SVG, PDF, PNG and JPG",
         "Editable source file",
         "Light and dark versions",
+        "Full rights to use the logo",
         "Exclusive rights — removed from sale after purchase",
         "Colour adjusted to your brand on request"
       ]
@@ -190,6 +222,7 @@ const LG = {
         "Logo als SVG, PDF, PNG und JPG",
         "Bearbeitbare Quelldatei",
         "Helle und dunkle Fassung",
+        "Volle Nutzungsrechte am Logo",
         "Exklusiv — nach dem Kauf nicht mehr erhältlich",
         "Farbanpassung an Ihre Marke auf Wunsch"
       ]
@@ -218,6 +251,22 @@ const LG = {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
         }
+      },
+      {
+        "src": "/logos/flower-symbol/detail-03.webp",
+        "i": 3,
+        "alt": {
+          "en": "The mark on a soft brand board",
+          "de": "Das Zeichen auf einem sanften Markenbild"
+        }
+      },
+      {
+        "src": "/logos/flower-symbol/flower.svg",
+        "i": 4,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
       }
     ]
   },
@@ -231,6 +280,7 @@ const LG = {
     "status": "available",
     "thumb": "/logos/x-monogramm/hero.webp",
     "c": "#2a1436",
+    "svg": "/logos/x-monogramm/X.svg",
     "en": {
       "name": "X Monogram",
       "tag": "A crossed X monogram for a name starting with X",
@@ -244,6 +294,7 @@ const LG = {
         "Logo as SVG, PDF, PNG and JPG",
         "Editable source file",
         "Light and dark versions",
+        "Full rights to use the logo",
         "Exclusive rights — removed from sale after purchase",
         "Colour adjusted to your brand on request"
       ]
@@ -261,6 +312,7 @@ const LG = {
         "Logo als SVG, PDF, PNG und JPG",
         "Bearbeitbare Quelldatei",
         "Helle und dunkle Fassung",
+        "Volle Nutzungsrechte am Logo",
         "Exklusiv — nach dem Kauf nicht mehr erhältlich",
         "Farbanpassung an Ihre Marke auf Wunsch"
       ]
@@ -288,6 +340,22 @@ const LG = {
         "alt": {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+        }
+      },
+      {
+        "src": "/logos/x-monogramm/detail-03.webp",
+        "i": 3,
+        "alt": {
+          "en": "The mark on a dark brand board",
+          "de": "Das Zeichen auf einem dunklen Markenbild"
+        }
+      },
+      {
+        "src": "/logos/x-monogramm/X.svg",
+        "i": 4,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
         }
       }
     ]

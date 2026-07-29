@@ -2582,6 +2582,16 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .lgcard .pcard-media{position:relative}
 .lgcard.sold{opacity:.55}
 .lgcard.sold .pcard-media img{filter:grayscale(1)}
+/* Logo cards reveal the detail image on hover instead of zooming in */
+.lgcard:hover .pcard-media img{transform:none}
+.lgcard-hover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s cubic-bezier(.16,1,.3,1)}
+.lgcard:hover .lgcard-hover{opacity:1}
+/* Flat SVG marks are pure black on transparent — show them contained on a light
+   plate so they read on any ground (stage, thumb strip, lightbox) */
+.lgshop-stage img.lg-svgimg,.lgshop-thumb img.lg-svgimg{object-fit:contain;background:#f3efe6}
+.lgshop-stage img.lg-svgimg{padding:8%}
+.lgshop-thumb img.lg-svgimg{padding:16%}
+.lb-svgimg{background:#f3efe6;padding:min(6vmin,60px);border-radius:6px;object-fit:contain}
 .lg-price{font-variant-numeric:tabular-nums;color:var(--text)}
 .lg-sold-badge{
   position:absolute;top:.9rem;left:.9rem;
@@ -2712,6 +2722,55 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .lgshop-buy{align-items:stretch;flex-direction:column;gap:1.1rem}
   .lg-buy-btn{width:100%}
   .lgshop-buy .lg-buy-btn{margin-left:0}
+}
+
+/* --- Logo tester --- built in the spirit of the font tester: the same slider
+   and control styling, with a live preview canvas whose ground can be flipped
+   between light, dark and paper. The mark SVG is pure #000000, so its colour is
+   inverted on the dark ground and left as-is on the light ones. */
+.lgtester{margin-top:2.6rem;padding-top:2.4rem;border-top:1px solid var(--color-border)}
+.lgt-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.lgt-hint{margin-top:.7rem;font-size:.98rem;line-height:1.7;font-weight:300;color:var(--text2);max-width:64ch}
+.lgt-modes{display:flex;gap:.4rem}
+.lgt-mode{
+  padding:.42rem .82rem;border-radius:99px;
+  background:transparent;border:1px solid var(--color-border);color:var(--text3);
+  font-family:var(--font-mono);font-size:.56rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  transition:color var(--transition-fast),border-color var(--transition-fast),background var(--transition-fast);
+}
+.lgt-mode:hover{border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
+.lgt-mode.active{background:rgba(var(--color-accent-rgb),.12);border-color:rgba(var(--color-accent-rgb),.4);color:var(--color-text-on-dark)}
+.lgt-layout{display:grid;grid-template-columns:minmax(210px,290px) 1fr;gap:2rem;margin-top:1.8rem;align-items:start}
+.lgt-controls{display:flex;flex-direction:column;gap:1.3rem}
+.lgt-input{
+  width:100%;background:var(--bg2);border:1px solid var(--color-border);
+  border-radius:var(--radius-small);padding:.7rem .85rem;color:var(--text);
+  font-family:var(--font-primary);font-size:.95rem;outline:none;
+  transition:border-color var(--transition-fast);
+}
+.lgt-input:focus{border-color:rgba(var(--color-accent-rgb),.4)}
+.lgt-preview{
+  min-height:360px;border-radius:var(--radius-card);
+  border:1px solid var(--color-border);
+  display:flex;align-items:center;justify-content:center;
+  padding:2.5rem;overflow:hidden;
+  background:var(--lgt-bg,#111114);
+  transition:background .35s ease;
+}
+.lgt-preview[data-lgt="light"]{--lgt-bg:#ffffff;--lgt-fg:#0b0b0d;--lgt-inv:0}
+.lgt-preview[data-lgt="paper"]{--lgt-bg:#f3efe6;--lgt-fg:#1a1712;--lgt-inv:0}
+.lgt-preview[data-lgt="dark"]{--lgt-bg:#111114;--lgt-fg:#ffffff;--lgt-inv:1}
+.lgt-lockup{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:24px;max-width:100%}
+.lgt-lockup.lgt-stacked{flex-direction:column;text-align:center}
+.lgt-mark{height:96px;width:auto;flex:none;display:block;filter:invert(var(--lgt-inv,1))}
+.lgt-word{
+  font-family:var(--font-primary);font-weight:600;font-size:64px;line-height:1;
+  color:var(--lgt-fg,#fff);word-break:break-word;overflow-wrap:anywhere;
+}
+@media(max-width:760px){
+  .lgt-layout{grid-template-columns:1fr}
+  .lgt-preview{min-height:280px;padding:1.8rem}
 }
 
 /* ============================================================

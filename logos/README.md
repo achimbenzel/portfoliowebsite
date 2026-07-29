@@ -9,9 +9,13 @@ logos/
   n-monogram/
     logo.json
     hero.webp        ← card thumbnail + first image on the detail page
-    detail-01.webp
+    detail-01.webp   ← also shown on the card on hover (in place of a zoom)
     detail-02.webp
+    detail-03.webp
+    N.svg            ← flat single-colour mark; last gallery image + logo tester
 ```
+
+Each logo ships five images: `hero`, `detail-01…03` and the flat `.svg` mark.
 
 ## logo.json
 
@@ -24,7 +28,8 @@ logos/
 | `status` | `available` or `sold`. A sold logo stays listed, greyed out, with the enquiry button disabled |
 | `color` | Card tint, used as the fallback while an image is missing |
 | `thumbnail` | Card image; defaults to the first entry in `images` |
-| `images` | Every image on the detail page, in order. Either `"file.webp"` or `{src, alt:{en,de}}` |
+| `svg` | Flat single-colour `.svg` mark. Powers the on-page logo tester and, when listed in `images`, the last gallery tile. It is pure black, so it is recoloured for dark grounds automatically. |
+| `images` | Every image on the detail page, in order. Either `"file.webp"` or `{src, alt:{en,de}}`. List the `.svg` mark last so the tester's artwork also appears in the gallery |
 | `en` / `de` | `name`, `tagline`, `description`, `tags[]`, `includes[]` |
 
 After adding or changing a folder:
@@ -33,23 +38,15 @@ After adding or changing a folder:
 node build-logos.js
 ```
 
-## Placeholder entries — images still needed
+## Placeholder copy — still to rewrite
 
-`n-monogram` has its real artwork. `cyber-circle`, `flower-symbol` and
-`x-monogramm` are placeholders: their `logo.json` is written, but each still
-needs these three files dropped into its own folder:
+`n-monogram` has its real artwork and copy. `cyber-circle`, `flower-symbol` and
+`x-monogramm` now carry their five images and their `.svg` mark, but the names,
+taglines and descriptions in their `logo.json` are still placeholder copy —
+rewrite them to match each real mark. Run `node build-logos.js` after any change.
 
-| File | Shown as |
-|---|---|
-| `hero.webp` | thumbnail in the listing + first image on the detail page |
-| `detail-01.webp` | the mark in one colour, light and dark |
-| `detail-02.webp` | the mark in use (app icon, favicon) |
-
-Until they exist those URLs 404 and the card falls back to a plain tinted
-placeholder (the `color` field sets the tint) — the listing and the detail page
-work either way. The names, taglines and descriptions in each `logo.json` are
-placeholder copy too; rewrite them to match the real mark. Run
-`node build-logos.js` after adding files or changing a folder.
+If an image URL 404s, the card and stage fall back to a plain tinted placeholder
+(the `color` field sets the tint), so the listing and detail page work either way.
 
 Prices here are placeholders and are deliberately kept out of the JSON-LD, so
 nothing quotable is published as structured data before the real figures are set.

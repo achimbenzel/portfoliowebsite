@@ -176,6 +176,7 @@ function render(r, trigger) {
       initFaq3D();
     }
     if (r.startsWith('my-fonts/')) initFontTester();
+    if (r.startsWith('shop/')) initLogoTester();
     if (r === 'contact') initTurnstile();
     requestAnimationFrame(() => { observe(); });
   });

@@ -65,6 +65,8 @@ folders.forEach(folder => {
     status: json.status === 'sold' ? 'sold' : 'available',
     thumb: img(json.thumbnail || (json.images && (typeof json.images[0] === 'string' ? json.images[0] : json.images[0]?.src)) || 'hero.webp'),
     c: json.color || '#1a1a1a',
+    /* Flat single-colour vector mark, used by the on-page logo tester */
+    svg: img(json.svg || ''),
     en: {
       name:  loc(json, 'en').name || json.name || slug,
       tag:   loc(json, 'en').tagline || '',

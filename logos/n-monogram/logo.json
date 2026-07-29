@@ -8,6 +8,7 @@
   "status": "available",
   "color": "#1d3a12",
   "thumbnail": "hero.webp",
+  "svg": "N.svg",
   "images": [
     {
       "src": "hero.webp",
@@ -36,6 +37,13 @@
         "en": "The logo on black business cards",
         "de": "Das Logo auf schwarzen Visitenkarten"
       }
+    },
+    {
+      "src": "N.svg",
+      "alt": {
+        "en": "The flat, single-colour mark on its own",
+        "de": "Das flache, einfarbige Zeichen für sich"
+      }
     }
   ],
   "en": {
@@ -51,6 +59,7 @@
       "Logo as SVG, PDF, PNG and JPG",
       "Editable Illustrator source file",
       "Light and dark versions",
+      "Full rights to use the logo",
       "Exclusive rights — removed from sale after purchase",
       "Colour adjusted to your brand on request"
     ]
@@ -68,6 +77,7 @@
       "Logo als SVG, PDF, PNG und JPG",
       "Bearbeitbare Illustrator-Datei",
       "Helle und dunkle Fassung",
+      "Volle Nutzungsrechte am Logo",
       "Exklusiv — nach dem Kauf nicht mehr erhältlich",
       "Farbanpassung an Ihre Marke auf Wunsch"
     ]
