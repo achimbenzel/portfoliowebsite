@@ -18,6 +18,13 @@
       }
     },
     {
+      "src": "flower.svg",
+      "alt": {
+        "en": "The flat, single-colour mark on its own",
+        "de": "Das flache, einfarbige Zeichen für sich"
+      }
+    },
+    {
       "src": "detail-01.webp",
       "alt": {
         "en": "The mark in one colour, on light and on dark",
@@ -36,13 +43,6 @@
       "alt": {
         "en": "The mark on a soft brand board",
         "de": "Das Zeichen auf einem sanften Markenbild"
-      }
-    },
-    {
-      "src": "flower.svg",
-      "alt": {
-        "en": "The flat, single-colour mark on its own",
-        "de": "Das flache, einfarbige Zeichen für sich"
       }
     }
   ],

@@ -57,8 +57,16 @@ const LG = {
         }
       },
       {
-        "src": "/logos/n-monogram/detail-01.webp",
+        "src": "/logos/n-monogram/N.svg",
         "i": 1,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
+      },
+      {
+        "src": "/logos/n-monogram/detail-01.webp",
+        "i": 2,
         "alt": {
           "en": "Construction of the mark on a grid, with the circles it is built from",
           "de": "Konstruktion des Zeichens auf dem Raster, mit den zugrunde liegenden Kreisen"
@@ -66,7 +74,7 @@ const LG = {
       },
       {
         "src": "/logos/n-monogram/detail-02.webp",
-        "i": 2,
+        "i": 3,
         "alt": {
           "en": "The flat lockup of mark and wordmark with its clearspace grid",
           "de": "Das flache Lockup aus Zeichen und Wortmarke mit Schutzraum-Raster"
@@ -74,18 +82,10 @@ const LG = {
       },
       {
         "src": "/logos/n-monogram/detail-03.webp",
-        "i": 3,
+        "i": 4,
         "alt": {
           "en": "The logo on black business cards",
           "de": "Das Logo auf schwarzen Visitenkarten"
-        }
-      },
-      {
-        "src": "/logos/n-monogram/N.svg",
-        "i": 4,
-        "alt": {
-          "en": "The flat, single-colour mark on its own",
-          "de": "Das flache, einfarbige Zeichen für sich"
         }
       }
     ]
@@ -147,8 +147,16 @@ const LG = {
         }
       },
       {
-        "src": "/logos/cyber-circle/detail-01.webp",
+        "src": "/logos/cyber-circle/cyber_circle.svg",
         "i": 1,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
+      },
+      {
+        "src": "/logos/cyber-circle/detail-01.webp",
+        "i": 2,
         "alt": {
           "en": "The mark in one colour, on light and on dark",
           "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
@@ -156,7 +164,7 @@ const LG = {
       },
       {
         "src": "/logos/cyber-circle/detail-02.webp",
-        "i": 2,
+        "i": 3,
         "alt": {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
@@ -164,18 +172,10 @@ const LG = {
       },
       {
         "src": "/logos/cyber-circle/detail-03.webp",
-        "i": 3,
+        "i": 4,
         "alt": {
           "en": "The mark on a dark brand board",
           "de": "Das Zeichen auf einem dunklen Markenbild"
-        }
-      },
-      {
-        "src": "/logos/cyber-circle/cyber_circle.svg",
-        "i": 4,
-        "alt": {
-          "en": "The flat, single-colour mark on its own",
-          "de": "Das flache, einfarbige Zeichen für sich"
         }
       }
     ]
@@ -237,8 +237,16 @@ const LG = {
         }
       },
       {
-        "src": "/logos/flower-symbol/detail-01.webp",
+        "src": "/logos/flower-symbol/flower.svg",
         "i": 1,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
+      },
+      {
+        "src": "/logos/flower-symbol/detail-01.webp",
+        "i": 2,
         "alt": {
           "en": "The mark in one colour, on light and on dark",
           "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
@@ -246,7 +254,7 @@ const LG = {
       },
       {
         "src": "/logos/flower-symbol/detail-02.webp",
-        "i": 2,
+        "i": 3,
         "alt": {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
@@ -254,18 +262,10 @@ const LG = {
       },
       {
         "src": "/logos/flower-symbol/detail-03.webp",
-        "i": 3,
+        "i": 4,
         "alt": {
           "en": "The mark on a soft brand board",
           "de": "Das Zeichen auf einem sanften Markenbild"
-        }
-      },
-      {
-        "src": "/logos/flower-symbol/flower.svg",
-        "i": 4,
-        "alt": {
-          "en": "The flat, single-colour mark on its own",
-          "de": "Das flache, einfarbige Zeichen für sich"
         }
       }
     ]
@@ -327,8 +327,16 @@ const LG = {
         }
       },
       {
-        "src": "/logos/x-monogramm/detail-01.webp",
+        "src": "/logos/x-monogramm/X.svg",
         "i": 1,
+        "alt": {
+          "en": "The flat, single-colour mark on its own",
+          "de": "Das flache, einfarbige Zeichen für sich"
+        }
+      },
+      {
+        "src": "/logos/x-monogramm/detail-01.webp",
+        "i": 2,
         "alt": {
           "en": "The mark in one colour, on light and on dark",
           "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
@@ -336,7 +344,7 @@ const LG = {
       },
       {
         "src": "/logos/x-monogramm/detail-02.webp",
-        "i": 2,
+        "i": 3,
         "alt": {
           "en": "The mark in use as an app icon and favicon",
           "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
@@ -344,18 +352,10 @@ const LG = {
       },
       {
         "src": "/logos/x-monogramm/detail-03.webp",
-        "i": 3,
+        "i": 4,
         "alt": {
           "en": "The mark on a dark brand board",
           "de": "Das Zeichen auf einem dunklen Markenbild"
-        }
-      },
-      {
-        "src": "/logos/x-monogramm/X.svg",
-        "i": 4,
-        "alt": {
-          "en": "The flat, single-colour mark on its own",
-          "de": "Das flache, einfarbige Zeichen für sich"
         }
       }
     ]

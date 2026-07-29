@@ -18,6 +18,13 @@
       }
     },
     {
+      "src": "N.svg",
+      "alt": {
+        "en": "The flat, single-colour mark on its own",
+        "de": "Das flache, einfarbige Zeichen für sich"
+      }
+    },
+    {
       "src": "detail-01.webp",
       "alt": {
         "en": "Construction of the mark on a grid, with the circles it is built from",
@@ -36,13 +43,6 @@
       "alt": {
         "en": "The logo on black business cards",
         "de": "Das Logo auf schwarzen Visitenkarten"
-      }
-    },
-    {
-      "src": "N.svg",
-      "alt": {
-        "en": "The flat, single-colour mark on its own",
-        "de": "Das flache, einfarbige Zeichen für sich"
       }
     }
   ],

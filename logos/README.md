@@ -12,7 +12,7 @@ logos/
     detail-01.webp   ← also shown on the card on hover (in place of a zoom)
     detail-02.webp
     detail-03.webp
-    N.svg            ← flat single-colour mark; last gallery image + logo tester
+    N.svg            ← flat single-colour mark; 2nd gallery image + logo tester
 ```
 
 Each logo ships five images: `hero`, `detail-01…03` and the flat `.svg` mark.
@@ -29,7 +29,7 @@ Each logo ships five images: `hero`, `detail-01…03` and the flat `.svg` mark.
 | `color` | Card tint, used as the fallback while an image is missing |
 | `thumbnail` | Card image; defaults to the first entry in `images` |
 | `svg` | Flat single-colour `.svg` mark. Powers the on-page logo tester and, when listed in `images`, the last gallery tile. It is pure black, so it is recoloured for dark grounds automatically. |
-| `images` | Every image on the detail page, in order. Either `"file.webp"` or `{src, alt:{en,de}}`. List the `.svg` mark last so the tester's artwork also appears in the gallery |
+| `images` | Every image on the detail page, in order. Either `"file.webp"` or `{src, alt:{en,de}}`. List the `.svg` mark second, right after the hero, so the tester's artwork leads the gallery |
 | `en` / `de` | `name`, `tagline`, `description`, `tags[]`, `includes[]` |
 
 After adding or changing a folder:
