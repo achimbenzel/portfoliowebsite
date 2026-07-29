@@ -2737,18 +2737,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
    between light, dark and paper. The mark SVG is pure #000000, so its colour is
    inverted on the dark ground and left as-is on the light ones. */
 .lgtester{margin-top:2.6rem;padding-top:2.4rem;border-top:1px solid var(--color-border)}
-.lgt-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .lgt-hint{margin-top:.7rem;font-size:.98rem;line-height:1.7;font-weight:300;color:var(--text2);max-width:64ch}
-.lgt-modes{display:flex;gap:.4rem}
-.lgt-mode{
-  padding:.42rem .82rem;border-radius:99px;
-  background:transparent;border:1px solid var(--color-border);color:var(--text3);
-  font-family:var(--font-mono);font-size:.56rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
-  transition:color var(--transition-fast),border-color var(--transition-fast),background var(--transition-fast);
-}
-.lgt-mode:hover{border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
-.lgt-mode.active{background:rgba(var(--color-accent-rgb),.12);border-color:rgba(var(--color-accent-rgb),.4);color:var(--text)}
+/* Ground toggle — sun / moon icons, sized and styled like the font tester's
+   align and theme buttons */
+.lgt-mode svg{width:16px;height:16px}
 .lgt-layout{display:grid;grid-template-columns:minmax(210px,290px) 1fr;gap:2rem;margin-top:1.8rem;align-items:start}
 .lgt-controls{display:flex;flex-direction:column;gap:1.3rem}
 .lgt-input{

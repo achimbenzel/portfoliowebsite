@@ -165,7 +165,7 @@ const L={en:{
     tBrand:'Brand name',tBrandPh:'Your brand',
     tSize:'Size',tSpacing:'Letter spacing',tGap:'Gap',
     tLayout:'Layout',tSide:'Side by side',tStack:'Stacked',
-    tLight:'Light',tDark:'Dark'
+    tGround:'Background',tLight:'Light',tDark:'Dark'
   },
   wrk:{label:'Work',title:'Selected <em>projects</em>',text:'A curated selection of recent work across brand identity, digital design, and strategic communication.',allBtn:'Discover all projects',view:'View project',filterLabel:'Category',empty:'No projects in this category yet.',
     filterSearch:'Search category',filterNone:'No category found.'},
@@ -364,7 +364,7 @@ de:{
     tBrand:'Markenname',tBrandPh:'Ihre Marke',
     tSize:'Größe',tSpacing:'Laufweite',tGap:'Abstand',
     tLayout:'Layout',tSide:'Nebeneinander',tStack:'Gestapelt',
-    tLight:'Hell',tDark:'Dunkel'
+    tGround:'Hintergrund',tLight:'Hell',tDark:'Dunkel'
   },
   wrk:{label:'Projekte',title:'Ausgewählte <em>Projekte</em>',text:'Kuratierte Auswahl aktueller Arbeiten.',allBtn:'Alle Projekte entdecken',view:'Projekt ansehen',filterLabel:'Kategorie',empty:'In dieser Kategorie gibt es noch keine Projekte.',
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},

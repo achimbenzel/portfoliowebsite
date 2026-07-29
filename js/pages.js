@@ -564,13 +564,7 @@ function logoPg(slug){
   const brand='Brand';
   const tester=lo.svg
     ?`<div class="lgtester">`
-      +`<div class="lgt-top">`
-        +`<div class="lg-incl-label">${g.testerLabel}</div>`
-        +`<div class="lgt-modes" role="group" aria-label="${g.testerLabel}">`
-          +`<button type="button" class="lgt-mode active" data-m="light" onclick="setLgtMode('light')">${g.tLight}</button>`
-          +`<button type="button" class="lgt-mode" data-m="dark" onclick="setLgtMode('dark')">${g.tDark}</button>`
-        +`</div>`
-      +`</div>`
+      +`<div class="lg-incl-label">${g.testerLabel}</div>`
       +`<p class="lgt-hint">${g.testerHint}</p>`
       +`<div class="lgt-layout">`
         +`<div class="lgt-controls">`
@@ -585,8 +579,13 @@ function logoPg(slug){
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tLayout}</span></div>`
             +`<div class="ft-align-btns"><button type="button" class="ft-align-btn active" id="lgtLayoutRow" onclick="setLgtLayout('row')">${g.tSide}</button>`
               +`<button type="button" class="ft-align-btn" id="lgtLayoutCol" onclick="setLgtLayout('col')">${g.tStack}</button></div></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tGround}</span></div>`
+            +`<div class="ft-align-btns lgt-modes" role="group" aria-label="${g.tGround}">`
+              +`<button type="button" class="ft-align-btn lgt-mode active" data-m="light" title="${g.tLight}" aria-label="${g.tLight}" onclick="setLgtMode('light')">${SUN_SVG}</button>`
+              +`<button type="button" class="ft-align-btn lgt-mode" data-m="dark" title="${g.tDark}" aria-label="${g.tDark}" onclick="setLgtMode('dark')">${MOON_SVG}</button>`
+            +`</div></div>`
         +`</div>`
-        +`<div class="lgt-preview" id="lgtPreview" data-lgt="dark">`
+        +`<div class="lgt-preview" id="lgtPreview" data-lgt="light">`
           +`<div class="lgt-lockup" id="lgtLockup">`
             +`<img class="lgt-mark" id="lgtMark" src="${lo.svg}" alt="${d.name||slug}"/>`
             +`<span class="lgt-word" id="lgtWord">${brand}</span>`
@@ -658,7 +657,7 @@ function setLgtMode(m){
 }
 function initLogoTester(){
   if(!document.getElementById('lgtPreview'))return;
-  setLgtMode(baseTheme==='light'?'light':'dark');
+  setLgtMode('light');
   updateLogoTester();
 }
 
