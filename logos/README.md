@@ -33,9 +33,11 @@ After adding or changing a folder:
 node build-logos.js
 ```
 
-## n-monogram — images still needed
+## Placeholder entries — images still needed
 
-The placeholder entry expects these three files in `logos/n-monogram/`:
+`n-monogram` has its real artwork. `cyber-circle`, `flower-symbol` and
+`x-monogramm` are placeholders: their `logo.json` is written, but each still
+needs these three files dropped into its own folder:
 
 | File | Shown as |
 |---|---|
@@ -43,9 +45,11 @@ The placeholder entry expects these three files in `logos/n-monogram/`:
 | `detail-01.webp` | the mark in one colour, light and dark |
 | `detail-02.webp` | the mark in use (app icon, favicon) |
 
-Until they exist those three URLs 404 and the page falls back to a plain tinted
-placeholder — the listing and the detail page work either way. The alt texts in
-`logo.json` describe the intended images; adjust them if the artwork differs.
+Until they exist those URLs 404 and the card falls back to a plain tinted
+placeholder (the `color` field sets the tint) — the listing and the detail page
+work either way. The names, taglines and descriptions in each `logo.json` are
+placeholder copy too; rewrite them to match the real mark. Run
+`node build-logos.js` after adding files or changing a folder.
 
 Prices here are placeholders and are deliberately kept out of the JSON-LD, so
 nothing quotable is published as structured data before the real figures are set.

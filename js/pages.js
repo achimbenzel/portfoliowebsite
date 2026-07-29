@@ -254,15 +254,18 @@ function testiHomeHtml(){
   const cards=items.map((it,i)=>{
     const href=routeToPath('work/'+it.slug);
     const photo=it.photo?`<img class="htesti-photo" src="${it.photo}" alt="" loading="lazy" onerror="this.remove()"/>`:'';
+    /* person on top, then the full quote, then the "view project" link — the
+       foot moves above the text, only the CTA stays at the bottom */
     return`<figure class="htesti" data-anim="fade" data-anim-delay="${120+i*110}">`
-      +`<blockquote class="htesti-quote">“${it.quote}”</blockquote>`
       +`<figcaption class="htesti-foot">`
         +`<div class="htesti-person">${photo}<div class="htesti-who">`
           +`<span class="htesti-name">${it.name}</span>`
           +(it.role?`<span class="htesti-role">${it.role}</span>`:'')
         +`</div></div>`
-        +`<a class="htesti-cta" href="${href}" onclick="event.preventDefault();go('work/${it.slug}')" aria-label="${ts.cta}: ${it.project}">${ts.cta} ${arrow}</a>`
-      +`</figcaption></figure>`;
+      +`</figcaption>`
+      +`<blockquote class="htesti-quote">“${it.quote}”</blockquote>`
+      +`<a class="htesti-cta" href="${href}" onclick="event.preventDefault();go('work/${it.slug}')" aria-label="${ts.cta}: ${it.project}">${ts.cta} ${arrow}</a>`
+    +`</figure>`;
   }).join('');
   return`<section class="section testi-section"><div class="reveal">`
     +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${ts.title}</h2>`
@@ -395,10 +398,9 @@ function catLabel(id){const c=t('cats');return (c&&c[id])||id||''}
 function wC(slug){
   const pr=workEntry(slug);if(!pr)return'';
   const p=pr[lang]||pr.en||{};const w=t('wrk');
-  const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   const thumb=pr.thumb||vg(1600,900,(p.title||slug).split('\u2014')[0].trim(),pr.c);
-  /* Osmo-style card: image, then name + type on the left, year and the view
-     link on the right. No border, no tag row, nothing truncated. */
+  /* Osmo-style card: image, then name + type on the left, year on the right.
+     No border, no tag row, no "view project" line \u2014 the whole card is the link. */
   const route=pr.route||('work/'+slug);
   /* The category ("Brand Identity"), not p.type ("Client Project") */
   const type=catLabel((pr.cats||[])[0])||p.type;
@@ -408,7 +410,6 @@ function wC(slug){
       +`<div class="pcard-main">`
         +`<h3 class="pcard-title">${p.title||slug}</h3>`
         +(type?`<span class="pcard-type">${type}</span>`:'')
-        +`<span class="pcard-cta">${w.view} ${arrow}</span>`
       +`</div>`
       +(pr.yr?`<div class="pcard-meta"><span class="pcard-year">${pr.yr}</span></div>`:'')
     +`</div></a>`
@@ -423,7 +424,6 @@ function allLogoKeys(){return typeof LG==='undefined'?[]:Object.keys(LG)}
 function lgC(slug){
   const lo=LG[slug];if(!lo)return'';
   const d=lo[lang]||lo.en||{};const g=t('logos');
-  const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg>';
   const fb=vg(1600,900,d.name||slug,lo.c);
   const sold=lo.status==='sold';
   const route='shop/'+slug;
@@ -435,7 +435,6 @@ function lgC(slug){
       +`<div class="pcard-main">`
         +`<h3 class="pcard-title">${d.name||slug}</h3>`
         +(d.tag?`<span class="pcard-type">${d.tag}</span>`:'')
-        +`<span class="pcard-cta">${g.view} ${arrow}</span>`
       +`</div>`
       +(lo.price?`<div class="pcard-meta"><span class="pcard-year lg-price">${lo.price}</span></div>`:'')
     +`</div></a>`
@@ -563,9 +562,12 @@ function logoPg(slug){
         +`<h1 class="lgshop-title">${d.name||slug}</h1>`
         +(d.tag?`<p class="lgshop-tagline">${d.tag}</p>`:'')
         +`<div class="lgshop-buy">`
-          +`<div class="lgshop-price"><span class="lg-buy-label">${g.price}</span><span class="lg-buy-amount">${lo.price||'—'}</span></div>`
-          /* one-of-one: say so where the price is, not in the small print */
-          +`<span class="lgshop-excl-badge">${g.exclusive} · ${sold?g.sold:g.availability}</span>`
+          /* one-of-one badge sits on the amount's line, so it centres on the
+             price number and not on the label above it */
+          +`<div class="lgshop-price"><span class="lg-buy-label">${g.price}</span>`
+            +`<span class="lgshop-price-line"><span class="lg-buy-amount">${lo.price||'—'}</span>`
+              +`<span class="lgshop-excl-badge">${g.exclusive} · ${sold?g.sold:g.availability}</span></span>`
+          +`</div>`
           +(sold
             ?''
             :`<button type="button" class="lg-buy-btn" onclick="inquireLogo('${slug}')">${g.inquire}</button>`)

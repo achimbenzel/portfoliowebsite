@@ -2384,16 +2384,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 .pcard-meta{display:flex;align-items:flex-start;flex-shrink:0}
 .pcard-year{font-size:.92rem;font-weight:300;color:var(--text2);white-space:nowrap}
-.pcard-cta{
-  display:inline-flex;align-items:center;gap:.35rem;
-  margin-top:.45rem;
-  font-size:.92rem;font-weight:400;color:var(--text2);
-  white-space:nowrap;
-  transition:color var(--transition-fast);
-}
-.pcard-cta svg{transition:transform var(--transition-fast)}
-.pcard:hover .pcard-cta{color:var(--text)}
-.pcard:hover .pcard-cta svg{transform:translate(2px,-2px)}
 
 @media(max-width:600px){
   .pcard-body{gap:1rem}
@@ -2519,12 +2509,12 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   margin:0;flex:1 1 auto;
   font-size:1rem;line-height:1.8;font-weight:300;font-style:italic;
   color:var(--text2);hyphens:auto;
-  /* quotes run long on the project pages — clamp here, full text lives there */
-  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:9;overflow:hidden;
+  /* the full quote is shown — no clamp */
 }
+/* the person sits above the quote, separated by a rule below it */
 .htesti-foot{
   display:flex;flex-direction:column;gap:1.2rem;
-  padding-top:1.4rem;border-top:1px solid var(--color-border);
+  padding-bottom:1.4rem;border-bottom:1px solid var(--color-border);
 }
 .htesti-person{display:flex;align-items:center;gap:.9rem;min-width:0}
 .htesti-photo{
@@ -2667,10 +2657,11 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   margin-top:1.6rem;padding-top:1.6rem;
   border-top:1px solid var(--color-border);
 }
-.lgshop-price{display:flex;flex-direction:column;gap:.15rem;flex:none}
+.lgshop-price{display:flex;flex-direction:column;gap:.35rem;flex:none}
+/* the amount and the badge share a line, centred on each other */
+.lgshop-price-line{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
 .lgshop-buy .lg-buy-btn{margin-left:auto}
 .lgshop-excl-badge{
-  align-self:center;
   padding:.3rem .7rem;border-radius:99px;
   background:rgba(var(--color-accent-rgb),.14);
   border:1px solid rgba(var(--color-accent-rgb),.4);
@@ -2721,7 +2712,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .lgshop-buy{align-items:stretch;flex-direction:column;gap:1.1rem}
   .lg-buy-btn{width:100%}
   .lgshop-buy .lg-buy-btn{margin-left:0}
-  .lgshop-excl-badge{align-self:flex-start}
 }
 
 /* ============================================================
@@ -2957,7 +2947,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .htesti,.pr-card,.pr-plan{padding:1.6rem}
   .pr-amount{font-size:1.6rem}
   .htesti-cta,.pr-card-cta{align-self:stretch;justify-content:center}
-  .htesti-quote{-webkit-line-clamp:12}
 }
 
 /* ============================================================
@@ -3019,7 +3008,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .reveal.vis .pcard:nth-child(6){transition-delay:.45s}
 
 @media(prefers-reduced-motion:reduce){
-  .pcard,.pcard-media img,.pcard-cta svg,.pgrid-more-btn svg{transition:none!important;transform:none!important}
+  .pcard,.pcard-media img,.pgrid-more-btn svg{transition:none!important;transform:none!important}
   .pcard{opacity:1}
   /* Submenu appears instantly. The chevron keeps its rotation — it is a state
      indicator, not decoration — it just stops animating into place. */

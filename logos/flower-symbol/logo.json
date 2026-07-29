@@ -1,0 +1,68 @@
+{
+  "slug": "flower-symbol",
+  "categories": [
+    "logo"
+  ],
+  "order": 30,
+  "price": "450 €",
+  "status": "available",
+  "color": "#33203a",
+  "thumbnail": "hero.webp",
+  "images": [
+    {
+      "src": "hero.webp",
+      "alt": {
+        "en": "The Flower Symbol mark on a deep plum background",
+        "de": "Das Flower-Symbol-Zeichen auf tiefem Pflaumen-Hintergrund"
+      }
+    },
+    {
+      "src": "detail-01.webp",
+      "alt": {
+        "en": "The mark in one colour, on light and on dark",
+        "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
+      }
+    },
+    {
+      "src": "detail-02.webp",
+      "alt": {
+        "en": "The mark in use as an app icon and favicon",
+        "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+      }
+    }
+  ],
+  "en": {
+    "name": "Flower Symbol",
+    "tagline": "An organic petal mark for a beauty, wellness or care brand",
+    "description": "A blossom built from one petal rotated around a centre, so the whole mark comes from a single shape. Drawn as vectors, it stays even and legible from a favicon up to a full-width brand board and works in a single colour. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+    "tags": [
+      "Symbol",
+      "Organic",
+      "Geometric"
+    ],
+    "includes": [
+      "Logo as SVG, PDF, PNG and JPG",
+      "Editable source file",
+      "Light and dark versions",
+      "Exclusive rights — removed from sale after purchase",
+      "Colour adjusted to your brand on request"
+    ]
+  },
+  "de": {
+    "name": "Flower Symbol",
+    "tagline": "Ein organisches Blütenzeichen für eine Beauty-, Wellness- oder Care-Marke",
+    "description": "Eine Blüte aus einem einzigen Blütenblatt, das um eine Mitte rotiert wird, sodass das ganze Zeichen aus einer Form entsteht. Als Vektor gezeichnet bleibt es vom Favicon bis zum vollflächigen Markenbild gleichmäßig und lesbar, auch einfarbig. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+    "tags": [
+      "Symbol",
+      "Organisch",
+      "Geometrisch"
+    ],
+    "includes": [
+      "Logo als SVG, PDF, PNG und JPG",
+      "Bearbeitbare Quelldatei",
+      "Helle und dunkle Fassung",
+      "Exklusiv — nach dem Kauf nicht mehr erhältlich",
+      "Farbanpassung an Ihre Marke auf Wunsch"
+    ]
+  }
+}

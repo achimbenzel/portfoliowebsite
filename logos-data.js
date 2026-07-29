@@ -78,6 +78,219 @@ const LG = {
         }
       }
     ]
+  },
+  "cyber-circle": {
+    "slug": "cyber-circle",
+    "ord": 20,
+    "price": "450 €",
+    "cats": [
+      "logo"
+    ],
+    "status": "available",
+    "thumb": "/logos/cyber-circle/hero.webp",
+    "c": "#0f2a33",
+    "en": {
+      "name": "Cyber Circle",
+      "tag": "A circular tech mark for a software or security brand",
+      "desc": "A ring built from a single continuous path that reads as a circuit and a shield at once. Drawn as vectors so it holds from a favicon up to a full-width brand board, and works in a single colour. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+      "tags": [
+        "Monogram",
+        "Geometric",
+        "Tech"
+      ],
+      "incl": [
+        "Logo as SVG, PDF, PNG and JPG",
+        "Editable source file",
+        "Light and dark versions",
+        "Exclusive rights — removed from sale after purchase",
+        "Colour adjusted to your brand on request"
+      ]
+    },
+    "de": {
+      "name": "Cyber Circle",
+      "tag": "Ein kreisförmiges Tech-Zeichen für eine Software- oder Security-Marke",
+      "desc": "Ein Ring aus einem einzigen durchgehenden Pfad, der sich zugleich als Schaltkreis und als Schild liest. Als Vektor gezeichnet und dadurch vom Favicon bis zum vollflächigen Markenbild tragfähig, auch einfarbig. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+      "tags": [
+        "Monogramm",
+        "Geometrisch",
+        "Tech"
+      ],
+      "incl": [
+        "Logo als SVG, PDF, PNG und JPG",
+        "Bearbeitbare Quelldatei",
+        "Helle und dunkle Fassung",
+        "Exklusiv — nach dem Kauf nicht mehr erhältlich",
+        "Farbanpassung an Ihre Marke auf Wunsch"
+      ]
+    },
+    "images": [
+      {
+        "src": "/logos/cyber-circle/hero.webp",
+        "i": 0,
+        "alt": {
+          "en": "The Cyber Circle mark on a dark teal background",
+          "de": "Das Cyber-Circle-Zeichen auf dunklem Petrol-Hintergrund"
+        }
+      },
+      {
+        "src": "/logos/cyber-circle/detail-01.webp",
+        "i": 1,
+        "alt": {
+          "en": "The mark in one colour, on light and on dark",
+          "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
+        }
+      },
+      {
+        "src": "/logos/cyber-circle/detail-02.webp",
+        "i": 2,
+        "alt": {
+          "en": "The mark in use as an app icon and favicon",
+          "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+        }
+      }
+    ]
+  },
+  "flower-symbol": {
+    "slug": "flower-symbol",
+    "ord": 30,
+    "price": "450 €",
+    "cats": [
+      "logo"
+    ],
+    "status": "available",
+    "thumb": "/logos/flower-symbol/hero.webp",
+    "c": "#33203a",
+    "en": {
+      "name": "Flower Symbol",
+      "tag": "An organic petal mark for a beauty, wellness or care brand",
+      "desc": "A blossom built from one petal rotated around a centre, so the whole mark comes from a single shape. Drawn as vectors, it stays even and legible from a favicon up to a full-width brand board and works in a single colour. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+      "tags": [
+        "Symbol",
+        "Organic",
+        "Geometric"
+      ],
+      "incl": [
+        "Logo as SVG, PDF, PNG and JPG",
+        "Editable source file",
+        "Light and dark versions",
+        "Exclusive rights — removed from sale after purchase",
+        "Colour adjusted to your brand on request"
+      ]
+    },
+    "de": {
+      "name": "Flower Symbol",
+      "tag": "Ein organisches Blütenzeichen für eine Beauty-, Wellness- oder Care-Marke",
+      "desc": "Eine Blüte aus einem einzigen Blütenblatt, das um eine Mitte rotiert wird, sodass das ganze Zeichen aus einer Form entsteht. Als Vektor gezeichnet bleibt es vom Favicon bis zum vollflächigen Markenbild gleichmäßig und lesbar, auch einfarbig. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+      "tags": [
+        "Symbol",
+        "Organisch",
+        "Geometrisch"
+      ],
+      "incl": [
+        "Logo als SVG, PDF, PNG und JPG",
+        "Bearbeitbare Quelldatei",
+        "Helle und dunkle Fassung",
+        "Exklusiv — nach dem Kauf nicht mehr erhältlich",
+        "Farbanpassung an Ihre Marke auf Wunsch"
+      ]
+    },
+    "images": [
+      {
+        "src": "/logos/flower-symbol/hero.webp",
+        "i": 0,
+        "alt": {
+          "en": "The Flower Symbol mark on a deep plum background",
+          "de": "Das Flower-Symbol-Zeichen auf tiefem Pflaumen-Hintergrund"
+        }
+      },
+      {
+        "src": "/logos/flower-symbol/detail-01.webp",
+        "i": 1,
+        "alt": {
+          "en": "The mark in one colour, on light and on dark",
+          "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
+        }
+      },
+      {
+        "src": "/logos/flower-symbol/detail-02.webp",
+        "i": 2,
+        "alt": {
+          "en": "The mark in use as an app icon and favicon",
+          "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+        }
+      }
+    ]
+  },
+  "x-monogramm": {
+    "slug": "x-monogramm",
+    "ord": 40,
+    "price": "450 €",
+    "cats": [
+      "logo"
+    ],
+    "status": "available",
+    "thumb": "/logos/x-monogramm/hero.webp",
+    "c": "#2a1436",
+    "en": {
+      "name": "X Monogram",
+      "tag": "A crossed X monogram for a name starting with X",
+      "desc": "An X built from two blades that meet at the centre, so the counter of the letter is the space between them rather than a drawn line. Drawn as vectors, it holds at every size and in a single colour. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+      "tags": [
+        "Monogram",
+        "Geometric",
+        "Bold"
+      ],
+      "incl": [
+        "Logo as SVG, PDF, PNG and JPG",
+        "Editable source file",
+        "Light and dark versions",
+        "Exclusive rights — removed from sale after purchase",
+        "Colour adjusted to your brand on request"
+      ]
+    },
+    "de": {
+      "name": "X Monogramm",
+      "tag": "Ein gekreuztes X-Monogramm für einen Namen mit X",
+      "desc": "Ein X aus zwei Klingen, die sich in der Mitte treffen, sodass die Punze des Buchstabens aus dem Zwischenraum entsteht statt aus einer gezogenen Linie. Als Vektor gezeichnet hält es in jeder Größe und einfarbig. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+      "tags": [
+        "Monogramm",
+        "Geometrisch",
+        "Kräftig"
+      ],
+      "incl": [
+        "Logo als SVG, PDF, PNG und JPG",
+        "Bearbeitbare Quelldatei",
+        "Helle und dunkle Fassung",
+        "Exklusiv — nach dem Kauf nicht mehr erhältlich",
+        "Farbanpassung an Ihre Marke auf Wunsch"
+      ]
+    },
+    "images": [
+      {
+        "src": "/logos/x-monogramm/hero.webp",
+        "i": 0,
+        "alt": {
+          "en": "The X monogram on a dark violet background",
+          "de": "Das X-Monogramm auf dunkelviolettem Hintergrund"
+        }
+      },
+      {
+        "src": "/logos/x-monogramm/detail-01.webp",
+        "i": 1,
+        "alt": {
+          "en": "The mark in one colour, on light and on dark",
+          "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
+        }
+      },
+      {
+        "src": "/logos/x-monogramm/detail-02.webp",
+        "i": 2,
+        "alt": {
+          "en": "The mark in use as an app icon and favicon",
+          "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+        }
+      }
+    ]
   }
 };
 

@@ -1,0 +1,68 @@
+{
+  "slug": "cyber-circle",
+  "categories": [
+    "logo"
+  ],
+  "order": 20,
+  "price": "450 €",
+  "status": "available",
+  "color": "#0f2a33",
+  "thumbnail": "hero.webp",
+  "images": [
+    {
+      "src": "hero.webp",
+      "alt": {
+        "en": "The Cyber Circle mark on a dark teal background",
+        "de": "Das Cyber-Circle-Zeichen auf dunklem Petrol-Hintergrund"
+      }
+    },
+    {
+      "src": "detail-01.webp",
+      "alt": {
+        "en": "The mark in one colour, on light and on dark",
+        "de": "Das Zeichen einfarbig, auf Hell und auf Dunkel"
+      }
+    },
+    {
+      "src": "detail-02.webp",
+      "alt": {
+        "en": "The mark in use as an app icon and favicon",
+        "de": "Das Zeichen als App-Icon und Favicon in der Anwendung"
+      }
+    }
+  ],
+  "en": {
+    "name": "Cyber Circle",
+    "tagline": "A circular tech mark for a software or security brand",
+    "description": "A ring built from a single continuous path that reads as a circuit and a shield at once. Drawn as vectors so it holds from a favicon up to a full-width brand board, and works in a single colour. The price covers the finished mark, the source files and the right to use it commercially. Once it is sold it comes off this page, so it stays yours alone.",
+    "tags": [
+      "Monogram",
+      "Geometric",
+      "Tech"
+    ],
+    "includes": [
+      "Logo as SVG, PDF, PNG and JPG",
+      "Editable source file",
+      "Light and dark versions",
+      "Exclusive rights — removed from sale after purchase",
+      "Colour adjusted to your brand on request"
+    ]
+  },
+  "de": {
+    "name": "Cyber Circle",
+    "tagline": "Ein kreisförmiges Tech-Zeichen für eine Software- oder Security-Marke",
+    "description": "Ein Ring aus einem einzigen durchgehenden Pfad, der sich zugleich als Schaltkreis und als Schild liest. Als Vektor gezeichnet und dadurch vom Favicon bis zum vollflächigen Markenbild tragfähig, auch einfarbig. Der Preis umfasst das fertige Zeichen, die Quelldateien und das Recht zur kommerziellen Nutzung. Nach dem Verkauf verschwindet es von dieser Seite und gehört damit allein Ihnen.",
+    "tags": [
+      "Monogramm",
+      "Geometrisch",
+      "Tech"
+    ],
+    "includes": [
+      "Logo als SVG, PDF, PNG und JPG",
+      "Bearbeitbare Quelldatei",
+      "Helle und dunkle Fassung",
+      "Exklusiv — nach dem Kauf nicht mehr erhältlich",
+      "Farbanpassung an Ihre Marke auf Wunsch"
+    ]
+  }
+}
