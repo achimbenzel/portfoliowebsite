@@ -29,11 +29,21 @@ const L={en:{
     'branding':{
       hero:'Brands people <em>recognise</em> — and that still hold together a year later',
       tiles:['Logo system','Colour & type scale','Print in use'],
-      fromPrice:'1.200 €',
+      fromPrice:'500 €',
       plans:[
-        {name:'Logo',price:'from 1.200 €',d:'A single mark, done properly.',f:['Up to 3 design routes','2 revision rounds','Logo files for print and screen','Basic usage sheet']},
-        {name:'Identity',price:'from 2.500 €',d:'The mark plus the system around it.',f:['Everything in Logo','Type scale and colour system','Layout and grid rules','Business paper and social templates','Brand guidelines as PDF']},
-        {name:'Full System',price:'from 5.000 €',d:'Positioning, identity and rollout.',f:['Everything in Identity','Positioning and messaging brief','Editorial and packaging design','Rollout across your touchpoints','Handover session with your team']}
+        {name:'Logo Design',price:'from 500 €',d:'A single mark, done properly.',f:['Up to 3 design routes','2 revision rounds','Logo files for print and screen','Basic usage sheet']},
+        {name:'Brand Sprint',price:'from 2.000 €',d:'The core identity, delivered in 14 days.',f:['Delivered in 14 days','Logo and core system','Colour and type scale','Key applications in use','Compact brand guidelines']},
+        {name:'Full Identity',price:'from 4.000 €',d:'Positioning, identity and rollout.',f:['Everything in Brand Sprint','Positioning and messaging','Full identity system','Business paper and templates','Full brand guidelines as PDF','Handover session with your team']}
+      ],
+      compare:[
+        {l:'Design routes',v:[3,3,3]},
+        {l:'Logo files (print &amp; screen)',v:[true,true,true]},
+        {l:'Colour &amp; type scale',v:[false,true,true]},
+        {l:'Brand guidelines (PDF)',v:[false,true,true]},
+        {l:'Positioning &amp; messaging',v:[false,false,true]},
+        {l:'Business paper &amp; templates',v:[false,false,true]},
+        {l:'Delivery time',v:['—','14 days','—']},
+        {l:'Revision rounds',v:[2,2,3]}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
@@ -61,11 +71,21 @@ const L={en:{
     'motion-design':{
       hero:'Motion that <em>says something</em> — not just motion that looks nice',
       tiles:['Logo animation','Social cutdowns','3D & visualisation'],
-      fromPrice:'900 €',
+      fromPrice:'400 €',
       plans:[
-        {name:'Single Asset',price:'from 900 €',d:'One animation, start to finish.',f:['Up to 20 seconds','Storyboard and 2 revision rounds','Sound design on request','Exports for every social format']},
-        {name:'Campaign',price:'from 2.200 €',d:'A set of pieces that belong together.',f:['Everything in Single Asset','Up to 5 connected assets','Shared motion language','Cutdowns for each platform','Source files included']},
-        {name:'Motion System',price:'from 4.500 €',d:'Rules your team can keep animating with.',f:['Everything in Campaign','Animated logo and transitions','Reusable templates','Motion guidelines','Handover session with your team']}
+        {name:'Logo Animation',price:'from 400 €',d:'Your logo, brought to life.',f:['Animated logo (intro / outro)','Up to 5 seconds','2 revision rounds','Exports for every format']},
+        {name:'Launch Video 2D',price:'from 2.500 €',d:'A 90-second launch film in 2D motion design.',f:['16:9 or 9:16','Up to 90 seconds','2D motion design','Storyboard and 2 revision rounds','Sound design included','Cutdowns for social']},
+        {name:'Launch Video 2D + 3D',price:'from 4.000 €',d:'The launch film, with added 3D motion design.',f:['Everything in Launch Video 2D','2D + 3D motion design','3D scenes and renders','Extended sound design','Project files included']}
+      ],
+      compare:[
+        {l:'Video length',v:['5 s','90 s','90 s']},
+        {l:'Formats 16:9 / 9:16',v:[true,true,true]},
+        {l:'2D motion design',v:[true,true,true]},
+        {l:'3D motion design',v:[false,false,true]},
+        {l:'Sound design',v:[false,true,true]},
+        {l:'Social cutdowns',v:[false,true,true]},
+        {l:'Revision rounds',v:[2,2,3]},
+        {l:'Project files',v:[false,false,true]}
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
@@ -93,11 +113,22 @@ const L={en:{
     'web-design':{
       hero:'Sites that <em>load fast</em> — and are still maintainable in two years',
       tiles:['Interface design','Components','Build'],
-      fromPrice:'1.800 €',
+      fromPrice:'500 €',
       plans:[
-        {name:'Landing Page',price:'from 1.800 €',d:'One page that does one job.',f:['Design and build of a single page','Responsive down to mobile','Contact form and basic SEO','2 revision rounds']},
-        {name:'Website',price:'from 3.500 €',d:'The full site, structured to grow.',f:['Everything in Landing Page','Up to 8 pages','Content structure and copy layout','CMS so you can edit it yourself','Performance and accessibility pass']},
-        {name:'Platform',price:'from 7.000 €',d:'Custom build with the design system to match.',f:['Everything in Website','Custom components and interactions','Design system and documentation','Integrations and custom features','Support after launch']}
+        {name:'Website Simple',price:'from 500 €',d:'A clean site for the essentials.',f:['Up to 4 subpages','Imprint and privacy policy included (not counted as subpages)','No contact form','Responsive down to mobile','Basic SEO','2 revision rounds']},
+        {name:'Website',price:'from 1.000 €',d:'The full site, with a contact form.',f:['Everything in Website Simple','Up to 8 pages','Contact form','Content structure and copy layout','Performance and accessibility pass']},
+        {name:'Website Professional',price:'from 1.500 €',d:'A site you can edit yourself, with a CMS.',f:['Everything in Website','CMS so you can edit it yourself','Custom components and interactions','Advanced SEO setup','Support after launch']}
+      ],
+      compare:[
+        {l:'Subpages',v:[4,8,'8+']},
+        {l:'Imprint &amp; privacy policy',v:[true,true,true]},
+        {l:'Contact form',v:[false,true,true]},
+        {l:'Responsive',v:[true,true,true]},
+        {l:'CMS',v:[false,false,true]},
+        {l:'SEO',v:['Basic','Basic','Advanced']},
+        {l:'Custom components',v:[false,false,true]},
+        {l:'Revision rounds',v:[2,2,3]},
+        {l:'Support after launch',v:[false,false,true]}
       ],
       label:'Web Design',
       title:'Web <em>Design</em>',
@@ -137,6 +168,7 @@ const L={en:{
     text:'Every project is quoted individually. The figures below are entry-level prices, meant to give you a first point of reference before we talk through your actual scope.',
     from:'from',homeCta:'Learn more',popular:'Most popular',
     planTitle:'Three packages — <em>depending on how far the brand has to carry</em>',planCta:'Get in touch',planSubject:'Enquiry',
+    compareTitle:'Compare packages',priceRow:'Price',
     note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
   },
   /* Ready-made logos sold at a fixed price. Entries live in /logos. */
@@ -233,11 +265,21 @@ de:{
     'branding':{
       hero:'Marken, die man <em>wiedererkennt</em> — und die ein Jahr später noch zusammenhalten',
       tiles:['Logo-System','Farb- & Typoskala','Anwendung Print'],
-      fromPrice:'1.200 €',
+      fromPrice:'500 €',
       plans:[
-        {name:'Logo',price:'ab 1.200 €',d:'Ein Zeichen, sauber gemacht.',f:['Bis zu 3 Entwurfsrichtungen','2 Korrekturschleifen','Logo-Dateien für Print und Screen','Kurze Anwendungsübersicht']},
-        {name:'Identity',price:'ab 2.500 €',d:'Das Zeichen plus das System drumherum.',f:['Alles aus Logo','Typo-Skala und Farbsystem','Layout- und Rasterregeln','Geschäftsausstattung und Social-Vorlagen','Brand Guidelines als PDF']},
-        {name:'Full System',price:'ab 5.000 €',d:'Positionierung, Identität und Rollout.',f:['Alles aus Identity','Positionierungs- und Messaging-Brief','Editorial- und Verpackungsdesign','Rollout auf Ihre Touchpoints','Übergabe-Termin mit Ihrem Team']}
+        {name:'Logo Design',price:'ab 500 €',d:'Ein Zeichen, sauber gemacht.',f:['Bis zu 3 Entwurfsrichtungen','2 Korrekturschleifen','Logo-Dateien für Print und Screen','Kurze Anwendungsübersicht']},
+        {name:'Brand Sprint',price:'ab 2.000 €',d:'Die Kern-Identität, in 14 Tagen geliefert.',f:['In 14 Tagen fertig','Logo und Kernsystem','Farb- und Typoskala','Wichtigste Anwendungen','Kompakte Brand Guidelines']},
+        {name:'Full Identity',price:'ab 4.000 €',d:'Positionierung, Identität und Rollout.',f:['Alles aus Brand Sprint','Positionierung und Messaging','Vollständiges Identitätssystem','Geschäftsausstattung und Vorlagen','Umfassende Brand Guidelines als PDF','Übergabe-Termin mit Ihrem Team']}
+      ],
+      compare:[
+        {l:'Entwurfsrichtungen',v:[3,3,3]},
+        {l:'Logo-Dateien (Print &amp; Screen)',v:[true,true,true]},
+        {l:'Farb- &amp; Typoskala',v:[false,true,true]},
+        {l:'Brand Guidelines (PDF)',v:[false,true,true]},
+        {l:'Positionierung &amp; Messaging',v:[false,false,true]},
+        {l:'Geschäftsausstattung &amp; Vorlagen',v:[false,false,true]},
+        {l:'Lieferzeit',v:['—','14 Tage','—']},
+        {l:'Korrekturschleifen',v:[2,2,3]}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
@@ -265,11 +307,21 @@ de:{
     'motion-design':{
       hero:'Bewegung, die <em>etwas erzählt</em> — und nicht nur nett aussieht',
       tiles:['Logo-Animation','Social-Cutdowns','3D & Visualisierung'],
-      fromPrice:'900 €',
+      fromPrice:'400 €',
       plans:[
-        {name:'Einzelclip',price:'ab 900 €',d:'Eine Animation, von Anfang bis Ende.',f:['Bis zu 20 Sekunden','Storyboard und 2 Korrekturschleifen','Sounddesign auf Wunsch','Exporte für jedes Social-Format']},
-        {name:'Kampagne',price:'ab 2.200 €',d:'Mehrere Teile, die zusammengehören.',f:['Alles aus Einzelclip','Bis zu 5 zusammenhängende Assets','Gemeinsame Bewegungssprache','Cutdowns für jede Plattform','Projektdateien inklusive']},
-        {name:'Motion System',price:'ab 4.500 €',d:'Regeln, mit denen Ihr Team weiterarbeitet.',f:['Alles aus Kampagne','Logo-Animation und Übergänge','Wiederverwendbare Vorlagen','Motion Guidelines','Übergabe-Termin mit Ihrem Team']}
+        {name:'Logo Animation',price:'ab 400 €',d:'Ihr Logo, zum Leben erweckt.',f:['Animiertes Logo (Intro / Outro)','Bis zu 5 Sekunden','2 Korrekturschleifen','Exporte für jedes Format']},
+        {name:'Launch Video 2D',price:'ab 2.500 €',d:'Ein 90-Sekunden-Launch-Film in 2D Motion Design.',f:['16:9 oder 9:16','Bis zu 90 Sekunden','2D Motion Design','Storyboard und 2 Korrekturschleifen','Sounddesign inklusive','Cutdowns für Social']},
+        {name:'Launch Video 2D + 3D',price:'ab 4.000 €',d:'Der Launch-Film mit zusätzlichem 3D Motion Design.',f:['Alles aus Launch Video 2D','2D + 3D Motion Design','3D-Szenen und Renderings','Erweitertes Sounddesign','Projektdateien inklusive']}
+      ],
+      compare:[
+        {l:'Videolänge',v:['5 s','90 s','90 s']},
+        {l:'Formate 16:9 / 9:16',v:[true,true,true]},
+        {l:'2D Motion Design',v:[true,true,true]},
+        {l:'3D Motion Design',v:[false,false,true]},
+        {l:'Sounddesign',v:[false,true,true]},
+        {l:'Social-Cutdowns',v:[false,true,true]},
+        {l:'Korrekturschleifen',v:[2,2,3]},
+        {l:'Projektdateien',v:[false,false,true]}
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
@@ -297,11 +349,22 @@ de:{
     'web-design':{
       hero:'Websites, die <em>schnell laden</em> — und sich auch in zwei Jahren noch pflegen lassen',
       tiles:['Interface-Design','Komponenten','Umsetzung'],
-      fromPrice:'1.800 €',
+      fromPrice:'500 €',
       plans:[
-        {name:'Landingpage',price:'ab 1.800 €',d:'Eine Seite, die eine Aufgabe erfüllt.',f:['Design und Umsetzung einer Seite','Responsiv bis Mobile','Kontaktformular und Basis-SEO','2 Korrekturschleifen']},
-        {name:'Website',price:'ab 3.500 €',d:'Die ganze Seite, zum Mitwachsen gebaut.',f:['Alles aus Landingpage','Bis zu 8 Seiten','Inhaltsstruktur und Textlayout','CMS zum selbst Pflegen','Performance- und Accessibility-Durchgang']},
-        {name:'Plattform',price:'ab 7.000 €',d:'Individueller Aufbau mit passendem Designsystem.',f:['Alles aus Website','Eigene Komponenten und Interaktionen','Designsystem und Dokumentation','Integrationen und Sonderfunktionen','Support nach dem Launch']}
+        {name:'Website Simple',price:'ab 500 €',d:'Eine schlanke Seite für das Wesentliche.',f:['Bis zu 4 Unterseiten','Impressum und Datenschutz inklusive (zählen nicht als Unterseiten)','Kein Kontaktformular','Responsiv bis Mobile','Basis-SEO','2 Korrekturschleifen']},
+        {name:'Website',price:'ab 1.000 €',d:'Die ganze Seite, mit Kontaktformular.',f:['Alles aus Website Simple','Bis zu 8 Seiten','Kontaktformular','Inhaltsstruktur und Textlayout','Performance- und Accessibility-Durchgang']},
+        {name:'Website Professional',price:'ab 1.500 €',d:'Eine Seite zum selbst Pflegen, mit CMS.',f:['Alles aus Website','CMS zum selbst Pflegen','Eigene Komponenten und Interaktionen','Erweitertes SEO-Setup','Support nach dem Launch']}
+      ],
+      compare:[
+        {l:'Unterseiten',v:[4,8,'8+']},
+        {l:'Impressum &amp; Datenschutz',v:[true,true,true]},
+        {l:'Kontaktformular',v:[false,true,true]},
+        {l:'Responsiv',v:[true,true,true]},
+        {l:'CMS',v:[false,false,true]},
+        {l:'SEO',v:['Basis','Basis','Erweitert']},
+        {l:'Eigene Komponenten',v:[false,false,true]},
+        {l:'Korrekturschleifen',v:[2,2,3]},
+        {l:'Support nach Launch',v:[false,false,true]}
       ],
       label:'Web Design',
       title:'Web <em>Design</em>',
@@ -337,6 +400,7 @@ de:{
     text:'Jedes Projekt wird individuell kalkuliert. Die folgenden Beträge sind Einstiegspreise und geben Ihnen eine erste Orientierung, bevor wir über Ihren konkreten Umfang sprechen.',
     from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
     planTitle:'Drei Pakete — <em>je nachdem, wie weit es tragen soll</em>',planCta:'Anfragen',planSubject:'Anfrage',
+    compareTitle:'Pakete vergleichen',priceRow:'Preis',
     note:'Alle Angaben sind Richtwerte. Das verbindliche Angebot richtet sich nach Umfang, Zeitrahmen und Anzahl der Korrekturschleifen.'
   },
   logos:{

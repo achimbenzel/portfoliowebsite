@@ -322,11 +322,44 @@ function pricingPlansHtml(c){
       +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();inquirePlan('${c.key}',${i})">${pr.planCta} ${arrow}</a>`
     +`</div>`;
   }).join('');
+  /* Collapsible feature comparison under the cards: one row per feature, a
+     tick / dash for yes-no rows and the raw value for counts, plus a price
+     row at the foot. The middle (popular) column is tinted throughout. */
+  const cmp=c.compare||[];
+  const cell=v=>{
+    if(v===true)return`<span class="pr-cmp-yes">${tick}</span>`;
+    if(v===false||v==null||v===''||v==='—')return`<span class="pr-cmp-no" aria-hidden="true">–</span>`;
+    return`<span class="pr-cmp-val">${v}</span>`;
+  };
+  const chev='<svg class="pr-compare-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  const compareHtml=cmp.length
+    ?`<div class="pr-compare">`
+      +`<button type="button" class="pr-compare-toggle" aria-expanded="false" aria-controls="prComparePanel" onclick="toggleCompare(this)"><span>${pr.compareTitle}</span> ${chev}</button>`
+      +`<div class="pr-compare-panel" id="prComparePanel" hidden>`
+        +`<div class="pr-compare-scroll"><table class="pr-compare-table">`
+          +`<thead><tr><th scope="col"></th>${plans.map((pl,i)=>`<th scope="col"${i===1?' class="pop"':''}>${pl.name}</th>`).join('')}</tr></thead>`
+          +`<tbody>`
+            +cmp.map(r=>`<tr><th scope="row">${r.l}</th>${(r.v||[]).map((v,i)=>`<td${i===1?' class="pop"':''}>${cell(v)}</td>`).join('')}</tr>`).join('')
+            +`<tr class="pr-cmp-price"><th scope="row">${pr.priceRow}</th>${plans.map((pl,i)=>`<td${i===1?' class="pop"':''}>${pl.price}</td>`).join('')}</tr>`
+          +`</tbody>`
+        +`</table></div>`
+      +`</div>`
+    +`</div>`
+    :'';
   return`<section class="svc-plans-band" data-theme="${band}" id="svcPlans"><div class="reveal">`
     +`<h3 class="svc-sec-title svc-plans-title">${pr.planTitle}</h3>`
     +`<div class="pr-plans">${cards}</div>`
+    +compareHtml
     +`<p class="pr-note">${pr.note}</p>`
   +`</div></section>`;
+}
+/* Expand / collapse the package comparison table under the cards */
+function toggleCompare(btn){
+  const panel=document.getElementById('prComparePanel');if(!panel)return;
+  const open=panel.hasAttribute('hidden');
+  if(open)panel.removeAttribute('hidden');else panel.setAttribute('hidden','');
+  btn.setAttribute('aria-expanded',open?'true':'false');
+  btn.classList.toggle('open',open);
 }
 
 /* Scroll to the packages, clearing the fixed header so the heading is not

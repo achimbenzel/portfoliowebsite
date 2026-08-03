@@ -3,7 +3,7 @@ const LG = {
   "n-monogram": {
     "slug": "n-monogram",
     "ord": 10,
-    "price": "450 €",
+    "price": "300 €",
     "cats": [
       "logo"
     ],
@@ -93,7 +93,7 @@ const LG = {
   "cyber-circle": {
     "slug": "cyber-circle",
     "ord": 20,
-    "price": "450 €",
+    "price": "300 €",
     "cats": [
       "logo"
     ],
@@ -183,7 +183,7 @@ const LG = {
   "flower-symbol": {
     "slug": "flower-symbol",
     "ord": 30,
-    "price": "450 €",
+    "price": "300 €",
     "cats": [
       "logo"
     ],
@@ -273,7 +273,7 @@ const LG = {
   "x-monogramm": {
     "slug": "x-monogramm",
     "ord": 40,
-    "price": "450 €",
+    "price": "300 €",
     "cats": [
       "logo"
     ],
