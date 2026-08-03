@@ -2890,10 +2890,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 /* ---- closing CTA ---- */
 .svc-close{
-  display:flex;flex-direction:column;gap:1.6rem;align-items:flex-start;
+  display:flex;flex-direction:column;gap:1.6rem;align-items:center;text-align:center;
 }
 .svc-close-title{max-width:22ch;margin-bottom:0}
-.svc-close-side{display:flex;flex-direction:column;gap:1.6rem;align-items:flex-start;padding-top:0}
+.svc-close-side{display:flex;flex-direction:column;gap:1.6rem;align-items:center;padding-top:0}
 .svc-close-text{font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);margin:0;max-width:38ch}
 .svc-close-btn{
   display:inline-flex;align-items:center;gap:.6rem;
