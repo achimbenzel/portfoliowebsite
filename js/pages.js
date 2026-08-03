@@ -865,7 +865,7 @@ function tosPg(){return legPg('tos')}
 
 /* ===== SERVICE CATEGORY PAGE (/branding, /motion-design, /web-design) =====
    Hero with a bento of placeholder tiles -> what you gain -> what you end up
-   with -> packages on an inverted band -> real projects -> closing CTA ->
+   with -> real projects -> packages on an inverted band -> closing CTA ->
    (branding only) the logo shop. */
 function svcCatPg(key){
   const cats=t('svcCat')||{};const c=cats[key];
@@ -940,12 +940,13 @@ function svcCatPg(key){
      and hands it to `.section > .reveal, .section > div`, which a bare <button>
      would miss and end up flush against the viewport edge. */
   return`<section class="section svc-cat-page" style="padding-top:9rem">`
-    +heroHtml+gainHtml+deliverHtml
+    +heroHtml+gainHtml+deliverHtml+relHtml
   +`</section>`
-  /* The packages sit on their own inverted band, so they leave the .section */
+  /* The packages sit on their own inverted band, so they leave the .section.
+     Real projects come first, so the prices land after the proof. */
   +pricingPlansHtml(Object.assign({key},c))
   +`<section class="section svc-cat-page">`
-    +relHtml+closeHtml+lgCta
+    +closeHtml+lgCta
   +`</section>`;
 }
 
