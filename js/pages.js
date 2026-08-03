@@ -332,15 +332,21 @@ function pricingPlansHtml(c){
     return`<span class="pr-cmp-val">${v}</span>`;
   };
   const chev='<svg class="pr-compare-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  /* Default the selected column to the popular (middle) tier. On mobile only one
+     column shows at a time, picked with the tabs; on desktop all three show. */
+  const defCol=plans.length>1?1:0;
   const compareHtml=cmp.length
     ?`<div class="pr-compare">`
       +`<button type="button" class="pr-compare-toggle" aria-expanded="false" aria-controls="prComparePanel" onclick="toggleCompare(this)"><span>${pr.compareTitle}</span> ${chev}</button>`
-      +`<div class="pr-compare-panel" id="prComparePanel" hidden>`
+      +`<div class="pr-compare-panel" id="prComparePanel" data-active="${defCol}" hidden>`
+        +`<div class="pr-cmp-tabs" role="tablist" aria-label="${pr.compareTitle}">`
+          +plans.map((pl,i)=>`<button type="button" class="pr-cmp-tab${i===defCol?' active':''}" role="tab" aria-selected="${i===defCol}" onclick="setCmpCol(this,${i})">${pl.name}</button>`).join('')
+        +`</div>`
         +`<div class="pr-compare-scroll"><table class="pr-compare-table">`
-          +`<thead><tr><th scope="col"></th>${plans.map((pl,i)=>`<th scope="col"${i===1?' class="pop"':''}>${pl.name}</th>`).join('')}</tr></thead>`
+          +`<thead><tr><th scope="col"></th>${plans.map((pl,i)=>`<th scope="col" data-col="${i}"${i===1?' class="pop"':''}>${pl.name}</th>`).join('')}</tr></thead>`
           +`<tbody>`
-            +cmp.map(r=>`<tr><th scope="row">${r.l}</th>${(r.v||[]).map((v,i)=>`<td${i===1?' class="pop"':''}>${cell(v)}</td>`).join('')}</tr>`).join('')
-            +`<tr class="pr-cmp-price"><th scope="row">${pr.priceRow}</th>${plans.map((pl,i)=>`<td${i===1?' class="pop"':''}>${pl.price}</td>`).join('')}</tr>`
+            +cmp.map(r=>`<tr><th scope="row">${r.l}</th>${(r.v||[]).map((v,i)=>`<td data-col="${i}"${i===1?' class="pop"':''}>${cell(v)}</td>`).join('')}</tr>`).join('')
+            +`<tr class="pr-cmp-price"><th scope="row">${pr.priceRow}</th>${plans.map((pl,i)=>`<td data-col="${i}"${i===1?' class="pop"':''}>${pl.price}</td>`).join('')}</tr>`
           +`</tbody>`
         +`</table></div>`
       +`</div>`
@@ -360,6 +366,15 @@ function toggleCompare(btn){
   if(open)panel.removeAttribute('hidden');else panel.setAttribute('hidden','');
   btn.setAttribute('aria-expanded',open?'true':'false');
   btn.classList.toggle('open',open);
+}
+/* Pick which package column the comparison shows — used on mobile, where only
+   one column is visible at a time (the CSS keys off data-active on the panel). */
+function setCmpCol(btn,i){
+  const panel=document.getElementById('prComparePanel');if(!panel)return;
+  panel.setAttribute('data-active',i);
+  panel.querySelectorAll('.pr-cmp-tab').forEach(t=>{
+    const on=t===btn;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');
+  });
 }
 
 /* Scroll to the packages, clearing the fixed header so the heading is not

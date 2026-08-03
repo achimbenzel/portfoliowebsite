@@ -3023,6 +3023,41 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pr-cmp-price th[scope=row]{color:var(--text);font-weight:600;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
 .pr-cmp-price td{font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
 .pr-cmp-price th,.pr-cmp-price td{border-bottom:none;border-top:2px solid var(--border2)}
+/* Package selector — hidden on desktop (all columns show); on mobile it picks
+   the single visible column, Vercel-pricing style */
+.pr-cmp-tabs{display:none}
+.pr-cmp-tab{
+  flex:1;min-width:0;padding:.65rem .5rem;
+  border:1px solid var(--border2);border-radius:var(--radius-small);
+  background:transparent;color:var(--text2);
+  font-family:var(--font-mono);font-size:.58rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:color var(--transition-fast),border-color var(--transition-fast),background var(--transition-fast);
+}
+.pr-cmp-tab.active{background:rgba(var(--color-accent-rgb),.12);border-color:rgba(var(--color-accent-rgb),.4);color:var(--text)}
+
+@media(max-width:700px){
+  /* Vercel-style: no horizontal scroll — a tab selects one package and its
+     features list vertically underneath. */
+  .pr-cmp-tabs{display:flex;gap:.45rem;margin-bottom:1.3rem;align-items:stretch}
+  /* full names, wrapped — two of the tiers share a long prefix and must stay
+     tellable apart rather than both truncating to the same ellipsis */
+  .pr-cmp-tab{white-space:normal;overflow:visible;text-overflow:clip;text-align:center;font-size:.55rem;letter-spacing:.03em;line-height:1.3;padding:.6rem .4rem;display:flex;align-items:center;justify-content:center}
+  .pr-compare-scroll{overflow-x:visible}
+  .pr-compare-table{min-width:0}
+  .pr-compare-table thead{display:none}
+  .pr-compare-table td.pop,.pr-compare-table th.pop{background:transparent}
+  .pr-compare-table th[scope=row]{white-space:normal}
+  .pr-compare-table td{text-align:right}
+  /* show only the selected column's cells */
+  .pr-compare-panel[data-active="0"] .pr-compare-table [data-col="1"],
+  .pr-compare-panel[data-active="0"] .pr-compare-table [data-col="2"],
+  .pr-compare-panel[data-active="1"] .pr-compare-table [data-col="0"],
+  .pr-compare-panel[data-active="1"] .pr-compare-table [data-col="2"],
+  .pr-compare-panel[data-active="2"] .pr-compare-table [data-col="0"],
+  .pr-compare-panel[data-active="2"] .pr-compare-table [data-col="1"]{display:none}
+}
 
 @media(max-width:900px){
   /* one column — side-by-side tiers get too narrow to read. The tiers keep
