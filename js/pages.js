@@ -898,11 +898,13 @@ function svcCatPg(key){
     +`<div class="svc-gain">${c.svcs.map((v,i)=>`<div class="svc-gain-item"><span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${v.t}</h4><p class="svc-gain-d">${v.d}</p></div></div>`).join('')}</div>`
   +`</div>`:'';
 
-  /* ---- What you end up with: five cards in one row, media then text ---- */
+  /* ---- What you end up with: five cards in one row, media then text. Each
+         card's image lives in Assets/Icons/services/<key>/0N.webp; until it is
+         added the <img> removes itself and the striped placeholder shows. ---- */
   const deliverHtml=(c.deliver||[]).length?`<div class="reveal svc-block">`
     +`<h3 class="svc-sec-title">${sp.deliver}</h3>`
-    +`<div class="svcd-grid">${c.deliver.slice(0,5).map(d=>`<div class="svcd-card">`
-        +`<div class="svcd-media"></div>`
+    +`<div class="svcd-grid">${c.deliver.slice(0,5).map((d,i)=>`<div class="svcd-card">`
+        +`<div class="svcd-media"><img class="svcd-img" src="/Assets/Icons/services/${key}/0${i+1}.webp" alt="${d.t}" loading="lazy" onerror="this.remove()"/></div>`
         +`<div class="svcd-body"><h4 class="svcd-t">${d.t}</h4><p class="svcd-d">${d.d}</p></div>`
       +`</div>`).join('')}</div>`
   +`</div>`:'';
