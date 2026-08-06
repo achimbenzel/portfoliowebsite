@@ -69,6 +69,14 @@
       ]
     },
     {
+      "type": "image",
+      "src": "detail-06.webp",
+      "alt": {
+        "en": "Joeys Picknick — brand application",
+        "de": "Joeys Picknick — Markenanwendung"
+      }
+    },
+    {
       "type": "testimonial",
       "photo": "testimonial.webp",
       "name": "Joël Espenschied",

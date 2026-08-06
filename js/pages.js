@@ -752,14 +752,14 @@ function projPg(slug){
         break;}
       case 'image':{
         const alt=(block.alt||{})[lang]||(block.alt||{}).en||'';
-        galHtml+=`<div class="reveal"><div class="pgal-frame"><img src="${block.src}" alt="${alt}" loading="lazy" ${lb(block.li)}/></div></div>`;
+        galHtml+=`<div class="reveal"><div class="pgal-frame"><img src="${block.src}" alt="${alt}" loading="lazy" onerror="this.closest('.reveal').remove()" ${lb(block.li)}/></div></div>`;
         break;}
       case 'imageGrid':{
         const imgs=block.images||[];
         galHtml+=`<div class="reveal"><div class="irow" style="--cols:${imgs.length}">`
           +imgs.map(im=>{
             const alt=(im.alt||{})[lang]||(im.alt||{}).en||'';
-            return`<div class="pgal-frame"><img src="${im.src}" alt="${alt}" loading="lazy" ${lb(im.li)}/></div>`;
+            return`<div class="pgal-frame"><img src="${im.src}" alt="${alt}" loading="lazy" onerror="this.closest('.pgal-frame').remove()" ${lb(im.li)}/></div>`;
           }).join('')
           +`</div></div>`;
         break;}

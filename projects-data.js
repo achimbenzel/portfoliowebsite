@@ -185,11 +185,11 @@ const P = {
         "photo": "/projects/gute-stube/testimonial.webp",
         "name": "Kiara Balling",
         "en": {
-          "role": "Owner",
+          "role": "Owner, Gute Stube",
           "quote": "Starting a restaurant involves far more than just finding a location and creating the right dishes. Achim has been with us from day one, bringing all of our design projects to life. Not only are we thrilled with the results, our guests also notice every day how much passion and professionalism goes into everything. From the menu to the table displays and vouchers, Achim helped us create a perfectly cohesive overall concept. We are very grateful for the pleasant and reliable collaboration and look forward to all the projects still to come. Dear Achim, thank you so much for this outstanding work! We are confident that you will continue to bring many great projects to life! <3"
         },
         "de": {
-          "role": "Inhaberin",
+          "role": "Inhaberin, Gute Stube",
           "quote": "Zu der Gründung eines Restaurants gehört deutlich mehr dazu, als eine Location zu finden und die passenden Speisen zu kreieren. Achim hat uns von Tag 1 an begleitet und alle Design-Projekte mit uns verwirklicht. Nicht nur wir selbst sind von den Ergebnissen begeistert – auch unsere Gäste merken täglich, wie viel Herzblut & Professionalität in allem steckt. Angefangen bei der Speisekarte, bis hin zu den Tischaufstellern und Gutscheinen – Achim hat uns geholfen ein perfektes Gesamtbild zu erschaffen! Wir sind sehr dankbar für die angenehme & zuverlässige Zusammenarbeit und freuen uns auf alle Projekte, die zukünftig noch anstehen. Lieber Achim, vielen Dank für diese tolle Leistung! Wir sind uns sicher, dass du noch viele großartige Projekte umsetzen wirst! <3"
         }
       }
@@ -322,15 +322,24 @@ const P = {
         ]
       },
       {
+        "type": "image",
+        "src": "/projects/joeys-picknick/detail-06.webp",
+        "li": 6,
+        "alt": {
+          "en": "Joeys Picknick — brand application",
+          "de": "Joeys Picknick — Markenanwendung"
+        }
+      },
+      {
         "type": "testimonial",
         "photo": "/projects/joeys-picknick/testimonial.webp",
         "name": "Joël Espenschied",
         "en": {
-          "role": "Owner",
+          "role": "Owner, Joeys Picknick",
           "quote": "I had already worked with Achim during my studies, so it quickly became clear to me that he was the right partner for the design of Joeys Picknick. He developed the entire visual identity, from the logo and website to menus and flyers. What stands out in particular is his deep understanding of my concept, as well as the professional yet straightforward collaboration. He actively contributed ideas, handled feedback constructively at all times, and reliably met every deadline. A clear recommendation for anyone who values well-thought-out, high-quality design."
         },
         "de": {
-          "role": "Inhaber",
+          "role": "Inhaber, Joeys Picknick",
           "quote": "Mit Achim habe ich bereits im Studium zusammengearbeitet, weshalb mir schnell klar war, dass er der richtige Partner für das Design von Joeys Picknick ist. Er hat das komplette Erscheinungsbild entwickelt – von Logo und Website bis hin zu Speisekarten und Flyern. Besonders hervorzuheben ist sein tiefes Verständnis für mein Konzept sowie die professionelle und gleichzeitig unkomplizierte Zusammenarbeit. Er hat aktiv mitgedacht, Feedback jederzeit konstruktiv aufgenommen und alle Deadlines zuverlässig eingehalten. Eine klare Empfehlung für alle, die Wert auf durchdachtes und hochwertiges Design legen."
         }
       }
@@ -341,7 +350,8 @@ const P = {
       "/projects/joeys-picknick/detail-02.webp",
       "/projects/joeys-picknick/detail-03.webp",
       "/projects/joeys-picknick/detail-04.webp",
-      "/projects/joeys-picknick/detail-05.webp"
+      "/projects/joeys-picknick/detail-05.webp",
+      "/projects/joeys-picknick/detail-06.webp"
     ]
   },
   "lumakeys": {
