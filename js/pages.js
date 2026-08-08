@@ -896,7 +896,7 @@ function svcCatPg(key){
          <img> removes itself and the striped placeholder shows. On mobile the
          columns stack, so the images sit one under the other. ---- */
   const gainHtml=(c.svcs||[]).length?`<div class="reveal svc-block">`
-    +`<h3 class="svc-sec-title">${sp.benefits}</h3>`
+    +`<h3 class="svc-sec-title">${c.benefits||sp.benefits}</h3>`
     +`<div class="svc-gain">${c.svcs.map((v,i)=>`<div class="svc-gain-item">`
         +`<div class="svc-gain-media"><img src="/Assets/Icons/services/${key}/0${i+1}.webp" alt="" loading="lazy" onerror="this.remove()"/></div>`
         +`<span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${v.t}</h4><p class="svc-gain-d">${v.d}</p></div>`

@@ -23,36 +23,41 @@ const L={en:{
     jump:'See the packages',
     inquire:'Start a project',
     ctaTitle:'Tell me <em>what your brand</em> has to do',
-    ctaText:'Fill in the form with what you have in mind. You get a written quote back by email, with scope, timeline and a fixed price.',
+    ctaText:'Write a few lines about what you have in mind. Within a few days a quote comes back by email, with scope, timeline and a fixed price.',
     ctaBtn:'Get in touch'},
   svcCat:{
     'branding':{
       hero:'A brand is <em>not a logo</em>.',
+      benefits:'How a brand comes together',
       tiles:['Logo system','Colour & type scale','Print in use'],
       fromPrice:'500 €',
       plans:[
-        {name:'Logo Design',price:'from 500 €',d:'A single mark, done properly.',f:['Up to 3 design routes','2 revision rounds','Logo files for print and screen','Basic usage sheet']},
-        {name:'Brand Sprint',price:'from 2.000 €',d:'The core identity, delivered in 14 days.',f:['Delivered in 14 days','Logo and core system','Colour and type scale','Key applications in use','Compact brand guidelines']},
-        {name:'Full Identity',price:'from 4.000 €',d:'Positioning, identity and rollout.',f:['Everything in Brand Sprint','Positioning and messaging','Full identity system','Business paper and templates','Full brand guidelines as PDF','Handover session with your team']}
+        {name:'Logo Design',price:'from 500 €',d:'One mark, done properly.',f:['3 design directions','2 rounds of revisions','Complete logo set','All file formats for print and screen']},
+        {name:'Brand Sprint',price:'from 2.000 €',d:'The core identity, in 14 days.',f:['Everything in Logo Design','Colour and type scale','Business essentials, basic set','Social and web templates','Compact brand guidelines']},
+        {name:'Full Identity',price:'from 4.000 €',d:'Everything that keeps running on its own.',f:['Everything in Brand Sprint','Imagery and graphic elements','Logo animation','Business essentials, full set','Full brand guidelines','Handover session with your team']}
       ],
       compare:[
-        {l:'Design routes',v:[3,3,3]},
-        {l:'Logo files (print &amp; screen)',v:[true,true,true]},
+        {l:'Design directions',v:[3,3,3]},
+        {l:'Revision rounds',v:[2,2,3]},
+        {l:'Complete logo set',v:[true,true,true]},
+        {l:'File formats (print &amp; screen)',v:[true,true,true]},
         {l:'Colour &amp; type scale',v:[false,true,true]},
-        {l:'Brand guidelines (PDF)',v:[false,true,true]},
-        {l:'Positioning &amp; messaging',v:[false,false,true]},
-        {l:'Business paper &amp; templates',v:[false,false,true]},
-        {l:'Delivery time',v:['—','14 days','—']},
-        {l:'Revision rounds',v:[2,2,3]}
+        {l:'Business essentials',v:['—','Basic','Full']},
+        {l:'Social &amp; web templates',v:[false,true,true]},
+        {l:'Brand guidelines',v:['—','Compact','Full']},
+        {l:'Imagery &amp; graphic elements',v:[false,false,true]},
+        {l:'Logo animation',v:[false,false,true]},
+        {l:'Handover session',v:[false,false,true]},
+        {l:'Delivery time',v:['—','14 days','—']}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positioning, identity systems and everything that makes a brand recognisable.',
       text:'It\'s the sum of every decision that makes a company recognisable. I bring those decisions into one system and hand it over documented.',
       svcs:[
-        {t:'Brand Strategy',d:'Positioning, tone of voice, and the reasoning a brand is built on.',tags:['Research','Positioning','Messaging']},
-        {t:'Visual Identity',d:'Comprehensive visual identity systems that scale across every medium.',tags:['Logo','Typography','Color Systems']},
-        {t:'Editorial & Print',d:'Publications, packaging, and print work with tactile quality.',tags:['Editorial','Packaging','Print']}
+        {t:'Understand',d:'What the brand stands for, who it needs to reach, and what sets it apart.',tags:['Research','Positioning','Messaging']},
+        {t:'Design',d:'Logo, typography, colour and imagery as one system, not as separate parts.',tags:['Logo','Typography','Color Systems']},
+        {t:'Hand over',d:'Documented and organised, so other people can keep working with it cleanly.',tags:['Editorial','Packaging','Print']}
       ],
       process:[
         {t:'Discovery',d:'We talk through where the company came from, what it sells, and who it is up against. I look at the market and the existing material before drawing anything.'},
@@ -92,9 +97,9 @@ const L={en:{
       short:'Animation, 3D and motion graphics that give a brand movement and rhythm.',
       text:'It decides how a brand feels before anyone reads a word of it. I build animation that comes out of the brand system instead of sitting next to it.',
       svcs:[
-        {t:'Brand Animation',d:'Logo animations, transitions, and motion rules that extend an identity into time.',tags:['Logo Animation','Transitions','Motion Rules']},
-        {t:'3D & Visualisation',d:'Modelling, lighting, and rendering for products, type, and abstract brand imagery.',tags:['3D Design','Rendering','Product Visuals']},
-        {t:'Film & Social',d:'Short-form content, title sequences, and campaign cutdowns for social platforms.',tags:['Editing','Title Design','Social Cuts']}
+        {t:'Concept',d:'What gets shown, in what order, and why. The storyboard comes before the first keyframe.',tags:['Logo Animation','Transitions','Motion Rules']},
+        {t:'Production',d:'Frames, 3D scenes and assets in the brand\'s style, then animation and sound.',tags:['3D Design','Rendering','Product Visuals']},
+        {t:'Deliver',d:'Every format you need. Vertical, square, wide, with and without sound.',tags:['Editing','Title Design','Social Cuts']}
       ],
       process:[
         {t:'Discovery',d:'We settle what the piece has to achieve, where it will run, and how long it may be. Format and platform shape every decision after this, so they come first.'},
@@ -111,7 +116,7 @@ const L={en:{
       work:'motion-design'
     },
     'web-design':{
-      hero:'Sites that <em>load fast</em> — and are still maintainable in two years',
+      hero:'A website is <em>not a brochure</em>.',
       tiles:['Interface design','Components','Build'],
       fromPrice:'500 €',
       plans:[
@@ -133,7 +138,7 @@ const L={en:{
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces and websites where the identity actually works in the browser.',
-      text:'Screens are not posters. I design at real breakpoints with real content, so the layout that gets approved is the one that can actually be built — and the identity survives the move into the browser.',
+      text:'It has to make something happen: an enquiry, a booking, a call. I build sites that load fast, work on any device, and guide visitors to the point that matters.',
       svcs:[
         {t:'UX & Interface Design',d:'User interfaces and digital experiences balancing aesthetics with usability.',tags:['UX/UI','Wireframes','Design Systems']},
         {t:'Website Design',d:'Portfolio, brand, and campaign sites designed from the content outwards.',tags:['Web Design','Responsive','Art Direction']},
@@ -259,36 +264,41 @@ de:{
     jump:'Pakete ansehen',
     inquire:'Projekt anfragen',
     ctaTitle:'Erzählen Sie mir, <em>was Ihre Marke</em> leisten soll',
-    ctaText:'Schreiben Sie im Formular kurz, worum es geht. Sie bekommen ein schriftliches Angebot per Mail — mit Umfang, Zeitplan und Festpreis.',
+    ctaText:'Schreib kurz, worum es geht. Innerhalb weniger Tage kommt ein Angebot per Mail zurück, mit Umfang, Zeitplan und Festpreis.',
     ctaBtn:'Kontakt aufnehmen'},
   svcCat:{
     'branding':{
       hero:'Eine Marke ist <em>kein Logo</em>.',
+      benefits:'Wie eine Marke entsteht',
       tiles:['Logo-System','Farb- & Typoskala','Anwendung Print'],
       fromPrice:'500 €',
       plans:[
-        {name:'Logo Design',price:'ab 500 €',d:'Ein Zeichen, sauber gemacht.',f:['Bis zu 3 Entwurfsrichtungen','2 Korrekturschleifen','Logo-Dateien für Print und Screen','Kurze Anwendungsübersicht']},
-        {name:'Brand Sprint',price:'ab 2.000 €',d:'Die Kern-Identität, in 14 Tagen geliefert.',f:['In 14 Tagen fertig','Logo und Kernsystem','Farb- und Typoskala','Wichtigste Anwendungen','Kompakte Brand Guidelines']},
-        {name:'Full Identity',price:'ab 4.000 €',d:'Positionierung, Identität und Rollout.',f:['Alles aus Brand Sprint','Positionierung und Messaging','Vollständiges Identitätssystem','Geschäftsausstattung und Vorlagen','Umfassende Brand Guidelines als PDF','Übergabe-Termin mit Ihrem Team']}
+        {name:'Logo Design',price:'ab 500 €',d:'Ein Zeichen, sauber gemacht.',f:['3 Entwurfsrichtungen','2 Korrekturschleifen','Vollständiges Logo-Set','Alle Dateiformate für Print und Screen']},
+        {name:'Brand Sprint',price:'ab 2.000 €',d:'Die Kern-Identität, in 14 Tagen.',f:['Alles aus Logo Design','Farb- und Typoskala','Geschäftsausstattung, Basis','Social- und Web-Vorlagen','Kompakte Brand Guidelines']},
+        {name:'Full Identity',price:'ab 4.000 €',d:'Alles, was danach von selbst weiterläuft.',f:['Alles aus Brand Sprint','Bildsprache und Grafikelemente','Logo-Animation','Geschäftsausstattung, vollständig','Umfassende Brand Guidelines','Übergabe-Termin mit deinem Team']}
       ],
       compare:[
         {l:'Entwurfsrichtungen',v:[3,3,3]},
-        {l:'Logo-Dateien (Print &amp; Screen)',v:[true,true,true]},
+        {l:'Korrekturschleifen',v:[2,2,3]},
+        {l:'Vollständiges Logo-Set',v:[true,true,true]},
+        {l:'Dateiformate (Print &amp; Screen)',v:[true,true,true]},
         {l:'Farb- &amp; Typoskala',v:[false,true,true]},
-        {l:'Brand Guidelines (PDF)',v:[false,true,true]},
-        {l:'Positionierung &amp; Messaging',v:[false,false,true]},
-        {l:'Geschäftsausstattung &amp; Vorlagen',v:[false,false,true]},
-        {l:'Lieferzeit',v:['—','14 Tage','—']},
-        {l:'Korrekturschleifen',v:[2,2,3]}
+        {l:'Geschäftsausstattung',v:['—','Basis','Vollständig']},
+        {l:'Social- &amp; Web-Vorlagen',v:[false,true,true]},
+        {l:'Brand Guidelines',v:['—','Kompakt','Umfassend']},
+        {l:'Bildsprache &amp; Grafikelemente',v:[false,false,true]},
+        {l:'Logo-Animation',v:[false,false,true]},
+        {l:'Übergabe-Termin',v:[false,false,true]},
+        {l:'Lieferzeit',v:['—','14 Tage','—']}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
       text:'Sie ist die Summe aller Entscheidungen, die ein Unternehmen wiedererkennbar machen. Ich bringe diese Entscheidungen in ein System, das dokumentiert übergeben wird.',
       svcs:[
-        {t:'Markenstrategie',d:'Positionierung, Tonalität und die Argumente, auf denen eine Marke aufbaut.',tags:['Recherche','Positionierung','Messaging']},
-        {t:'Visuelle Identität',d:'Umfassende visuelle Identitätssysteme, die in jedem Medium funktionieren.',tags:['Logo','Typografie','Farbsysteme']},
-        {t:'Editorial & Print',d:'Publikationen, Verpackungen und Printarbeiten mit haptischer Qualität.',tags:['Editorial','Packaging','Print']}
+        {t:'Verstehen',d:'Wofür die Marke steht, wen sie erreichen soll und was sie von anderen unterscheidet.',tags:['Recherche','Positionierung','Messaging']},
+        {t:'Gestalten',d:'Logo, Typografie, Farbe und Bildsprache als ein System statt als Einzelteile.',tags:['Logo','Typografie','Farbsysteme']},
+        {t:'Übergeben',d:'Dokumentiert und sortiert, damit auch andere sauber damit weiterarbeiten können.',tags:['Editorial','Packaging','Print']}
       ],
       process:[
         {t:'Kennenlernen',d:'Wir sprechen darüber, woher das Unternehmen kommt, was es verkauft und gegen wen es antritt. Ich sehe mir Markt und vorhandenes Material an, bevor ich etwas zeichne.'},
@@ -328,9 +338,9 @@ de:{
       short:'Animation, 3D und Motion Graphics, die einer Marke Bewegung und Rhythmus geben.',
       text:'Sie entscheidet, wie sich eine Marke anfühlt, bevor jemand liest, was sie sagt. Ich baue Animationen, die aus dem Markensystem kommen statt daneben zu stehen.',
       svcs:[
-        {t:'Brand Animation',d:'Logo-Animationen, Übergänge und Bewegungsregeln, die eine Identität in die Zeit verlängern.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
-        {t:'3D & Visualisierung',d:'Modeling, Licht und Rendering für Produkte, Schrift und abstrakte Markenbilder.',tags:['3D Design','Rendering','Produktvisuals']},
-        {t:'Film & Social',d:'Kurzformate, Titelsequenzen und Kampagnen-Cutdowns für Social Media.',tags:['Schnitt','Titeldesign','Social Cuts']}
+        {t:'Konzept',d:'Was gezeigt wird, in welcher Reihenfolge und warum. Das Storyboard steht vor dem ersten Keyframe.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
+        {t:'Produktion',d:'Frames, 3D-Szenen und Assets im Stil der Marke, danach Animation und Sound.',tags:['3D Design','Rendering','Produktvisuals']},
+        {t:'Ausspielen',d:'Jedes Format, das gebraucht wird. Hochkant, quadratisch, breit, mit und ohne Ton.',tags:['Schnitt','Titeldesign','Social Cuts']}
       ],
       process:[
         {t:'Kennenlernen',d:'Wir klären, was das Stück leisten soll, wo es läuft und wie lang es sein darf. Format und Plattform prägen jede weitere Entscheidung und stehen deshalb am Anfang.'},
@@ -347,7 +357,7 @@ de:{
       work:'motion-design'
     },
     'web-design':{
-      hero:'Websites, die <em>schnell laden</em> — und sich auch in zwei Jahren noch pflegen lassen',
+      hero:'Eine Website ist <em>kein Prospekt</em>.',
       tiles:['Interface-Design','Komponenten','Umsetzung'],
       fromPrice:'500 €',
       plans:[
@@ -369,7 +379,7 @@ de:{
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
-      text:'Bildschirme sind keine Plakate. Ich gestalte an echten Breakpoints mit echten Inhalten, damit das freigegebene Layout auch das ist, was sich umsetzen lässt — und die Identität den Weg in den Browser übersteht.',
+      text:'Sie muss etwas auslösen: eine Anfrage, eine Buchung, einen Anruf. Ich baue Seiten, die schnell laden, auf jedem Gerät funktionieren und Besucher dorthin führen, wo es zählt.',
       svcs:[
         {t:'UX & Interface Design',d:'Benutzeroberflächen und digitale Erlebnisse zwischen Ästhetik und Bedienbarkeit.',tags:['UX/UI','Wireframes','Designsysteme']},
         {t:'Website-Gestaltung',d:'Portfolio-, Marken- und Kampagnenseiten, vom Inhalt her gedacht.',tags:['Web Design','Responsive','Art Direction']},

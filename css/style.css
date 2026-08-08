@@ -2791,8 +2791,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 /* ---- hero: copy left, bento right ---- */
 .svc-hero{
-  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
-  gap:3.5rem;align-items:stretch;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:3.5rem;align-items:start;
 }
 .svc-hero-copy{min-width:0}
 /* scoped past `.section h2`, which is uppercase, capped at 720px and paints
@@ -2830,7 +2830,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 /* Hero image beside the copy — square (same ratio as the gain-media images).
    Keeps its own square box rather than stretching to the copy height. */
 .svc-hero-media{
-  align-self:start;aspect-ratio:1/1;min-width:0;
+  align-self:start;justify-self:end;aspect-ratio:1/1;
+  width:clamp(190px,20vw,290px);min-width:0;
   border-radius:var(--radius-card);overflow:hidden;
   border:1px solid var(--color-border);
   background:
