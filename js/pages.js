@@ -875,11 +875,9 @@ function svcCatPg(key){
   const downSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>';
   const subj=deEnt(c.label).replace(/'/g,"\\'");
 
-  /* ---- Hero: copy on the left, a bento of image placeholders on the right ---- */
-  const tiles=(c.tiles||[]);
-  const bento=tiles.length?`<div class="svc-bento" aria-hidden="true">`
-    +tiles.slice(0,3).map((lbl,i)=>`<div class="svc-tile svc-tile-${i+1}"><span class="svc-tile-label">${lbl}</span></div>`).join('')
-  +`</div>`:'';
+  /* ---- Hero: copy on the left, a single square image on the right (same
+         square ratio as the gain-media images; hero.webp per service folder) ---- */
+  const heroMedia=`<div class="svc-hero-media"><img src="/Assets/Icons/services/${key}/hero.webp" alt="" loading="eager" onerror="this.remove()"/></div>`;
   const heroHtml=`<div class="reveal svc-hero">`
     +`<div class="svc-hero-copy">`
       +`<h2 class="svc-hero-title">${c.hero||c.title}</h2>`
@@ -889,7 +887,7 @@ function svcCatPg(key){
         +`<a class="svc-hero-alt" href="${routeToPath('contact')}" onclick="event.preventDefault();inquire('${subj}')">${sp.inquire} ${arrowSVG}</a>`
       +`</div>`
     +`</div>`
-    +bento
+    +heroMedia
   +`</div>`;
 
   /* ---- What you gain: three numbered columns ---- */

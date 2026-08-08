@@ -1,15 +1,13 @@
-# Branding — service images
+# branding — service images
 
-Drop the three images shown above the "Was Sie gewinnen" points on
-`/branding` here, named `01.webp`–`03.webp`. They lead the three columns in
-order:
+All images here are **square (1 : 1, e.g. 2160 × 2160)**, WebP, `object-fit: cover`.
 
-| File | Point |
+| File | Where it shows |
 |---|---|
-| `01.webp` | Brand Strategy |
-| `02.webp` | Visual Identity |
-| `03.webp` | Editorial & Print |
+| `hero.webp` | large image beside the hero copy (top of the page) |
+| `01.webp` | above the "Brand Strategy" point |
+| `02.webp` | above the "Visual Identity" point |
+| `03.webp` | above the "Editorial & Print" point |
 
-Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
-On mobile the columns stack, so the images sit one under the other. Until a
-file exists the striped placeholder shows.
+On mobile the gain columns stack, so 01–03 sit one under the other. Until a file
+exists the striped placeholder shows.

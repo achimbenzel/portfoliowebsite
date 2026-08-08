@@ -1,15 +1,13 @@
-# Web Design — service images
+# web-design — service images
 
-Drop the three images shown above the "Was Sie gewinnen" points on
-`/web-design` here, named `01.webp`–`03.webp`. They lead the three columns in
-order:
+All images here are **square (1 : 1, e.g. 2160 × 2160)**, WebP, `object-fit: cover`.
 
-| File | Point |
+| File | Where it shows |
 |---|---|
-| `01.webp` | UX & Interface Design |
-| `02.webp` | Website Design |
-| `03.webp` | Prototyping & Build |
+| `hero.webp` | large image beside the hero copy (top of the page) |
+| `01.webp` | above the "UX & Interface Design" point |
+| `02.webp` | above the "Website Design" point |
+| `03.webp` | above the "Prototyping & Build" point |
 
-Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
-On mobile the columns stack, so the images sit one under the other. Until a
-file exists the striped placeholder shows.
+On mobile the gain columns stack, so 01–03 sit one under the other. Until a file
+exists the striped placeholder shows.

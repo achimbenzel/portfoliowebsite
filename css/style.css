@@ -2827,29 +2827,20 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-hero-alt svg{transition:transform var(--transition-fast)}
 .svc-hero-alt:hover svg{transform:translateX(3px)}
 
-/* bento — one tall tile beside two stacked ones. Placeholders for now. */
-/* height comes from the copy column beside it, never from its own ratio, so it
-   can never grow taller than the text it sits next to */
-.svc-bento{
-  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
-  gap:16px;min-width:0;height:100%;
-}
-.svc-tile{
-  position:relative;border-radius:var(--radius-card);
+/* Hero image beside the copy — square (same ratio as the gain-media images).
+   Keeps its own square box rather than stretching to the copy height. */
+.svc-hero-media{
+  align-self:start;aspect-ratio:1/1;min-width:0;
+  border-radius:var(--radius-card);overflow:hidden;
   border:1px solid var(--color-border);
   background:
     repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 9px),
     var(--bg2);
-  display:flex;align-items:flex-end;padding:1rem 1.1rem;overflow:hidden;
 }
-[data-theme="light"] .svc-tile,[data-theme="lightproject"] .svc-tile{
+[data-theme="light"] .svc-hero-media,[data-theme="lightproject"] .svc-hero-media{
   background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 2px,transparent 2px 9px),var(--bg2);
 }
-.svc-tile-1{grid-row:1 / span 2}
-.svc-tile-label{
-  font-family:var(--font-mono);font-size:.6rem;font-weight:500;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--text3);
-}
+.svc-hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ---- what you gain ---- */
 .svc-gain{display:grid;grid-template-columns:repeat(3,1fr);gap:3.15rem}
@@ -2866,7 +2857,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 /* ---- image above each gain point (Assets/Icons/services/<key>/01–03.webp) ---- */
 .svc-gain-media{
-  aspect-ratio:4/3;border-radius:var(--radius-card);overflow:hidden;
+  aspect-ratio:1/1;border-radius:var(--radius-card);overflow:hidden;
   border:1px solid var(--color-border);margin-bottom:1.3rem;
   background:
     repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 9px),
@@ -2911,8 +2902,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 @media(max-width:1000px){
   .svc-hero{grid-template-columns:1fr;gap:2.5rem}
-  /* one column below this: the bento spans the same rail as every other block */
-  .svc-bento{height:auto;width:100%;aspect-ratio:16/11}
+  /* one column below this: cap the square so it doesn't dominate the viewport */
+  .svc-hero-media{width:100%;max-width:460px;margin-inline:auto}
   .svc-gain{grid-template-columns:1fr;gap:2rem}
   .svc-close{grid-template-columns:1fr;gap:1rem}
   .svc-sec-title{max-width:none}
@@ -2923,7 +2914,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .svc-plans-band{padding:5rem 1.5rem}
   .svc-hero-cta{flex-direction:column;align-items:stretch}
   .svc-jump,.svc-hero-alt,.svc-close-btn{justify-content:center}
-  .svc-bento{height:auto;width:100%;aspect-ratio:16/12;gap:10px}
 }
 
 /* three tiers, styled like the reference: white cards on the light band, the

@@ -1,15 +1,13 @@
-# Motion Design — service images
+# motion-design — service images
 
-Drop the three images shown above the "Was Sie gewinnen" points on
-`/motion-design` here, named `01.webp`–`03.webp`. They lead the three columns
-in order:
+All images here are **square (1 : 1, e.g. 2160 × 2160)**, WebP, `object-fit: cover`.
 
-| File | Point |
+| File | Where it shows |
 |---|---|
-| `01.webp` | Brand Animation |
-| `02.webp` | 3D & Visualisation |
-| `03.webp` | Film & Social |
+| `hero.webp` | large image beside the hero copy (top of the page) |
+| `01.webp` | above the "Brand Animation" point |
+| `02.webp` | above the "3D & Visualisation" point |
+| `03.webp` | above the "Film & Social" point |
 
-Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
-On mobile the columns stack, so the images sit one under the other. Until a
-file exists the striped placeholder shows.
+On mobile the gain columns stack, so 01–03 sit one under the other. Until a file
+exists the striped placeholder shows.

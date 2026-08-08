@@ -27,7 +27,7 @@ const L={en:{
     ctaBtn:'Get in touch'},
   svcCat:{
     'branding':{
-      hero:'Brands people <em>recognise</em> — and that still hold together a year later',
+      hero:'A brand is <em>not a logo</em>.',
       tiles:['Logo system','Colour & type scale','Print in use'],
       fromPrice:'500 €',
       plans:[
@@ -48,7 +48,7 @@ const L={en:{
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positioning, identity systems and everything that makes a brand recognisable.',
-      text:'A brand is not a logo — it is the sum of every decision that makes a company recognisable. I work out what a brand stands for, translate that into a visual system, and hand it over documented so it still holds together a year later.',
+      text:'It\'s the sum of every decision that makes a company recognisable. I bring those decisions into one system and hand it over documented.',
       svcs:[
         {t:'Brand Strategy',d:'Positioning, tone of voice, and the reasoning a brand is built on.',tags:['Research','Positioning','Messaging']},
         {t:'Visual Identity',d:'Comprehensive visual identity systems that scale across every medium.',tags:['Logo','Typography','Color Systems']},
@@ -69,7 +69,7 @@ const L={en:{
       work:'brand-identity'
     },
     'motion-design':{
-      hero:'Motion that <em>says something</em> — not just motion that looks nice',
+      hero:'Motion is <em>not an effect</em>.',
       tiles:['Logo animation','Social cutdowns','3D & visualisation'],
       fromPrice:'400 €',
       plans:[
@@ -90,7 +90,7 @@ const L={en:{
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D and motion graphics that give a brand movement and rhythm.',
-      text:'How a brand moves says as much as how it looks. I define timing, easing and rhythm alongside the static identity, so animation is a documented part of the system rather than decoration added at the end.',
+      text:'It decides how a brand feels before anyone reads a word of it. I build animation that comes out of the brand system instead of sitting next to it.',
       svcs:[
         {t:'Brand Animation',d:'Logo animations, transitions, and motion rules that extend an identity into time.',tags:['Logo Animation','Transitions','Motion Rules']},
         {t:'3D & Visualisation',d:'Modelling, lighting, and rendering for products, type, and abstract brand imagery.',tags:['3D Design','Rendering','Product Visuals']},
@@ -263,7 +263,7 @@ de:{
     ctaBtn:'Kontakt aufnehmen'},
   svcCat:{
     'branding':{
-      hero:'Marken, die man <em>wiedererkennt</em> — und die ein Jahr später noch zusammenhalten',
+      hero:'Eine Marke ist <em>kein Logo</em>.',
       tiles:['Logo-System','Farb- & Typoskala','Anwendung Print'],
       fromPrice:'500 €',
       plans:[
@@ -284,7 +284,7 @@ de:{
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
       short:'Positionierung, Identitätssysteme und alles, was eine Marke wiedererkennbar macht.',
-      text:'Eine Marke ist kein Logo, sondern die Summe aller Entscheidungen, die ein Unternehmen wiedererkennbar machen. Ich arbeite heraus, wofür eine Marke steht, übersetze das in ein visuelles System und übergebe es dokumentiert — damit es auch ein Jahr später noch zusammenhält.',
+      text:'Sie ist die Summe aller Entscheidungen, die ein Unternehmen wiedererkennbar machen. Ich bringe diese Entscheidungen in ein System, das dokumentiert übergeben wird.',
       svcs:[
         {t:'Markenstrategie',d:'Positionierung, Tonalität und die Argumente, auf denen eine Marke aufbaut.',tags:['Recherche','Positionierung','Messaging']},
         {t:'Visuelle Identität',d:'Umfassende visuelle Identitätssysteme, die in jedem Medium funktionieren.',tags:['Logo','Typografie','Farbsysteme']},
@@ -305,7 +305,7 @@ de:{
       work:'brand-identity'
     },
     'motion-design':{
-      hero:'Bewegung, die <em>etwas erzählt</em> — und nicht nur nett aussieht',
+      hero:'Bewegung ist <em>kein Effekt</em>.',
       tiles:['Logo-Animation','Social-Cutdowns','3D & Visualisierung'],
       fromPrice:'400 €',
       plans:[
@@ -326,7 +326,7 @@ de:{
       label:'Motion Design',
       title:'Motion <em>Design</em>',
       short:'Animation, 3D und Motion Graphics, die einer Marke Bewegung und Rhythmus geben.',
-      text:'Wie sich eine Marke bewegt, sagt genauso viel aus wie ihr Aussehen. Timing, Easing und Rhythmus definiere ich gemeinsam mit der statischen Identität. So ist Animation ein dokumentierter Teil des Systems und keine nachträgliche Dekoration.',
+      text:'Sie entscheidet, wie sich eine Marke anfühlt, bevor jemand liest, was sie sagt. Ich baue Animationen, die aus dem Markensystem kommen statt daneben zu stehen.',
       svcs:[
         {t:'Brand Animation',d:'Logo-Animationen, Übergänge und Bewegungsregeln, die eine Identität in die Zeit verlängern.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
         {t:'3D & Visualisierung',d:'Modeling, Licht und Rendering für Produkte, Schrift und abstrakte Markenbilder.',tags:['3D Design','Rendering','Produktvisuals']},
