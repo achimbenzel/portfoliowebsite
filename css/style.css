@@ -1226,6 +1226,14 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .abt-journey-content{padding-top:0}
 .abt-journey-label{font-family:var(--font-primary);font-size:1.15rem;font-weight:600;color:var(--text);display:block;margin-bottom:.25rem}
 .abt-journey-text{font-size:1rem;color:var(--text2);line-height:1.7;font-weight:300;margin:0}
+/* Non-collapsible about sections (timeline, points) — same bordered card look
+   as the old toggles, just always open */
+.abt-section-block{padding:2.5rem var(--gutter) 0}
+.abt-section-block:last-of-type{padding-bottom:6rem}
+.abt-section{border:1px solid var(--color-border);border-radius:var(--radius-card);padding:1.8rem var(--abt-inset)}
+.abt-section-title{font-family:var(--font-primary);font-size:1.5rem;font-weight:600;color:var(--text);margin:0 0 1.6rem;line-height:1.2}
+.abt-section .abt-journey{max-width:820px}
+.abt-points{margin-top:.4rem}
 .abt-interests{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:.4rem 0 .2rem}
 .abt-interest-card{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;border:1px solid var(--color-border);border-radius:var(--radius-card);transition:border-color .3s ease}
 .abt-interest-card:hover{border-color:rgba(var(--color-accent-rgb),.25)}
@@ -1331,6 +1339,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .abt-hero-section{padding:0 var(--gutter-sm) 3rem}
   .abt-intro-section{padding:0 var(--gutter-sm) 0}
   .abt-toggles-section{padding:2.5rem var(--gutter-sm) 5rem}
+  .abt-section-block{padding:2rem var(--gutter-sm) 0}
 
   .abt-3d-section{padding:3rem var(--gutter-sm)}
   .abt-3d-cards{grid-template-columns:1fr;max-width:none;margin:0}
@@ -1341,6 +1350,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .abt-intro-section{padding:0 1.5rem 0}
   .abt-intro-bar{flex-direction:column;align-items:flex-start;gap:1.2rem}
   .abt-toggles-section{padding:2rem 1.5rem 4rem}
+  .abt-section-block{padding:1.6rem 1.5rem 0}
   .abt-interests{grid-template-columns:1fr}
 
   .abt-3d-section{padding:2.5rem 1.5rem}
@@ -2012,6 +2022,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .abt-hero-section{padding:0 6rem 5rem}
   .abt-intro-section{padding:0 6rem 0}
   .abt-toggles-section{padding:3.5rem 6rem 6rem}
+  .abt-section-block{padding:2.5rem 6rem 0}
   .abt-block-section{padding:0 6rem}
   .abt-3d-section{padding:5rem 6rem}
   .abt-philosophy-section{padding:2rem 6rem 6rem}

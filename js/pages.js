@@ -610,6 +610,10 @@ function logoPg(slug){
      same spirit as the font tester (sliders + a live canvas). The mark SVGs are
      pure #000000, so the preview recolours them per its own light/dark ground. */
   const brand='Brand';
+  /* Fonts the tester can preview — each already declared in css/fonts.css.
+     The dropdown shows every name set in its own typeface. */
+  const lgtFonts=['DM Sans','Roboto','Inter','Fraunces','JetBrains Mono'];
+  const cselChev='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
   const tester=lo.svg
     ?`<div class="lgtester">`
       +`<div class="lg-incl-label">${g.testerLabel}</div>`
@@ -618,6 +622,11 @@ function logoPg(slug){
         +`<div class="lgt-controls">`
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tBrand}</span></div>`
             +`<input type="text" class="lgt-input" id="lgtText" value="${brand}" maxlength="28" placeholder="${g.tBrandPh}" oninput="updateLogoTester()"/></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tFont}</span></div>`
+            +`<div class="csel lgt-fontsel" id="lgtFontCsel">`
+              +`<button type="button" class="csel-trigger" style="font-family:'${lgtFonts[0]}'" onclick="cselToggle(this)">${lgtFonts[0]} ${cselChev}</button>`
+              +`<div class="csel-opts">${lgtFonts.map((fn,i)=>`<div class="csel-opt${i===0?' active':''}" style="font-family:'${fn}'" onclick="lgtPickFont(this,'${fn}')">${fn}</div>`).join('')}</div>`
+            +`</div></div>`
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSize}</span><span class="ft-control-value" id="lgtSizeVal">64px</span></div>`
             +`<input type="range" class="ft-slider" id="lgtSize" min="24" max="120" value="64" oninput="updateLogoTester()"/></div>`
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSpacing}</span><span class="ft-control-value" id="lgtSpaceVal">0px</span></div>`
@@ -702,6 +711,18 @@ function setLgtMode(m){
   const pv=document.getElementById('lgtPreview');if(!pv)return;
   pv.setAttribute('data-lgt',m);
   document.querySelectorAll('.lgt-mode').forEach(b=>b.classList.toggle('active',b.dataset.m===m));
+}
+/* Pick the wordmark typeface from the font dropdown (reuses the .csel widget) */
+function lgtPickFont(opt,fam){
+  const csel=opt.closest('.csel');if(!csel)return;
+  const trigger=csel.querySelector('.csel-trigger');
+  const svg=trigger.querySelector('svg').outerHTML;
+  trigger.innerHTML=fam+' '+svg;
+  trigger.style.fontFamily="'"+fam+"'";
+  csel.querySelectorAll('.csel-opt').forEach(o=>o.classList.remove('active'));
+  opt.classList.add('active');
+  csel.classList.remove('open');
+  const word=document.getElementById('lgtWord');if(word)word.style.fontFamily="'"+fam+"'";
 }
 function initLogoTester(){
   if(!document.getElementById('lgtPreview'))return;
@@ -827,10 +848,14 @@ return`<div class="abt-page">
     </div>
   </div></section>
 
-  <section class="abt-toggles-section"><div class="reveal">
-    <div class="abt-toggles">
-      ${a.toggles.map((item,i)=>`<div class="abt-toggle-item" id="abtToggle${i}"><button class="abt-toggle-question" onclick="toggleAbt(${i})">${item.q} ${plusSVG}</button><div class="abt-toggle-answer"><div class="abt-toggle-answer-inner">${renderToggleContent(item)}</div></div></div>`).join('')}
-    </div>
+  <section class="abt-section-block"><div class="reveal abt-section">
+    <h3 class="abt-section-title">${a.timelineTitle}</h3>
+    <div class="abt-journey">${a.timeline.map(s=>`<div class="abt-journey-step"><div class="abt-journey-marker"><span class="abt-journey-year">${s.year}</span><span class="abt-journey-dot"></span></div><div class="abt-journey-content"><p class="abt-journey-text">${s.text}</p></div></div>`).join('')}</div>
+  </div></section>
+
+  <section class="abt-section-block"><div class="reveal abt-section">
+    <h3 class="abt-section-title">${a.pointsTitle}</h3>
+    <div class="svc-gain abt-points">${a.points.map((pt,i)=>`<div class="svc-gain-item"><div class="svc-gain-media"><img src="/Assets/images/0${i+1}.webp" alt="" loading="lazy" onerror="this.remove()"/></div><span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${pt.t}</h4><p class="svc-gain-d">${pt.d}</p></div></div>`).join('')}</div>
   </div></section>
 
 </div>

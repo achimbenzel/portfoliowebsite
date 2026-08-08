@@ -419,14 +419,10 @@ function appContent(lang, routeKey, slug) {
       const a = d.abt;
       main = `<h1>${stripTags(a.title)}</h1><p>${a.sub}</p>` +
         `<p><strong>${a.name}</strong> — ${a.role}</p><p>${a.bio}</p>` +
-        a.toggles.map(tg => {
-          if (tg.type === 'text') return `<section><h2>${tg.q}</h2><p>${tg.body}</p></section>`;
-          if (tg.type === 'journey') return `<section><h2>${tg.q}</h2>` +
-            tg.items.map(i => `<p><strong>${i.year} — ${i.label}:</strong> ${i.text}</p>`).join('') + '</section>';
-          if (tg.type === 'interests') return `<section><h2>${tg.q}</h2>` +
-            tg.items.map(i => `<p><strong>${i.label}:</strong> ${i.text}</p>`).join('') + '</section>';
-          return '';
-        }).join('');
+        `<section><h2>${a.timelineTitle}</h2>` +
+          (a.timeline || []).map(i => `<p><strong>${i.year}:</strong> ${i.text}</p>`).join('') + '</section>' +
+        `<section><h2>${a.pointsTitle}</h2>` +
+          (a.points || []).map(pt => `<p><strong>${pt.t}:</strong> ${pt.d}</p>`).join('') + '</section>';
       break;
     }
     case 'contact':

@@ -199,7 +199,7 @@ const L={en:{
     inquirySubject:'Enquiry about the logo',
     testerLabel:'See it with your name',
     testerHint:'Type your brand name to preview the lockup. Adjust the size, letter spacing and the gap, and switch the background between light and dark.',
-    tBrand:'Brand name',tBrandPh:'Your brand',
+    tBrand:'Brand name',tBrandPh:'Your brand',tFont:'Font',
     tSize:'Size',tSpacing:'Letter spacing',tGap:'Gap',
     tLayout:'Layout',tSide:'Side by side',tStack:'Stacked',
     tGround:'Background',tLight:'Light',tDark:'Dark'
@@ -208,24 +208,21 @@ const L={en:{
     filterSearch:'Search category',filterNone:'No category found.'},
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
-    name:'Achim Benzel',role:'Independent Designer & Art Director',bio:'I\'m Achim, 25, a freelance designer based in Germany.',
-    toggles:[
-      {q:'Who I Am',type:'journey',items:[
-        {year:'2013',label:'First Steps',text:'Discovered Photoshop Elements 11 at age 12. Started making banners in the Minecraft scene.'},
-        {year:'2014',label:'3D & Motion',text:'Got into Cinema 4D and started building 3D intros. No real plan, just learning by doing.'},
-        {year:'2019',label:'Growing Understanding',text:'Years of trying things out slowly turned into a real feel for visuals and details. Also started designing posters and tickets for our school.'},
-        {year:'2023',label:'Studies & Self-Employed',text:'Started studying time-based media in Mainz. That same summer I went freelance and ran both in parallel.'},
-        {year:'2026',label:'Today',text:'Finished my bachelor. Now combining a solid design instinct with strategic thinking and strong technical skills.'}
-      ]},
-      {q:'What I Do',type:'text',body:'I build brand identities with substance. Strategy and design come together to create systems that are clearly positioned and made to last.<br><br>My work covers brand strategy, visual identity, digital and interactive design, editorial and print, content and campaigns, motion design, and employer branding.<br><br>I don\'t just make things look good. I build solutions that work behind the scenes too: structured, intentional, and built for the long run.'},
-      {q:'My Approach',type:'text',body:'Every project starts with understanding. I dig into the brand, the context, and the audience before jumping into the creative work.<br><br>From there it becomes iterative. Concepts get tested, questioned, and refined until they actually perform. I work closely with clients throughout, keeping things transparent and collaborative rather than handing off a black box.<br><br>The goal is always a consistent system that works across all touchpoints, from identity and digital to editorial and spatial.'},
-      {q:'Beyond Work',type:'interests',items:[
-        {icon:'mountain',label:'Nature & Outdoors',text:'Cycling, fresh air, and quiet spots. The best way to reset after screen time.'},
-        {icon:'gamepad',label:'Retro Gaming',text:'Classics on older consoles. PS1, PS2, and the golden era of gaming.'},
-        {icon:'type',label:'Type Design',text:'Experimenting with letterforms and new typefaces as a creative side project.'},
-        {icon:'wrench',label:'Building Tools',text:'Writing scripts and building small tools that make creative workflows faster.'},
-        {icon:'tea',label:'Tea & Focus',text:'A good cup of tea and intentional routines keep the deep work sessions going.'}
-      ]}
+    name:'Achim Benzel',role:'Independent Designer & Art Director',
+    bio:'I\'m Achim, 25, a freelance designer based in Germany. I build brand identities, motion design and websites, mostly for brands that are just starting out. I\'ve been designing for thirteen years, three of them professionally. This is how it got there.',
+    timelineTitle:'Journey',
+    timeline:[
+      {year:'2013',text:'Found Photoshop Elements at 12 and made banners for Minecraft servers.'},
+      {year:'2014',text:'First 3D intros in Cinema 4D. No plan, just trying things.'},
+      {year:'2019',text:'Posters and tickets for school. The first time I made something other people held in their hands.'},
+      {year:'2023',text:'Started studying time-based media in Mainz and went freelance the same summer. Both at once.'},
+      {year:'2026',text:'Bachelor finished. What used to run alongside became the job.'}
+    ],
+    pointsTitle:'Beyond the work',
+    points:[
+      {t:'Own typefaces',d:'When no existing typeface fits, I draw one. A few are on the Fonts page.'},
+      {t:'Own tools',d:'Small scripts that take over the repetitive steps and leave more time for the design.'},
+      {t:'Also',d:'Cycling, PS1 and PS2 classics, too much tea.'}
     ]},
     ftr:{tag:'Brand, Motion & Webdesigner',cta:'Get in touch',copy:'© 2026 Design by Achim Benzel. All rights reserved.',imp:'Imprint',priv:'Privacy Policy',tos:'ToS'},
   contact:{title:'Get in touch',intro:'I hope my work has given you a glimpse into my approach and creative thinking. If you are interested in working together, I would like to hear from you.',name:'Your Name',email:'E-Mail',subject:'Subject',subjectPh:'What is this about?',message:'Tell us about your brand',tos:'I agree to the',tosLink:'Terms of Service',submit:'Send Message',altMail:'Alternatively, please send us an email:',success:'Thank you!',successMsg:'Your message has been sent. We\'ll be in touch soon.',errTos:'Please accept the Terms of Service.',errTurnstile:'Please complete the security check.',errSend:'Something went wrong. Please try again.',sending:'Sending…',bio:'Independent brand designer crafting identities with substance.'},
@@ -435,7 +432,7 @@ de:{
     inquirySubject:'Anfrage zum Logo',
     testerLabel:'Mit Ihrem Namen ansehen',
     testerHint:'Geben Sie Ihren Markennamen ein und sehen Sie das Lockup. Passen Sie Größe, Laufweite und Abstand an und wechseln Sie den Hintergrund zwischen Hell und Dunkel.',
-    tBrand:'Markenname',tBrandPh:'Ihre Marke',
+    tBrand:'Markenname',tBrandPh:'Ihre Marke',tFont:'Schrift',
     tSize:'Größe',tSpacing:'Laufweite',tGap:'Abstand',
     tLayout:'Layout',tSide:'Nebeneinander',tStack:'Gestapelt',
     tGround:'Hintergrund',tLight:'Hell',tDark:'Dunkel'
@@ -444,24 +441,21 @@ de:{
     filterSearch:'Kategorie suchen',filterNone:'Keine Kategorie gefunden.'},
   cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
-    name:'Achim Benzel',role:'Freiberuflicher Designer & Art Director',bio:'Ich bin Achim, 25, freiberuflicher Designer aus Deutschland.',
-    toggles:[
-      {q:'Wer ich bin',type:'journey',items:[
-        {year:'2013',label:'Erste Schritte',text:'Mit 12 Jahren Photoshop Elements 11 entdeckt. Banner in der Minecraft-Szene gestaltet.'},
-        {year:'2014',label:'3D & Motion',text:'Angefangen, 3D-Intros in Cinema 4D zu bauen. Kein Plan, einfach ausprobieren.'},
-        {year:'2019',label:'Wachsendes Verständnis',text:'Aus Jahren des Experimentierens wurde ein echtes Gespür für Wirkung und Details. Dazu kamen erste Plakate und Eintrittskarten für unsere Schule.'},
-        {year:'2023',label:'Studium & Selbstständig',text:'Studium der zeitbasierten Medien in Mainz begonnen. Im selben Sommer als Freelancer gestartet, beides parallel.'},
-        {year:'2026',label:'Heute',text:'Bachelor abgeschlossen. Gestalterisches Verständnis trifft auf strategisches Denken und technische Grundlage.'}
-      ]},
-      {q:'Was ich mache',type:'text',body:'Ich entwickle Markenidentitäten mit Substanz. Strategie und Gestaltung kommen zusammen, um Systeme zu schaffen, die klar positioniert sind und nachhaltig wirken.<br><br>Meine Arbeit umfasst Markenstrategie, visuelle Identität, digitales und interaktives Design, Editorial und Print, Content und Kampagnen, Motion Design und Employer Branding.<br><br>Ich mache nicht nur Dinge hübsch. Ich baue Lösungen, die auch im Hintergrund funktionieren: strukturiert, durchdacht und auf Dauer ausgelegt.'},
-      {q:'Mein Ansatz',type:'text',body:'Jedes Projekt startet damit, Dinge zu verstehen. Ich schaue mir die Marke, den Kontext und die Zielgruppe genau an, bevor ich kreativ werde.<br><br>Danach wird es iterativ. Konzepte werden getestet, hinterfragt und verfeinert, bis sie wirklich funktionieren. Ich arbeite eng mit meinen Kunden zusammen, halte Prozesse transparent und kollaborativ statt als Blackbox.<br><br>Das Ziel ist immer ein konsistentes System, das über alle Touchpoints hinweg funktioniert, von Identität und Digital bis Editorial und Raum.'},
-      {q:'Neben der Arbeit',type:'interests',items:[
-        {icon:'mountain',label:'Natur & Draußen',text:'Radfahren, frische Luft und ruhige Orte. Der beste Ausgleich nach Bildschirmzeit.'},
-        {icon:'gamepad',label:'Retro Gaming',text:'Klassiker auf älteren Konsolen. PS1, PS2 und die goldene Ära des Gamings.'},
-        {icon:'type',label:'Type Design',text:'Buchstabenformen und neue Schriften als kreatives Nebenprojekt.'},
-        {icon:'wrench',label:'Tools Bauen',text:'Skripte schreiben und kleine Tools bauen, die kreative Workflows schneller machen.'},
-        {icon:'tea',label:'Tee & Fokus',text:'Eine gute Tasse Tee und bewusste Routinen halten die Deep-Work-Sessions am Laufen.'}
-      ]}
+    name:'Achim Benzel',role:'Freiberuflicher Designer & Art Director',
+    bio:'Ich bin Achim, 25, freiberuflicher Designer aus Deutschland. Ich entwickle Markenidentitäten, Motion Design und Websites, meistens für Marken, die gerade anfangen. Seit dreizehn Jahren gestalte ich, seit dreien davon hauptberuflich. So kam es dazu.',
+    timelineTitle:'Werdegang',
+    timeline:[
+      {year:'2013',text:'Mit 12 Photoshop Elements entdeckt und Banner für Minecraft-Server gestaltet.'},
+      {year:'2014',text:'Erste 3D-Intros in Cinema 4D. Ohne Plan, einfach ausprobiert.'},
+      {year:'2019',text:'Plakate und Eintrittskarten für die Schule. Zum ersten Mal etwas gestaltet, das andere in der Hand hielten.'},
+      {year:'2023',text:'Studium der zeitbasierten Medien in Mainz, im selben Sommer als Freelancer gestartet. Beides parallel.'},
+      {year:'2026',text:'Bachelor abgeschlossen. Aus dem Nebenher ist der Beruf geworden.'}
+    ],
+    pointsTitle:'Neben der Arbeit',
+    points:[
+      {t:'Eigene Schriften',d:'Wenn keine passende Schrift existiert, zeichne ich eine. Einige stehen unter Schriften.'},
+      {t:'Eigene Tools',d:'Kleine Skripte, die wiederkehrende Schritte abnehmen, damit mehr Zeit für die Gestaltung bleibt.'},
+      {t:'Außerdem',d:'Rad fahren, PS1- und PS2-Klassiker, zu viel Tee.'}
     ]},
     ftr:{tag:'Brand, Motion & Webdesigner',cta:'Kontakt aufnehmen',copy:'© 2026 Design by Achim Benzel. Alle Rechte vorbehalten.',imp:'Impressum',priv:'Datenschutzerklärung',tos:'AGB'},
   contact:{title:'Kontakt aufnehmen',intro:'Ich hoffe, meine Arbeit hat Ihnen einen Einblick in meine Denkweise und meinen kreativen Ansatz gegeben. Wenn Sie an einer Zusammenarbeit interessiert sind, freue ich mich darauf, von Ihnen zu hören.',name:'Ihr Name',email:'E-Mail',subject:'Betreff',subjectPh:'Worum geht es?',message:'Erzählen Sie uns von Ihrer Marke',tos:'Ich stimme den',tosLink:'Allgemeine Geschäftsbedingungen',tosAfter:'zu',submit:'Nachricht senden',altMail:'Alternativ senden Sie uns bitte eine Mail:',success:'Vielen Dank!',successMsg:'Ihre Nachricht wurde gesendet. Wir melden uns bald.',errTos:'Bitte akzeptieren Sie die Allgemeine Geschäftsbedingungen.',errTurnstile:'Bitte schließen Sie die Sicherheitsprüfung ab.',errSend:'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',sending:'Wird gesendet…',bio:'Freiberuflicher Markendesigner — Ich kreiere Identitäten mit Substanz.'},
