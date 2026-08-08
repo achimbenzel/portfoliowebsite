@@ -9,7 +9,7 @@
   --color-text-primary:#e8eaf0;
   --color-text-secondary:#aab0c2;
   --color-text-on-dark:#e8eaf0;
-  --color-text-muted:#4a4e60;
+  --color-text-muted:#7f8598;
   --color-border:rgba(255,255,255,.06);
   --color-border-strong:rgba(255,255,255,.15);
   --color-accent:#007588;
@@ -47,7 +47,7 @@
   --color-text-primary:#e8eaf0;
   --color-text-secondary:#aab0c2;
   --color-text-on-dark:#e8eaf0;
-  --color-text-muted:#4a4e60;
+  --color-text-muted:#7f8598;
   --color-border:rgba(255,255,255,.06);
   --color-border-strong:rgba(255,255,255,.15);
   --color-accent:#007588;
@@ -94,7 +94,7 @@
   --color-text-primary:#e0e0e4;
   --color-text-secondary:#a8a8b4;
   --color-text-on-dark:#e0e0e4;
-  --color-text-muted:#55555e;
+  --color-text-muted:#7c7c88;
   --color-border:rgba(255,255,255,.07);
   --color-border-strong:rgba(255,255,255,.14);
   --color-accent:#e0e0e4;
@@ -951,8 +951,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 [data-theme="light"] .hero-cta-secondary{border-color:var(--color-border-strong);color:var(--color-text-primary);background:transparent}
 [data-theme="lightproject"] .hero-cta-secondary{border-color:var(--color-border-strong);color:var(--color-text-primary);background:transparent}
-[data-theme="light"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#000}
-[data-theme="lightproject"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#000}
+[data-theme="light"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+[data-theme="lightproject"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 /* HERO ACCENT STRIP */
 .hero-accent{background:var(--color-bg-card-dark);padding:3rem var(--gutter);position:relative;overflow:hidden;border-top:1px solid rgba(var(--color-accent-rgb),.1);border-bottom:1px solid rgba(var(--color-accent-rgb),.1)}
 [data-theme="light"] .hero-accent{background:var(--color-bg-secondary);border-top-color:var(--color-border);border-bottom-color:var(--color-border)}
