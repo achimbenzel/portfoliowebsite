@@ -34,7 +34,7 @@ const L={en:{
       plans:[
         {name:'Logo Design',price:'from 500 €',d:'One mark, done properly.',f:['3 design directions','2 rounds of revisions','Complete logo set','All file formats for print and screen']},
         {name:'Brand Sprint',price:'from 2.000 €',d:'The core identity, in 14 days.',f:['Everything in Logo Design','Colour and type scale','Business essentials, basic set','Social and web templates','Compact brand guidelines']},
-        {name:'Full Identity',price:'from 4.000 €',d:'Everything that keeps running on its own.',f:['Everything in Brand Sprint','Imagery and graphic elements','Logo animation','Business essentials, full set','Full brand guidelines','Handover session with your team']}
+        {name:'Full Identity',price:'from 4.000 €',d:'Everything that keeps running on its own.',f:['Everything in Brand Sprint','Imagery and graphic elements','Logo animation','Business essentials, full set','Full brand guidelines']}
       ],
       compare:[
         {l:'Design directions',v:[3,3,3]},
@@ -47,8 +47,7 @@ const L={en:{
         {l:'Brand guidelines',v:['—','Compact','Full']},
         {l:'Imagery &amp; graphic elements',v:[false,false,true]},
         {l:'Logo animation',v:[false,false,true]},
-        {l:'Handover session',v:[false,false,true]},
-        {l:'Delivery time',v:['—','14 days','—']}
+        {l:'Delivery time',v:['1–2 weeks','14 days','1–3 months']}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
@@ -75,22 +74,22 @@ const L={en:{
     },
     'motion-design':{
       hero:'Motion is <em>not an effect</em>.',
+      benefits:'How a video comes together',
       tiles:['Logo animation','Social cutdowns','3D & visualisation'],
       fromPrice:'400 €',
       plans:[
-        {name:'Logo Animation',price:'from 400 €',d:'Your logo, brought to life.',f:['Animated logo (intro / outro)','Up to 5 seconds','2 revision rounds','Exports for every format']},
+        {name:'Logo Animation',price:'from 400 €',d:'Your logo, brought to life.',f:['Animated logo','5–10 seconds','2 revision rounds','Exports for every format']},
         {name:'Launch Video 2D',price:'from 2.500 €',d:'A 90-second launch film in 2D motion design.',f:['16:9 or 9:16','Up to 90 seconds','2D motion design','Storyboard and 2 revision rounds','Sound design included','Cutdowns for social']},
-        {name:'Launch Video 2D + 3D',price:'from 4.000 €',d:'The launch film, with added 3D motion design.',f:['Everything in Launch Video 2D','2D + 3D motion design','3D scenes and renders','Extended sound design','Project files included']}
+        {name:'Launch Video 2D + 3D',price:'from 4.000 €',d:'The launch film, with added 3D motion design.',f:['Everything in Launch Video 2D','2D + 3D motion design','3D scenes and renders','Extended sound design']}
       ],
       compare:[
-        {l:'Video length',v:['5 s','90 s','90 s']},
+        {l:'Video length',v:['5–10 s','90 s','90 s+']},
         {l:'Formats 16:9 / 9:16',v:[true,true,true]},
         {l:'2D motion design',v:[true,true,true]},
         {l:'3D motion design',v:[false,false,true]},
         {l:'Sound design',v:[false,true,true]},
         {l:'Social cutdowns',v:[false,true,true]},
-        {l:'Revision rounds',v:[2,2,3]},
-        {l:'Project files',v:[false,false,true]}
+        {l:'Revision rounds',v:[2,2,3]}
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
@@ -117,12 +116,13 @@ const L={en:{
     },
     'web-design':{
       hero:'A website is <em>not a brochure</em>.',
+      benefits:'How a website comes together',
       tiles:['Interface design','Components','Build'],
       fromPrice:'500 €',
       plans:[
         {name:'Website Simple',price:'from 500 €',d:'A clean site for the essentials.',f:['Up to 4 subpages','Imprint and privacy policy included (not counted as subpages)','No contact form','Responsive down to mobile','Basic SEO','2 revision rounds']},
         {name:'Website',price:'from 1.000 €',d:'The full site, with a contact form.',f:['Everything in Website Simple','Up to 8 pages','Contact form','Content structure and copy layout','Performance and accessibility pass']},
-        {name:'Website Professional',price:'from 1.500 €',d:'A site you can edit yourself, with a CMS.',f:['Everything in Website','CMS so you can edit it yourself','Custom components and interactions','Advanced SEO setup','Support after launch']}
+        {name:'Website Professional',price:'from 1.500 €',d:'A site you can edit yourself, with a CMS.',f:['Everything in Website','CMS so you can edit it yourself','Custom components and interactions','Advanced SEO setup','Support after launch, up to 2 weeks']}
       ],
       compare:[
         {l:'Subpages',v:[4,8,'8+']},
@@ -133,16 +133,16 @@ const L={en:{
         {l:'SEO',v:['Basic','Basic','Advanced']},
         {l:'Custom components',v:[false,false,true]},
         {l:'Revision rounds',v:[2,2,3]},
-        {l:'Support after launch',v:[false,false,true]}
+        {l:'Support after launch',v:['—','—','up to 2 weeks']}
       ],
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces and websites where the identity actually works in the browser.',
       text:'It has to make something happen: an enquiry, a booking, a call. I build sites that load fast, work on any device, and guide visitors to the point that matters.',
       svcs:[
-        {t:'UX & Interface Design',d:'User interfaces and digital experiences balancing aesthetics with usability.',tags:['UX/UI','Wireframes','Design Systems']},
-        {t:'Website Design',d:'Portfolio, brand, and campaign sites designed from the content outwards.',tags:['Web Design','Responsive','Art Direction']},
-        {t:'Prototyping & Build',d:'Interactive prototypes and hand-built front-ends for smaller projects.',tags:['Prototyping','Front-End','Animation']}
+        {t:'Structure',d:'Which pages you need, what comes first, and where visitors end up.',tags:['UX/UI','Wireframes','Design Systems']},
+        {t:'Design',d:'Layout, typography and components in the brand\'s style, built for small screens from the start.',tags:['Web Design','Responsive','Art Direction']},
+        {t:'Hand over',d:'Set up, tested and explained, so nothing is left hanging afterwards.',tags:['Prototyping','Front-End','Animation']}
       ],
       process:[
         {t:'Discovery',d:'We map what the site has to do — who visits, what they need to find, and what counts as success. That decides the pages before it decides the pixels.'},
@@ -179,8 +179,8 @@ const L={en:{
   /* Ready-made logos sold at a fixed price. Entries live in /logos. */
   logos:{
     label:'Shop',
-    title:'The <em>Shop</em>',
-    text:'Finished designs, ready to hand over at the price shown. Each one is sold a single time and then taken off this page for good.',
+    title:'Finished <em>Designs</em>',
+    text:'Everything here is finished and ready to hand over, at the price shown. Each design is sold once and never used again.',
     price:'Price',
     view:'View',
     inquire:'Enquire about this logo',
@@ -275,7 +275,7 @@ de:{
       plans:[
         {name:'Logo Design',price:'ab 500 €',d:'Ein Zeichen, sauber gemacht.',f:['3 Entwurfsrichtungen','2 Korrekturschleifen','Vollständiges Logo-Set','Alle Dateiformate für Print und Screen']},
         {name:'Brand Sprint',price:'ab 2.000 €',d:'Die Kern-Identität, in 14 Tagen.',f:['Alles aus Logo Design','Farb- und Typoskala','Geschäftsausstattung, Basis','Social- und Web-Vorlagen','Kompakte Brand Guidelines']},
-        {name:'Full Identity',price:'ab 4.000 €',d:'Alles, was danach von selbst weiterläuft.',f:['Alles aus Brand Sprint','Bildsprache und Grafikelemente','Logo-Animation','Geschäftsausstattung, vollständig','Umfassende Brand Guidelines','Übergabe-Termin mit deinem Team']}
+        {name:'Full Identity',price:'ab 4.000 €',d:'Alles, was danach von selbst weiterläuft.',f:['Alles aus Brand Sprint','Bildsprache und Grafikelemente','Logo-Animation','Geschäftsausstattung, vollständig','Umfassende Brand Guidelines']}
       ],
       compare:[
         {l:'Entwurfsrichtungen',v:[3,3,3]},
@@ -288,8 +288,7 @@ de:{
         {l:'Brand Guidelines',v:['—','Kompakt','Umfassend']},
         {l:'Bildsprache &amp; Grafikelemente',v:[false,false,true]},
         {l:'Logo-Animation',v:[false,false,true]},
-        {l:'Übergabe-Termin',v:[false,false,true]},
-        {l:'Lieferzeit',v:['—','14 Tage','—']}
+        {l:'Lieferzeit',v:['1–2 Wochen','14 Tage','1–3 Monate']}
       ],
       label:'Brand &amp; Logo Design',
       title:'Brand &amp; <em>Identity</em>',
@@ -316,22 +315,22 @@ de:{
     },
     'motion-design':{
       hero:'Bewegung ist <em>kein Effekt</em>.',
+      benefits:'Wie ein Video entsteht',
       tiles:['Logo-Animation','Social-Cutdowns','3D & Visualisierung'],
       fromPrice:'400 €',
       plans:[
-        {name:'Logo Animation',price:'ab 400 €',d:'Ihr Logo, zum Leben erweckt.',f:['Animiertes Logo (Intro / Outro)','Bis zu 5 Sekunden','2 Korrekturschleifen','Exporte für jedes Format']},
+        {name:'Logo Animation',price:'ab 400 €',d:'Ihr Logo, zum Leben erweckt.',f:['Animiertes Logo','5–10 Sekunden','2 Korrekturschleifen','Exporte für jedes Format']},
         {name:'Launch Video 2D',price:'ab 2.500 €',d:'Ein 90-Sekunden-Launch-Film in 2D Motion Design.',f:['16:9 oder 9:16','Bis zu 90 Sekunden','2D Motion Design','Storyboard und 2 Korrekturschleifen','Sounddesign inklusive','Cutdowns für Social']},
-        {name:'Launch Video 2D + 3D',price:'ab 4.000 €',d:'Der Launch-Film mit zusätzlichem 3D Motion Design.',f:['Alles aus Launch Video 2D','2D + 3D Motion Design','3D-Szenen und Renderings','Erweitertes Sounddesign','Projektdateien inklusive']}
+        {name:'Launch Video 2D + 3D',price:'ab 4.000 €',d:'Der Launch-Film mit zusätzlichem 3D Motion Design.',f:['Alles aus Launch Video 2D','2D + 3D Motion Design','3D-Szenen und Renderings','Erweitertes Sounddesign']}
       ],
       compare:[
-        {l:'Videolänge',v:['5 s','90 s','90 s']},
+        {l:'Videolänge',v:['5–10 s','90 s','90 s+']},
         {l:'Formate 16:9 / 9:16',v:[true,true,true]},
         {l:'2D Motion Design',v:[true,true,true]},
         {l:'3D Motion Design',v:[false,false,true]},
         {l:'Sounddesign',v:[false,true,true]},
         {l:'Social-Cutdowns',v:[false,true,true]},
-        {l:'Korrekturschleifen',v:[2,2,3]},
-        {l:'Projektdateien',v:[false,false,true]}
+        {l:'Korrekturschleifen',v:[2,2,3]}
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
@@ -358,12 +357,13 @@ de:{
     },
     'web-design':{
       hero:'Eine Website ist <em>kein Prospekt</em>.',
+      benefits:'Wie eine Website entsteht',
       tiles:['Interface-Design','Komponenten','Umsetzung'],
       fromPrice:'500 €',
       plans:[
         {name:'Website Simple',price:'ab 500 €',d:'Eine schlanke Seite für das Wesentliche.',f:['Bis zu 4 Unterseiten','Impressum und Datenschutz inklusive (zählen nicht als Unterseiten)','Kein Kontaktformular','Responsiv bis Mobile','Basis-SEO','2 Korrekturschleifen']},
         {name:'Website',price:'ab 1.000 €',d:'Die ganze Seite, mit Kontaktformular.',f:['Alles aus Website Simple','Bis zu 8 Seiten','Kontaktformular','Inhaltsstruktur und Textlayout','Performance- und Accessibility-Durchgang']},
-        {name:'Website Professional',price:'ab 1.500 €',d:'Eine Seite zum selbst Pflegen, mit CMS.',f:['Alles aus Website','CMS zum selbst Pflegen','Eigene Komponenten und Interaktionen','Erweitertes SEO-Setup','Support nach dem Launch']}
+        {name:'Website Professional',price:'ab 1.500 €',d:'Eine Seite zum selbst Pflegen, mit CMS.',f:['Alles aus Website','CMS zum selbst Pflegen','Eigene Komponenten und Interaktionen','Erweitertes SEO-Setup','Support nach dem Launch, bis 2 Wochen']}
       ],
       compare:[
         {l:'Unterseiten',v:[4,8,'8+']},
@@ -374,16 +374,16 @@ de:{
         {l:'SEO',v:['Basis','Basis','Erweitert']},
         {l:'Eigene Komponenten',v:[false,false,true]},
         {l:'Korrekturschleifen',v:[2,2,3]},
-        {l:'Support nach Launch',v:[false,false,true]}
+        {l:'Support nach Launch',v:['—','—','bis 2 Wochen']}
       ],
       label:'Web Design',
       title:'Web <em>Design</em>',
       short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
       text:'Sie muss etwas auslösen: eine Anfrage, eine Buchung, einen Anruf. Ich baue Seiten, die schnell laden, auf jedem Gerät funktionieren und Besucher dorthin führen, wo es zählt.',
       svcs:[
-        {t:'UX & Interface Design',d:'Benutzeroberflächen und digitale Erlebnisse zwischen Ästhetik und Bedienbarkeit.',tags:['UX/UI','Wireframes','Designsysteme']},
-        {t:'Website-Gestaltung',d:'Portfolio-, Marken- und Kampagnenseiten, vom Inhalt her gedacht.',tags:['Web Design','Responsive','Art Direction']},
-        {t:'Prototyping & Umsetzung',d:'Interaktive Prototypen und handgebaute Frontends für kleinere Projekte.',tags:['Prototyping','Front-End','Animation']}
+        {t:'Struktur',d:'Welche Seiten es braucht, was zuerst kommt und wohin die Besucher am Ende geführt werden.',tags:['UX/UI','Wireframes','Designsysteme']},
+        {t:'Gestalten',d:'Layout, Typografie und Komponenten im Stil der Marke, von Anfang an auch für kleine Bildschirme.',tags:['Web Design','Responsive','Art Direction']},
+        {t:'Übergeben',d:'Fertig eingerichtet, getestet und erklärt, damit danach nichts offen bleibt.',tags:['Prototyping','Front-End','Animation']}
       ],
       process:[
         {t:'Kennenlernen',d:'Wir halten fest, was die Seite leisten muss: wer sie besucht, was diese Menschen finden wollen und woran sich Erfolg messen lässt. Das entscheidet über die Seiten, bevor es über die Pixel entscheidet.'},
@@ -415,8 +415,8 @@ de:{
   },
   logos:{
     label:'Shop',
-    title:'Der <em>Shop</em>',
-    text:'Fertig gestaltete Entwürfe, zum angegebenen Preis sofort übergabefertig. Jeder wird nur ein einziges Mal verkauft und verschwindet danach endgültig von dieser Seite.',
+    title:'Fertige <em>Entwürfe</em>',
+    text:'Alles hier ist fertig gestaltet und direkt übergabefertig, zum angegebenen Preis. Jeder Entwurf wird nur einmal verkauft und danach nie wieder verwendet.',
     price:'Preis',
     view:'Ansehen',
     inquire:'Dieses Logo anfragen',

@@ -2791,7 +2791,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 /* ---- hero: copy left, bento right ---- */
 .svc-hero{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  /* media column is exactly one svc-gain tile wide (3-col grid, 3.15rem gaps),
+     so the hero image matches the gain images in size */
+  display:grid;grid-template-columns:minmax(0,1fr) calc((100% - 6.3rem) / 3);
   gap:3.5rem;align-items:start;
 }
 .svc-hero-copy{min-width:0}
@@ -2831,7 +2833,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
    Keeps its own square box rather than stretching to the copy height. */
 .svc-hero-media{
   align-self:start;justify-self:end;aspect-ratio:1/1;
-  width:clamp(190px,20vw,290px);min-width:0;
+  width:100%;min-width:0;
   border-radius:var(--radius-card);overflow:hidden;
   border:1px solid var(--color-border);
   background:
@@ -2903,8 +2905,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 @media(max-width:1000px){
   .svc-hero{grid-template-columns:1fr;gap:2.5rem}
-  /* one column below this: cap the square so it doesn't dominate the viewport */
-  .svc-hero-media{width:100%;max-width:460px;margin-inline:auto}
+  /* one column below this: full width, like the gain images */
+  .svc-hero-media{width:100%;max-width:none;margin-inline:0}
   .svc-gain{grid-template-columns:1fr;gap:2rem}
   .svc-close{grid-template-columns:1fr;gap:1rem}
   .svc-sec-title{max-width:none}
