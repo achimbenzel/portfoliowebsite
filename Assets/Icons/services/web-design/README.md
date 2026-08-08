@@ -1,15 +1,15 @@
-# Web Design — svcd-media images
+# Web Design — service images
 
-Drop the five images for the "Was am Ende bei Ihnen liegt" cards on
-`/web-design` here, named `01.webp`–`05.webp`. They fill the cards in order:
+Drop the three images shown above the "Was Sie gewinnen" points on
+`/web-design` here, named `01.webp`–`03.webp`. They lead the three columns in
+order:
 
-| File | Card |
+| File | Point |
 |---|---|
-| `01.webp` | The finished site / Die fertige Seite |
-| `02.webp` | Design system / Designsystem |
-| `03.webp` | CMS access / CMS-Zugang |
-| `04.webp` | Performance & accessibility / Performance & Accessibility |
-| `05.webp` | Handover / Übergabe |
+| `01.webp` | UX & Interface Design |
+| `02.webp` | Website Design |
+| `03.webp` | Prototyping & Build |
 
-Format: portrait **1 : 1.15** (e.g. 500 × 575 px), WebP, `object-fit: cover`.
-Until a file exists the card falls back to the striped placeholder.
+Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
+On mobile the columns stack, so the images sit one under the other. Until a
+file exists the striped placeholder shows.

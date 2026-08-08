@@ -1181,7 +1181,8 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 /* Hero */
 .abt-hero-section{padding:0 var(--gutter) 5rem}
-.abt-headline{font-size:clamp(3rem,7vw,6rem)!important;line-height:1.02!important;letter-spacing:-.03em}
+.abt-headline{font-size:clamp(3rem,7vw,6rem)!important;line-height:1.02!important;letter-spacing:-.03em;text-transform:uppercase}
+.abt-headline em{font-style:normal;font-weight:inherit;color:inherit}
 
 /* Intro: portrait + text — same grid ratio as cblock (1fr 1.4fr) */
 /* --abt-inset is the accordion's own horizontal padding: the toggle text
@@ -1605,9 +1606,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .faq-list{display:flex;flex-direction:column;gap:1rem}
 .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;transition:all .3s ease}
 .faq-item:hover,.faq-item.open{border-color:rgba(var(--color-accent-rgb),.2)}
-.faq-question{width:100%;background:transparent;border:none;padding:1.4rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:var(--text);font-family:var(--font-primary);font-size:1.5rem;font-weight:600;text-align:left;transition:color var(--transition-fast)}
+.faq-question{width:100%;background:transparent;border:none;padding:1.4rem 1.6rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;color:var(--text);font-family:var(--font-primary);font-size:1.5rem;font-weight:600;line-height:1.25;text-align:left;transition:color var(--transition-fast)}
 .faq-question:hover{color:var(--accent)}
-.faq-question svg{flex-shrink:0;width:18px;height:18px;transition:transform .55s cubic-bezier(.76,0,.24,1);color:var(--text3)}
+.faq-question svg{flex-shrink:0;width:18px;height:18px;margin-top:.35rem;transition:transform .55s cubic-bezier(.76,0,.24,1);color:var(--text3)}
 .faq-item.open .faq-question svg{transform:rotate(45deg);color:var(--accent)}
 .faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.76,0,.24,1),padding .4s cubic-bezier(.76,0,.24,1)}
 .faq-item.open .faq-answer{grid-template-rows:1fr}
@@ -2863,23 +2864,18 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-gain-d{margin-top:.7rem}
 .svc-gain-d{font-size:.97rem;line-height:1.7;font-weight:400;color:var(--text2);margin:0}
 
-/* ---- what you end up with: five across, media then text ---- */
-.svcd-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.875rem}
-.svcd-card{display:flex;flex-direction:column;gap:1rem}
-.svcd-media{
-  aspect-ratio:1/1.15;border-radius:var(--radius-card);overflow:hidden;
-  border:1px solid var(--color-border);
+/* ---- image above each gain point (Assets/Icons/services/<key>/01–03.webp) ---- */
+.svc-gain-media{
+  aspect-ratio:4/3;border-radius:var(--radius-card);overflow:hidden;
+  border:1px solid var(--color-border);margin-bottom:1.3rem;
   background:
     repeating-linear-gradient(135deg,rgba(255,255,255,.028) 0 2px,transparent 2px 9px),
     var(--bg2);
 }
-.svcd-img{width:100%;height:100%;object-fit:cover;display:block}
-[data-theme="light"] .svcd-media,[data-theme="lightproject"] .svcd-media{
+[data-theme="light"] .svc-gain-media,[data-theme="lightproject"] .svc-gain-media{
   background:repeating-linear-gradient(135deg,rgba(0,0,0,.035) 0 2px,transparent 2px 9px),var(--bg2);
 }
-.svcd-body{display:flex;flex-direction:column;gap:.35rem}
-.svcd-t{font-size:.98rem;font-weight:600;line-height:1.25;color:var(--text);margin:0}
-.svcd-d{font-size:.84rem;line-height:1.55;font-weight:400;color:var(--text2);margin:0}
+.svc-gain-media img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* ---- packages band — inverted against the page ---- */
 /* The band is full-bleed, but its content must sit on exactly the same rail as
@@ -2920,7 +2916,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .svc-gain{grid-template-columns:1fr;gap:2rem}
   .svc-close{grid-template-columns:1fr;gap:1rem}
   .svc-sec-title{max-width:none}
-  .svcd-grid{grid-template-columns:repeat(3,1fr);gap:1.1rem}
 }
 @media(max-width:600px){
   .svc-cat-page{padding-bottom:5rem}
@@ -2928,7 +2923,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .svc-plans-band{padding:5rem 1.5rem}
   .svc-hero-cta{flex-direction:column;align-items:stretch}
   .svc-jump,.svc-hero-alt,.svc-close-btn{justify-content:center}
-  .svcd-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
   .svc-bento{height:auto;width:100%;aspect-ratio:16/12;gap:10px}
 }
 

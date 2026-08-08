@@ -1,15 +1,15 @@
-# Branding — svcd-media images
+# Branding — service images
 
-Drop the five images for the "Was am Ende bei Ihnen liegt" cards on
-`/branding` here, named `01.webp`–`05.webp`. They fill the cards in order:
+Drop the three images shown above the "Was Sie gewinnen" points on
+`/branding` here, named `01.webp`–`03.webp`. They lead the three columns in
+order:
 
-| File | Card |
+| File | Point |
 |---|---|
-| `01.webp` | Brand guidelines / Brand Guidelines |
-| `02.webp` | Logo set / Logo-Set |
-| `03.webp` | Business paper / Geschäftsausstattung |
-| `04.webp` | Social and web templates / Social- und Web-Vorlagen |
-| `05.webp` | Source files / Quelldateien |
+| `01.webp` | Brand Strategy |
+| `02.webp` | Visual Identity |
+| `03.webp` | Editorial & Print |
 
-Format: portrait **1 : 1.15** (e.g. 500 × 575 px), WebP, `object-fit: cover`.
-Until a file exists the card falls back to the striped placeholder.
+Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
+On mobile the columns stack, so the images sit one under the other. Until a
+file exists the striped placeholder shows.

@@ -9,8 +9,8 @@ const L={en:{
   settings:{title:'Settings',appearance:'Appearance',language:'Language',dark:'Dark',light:'Light'},
   hero:{
     label:'Independent Graphic Designer',
-    title:'Freelance Designer for Branding, Graphic, Motion & 3D',
-    sub:'From static identities to moving stories. I create design that connects, communicates, and inspires.',
+    title:'From print to motion: branding, graphic, motion and 3D.',
+    sub:'One point of contact, from first sketch to final design.',
     cta1:'Explore Work',
     cta2:'Get in touch'
   },
@@ -89,7 +89,7 @@ const L={en:{
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
-      short:'Animation, 3D and film that give a brand movement and rhythm.',
+      short:'Animation, 3D and motion graphics that give a brand movement and rhythm.',
       text:'How a brand moves says as much as how it looks. I define timing, easing and rhythm alongside the static identity, so animation is a documented part of the system rather than decoration added at the end.',
       svcs:[
         {t:'Brand Animation',d:'Logo animations, transitions, and motion rules that extend an identity into time.',tags:['Logo Animation','Transitions','Motion Rules']},
@@ -231,12 +231,12 @@ const L={en:{
   ck:{t:'This website uses cookies to ensure the best experience.',a:'Accept All',d:'Only Essential',l:'Learn more'},
   ext:{title:'External Link',text:'You are about to leave achimbenzel.com and will be redirected to an external website. I am not responsible for the content of external sites.',go:'Continue',cancel:'Stay here'},
   faq:{label:'FAQ',title:'Frequently Asked Questions',items:[
-    {q:'What services do you offer?',a:'I offer brand strategy, visual identity design, digital and interactive design, editorial and print design, content and campaign development, motion design, and employer branding. Every project is tailored to your specific needs.'},
-    {q:'How does a typical project begin?',a:'Every project starts with a discovery phase — we talk about your goals, audience, and challenges. From there, I develop a strategic brief before moving into the creative process. Transparency and collaboration are central to my approach.'},
-    {q:'What is your typical timeline?',a:'Timelines vary depending on scope. A brand identity project usually takes 6–10 weeks. Smaller deliverables like a campaign or a single publication can be completed in 2–4 weeks. I always provide a detailed timeline at the start.'},
-    {q:'How is pricing structured?',a:'I work with project-based pricing, not hourly rates. After our initial conversation, I provide a transparent quote based on the scope, complexity, and deliverables. A 50% deposit is required before work begins.'},
-    {q:'Do you work with international clients?',a:'Absolutely. I work with clients across Europe and beyond. All communication and deliverables can be provided in English and German. Remote collaboration is seamless with structured check-ins and shared tools.'},
-    {q:'Can I see more work examples?',a:'Of course. The selected projects on this site represent a curated overview. If you\'d like to see more examples relevant to your industry or project type, feel free to reach out and I\'ll share a tailored portfolio.'}
+    {q:'What services do you offer?',a:'The core is logo and brand identity, logo animation, launch video and website. Plus everything else a brand needs along the way: posters, print material, social content. In music, also cover artwork and visualisers. And everything in between.'},
+    {q:'How does a typical project begin?',a:'It starts with a conversation: goals, audience, constraints. Moodboards, sketches and first drafts follow, and from there it grows step by step into the finished work. None of it is set in stone. Even late in the process, earlier decisions can still be revisited.'},
+    {q:'How long does a project take?',a:'That depends heavily on scope, usually somewhere between a few weeks and several months. A logo is done faster than a full identity with website and launch video. Once I know what\'s involved, you get a concrete timeline.'},
+    {q:'How is pricing structured?',a:'Project-based, as a rule. After our first conversation you get a quote based on scope, complexity and the individual deliverables. A 50% deposit is due before work begins.'},
+    {q:'Do you work with international clients?',a:'Yes, wherever they are. Most projects run remotely anyway, no matter where the client is based. Communication and deliverables come in English or German.'},
+    {q:'What do you need from me to get started?',a:'Less than most people expect. A short message through the contact form about what you have in mind is enough to begin with. Whatever\'s missing, we figure out in the first conversation, that\'s what it\'s for.'}
   ]},
   notFound:{title:'Page not <em>found</em>',sub:'The page you\'re looking for doesn\'t exist or has been moved.',btn:'Return Home'}
 },
@@ -245,8 +245,8 @@ de:{
   settings:{title:'Einstellungen',appearance:'Darstellung',language:'Sprache',dark:'Dunkel',light:'Hell'},
   hero:{
     label:'Freiberuflicher Grafikdesigner',
-    title:'Freiberuflicher Designer für Branding, Grafik, Motion und 3D',
-    sub:'Von statischen Identitäten bis zu bewegten Geschichten. Ich entwickle Design, das verbindet, kommuniziert und begeistert.',
+    title:'Von Print bis Bewegtbild: Branding, Grafik, Motion und 3D.',
+    sub:'Ein Ansprechpartner, von der ersten Skizze bis zum finalen Design.',
     cta1:'Projekte entdecken',
     cta2:'Kontakt aufnehmen'
   },
@@ -325,7 +325,7 @@ de:{
       ],
       label:'Motion Design',
       title:'Motion <em>Design</em>',
-      short:'Animation, 3D und Film, die einer Marke Bewegung und Rhythmus geben.',
+      short:'Animation, 3D und Motion Graphics, die einer Marke Bewegung und Rhythmus geben.',
       text:'Wie sich eine Marke bewegt, sagt genauso viel aus wie ihr Aussehen. Timing, Easing und Rhythmus definiere ich gemeinsam mit der statischen Identität. So ist Animation ein dokumentierter Teil des Systems und keine nachträgliche Dekoration.',
       svcs:[
         {t:'Brand Animation',d:'Logo-Animationen, Übergänge und Bewegungsregeln, die eine Identität in die Zeit verlängern.',tags:['Logo-Animation','Übergänge','Bewegungsregeln']},
@@ -462,12 +462,12 @@ de:{
   ck:{t:'Diese Website verwendet Cookies.',a:'Alle akzeptieren',d:'Nur essenzielle',l:'Mehr erfahren'},
   ext:{title:'Externer Link',text:'Sie verlassen achimbenzel.com und werden auf eine externe Website weitergeleitet. Ich bin nicht verantwortlich für den Inhalt externer Seiten.',go:'Weiter',cancel:'Hier bleiben'},
   faq:{label:'FAQ',title:'Häufig gestellte Fragen',items:[
-    {q:'Welche Leistungen bietest du an?',a:'Ich biete Markenstrategie, visuelle Identität, digitales und interaktives Design, Editorial- und Printdesign, Content- und Kampagnenentwicklung, Motion Design und Employer Branding. Jedes Projekt wird individuell auf Ihre Bedürfnisse zugeschnitten.'},
-    {q:'Wie beginnt ein typisches Projekt?',a:'Jedes Projekt startet mit einer Discovery-Phase — wir sprechen über Ihre Ziele, Zielgruppen und Herausforderungen. Daraus entwickle ich ein strategisches Briefing, bevor der kreative Prozess beginnt. Transparenz und Zusammenarbeit stehen dabei im Mittelpunkt.'},
-    {q:'Wie lang dauert ein Projekt typischerweise?',a:'Die Dauer variiert je nach Umfang. Ein Markenidentitätsprojekt dauert in der Regel 6–10 Wochen. Kleinere Deliverables wie eine Kampagne oder eine einzelne Publikation können in 2–4 Wochen abgeschlossen werden.'},
-    {q:'Wie ist die Preisgestaltung?',a:'Ich arbeite mit projektbasierter Preisgestaltung, nicht mit Stundensätzen. Nach unserem Erstgespräch erstelle ich ein transparentes Angebot basierend auf Umfang, Komplexität und Liefergegenständen. Eine Anzahlung von 50% ist vor Projektbeginn erforderlich.'},
-    {q:'Arbeitest du mit internationalen Kunden?',a:'Auf jeden Fall. Ich arbeite mit Kunden in ganz Europa und darüber hinaus. Alle Kommunikation und Deliverables können auf Englisch und Deutsch bereitgestellt werden.'},
-    {q:'Kann ich weitere Arbeitsbeispiele sehen?',a:'Natürlich. Die ausgewählten Projekte auf dieser Seite bieten einen kuratierten Überblick. Wenn Sie weitere Beispiele sehen möchten, die für Ihre Branche relevant sind, kontaktieren Sie mich gerne.'}
+    {q:'Welche Leistungen bietest du an?',a:'Der Kern sind Logo und Brand Identity, Logo Animation, Launch Video und Website. Dazu kommt alles, was eine Marke sonst noch braucht: Poster, Printmaterial, Social Content. Im Musikbereich außerdem Cover Artwork und Visualizer. Und alles, was dazwischen liegt.'},
+    {q:'Wie beginnt ein typisches Projekt?',a:'Am Anfang steht ein Gespräch: Ziele, Zielgruppe, Rahmenbedingungen. Danach entstehen Moodboards, Skizzen und erste Entwürfe, aus denen sich Schritt für Schritt die Umsetzung entwickelt. Nichts davon ist in Stein gemeißelt. Auch spät im Prozess lässt sich noch an früheren Stellen nachjustieren.'},
+    {q:'Wie lange dauert ein Projekt?',a:'Das hängt stark vom Umfang ab, meistens liegt es zwischen ein paar Wochen und mehreren Monaten. Ein Logo ist schneller fertig als eine komplette Identität mit Website und Launch Video. Sobald ich weiß, worum es geht, bekommst du einen konkreten Zeitplan.'},
+    {q:'Wie ist die Preisgestaltung?',a:'In der Regel projektbasiert. Nach dem ersten Gespräch bekommst du ein Angebot, das sich an Umfang, Komplexität und den einzelnen Leistungen orientiert. Vor Projektbeginn wird eine Anzahlung von 50% fällig.'},
+    {q:'Arbeitest du mit internationalen Kunden?',a:'Ja, unabhängig vom Standort. Die meisten Projekte laufen ohnehin remote, egal wo der Kunde sitzt. Kommunikation und Deliverables gibt es auf Englisch oder Deutsch.'},
+    {q:'Was brauchst du von mir, damit wir starten können?',a:'Weniger als die meisten denken. Eine kurze Nachricht über das Kontaktformular mit dem, was du vorhast, reicht für den Anfang. Was noch fehlt, finden wir im ersten Gespräch heraus, dafür ist es da.'}
   ]},
   notFound:{title:'Seite nicht <em>gefunden</em>',sub:'Die gesuchte Seite existiert nicht oder wurde verschoben.',btn:'Zur Startseite'}
 }};

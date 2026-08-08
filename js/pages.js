@@ -426,8 +426,8 @@ function homePg(){
   </div></section>
   <section class="story-section"><div class="reveal"><p class="story-text" data-anim="words" data-anim-stagger="18" data-anim-duration="500">${
     lang==='en'
-      ?'As an independent designer, I build identities with <em>substance</em>. I connect strategy and design, bridging intuitive ideas and well-considered systems. The result: brands that are clearly positioned and built for <em>lasting impact</em>.'
-      :'Als freiberuflicher Designer entwickle ich Identitäten mit <em>Substanz</em>. Ich verbinde Strategie und Gestaltung, zwischen intuitiven Ideen und durchdachten Systemen. So entstehen Marken, die klar positioniert sind und <em>nachhaltig wirken</em>.'
+      ?'As an independent designer, I develop identities <em>from the logo to the launch video</em>. All of a piece, so that every element fits the next. And when a brand system already exists, I <em>build on it</em> instead of overwriting it.'
+      :'Als eigenständiger Designer entwickle ich Identitäten <em>vom Logo bis zum Launch Video</em>. Alles aus einem Guss, damit jedes Element zum nächsten passt. Und wenn schon ein Markensystem existiert, baue ich <em>darauf weiter</em>, statt es zu überschreiben.'
   }</p></div></section>
   <section class="section"><div class="reveal">
     <h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${w.title}</h2>
@@ -893,19 +893,15 @@ function svcCatPg(key){
   +`</div>`;
 
   /* ---- What you gain: three numbered columns ---- */
+  /* ---- What you gain: three numbered columns, each led by an image from
+         Assets/Icons/services/<key>/0N.webp (01–03). Until a file is added the
+         <img> removes itself and the striped placeholder shows. On mobile the
+         columns stack, so the images sit one under the other. ---- */
   const gainHtml=(c.svcs||[]).length?`<div class="reveal svc-block">`
     +`<h3 class="svc-sec-title">${sp.benefits}</h3>`
-    +`<div class="svc-gain">${c.svcs.map((v,i)=>`<div class="svc-gain-item"><span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${v.t}</h4><p class="svc-gain-d">${v.d}</p></div></div>`).join('')}</div>`
-  +`</div>`:'';
-
-  /* ---- What you end up with: five cards in one row, media then text. Each
-         card's image lives in Assets/Icons/services/<key>/0N.webp; until it is
-         added the <img> removes itself and the striped placeholder shows. ---- */
-  const deliverHtml=(c.deliver||[]).length?`<div class="reveal svc-block">`
-    +`<h3 class="svc-sec-title">${sp.deliver}</h3>`
-    +`<div class="svcd-grid">${c.deliver.slice(0,5).map((d,i)=>`<div class="svcd-card">`
-        +`<div class="svcd-media"><img class="svcd-img" src="/Assets/Icons/services/${key}/0${i+1}.webp" alt="${d.t}" loading="lazy" onerror="this.remove()"/></div>`
-        +`<div class="svcd-body"><h4 class="svcd-t">${d.t}</h4><p class="svcd-d">${d.d}</p></div>`
+    +`<div class="svc-gain">${c.svcs.map((v,i)=>`<div class="svc-gain-item">`
+        +`<div class="svc-gain-media"><img src="/Assets/Icons/services/${key}/0${i+1}.webp" alt="" loading="lazy" onerror="this.remove()"/></div>`
+        +`<span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${v.t}</h4><p class="svc-gain-d">${v.d}</p></div>`
       +`</div>`).join('')}</div>`
   +`</div>`:'';
 
@@ -942,7 +938,7 @@ function svcCatPg(key){
      and hands it to `.section > .reveal, .section > div`, which a bare <button>
      would miss and end up flush against the viewport edge. */
   return`<section class="section svc-cat-page" style="padding-top:9rem">`
-    +heroHtml+gainHtml+deliverHtml+relHtml
+    +heroHtml+gainHtml+relHtml
   +`</section>`
   /* The packages sit on their own inverted band, so they leave the .section.
      Real projects come first, so the prices land after the proof. */

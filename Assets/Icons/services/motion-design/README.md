@@ -1,15 +1,15 @@
-# Motion Design — svcd-media images
+# Motion Design — service images
 
-Drop the five images for the "Was am Ende bei Ihnen liegt" cards on
-`/motion-design` here, named `01.webp`–`05.webp`. They fill the cards in order:
+Drop the three images shown above the "Was Sie gewinnen" points on
+`/motion-design` here, named `01.webp`–`03.webp`. They lead the three columns
+in order:
 
-| File | Card |
+| File | Point |
 |---|---|
-| `01.webp` | Master files / Master-Dateien |
-| `02.webp` | Social cutdowns / Social-Cutdowns |
-| `03.webp` | Motion guidelines / Motion Guidelines |
-| `04.webp` | Reusable templates / Wiederverwendbare Vorlagen |
-| `05.webp` | Project files / Projektdateien |
+| `01.webp` | Brand Animation |
+| `02.webp` | 3D & Visualisation |
+| `03.webp` | Film & Social |
 
-Format: portrait **1 : 1.15** (e.g. 500 × 575 px), WebP, `object-fit: cover`.
-Until a file exists the card falls back to the striped placeholder.
+Format: landscape **4 : 3** (e.g. 800 × 600 px), WebP, `object-fit: cover`.
+On mobile the columns stack, so the images sit one under the other. Until a
+file exists the striped placeholder shows.
