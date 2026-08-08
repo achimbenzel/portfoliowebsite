@@ -627,6 +627,11 @@ function logoPg(slug){
               +`<button type="button" class="csel-trigger" style="font-family:'${lgtFonts[0]}'" onclick="cselToggle(this)">${lgtFonts[0]} ${cselChev}</button>`
               +`<div class="csel-opts">${lgtFonts.map((fn,i)=>`<div class="csel-opt${i===0?' active':''}" style="font-family:'${fn}'" onclick="lgtPickFont(this,'${fn}')">${fn}</div>`).join('')}</div>`
             +`</div></div>`
+          +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tStyle}</span></div>`
+            +`<div class="ft-align-btns">`
+              +`<button type="button" class="ft-align-btn lgt-stybtn" id="lgtBold" style="font-weight:700" aria-pressed="false" onclick="toggleLgtStyle(this)">${g.tBold}</button>`
+              +`<button type="button" class="ft-align-btn lgt-stybtn" id="lgtItalic" style="font-style:italic" aria-pressed="false" onclick="toggleLgtStyle(this)">${g.tItalic}</button>`
+            +`</div></div>`
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSize}</span><span class="ft-control-value" id="lgtSizeVal">64px</span></div>`
             +`<input type="range" class="ft-slider" id="lgtSize" min="24" max="120" value="64" oninput="updateLogoTester()"/></div>`
           +`<div class="ft-control-group"><div class="ft-control-label"><span>${g.tSpacing}</span><span class="ft-control-value" id="lgtSpaceVal">0px</span></div>`
@@ -724,9 +729,22 @@ function lgtPickFont(opt,fam){
   csel.classList.remove('open');
   const word=document.getElementById('lgtWord');if(word)word.style.fontFamily="'"+fam+"'";
 }
+/* Bold / italic toggles for the wordmark — each on/off, combining to give
+   Regular, Bold, Italic and Bold Italic (the cuts shipped for every family). */
+function toggleLgtStyle(btn){
+  btn.classList.toggle('active');
+  btn.setAttribute('aria-pressed',btn.classList.contains('active')?'true':'false');
+  const word=document.getElementById('lgtWord');if(!word)return;
+  const bold=document.getElementById('lgtBold').classList.contains('active');
+  const ital=document.getElementById('lgtItalic').classList.contains('active');
+  word.style.fontWeight=bold?'700':'400';
+  word.style.fontStyle=ital?'italic':'normal';
+}
 function initLogoTester(){
   if(!document.getElementById('lgtPreview'))return;
   setLgtMode('light');
+  const word=document.getElementById('lgtWord');
+  if(word){word.style.fontWeight='400';word.style.fontStyle='normal';}
   updateLogoTester();
 }
 
@@ -843,9 +861,12 @@ return`<div class="abt-page">
       <div class="abt-intro-info">
         <span class="abt-name">${a.name}</span>
         <span class="abt-role">${a.role}</span>
-        <p class="abt-bio">${a.bio}</p>
       </div>
     </div>
+  </div></section>
+
+  <section class="abt-lead-section"><div class="reveal">
+    <p class="abt-lead">${a.bio}</p>
   </div></section>
 
   <section class="abt-section-block"><div class="reveal abt-section">

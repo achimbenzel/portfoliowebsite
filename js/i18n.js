@@ -199,7 +199,7 @@ const L={en:{
     inquirySubject:'Enquiry about the logo',
     testerLabel:'See it with your name',
     testerHint:'Type your brand name to preview the lockup. Adjust the size, letter spacing and the gap, and switch the background between light and dark.',
-    tBrand:'Brand name',tBrandPh:'Your brand',tFont:'Font',
+    tBrand:'Brand name',tBrandPh:'Your brand',tFont:'Font',tStyle:'Style',tBold:'Bold',tItalic:'Italic',
     tSize:'Size',tSpacing:'Letter spacing',tGap:'Gap',
     tLayout:'Layout',tSide:'Side by side',tStack:'Stacked',
     tGround:'Background',tLight:'Light',tDark:'Dark'
@@ -432,7 +432,7 @@ de:{
     inquirySubject:'Anfrage zum Logo',
     testerLabel:'Mit Ihrem Namen ansehen',
     testerHint:'Geben Sie Ihren Markennamen ein und sehen Sie das Lockup. Passen Sie Größe, Laufweite und Abstand an und wechseln Sie den Hintergrund zwischen Hell und Dunkel.',
-    tBrand:'Markenname',tBrandPh:'Ihre Marke',tFont:'Schrift',
+    tBrand:'Markenname',tBrandPh:'Ihre Marke',tFont:'Schrift',tStyle:'Stil',tBold:'Fett',tItalic:'Kursiv',
     tSize:'Größe',tSpacing:'Laufweite',tGap:'Abstand',
     tLayout:'Layout',tSide:'Nebeneinander',tStack:'Gestapelt',
     tGround:'Hintergrund',tLight:'Hell',tDark:'Dunkel'
