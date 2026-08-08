@@ -167,7 +167,7 @@ const L={en:{
     title:'<em>Pricing</em>',
     text:'Every project is quoted individually. The figures below are entry-level prices, meant to give you a first point of reference before we talk through your actual scope.',
     from:'from',homeCta:'Learn more',popular:'Most popular',
-    planTitle:'Three packages — <em>depending on how far the brand has to carry</em>',planCta:'Get in touch',planSubject:'Enquiry',
+    planTitle:'Three packages — <em>depending on how far the brand has to carry</em>',planCta:'Enquire',planSubject:'Enquiry',
     compareTitle:'Compare packages',priceRow:'Price',
     note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
   },

@@ -7,7 +7,7 @@
   --color-bg-accent:rgba(160,160,170,.12);
   --color-bg-card-dark:#0c0c0e;
   --color-text-primary:#e8eaf0;
-  --color-text-secondary:#8a8ea0;
+  --color-text-secondary:#aab0c2;
   --color-text-on-dark:#e8eaf0;
   --color-text-muted:#4a4e60;
   --color-border:rgba(255,255,255,.06);
@@ -45,7 +45,7 @@
   --color-bg-accent:rgba(160,160,170,.12);
   --color-bg-card-dark:#0c0c0e;
   --color-text-primary:#e8eaf0;
-  --color-text-secondary:#8a8ea0;
+  --color-text-secondary:#aab0c2;
   --color-text-on-dark:#e8eaf0;
   --color-text-muted:#4a4e60;
   --color-border:rgba(255,255,255,.06);
@@ -92,7 +92,7 @@
   --color-bg-accent:rgba(160,160,170,.12);
   --color-bg-card-dark:#0c0c0e;
   --color-text-primary:#e0e0e4;
-  --color-text-secondary:#8a8a94;
+  --color-text-secondary:#a8a8b4;
   --color-text-on-dark:#e0e0e4;
   --color-text-muted:#55555e;
   --color-border:rgba(255,255,255,.07);
@@ -944,15 +944,15 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   transition:all .25s ease;
 }
 .hero-cta-secondary:hover{
-  background:rgba(var(--color-accent-rgb),.06);
-  border-color:rgba(var(--color-accent-rgb),.3);
-  color:var(--accent);
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
   transform:translateY(-1px);
 }
 [data-theme="light"] .hero-cta-secondary{border-color:var(--color-border-strong);color:var(--color-text-primary);background:transparent}
 [data-theme="lightproject"] .hero-cta-secondary{border-color:var(--color-border-strong);color:var(--color-text-primary);background:transparent}
-[data-theme="light"] .hero-cta-secondary:hover{background:rgba(var(--color-accent-rgb),.06);border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
-[data-theme="lightproject"] .hero-cta-secondary:hover{background:rgba(var(--color-accent-rgb),.06);border-color:rgba(var(--color-accent-rgb),.3);color:var(--accent)}
+[data-theme="light"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#000}
+[data-theme="lightproject"] .hero-cta-secondary:hover{background:var(--accent);border-color:var(--accent);color:#000}
 /* HERO ACCENT STRIP */
 .hero-accent{background:var(--color-bg-card-dark);padding:3rem var(--gutter);position:relative;overflow:hidden;border-top:1px solid rgba(var(--color-accent-rgb),.1);border-bottom:1px solid rgba(var(--color-accent-rgb),.1)}
 [data-theme="light"] .hero-accent{background:var(--color-bg-secondary);border-top-color:var(--color-border);border-bottom-color:var(--color-border)}
@@ -2942,6 +2942,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   background:var(--color-bg-card-dark);border-color:var(--color-bg-card-dark);
   box-shadow:0 18px 44px rgba(0,0,0,.28);
 }
+/* In light mode the band renders dark, so the popular card is dark-on-dark —
+   give it a coloured (accent) edge so it still stands out */
+.svc-plans-band[data-theme="dark"] .pr-plan.pop{border-color:var(--accent)}
 .pr-plan.pop .pr-plan-name{color:var(--accent)}
 .pr-plan.pop .pr-plan-price,.pr-plan.pop .pr-plan-list li{color:#f4f6f6}
 .pr-plan.pop .pr-plan-text{color:#9fa7a8}
@@ -2974,17 +2977,17 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 }
 .pr-plan-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.92rem;line-height:1.5;font-weight:400;color:var(--text)}
 .pr-plan-list svg{flex:none;margin-top:.22rem;color:var(--accent)}
+/* Every plan CTA is the accent (blue) button, popular or not */
 .pr-plan-cta{
   margin-top:2rem;
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   padding:.85rem 1.2rem;border-radius:var(--radius-small);
-  font-size:.93rem;font-weight:500;color:var(--text);
-  border:1px solid var(--color-border-strong);
+  font-size:.93rem;font-weight:500;color:var(--color-text-on-dark);
+  background:var(--accent);border:1px solid var(--accent);
   transition:border-color var(--transition-fast),background var(--transition-fast);
 }
-.pr-plan-cta:hover{border-color:var(--accent)}
+.pr-plan-cta:hover,.pr-plan-cta.acc:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
 .pr-plan-cta.acc{background:var(--accent);border-color:var(--accent);color:var(--color-text-on-dark)}
-.pr-plan-cta.acc:hover{background:var(--accent2,var(--accent));border-color:var(--accent2,var(--accent))}
 .pr-plan-cta svg{transition:transform var(--transition-fast)}
 .pr-plan-cta:hover svg{transform:translateX(3px)}
 .pr-note{margin-top:2rem;font-size:.85rem;font-weight:400;color:var(--text3);max-width:62ch}
