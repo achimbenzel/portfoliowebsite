@@ -1070,24 +1070,8 @@ function pvpInit(){
 if(typeof window!=='undefined')window.pvpInit=pvpInit;
 
 function abtPg(){const a=t('abt');
-const plusSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
-const lucideIcons={
-  mountain:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="m4.14 15.08 2.36-2.36a1 1 0 0 1 1.41 0l1.18 1.18"/></svg>',
-  gamepad:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg>',
-  type:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>',
-  wrench:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
-  tea:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>'
-};
-
-function renderToggleContent(item){
-  if(item.type==='journey'){
-    return '<div class="abt-journey">'+item.items.map(s=>'<div class="abt-journey-step"><div class="abt-journey-marker"><span class="abt-journey-year">'+s.year+'</span><span class="abt-journey-dot"></span></div><div class="abt-journey-content"><span class="abt-journey-label">'+s.label+'</span><p class="abt-journey-text">'+s.text+'</p></div></div>').join('')+'</div>';
-  }
-  if(item.type==='interests'){
-    return '<div class="abt-interests">'+item.items.map(s=>'<div class="abt-interest-card"><div class="abt-interest-icon">'+(lucideIcons[s.icon]||'')+'</div><div class="abt-interest-body"><span class="abt-interest-label">'+s.label+'</span><p class="abt-interest-text">'+s.text+'</p></div></div>').join('')+'</div>';
-  }
-  return '<div class="abt-toggle-text">'+item.body+'</div>';
-}
+const arrowSVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+const bio=Array.isArray(a.bio)?a.bio:[a.bio];
 
 return`<div class="abt-page">
 
@@ -1095,31 +1079,15 @@ return`<div class="abt-page">
     <h2 class="hw abt-headline" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${a.title}</h2>
   </div></section>
 
-  <section class="abt-intro-section"><div class="reveal">
-    <div class="abt-intro-bar">
-      <div class="abt-portrait-small">
-        <img src="/Assets/images/portrait.webp" alt="Achim — Portrait" onerror="this.style.display='none';this.parentElement.classList.add('abt-portrait-ph')"/>
-        <span class="abt-portrait-label">Portrait</span>
-      </div>
-      <div class="abt-intro-info">
-        <span class="abt-name">${a.name}</span>
-        <span class="abt-role">${a.role}</span>
-      </div>
+  <section class="abt-intro-section"><div class="reveal abt-intro">
+    <div class="abt-portrait">
+      <img src="/Assets/images/portrait.webp" alt="Achim — Portrait" onerror="this.style.display='none';this.parentElement.classList.add('abt-portrait-ph')"/>
+      <span class="abt-portrait-label">Portrait</span>
     </div>
-  </div></section>
-
-  <section class="abt-lead-section"><div class="reveal">
-    <p class="abt-lead">${a.bio}</p>
-  </div></section>
-
-  <section class="abt-section-block"><div class="reveal abt-section">
-    <h3 class="abt-section-title">${a.timelineTitle}</h3>
-    <div class="abt-journey">${a.timeline.map(s=>`<div class="abt-journey-step"><div class="abt-journey-marker"><span class="abt-journey-year">${s.year}</span><span class="abt-journey-dot"></span></div><div class="abt-journey-content"><p class="abt-journey-text">${s.text}</p></div></div>`).join('')}</div>
-  </div></section>
-
-  <section class="abt-section-block"><div class="reveal abt-section">
-    <h3 class="abt-section-title">${a.pointsTitle}</h3>
-    <div class="svc-gain abt-points">${a.points.map((pt,i)=>`<div class="svc-gain-item"><div class="svc-gain-media"><img src="/Assets/images/0${i+1}.webp" alt="" loading="lazy" onerror="this.remove()"/></div><span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${pt.t}</h4><p class="svc-gain-d">${pt.d}</p></div></div>`).join('')}</div>
+    <span class="abt-name">${a.name}</span>
+    <span class="abt-role">${a.role}</span>
+    <div class="abt-bio">${bio.map(p=>`<p data-anim="lines" data-anim-delay="100">${p}</p>`).join('')}</div>
+    <a class="hero-cta-primary abt-contact-btn" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${a.contactBtn||(lang==='en'?'Get in touch':'Kontakt aufnehmen')} ${arrowSVG}</a>
   </div></section>
 
 </div>
@@ -1554,7 +1522,7 @@ return`<div class="notfound-page"><div class="notfound-inner"><div class="reveal
 /* ===== FOOTER with letter-animated social links ===== */
 function ftrH(r){const f=t('ftr');
 /* The service pages close with their own CTA, so the footer one would repeat it */
-const ctaHtml=(r==='contact'||SVC_CATS.includes(r))?'':`<a class="fcta" data-cl="${lang==='en'?'Contact':'Kontakt'}" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${f.cta} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>`;
+const ctaHtml=(r==='contact'||r==='about'||SVC_CATS.includes(r))?'':`<a class="fcta" data-cl="${lang==='en'?'Contact':'Kontakt'}" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${f.cta} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>`;
 
 function makeLetterLink(text, url){
   const letters = letterize(text);

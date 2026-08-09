@@ -107,7 +107,7 @@ function metaDescription(lang, routeKey, slug) {
   switch (routeKey) {
     case 'work':     return stripTags(d.wrk.text);
     case 'my-fonts': return stripTags(d.fonts.text);
-    case 'about':    return stripTags(d.abt.sub) + ' ' + stripTags(d.abt.bio);
+    case 'about':    return stripTags(d.abt.sub) + ' ' + (Array.isArray(d.abt.bio) ? d.abt.bio.map(stripTags).join(' ') : stripTags(d.abt.bio));
     case 'contact':  return stripTags(d.contact.intro);
     default:         return stripTags(d.hero.sub); // home + fallback
   }
