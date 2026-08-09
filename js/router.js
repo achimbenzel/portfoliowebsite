@@ -174,6 +174,7 @@ function render(r, trigger) {
       initHeroCanvas();
       initHeroScroll();
       initFaq3D();
+      if (typeof htestiInit === 'function') htestiInit();
     }
     if (r.startsWith('work/') && typeof pvpInit === 'function') pvpInit();
     if (r.startsWith('my-fonts/')) initFontTester();

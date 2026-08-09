@@ -259,12 +259,12 @@ function testiHomeHtml(){
   if(!items.length)return'';
   const ts=t('testi');
   const arrow='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>';
-  const cards=items.map((it,i)=>{
+  const cards=items.map(it=>{
     const href=routeToPath('work/'+it.slug);
     const photo=it.photo?`<img class="htesti-photo" src="${it.photo}" alt="" loading="lazy" onerror="this.remove()"/>`:'';
     /* person on top, then the full quote, then the "view project" link — the
        foot moves above the text, only the CTA stays at the bottom */
-    return`<figure class="htesti" data-anim="fade" data-anim-delay="${120+i*110}">`
+    return`<figure class="htesti">`
       +`<figcaption class="htesti-foot">`
         +`<div class="htesti-person">${photo}<div class="htesti-who">`
           +`<span class="htesti-name">${it.name}</span>`
@@ -275,11 +275,82 @@ function testiHomeHtml(){
       +`<a class="htesti-cta" href="${href}" onclick="event.preventDefault();go('work/${it.slug}')" aria-label="${ts.cta}: ${it.project}">${ts.cta} ${arrow}</a>`
     +`</figure>`;
   }).join('');
+  const chevL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>';
+  const chevR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>';
+  /* Carousel: always three across on desktop; arrows page through the rest and
+     the dots below signal there are more than fit at once. Enhanced by
+     htestiInit() after mount; without JS the track simply shows the first row. */
   return`<section class="section testi-section"><div class="reveal">`
     +`<h2 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${ts.title}</h2>`
-    +`<div class="htesti-grid">${cards}</div>`
+    +`<div class="htesti-carousel" data-htesti>`
+      +`<div class="htesti-stage">`
+        +`<button type="button" class="htesti-nav htesti-prev" aria-label="${ts.prev}">${chevL}</button>`
+        +`<div class="htesti-viewport"><div class="htesti-track">${cards}</div></div>`
+        +`<button type="button" class="htesti-nav htesti-next" aria-label="${ts.next}">${chevR}</button>`
+      +`</div>`
+      +`<div class="htesti-dots" role="tablist" aria-label="${ts.title.replace(/<[^>]+>/g,'')}"></div>`
+    +`</div>`
   +`</div></section>`;
 }
+
+/* ===== Home testimonials carousel =====
+   Three cards per view (2 on tablet, 1 on mobile); left/right arrows page
+   through and dots below show how many pages exist. Re-runnable after each
+   home render / language switch (guards on data-htestiReady). */
+function htestiInit(){
+  document.querySelectorAll('[data-htesti]').forEach(car=>{
+    if(car.dataset.htestiReady)return;
+    car.dataset.htestiReady='1';
+    const track=car.querySelector('.htesti-track');
+    const cards=[...track.children];
+    if(!cards.length)return;
+    const prev=car.querySelector('.htesti-prev');
+    const next=car.querySelector('.htesti-next');
+    const dots=car.querySelector('.htesti-dots');
+    const gap=()=>parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||26;
+    const perFor=w=>w<=600?1:(w<=960?2:3);
+    let per=3,page=0,pages=1;
+
+    function buildDots(){
+      dots.innerHTML='';
+      for(let i=0;i<pages;i++){
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='htesti-dot'+(i===page?' active':'');
+        b.setAttribute('aria-label',String(i+1));
+        b.addEventListener('click',()=>{page=i;apply();});
+        dots.appendChild(b);
+      }
+    }
+    function apply(){
+      const w=cards[0].getBoundingClientRect().width;
+      const step=w+gap();
+      const maxStart=Math.max(0,cards.length-per);
+      let start=Math.min(page*per,maxStart);
+      track.style.transform=`translateX(${-start*step}px)`;
+      [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===page));
+      if(prev)prev.disabled=page<=0;
+      if(next)next.disabled=page>=pages-1;
+    }
+    function layout(){
+      per=Math.min(perFor(window.innerWidth),cards.length);
+      car.style.setProperty('--htesti-per',per);
+      pages=Math.max(1,Math.ceil(cards.length/per));
+      if(page>pages-1)page=pages-1;
+      car.classList.toggle('htesti-static',cards.length<=per);
+      buildDots();
+      apply();
+    }
+    if(prev)prev.addEventListener('click',()=>{if(page>0){page--;apply();}});
+    if(next)next.addEventListener('click',()=>{if(page<pages-1){page++;apply();}});
+    let rt;window.addEventListener('resize',()=>{
+      if(!document.body.contains(car))return;
+      clearTimeout(rt);rt=setTimeout(layout,150);
+    });
+    layout();
+  });
+}
+if(typeof window!=='undefined')window.htestiInit=htestiInit;
 
 /* ===== PRICING =====
    Home: one card per service category, its cheapest tier and a link through.
