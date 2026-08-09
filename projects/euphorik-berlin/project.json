@@ -16,6 +16,10 @@
     {
       "name": "Illustrator",
       "icon": "illustrator"
+    },
+    {
+      "name": "Blender",
+      "icon": "blender"
     }
   ],
   "en": {
@@ -52,20 +56,6 @@
       }
     },
     {
-      "type": "text",
-      "variant": "center",
-      "en": {
-        "eyebrow": "The mark",
-        "headline": "Built for a dark room",
-        "body": "A DJ logo is almost never seen on white paper. It sits on artwork, on a dark stage backdrop, on a phone screen at night — so the mark was drawn as a single solid shape with no thin strokes and no inner detail that a low-resolution export or a projector could swallow. What is left reads the same in one colour as it does in full artwork."
-      },
-      "de": {
-        "eyebrow": "Das Zeichen",
-        "headline": "Für den dunklen Raum gebaut",
-        "body": "Ein DJ-Logo sieht man fast nie auf weißem Papier. Es liegt auf Artwork, auf dunklem Bühnenhintergrund, nachts auf einem Handydisplay — deshalb ist das Zeichen als eine einzige geschlossene Form gezeichnet, ohne dünne Striche und ohne Binnendetails, die ein niedrig aufgelöster Export oder ein Beamer verschluckt. Was übrig bleibt, liest sich einfarbig genauso wie im vollen Artwork."
-      }
-    },
-    {
       "type": "image",
       "src": "detail-01.webp",
       "alt": {
@@ -74,39 +64,11 @@
       }
     },
     {
-      "type": "text",
-      "variant": "center",
-      "en": {
-        "eyebrow": "Lockup",
-        "headline": "Mark and name, together and apart",
-        "body": "The name travels with the mark on a flyer or a poster, but has to come off it for an avatar or a stamp on a track cover. Both states were fixed at the same time: the wordmark is spaced to the mark's own proportions, and the mark alone keeps the clearspace it needs so it never gets crowded by whatever it is placed on."
-      },
-      "de": {
-        "eyebrow": "Lockup",
-        "headline": "Zeichen und Name, zusammen und getrennt",
-        "body": "Auf Flyer und Plakat läuft der Name mit dem Zeichen, für Avatar oder Track-Cover muss er sich davon lösen lassen. Beide Zustände wurden gleichzeitig festgelegt: Die Wortmarke ist auf die Proportionen des Zeichens abgestimmt, und das Zeichen allein behält seinen Schutzraum, damit es nie von dem bedrängt wird, worauf es liegt."
-      }
-    },
-    {
       "type": "image",
       "src": "detail-02.webp",
       "alt": {
         "en": "Euphorik Berlin lockup with clearspace and construction guides",
         "de": "Euphorik-Berlin-Lockup mit Schutzraum und Konstruktionslinien"
-      }
-    },
-    {
-      "type": "text",
-      "variant": "center",
-      "en": {
-        "eyebrow": "In use",
-        "headline": "From avatar to backdrop",
-        "body": "The same paths carry the streaming avatar, the flyer corner and the wall behind the booth. Nothing had to be redrawn for the small end, which means every release and every event goes out with the identical mark instead of a slightly different one each time."
-      },
-      "de": {
-        "eyebrow": "In der Anwendung",
-        "headline": "Vom Avatar bis zur Rückwand",
-        "body": "Dieselben Pfade tragen den Streaming-Avatar, die Flyer-Ecke und die Wand hinter dem Pult. Für den kleinen Einsatz musste nichts neu gezeichnet werden — jedes Release und jedes Event geht damit mit demselben Zeichen raus statt jedes Mal mit einem leicht anderen."
       }
     },
     {

@@ -974,6 +974,7 @@ function projPg(slug){
     +`<button class="pback" onclick="history.back()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> ${pt.back}</button>`
     +`<div class="pheader"><h1 class="hw" data-anim="chars" data-anim-stagger="22" data-anim-duration="550">${p.title||slug}</h1>${metaHtml}${swHtml}</div>`
     +(p.desc?`<p class="pdesc" data-anim="words" data-anim-stagger="18" data-anim-delay="200">${p.desc}</p>`:'')
+    +((p.tags||[]).length?`<div class="stags pdetail-tags" data-anim="fade" data-anim-delay="260">${p.tags.map(x=>`<span class="stag">${x}</span>`).join('')}</div>`:'')
     +`<div class="pgal" id="pgal" data-imgs='${imgJson}'>${galHtml}</div>`
     +testiHtml
   +`</div>`
@@ -1194,6 +1195,15 @@ function svcCatPg(key){
 
   /* ---- Real projects in this category ---- */
   const rel=c.work?allWorkKeys().filter(k=>(workEntry(k).cats||[]).includes(c.work)):[];
+  /* Branding: brand-identity projects come first, but if there aren't enough to
+     fill the row, top up with the most popular logo-design work not already
+     shown — so the section never looks sparse. */
+  if(key==='branding'&&rel.length<3){
+    allWorkKeys().forEach(k=>{
+      if(rel.length>=3||rel.includes(k))return;
+      if((workEntry(k).cats||[]).includes('logo-design'))rel.push(k);
+    });
+  }
   const relHtml=rel.length?`<div class="reveal svc-block">`
     +`<h3 class="svc-sec-title">${sp.work}</h3>`
     +`<div class="pgrid">${rel.map(wC).join('')}</div>`
