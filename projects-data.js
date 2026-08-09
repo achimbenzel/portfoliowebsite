@@ -541,16 +541,12 @@ const P = {
     },
     "content": [
       {
-        "type": "text",
-        "en": {
-          "eyebrow": "Project",
-          "headline": "An animated logo for an indie game",
-          "body": "A logo was designed and animated for the game PlantUp. As the project was set up as a compact one-shot, the focus was on quickly finding a clear, fitting visual direction. The logo had to suit the game, feel friendly, and at the same time offer enough separate elements to work with later in the animation."
-        },
-        "de": {
-          "eyebrow": "Projekt",
-          "headline": "Ein animiertes Logo für ein Indie Game",
-          "body": "Für das Spiel PlantUp wurde ein Logo gestaltet und animiert. Da das Projekt eher als kompakte One Shot Umsetzung angelegt war, lag der Fokus darauf, schnell eine klare und passende visuelle Richtung zu entwickeln. Das Logo sollte zum Spiel passen, freundlich wirken und gleichzeitig genug einzelne Elemente bieten, um später in der Animation damit arbeiten zu können."
+        "type": "image",
+        "src": "/projects/plant-up/hero.webp",
+        "li": 0,
+        "alt": {
+          "en": "PlantUp — logo",
+          "de": "PlantUp — Logo"
         }
       },
       {
@@ -560,24 +556,11 @@ const P = {
         "title": "PlantUp — Logo Animation"
       },
       {
-        "type": "text",
-        "en": {
-          "eyebrow": "Execution",
-          "headline": "Plant icons as animatable elements",
-          "body": "Several plants were created as small icons for the logo. These elements were then cleanly prepared in layers so they could later be animated separately in Adobe After Effects. That way the logo could be used not only as a static graphic but also translated into motion."
-        },
-        "de": {
-          "eyebrow": "Umsetzung",
-          "headline": "Pflanzen Icons als animierbare Elemente",
-          "body": "Für das Logo wurden mehrere Pflanzen als kleine Icons erstellt. Diese Elemente wurden anschließend sauber in Ebenen vorbereitet, damit sie später in Adobe After Effects getrennt animiert werden konnten. Dadurch ließ sich das Logo nicht nur als statische Grafik verwenden, sondern auch in Bewegung übersetzen."
-        }
-      },
-      {
         "type": "imageGrid",
         "images": [
           {
             "src": "/projects/plant-up/detail-02.webp",
-            "li": 0,
+            "li": 1,
             "alt": {
               "en": "PlantUp — plant icons",
               "de": "PlantUp — Pflanzen Icons"
@@ -585,7 +568,7 @@ const P = {
           },
           {
             "src": "/projects/plant-up/detail-03.webp",
-            "li": 1,
+            "li": 2,
             "alt": {
               "en": "PlantUp — logo elements and layers",
               "de": "PlantUp — Logo Elemente und Ebenen"
@@ -594,22 +577,9 @@ const P = {
         ]
       },
       {
-        "type": "text",
-        "en": {
-          "eyebrow": "Animation",
-          "headline": "Short and long logo animation in After Effects",
-          "body": "The prepared logo elements were animated in Adobe After Effects. This produced a short version that works quickly as a logo intro, as well as a longer variant with more build-up and movement. The goal was to make the logo more alive without overloading it. Thanks to the separate layer structure, the plants and individual shapes could be animated in a targeted way."
-        },
-        "de": {
-          "eyebrow": "Animation",
-          "headline": "Kurze und lange Logo Animation in After Effects",
-          "body": "Die vorbereiteten Logo Elemente wurden in Adobe After Effects animiert. Dabei entstand eine kurze Version, die schnell als Logo Intro funktioniert, sowie eine längere Variante mit mehr Aufbau und Bewegung. Ziel war es, das Logo lebendiger zu machen, ohne es zu überladen. Durch die getrennte Ebenenstruktur konnten die Pflanzen und einzelnen Formen gezielt animiert werden."
-        }
-      },
-      {
         "type": "image",
         "src": "/projects/plant-up/detail-04.webp",
-        "li": 2,
+        "li": 3,
         "alt": {
           "en": "PlantUp — logo animation",
           "de": "PlantUp — Logo Animation"
@@ -620,7 +590,7 @@ const P = {
         "images": [
           {
             "src": "/projects/plant-up/detail-06.gif",
-            "li": 3,
+            "li": 4,
             "alt": {
               "en": "PlantUp — animated version, detail",
               "de": "PlantUp — Animationsversion Detail"
@@ -628,7 +598,7 @@ const P = {
           },
           {
             "src": "/projects/plant-up/detail-07.webp",
-            "li": 4,
+            "li": 5,
             "alt": {
               "en": "PlantUp — long logo animation",
               "de": "PlantUp — Lange Logo Animation"
@@ -637,29 +607,30 @@ const P = {
         ]
       },
       {
-        "type": "text",
-        "en": {
-          "eyebrow": "Credits",
-          "headline": "A project for PlantUp",
-          "body": "PlantUp is developed by Malte Lehmann and releases on Steam in October. The sound design of the logo animation was created by Alicia Karatas. Logo design, animation and sound came together into a short visual intro for the game."
-        },
-        "de": {
-          "eyebrow": "Credits",
-          "headline": "Projekt für PlantUp",
-          "body": "PlantUp wurde von Malte Lehmann entwickelt und erscheint im Oktober auf Steam. Die Soundgestaltung der Logo Animation wurde von Alicia Karatas übernommen. So entstand aus Logo Design, Animation und Sound eine kurze visuelle Einführung für das Spiel."
-        }
-      },
-      {
         "type": "image",
         "src": "/projects/plant-up/detail-05.webp",
-        "li": 5,
+        "li": 6,
         "alt": {
           "en": "PlantUp — final application",
           "de": "PlantUp — Finale Anwendung"
         }
+      },
+      {
+        "type": "testimonial",
+        "photo": "/projects/plant-up/testimonial.webp",
+        "name": "Malte Lehmann",
+        "en": {
+          "role": "PlantUp",
+          "quote": "Placeholder text — will be added later."
+        },
+        "de": {
+          "role": "PlantUp",
+          "quote": "Platzhaltertext — wird später hinzugefügt."
+        }
       }
     ],
     "imgs": [
+      "/projects/plant-up/hero.webp",
       "/projects/plant-up/detail-02.webp",
       "/projects/plant-up/detail-03.webp",
       "/projects/plant-up/detail-04.webp",

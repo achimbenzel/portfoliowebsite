@@ -175,6 +175,7 @@ function render(r, trigger) {
       initHeroScroll();
       initFaq3D();
     }
+    if (r.startsWith('work/') && typeof pvpInit === 'function') pvpInit();
     if (r.startsWith('my-fonts/')) initFontTester();
     if (r.startsWith('shop/')) initLogoTester();
     if (r === 'contact') initTurnstile();

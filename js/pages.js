@@ -10,6 +10,14 @@ const SETTINGS_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 /* Lucide "moon" (ISC) — mirrors /Assets/Icons/moon.svg */
 const MOON_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>';
 
+/* Lucide media icons (ISC) — mirror /Assets/Icons/{play,pause,volume-*}.svg.
+   Inlined so the custom video player can swap them and `currentColor` inherits. */
+const ICN_PLAY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
+const ICN_PAUSE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 4v16"/><path d="M14 4v16"/></svg>';
+const ICN_VOL2='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+const ICN_VOL1='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
+const ICN_VOLX='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>';
+
 /* ===== FLOATING ISLAND NAV =====
    The site has no theme switch: everything runs dark apart from a few sections
    that opt into the light palette locally, and the font pages, which open light
@@ -794,7 +802,25 @@ function projPg(slug){
         galHtml+=`<div class="reveal"><div class="pgal-frame"><img src="${block.src}" alt="${alt}" loading="lazy" onerror="this.closest('.reveal').remove()" ${lb(block.li)}/></div></div>`;
         break;}
       case 'video':{
-        galHtml+=`<div class="reveal"><div class="pgal-frame pgal-video"><video controls playsinline preload="metadata"${block.poster?` poster="${block.poster}"`:''}${block.title?` aria-label="${block.title}"`:''} onerror="this.closest('.reveal').remove()"><source src="${block.src}" type="video/mp4"/></video></div></div>`;
+        /* Custom, on-brand player — build/enhance handled by pvpInit() after mount.
+           Poster + native controls fallback guarantee it plays even without JS. */
+        const cap=block.title?`<figcaption class="pvp-cap">${block.title}</figcaption>`:'';
+        galHtml+=`<div class="reveal"><figure class="pvp" data-pvp>`
+          +`<div class="pvp-shell">`
+            +`<video class="pvp-video" playsinline preload="metadata"${block.poster?` poster="${block.poster}"`:''}${block.title?` title="${block.title}"`:''}><source src="${block.src}" type="video/mp4"/></video>`
+            +`<button type="button" class="pvp-big" aria-label="${pt.vPlay}">${ICN_PLAY}</button>`
+            +`<div class="pvp-controls" role="group" aria-label="${block.title||'Video'}">`
+              +`<button type="button" class="pvp-btn pvp-play" aria-label="${pt.vPlay}">${ICN_PLAY}</button>`
+              +`<span class="pvp-time">0:00 / 0:00</span>`
+              +`<input type="range" class="pvp-scrub" min="0" max="0" step="0.1" value="0" aria-label="${pt.vSeek}" style="--pvp-progress:0%"/>`
+              +`<div class="pvp-vol">`
+                +`<button type="button" class="pvp-btn pvp-mute" aria-label="${pt.vMute}" aria-pressed="false">${ICN_VOL2}</button>`
+                +`<input type="range" class="pvp-vol-slider" min="0" max="1" step="0.05" value="1" aria-label="${pt.vVolume}" style="--pvp-progress:100%"/>`
+              +`</div>`
+            +`</div>`
+          +`</div>`
+          +cap
+        +`</figure></div>`;
         break;}
       case 'imageGrid':{
         const imgs=block.images||[];
@@ -809,7 +835,7 @@ function projPg(slug){
         const td=block[lang]||block.en||{};
         const photo=block.photo||vg(64,64,'',c);
         testiHtml+=`<div class="ptestimonial"><div class="ptesti-inner">`
-          +`<img class="ptesti-photo" src="${photo}" alt="${block.name||''}" loading="lazy"/>`
+          +`<img class="ptesti-photo" src="${photo}" alt="${block.name||''}" loading="lazy" onerror="this.classList.add('ptesti-photo-ph');this.removeAttribute('src');this.alt=''"/>`
           +`<div class="ptesti-content">`
             +`<div class="ptesti-label">${pt.testimonial}</div>`
             +`<div class="ptesti-name">${block.name||''}</div>`
@@ -828,6 +854,96 @@ function projPg(slug){
     +testiHtml
   +`</div>`
 }
+
+/* ===== Custom video player =====
+   Progressive enhancement of every [data-pvp] figure rendered by projPg.
+   Native controls are the JS-off fallback; here we build a website-styled
+   player (play/pause, scrubber, time, volume) using local Lucide icons. */
+function pvpInit(){
+  const lbl=t('prj');
+  const fmt=s=>{
+    if(!isFinite(s)||s<=0)return'0:00';
+    const m=Math.floor(s/60),r=String(Math.floor(s%60)).padStart(2,'0');
+    return`${m}:${r}`;
+  };
+  document.querySelectorAll('[data-pvp]').forEach(fig=>{
+    if(fig.dataset.pvpReady)return;
+    fig.dataset.pvpReady='1';
+    const v=fig.querySelector('.pvp-video');
+    if(!v)return;
+    const big=fig.querySelector('.pvp-big');
+    const playBtn=fig.querySelector('.pvp-play');
+    const time=fig.querySelector('.pvp-time');
+    const scrub=fig.querySelector('.pvp-scrub');
+    const muteBtn=fig.querySelector('.pvp-mute');
+    const vol=fig.querySelector('.pvp-vol-slider');
+
+    /* Missing source -> striped placeholder, keep layout */
+    v.addEventListener('error',()=>{fig.classList.add('pvp-error');});
+
+    const setPlayIcon=playing=>{
+      const icn=playing?ICN_PAUSE:ICN_PLAY;
+      playBtn.innerHTML=icn;
+      playBtn.setAttribute('aria-label',playing?lbl.vPause:lbl.vPlay);
+      big.innerHTML=ICN_PLAY;
+      big.setAttribute('aria-label',lbl.vPlay);
+      fig.classList.toggle('pvp-playing',playing);
+    };
+    const setVolIcon=()=>{
+      const m=v.muted||v.volume===0;
+      muteBtn.innerHTML=m?ICN_VOLX:(v.volume<0.5?ICN_VOL1:ICN_VOL2);
+      muteBtn.setAttribute('aria-pressed',m?'true':'false');
+      muteBtn.setAttribute('aria-label',m?lbl.vUnmute:lbl.vMute);
+      const p=(m?0:v.volume)*100;
+      vol.style.setProperty('--pvp-progress',p+'%');
+      vol.value=m?0:v.volume;
+    };
+
+    const toggle=()=>{ if(v.paused){v.play().catch(()=>{});}else{v.pause();} };
+    big.addEventListener('click',toggle);
+    playBtn.addEventListener('click',toggle);
+    v.addEventListener('click',toggle);
+    v.addEventListener('play',()=>setPlayIcon(true));
+    v.addEventListener('pause',()=>setPlayIcon(false));
+
+    const syncDur=()=>{
+      const d=isFinite(v.duration)?v.duration:0;
+      scrub.max=d||0;
+      scrub.disabled=d<=0;
+      time.textContent=`${fmt(v.currentTime)} / ${fmt(d)}`;
+    };
+    v.addEventListener('loadedmetadata',syncDur);
+    v.addEventListener('durationchange',syncDur);
+    v.addEventListener('timeupdate',()=>{
+      const d=v.duration||0;
+      time.textContent=`${fmt(v.currentTime)} / ${fmt(d)}`;
+      scrub.value=v.currentTime;
+      scrub.style.setProperty('--pvp-progress',(d>0?(v.currentTime/d*100):0)+'%');
+    });
+    scrub.addEventListener('input',()=>{
+      v.currentTime=Number(scrub.value);
+      const d=v.duration||0;
+      scrub.style.setProperty('--pvp-progress',(d>0?(scrub.value/d*100):0)+'%');
+    });
+
+    muteBtn.addEventListener('click',()=>{
+      v.muted=!v.muted;
+      if(!v.muted&&v.volume===0){v.volume=1;}
+      setVolIcon();
+    });
+    vol.addEventListener('input',()=>{
+      v.volume=Number(vol.value);
+      v.muted=v.volume===0;
+      setVolIcon();
+    });
+    v.addEventListener('volumechange',setVolIcon);
+
+    setPlayIcon(false);
+    setVolIcon();
+    syncDur();
+  });
+}
+if(typeof window!=='undefined')window.pvpInit=pvpInit;
 
 function abtPg(){const a=t('abt');
 const plusSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>';
