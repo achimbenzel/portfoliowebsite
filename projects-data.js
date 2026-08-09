@@ -485,228 +485,187 @@ const P = {
       "/projects/lumakeys/detail-03.webp"
     ]
   },
-  "logo-types": {
-    "slug": "logo-types",
-    "pop": 80,
+  "plantup-logo-animation": {
+    "slug": "plantup-logo-animation",
+    "pop": 77,
     "date": {
-      "m": 12,
-      "y": 2025
+      "m": 10,
+      "y": 2026
     },
-    "yr": "2024 - 2025",
-    "cl": "Multiple",
+    "yr": "2026",
+    "cl": "Malte Lehmann",
     "cats": [
-      "3d-design",
-      "brand-identity"
+      "motion-design",
+      "logo-design"
     ],
-    "thumb": "/projects/logo-types/hero.webp",
-    "c": "#1a2e1a",
+    "thumb": "/projects/plant-up/hero.webp",
+    "c": "#12351d",
     "theme": {},
-    "sw": [],
+    "sw": [
+      {
+        "name": "Adobe Illustrator",
+        "icon": "/Assets/software/illustrator.svg"
+      },
+      {
+        "name": "Adobe After Effects",
+        "icon": "/Assets/software/after-effects.svg"
+      }
+    ],
     "en": {
-      "title": "Logos & Custom Typography",
-      "type": "Client Projects",
-      "scope": "Logo Design, 3D Logo Design, 3D Logo Animation",
-      "ind": "Music & Streetwear",
-      "desc": "A curated selection of logo and 3D logo designs from 2024–2025. The work explores a range of visual approaches. From clean, minimal marks to more experimental designs.",
+      "title": "PlantUp",
+      "type": "Client Project",
+      "scope": "Logo Design, Icon Design, Logo Animation",
+      "ind": "Games, Indie Game, Entertainment",
+      "desc": "PlantUp is a game by Malte Lehmann for which a logo was designed and animated. The project was set up as a compact one-shot, focused on developing a fitting visual logo idea for the game and then translating it into a short and a longer animated version.",
       "tags": [
         "Logo Design",
-        "3D Design",
-        "Logo Animation"
+        "Logo Animation",
+        "Icon Design",
+        "Motion Design",
+        "Game Design"
       ]
     },
     "de": {
-      "title": "Logos & Custom Typografie",
-      "type": "Kundenprojekte",
-      "scope": "Logo Design, 3D Logo Design, 3D Logo Animation",
-      "ind": "Musik & Streetwear",
-      "desc": "Eine kuratierte Auswahl an Logo- und 3D-Logo-Designs aus den Jahren 2024–2025. Die Arbeiten zeigen unterschiedliche visuelle Ansätze. Von klaren, reduzierten Markenzeichen bis hin zu experimentellen Gestaltungen.",
+      "title": "PlantUp",
+      "type": "Kundenprojekt",
+      "scope": "Logo Design, Icon Design, Logo Animation",
+      "ind": "Games, Indie Game, Entertainment",
+      "desc": "PlantUp ist ein Spiel von Malte Lehmann, für das ein Logo entwickelt und animiert wurde. Das Projekt war als kompakte Umsetzung angelegt und konzentrierte sich darauf, eine passende visuelle Logoidee für das Spiel zu gestalten und diese anschließend in eine kurze und eine längere Animationsversion zu übertragen.",
       "tags": [
         "Logo Design",
-        "3D Design",
-        "Logo Animation"
+        "Logo Animation",
+        "Icon Design",
+        "Motion Design",
+        "Game Design"
       ]
     },
     "content": [
       {
         "type": "text",
         "en": {
-          "eyebrow": "Selection",
-          "headline": "2D & 3D Logos",
-          "body": ""
+          "eyebrow": "Project",
+          "headline": "An animated logo for an indie game",
+          "body": "A logo was designed and animated for the game PlantUp. As the project was set up as a compact one-shot, the focus was on quickly finding a clear, fitting visual direction. The logo had to suit the game, feel friendly, and at the same time offer enough separate elements to work with later in the animation."
         },
         "de": {
-          "eyebrow": "Auswahl",
-          "headline": "2D & 3D Logos",
-          "body": ""
+          "eyebrow": "Projekt",
+          "headline": "Ein animiertes Logo für ein Indie Game",
+          "body": "Für das Spiel PlantUp wurde ein Logo gestaltet und animiert. Da das Projekt eher als kompakte One Shot Umsetzung angelegt war, lag der Fokus darauf, schnell eine klare und passende visuelle Richtung zu entwickeln. Das Logo sollte zum Spiel passen, freundlich wirken und gleichzeitig genug einzelne Elemente bieten, um später in der Animation damit arbeiten zu können."
         }
       },
       {
-        "type": "image",
-        "src": "/projects/logo-types/detail-01.webp",
-        "li": 0,
-        "alt": {
-          "en": "Logo design — selected work",
-          "de": "Logo Design — Auswahlarbeit"
+        "type": "video",
+        "src": "/projects/plant-up/animation.mp4",
+        "poster": "/projects/plant-up/animation.webp",
+        "title": "PlantUp — Logo Animation"
+      },
+      {
+        "type": "text",
+        "en": {
+          "eyebrow": "Execution",
+          "headline": "Plant icons as animatable elements",
+          "body": "Several plants were created as small icons for the logo. These elements were then cleanly prepared in layers so they could later be animated separately in Adobe After Effects. That way the logo could be used not only as a static graphic but also translated into motion."
+        },
+        "de": {
+          "eyebrow": "Umsetzung",
+          "headline": "Pflanzen Icons als animierbare Elemente",
+          "body": "Für das Logo wurden mehrere Pflanzen als kleine Icons erstellt. Diese Elemente wurden anschließend sauber in Ebenen vorbereitet, damit sie später in Adobe After Effects getrennt animiert werden konnten. Dadurch ließ sich das Logo nicht nur als statische Grafik verwenden, sondern auch in Bewegung übersetzen."
         }
       },
       {
         "type": "imageGrid",
         "images": [
           {
-            "src": "/projects/logo-types/detail-02.webp",
+            "src": "/projects/plant-up/detail-02.webp",
+            "li": 0,
+            "alt": {
+              "en": "PlantUp — plant icons",
+              "de": "PlantUp — Pflanzen Icons"
+            }
+          },
+          {
+            "src": "/projects/plant-up/detail-03.webp",
             "li": 1,
             "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          },
-          {
-            "src": "/projects/logo-types/detail-03.webp",
-            "li": 2,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
+              "en": "PlantUp — logo elements and layers",
+              "de": "PlantUp — Logo Elemente und Ebenen"
             }
           }
         ]
       },
       {
+        "type": "text",
+        "en": {
+          "eyebrow": "Animation",
+          "headline": "Short and long logo animation in After Effects",
+          "body": "The prepared logo elements were animated in Adobe After Effects. This produced a short version that works quickly as a logo intro, as well as a longer variant with more build-up and movement. The goal was to make the logo more alive without overloading it. Thanks to the separate layer structure, the plants and individual shapes could be animated in a targeted way."
+        },
+        "de": {
+          "eyebrow": "Animation",
+          "headline": "Kurze und lange Logo Animation in After Effects",
+          "body": "Die vorbereiteten Logo Elemente wurden in Adobe After Effects animiert. Dabei entstand eine kurze Version, die schnell als Logo Intro funktioniert, sowie eine längere Variante mit mehr Aufbau und Bewegung. Ziel war es, das Logo lebendiger zu machen, ohne es zu überladen. Durch die getrennte Ebenenstruktur konnten die Pflanzen und einzelnen Formen gezielt animiert werden."
+        }
+      },
+      {
         "type": "image",
-        "src": "/projects/logo-types/detail-04.webp",
-        "li": 3,
+        "src": "/projects/plant-up/detail-04.webp",
+        "li": 2,
         "alt": {
-          "en": "Logo design — selected work",
-          "de": "Logo Design — Auswahlarbeit"
+          "en": "PlantUp — logo animation",
+          "de": "PlantUp — Logo Animation"
         }
       },
       {
         "type": "imageGrid",
         "images": [
           {
-            "src": "/projects/logo-types/detail-05.webp",
+            "src": "/projects/plant-up/detail-06.gif",
+            "li": 3,
+            "alt": {
+              "en": "PlantUp — animated version, detail",
+              "de": "PlantUp — Animationsversion Detail"
+            }
+          },
+          {
+            "src": "/projects/plant-up/detail-07.webp",
             "li": 4,
             "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          },
-          {
-            "src": "/projects/logo-types/detail-06.webp",
-            "li": 5,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
+              "en": "PlantUp — long logo animation",
+              "de": "PlantUp — Lange Logo Animation"
             }
           }
         ]
       },
       {
-        "type": "image",
-        "src": "/projects/logo-types/detail-07.webp",
-        "li": 6,
-        "alt": {
-          "en": "Logo design — selected work",
-          "de": "Logo Design — Auswahlarbeit"
+        "type": "text",
+        "en": {
+          "eyebrow": "Credits",
+          "headline": "A project for PlantUp",
+          "body": "PlantUp is developed by Malte Lehmann and releases on Steam in October. The sound design of the logo animation was created by Alicia Karatas. Logo design, animation and sound came together into a short visual intro for the game."
+        },
+        "de": {
+          "eyebrow": "Credits",
+          "headline": "Projekt für PlantUp",
+          "body": "PlantUp wurde von Malte Lehmann entwickelt und erscheint im Oktober auf Steam. Die Soundgestaltung der Logo Animation wurde von Alicia Karatas übernommen. So entstand aus Logo Design, Animation und Sound eine kurze visuelle Einführung für das Spiel."
         }
       },
       {
-        "type": "imageGrid",
-        "images": [
-          {
-            "src": "/projects/logo-types/detail-08.webp",
-            "li": 7,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          },
-          {
-            "src": "/projects/logo-types/detail-09.webp",
-            "li": 8,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          }
-        ]
-      },
-      {
         "type": "image",
-        "src": "/projects/logo-types/detail-10.webp",
-        "li": 9,
+        "src": "/projects/plant-up/detail-05.webp",
+        "li": 5,
         "alt": {
-          "en": "Logo design — selected work",
-          "de": "Logo Design — Auswahlarbeit"
+          "en": "PlantUp — final application",
+          "de": "PlantUp — Finale Anwendung"
         }
-      },
-      {
-        "type": "imageGrid",
-        "images": [
-          {
-            "src": "/projects/logo-types/detail-11.webp",
-            "li": 10,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          },
-          {
-            "src": "/projects/logo-types/detail-12.webp",
-            "li": 11,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          }
-        ]
-      },
-      {
-        "type": "image",
-        "src": "/projects/logo-types/detail-13.webp",
-        "li": 12,
-        "alt": {
-          "en": "Logo design — selected work",
-          "de": "Logo Design — Auswahlarbeit"
-        }
-      },
-      {
-        "type": "imageGrid",
-        "images": [
-          {
-            "src": "/projects/logo-types/detail-14.webp",
-            "li": 13,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          },
-          {
-            "src": "/projects/logo-types/detail-15.webp",
-            "li": 14,
-            "alt": {
-              "en": "Logo design — selected work",
-              "de": "Logo Design — Auswahlarbeit"
-            }
-          }
-        ]
       }
     ],
     "imgs": [
-      "/projects/logo-types/detail-01.webp",
-      "/projects/logo-types/detail-02.webp",
-      "/projects/logo-types/detail-03.webp",
-      "/projects/logo-types/detail-04.webp",
-      "/projects/logo-types/detail-05.webp",
-      "/projects/logo-types/detail-06.webp",
-      "/projects/logo-types/detail-07.webp",
-      "/projects/logo-types/detail-08.webp",
-      "/projects/logo-types/detail-09.webp",
-      "/projects/logo-types/detail-10.webp",
-      "/projects/logo-types/detail-11.webp",
-      "/projects/logo-types/detail-12.webp",
-      "/projects/logo-types/detail-13.webp",
-      "/projects/logo-types/detail-14.webp",
-      "/projects/logo-types/detail-15.webp"
+      "/projects/plant-up/detail-02.webp",
+      "/projects/plant-up/detail-03.webp",
+      "/projects/plant-up/detail-04.webp",
+      "/projects/plant-up/detail-06.gif",
+      "/projects/plant-up/detail-07.webp",
+      "/projects/plant-up/detail-05.webp"
     ]
   },
   "euphorik-berlin": {

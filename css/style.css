@@ -1074,6 +1074,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pgal .pgal-frame{overflow:hidden;border-radius:var(--radius-card);background:transparent;border:none;transition:box-shadow .3s}
 .pgal .pgal-frame:hover{}
 .pgal .pgal-frame img{width:100%;display:block}
+.pgal .pgal-frame video{width:100%;height:auto;display:block;background:#000}
 .pgal .pgal-frame:hover img{}
 .pgal .irow{display:grid;grid-template-columns:repeat(var(--cols,2),1fr);gap:1.5rem}
 /* TESTIMONIAL */

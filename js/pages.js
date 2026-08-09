@@ -793,6 +793,9 @@ function projPg(slug){
         const alt=(block.alt||{})[lang]||(block.alt||{}).en||'';
         galHtml+=`<div class="reveal"><div class="pgal-frame"><img src="${block.src}" alt="${alt}" loading="lazy" onerror="this.closest('.reveal').remove()" ${lb(block.li)}/></div></div>`;
         break;}
+      case 'video':{
+        galHtml+=`<div class="reveal"><div class="pgal-frame pgal-video"><video controls playsinline preload="metadata"${block.poster?` poster="${block.poster}"`:''}${block.title?` aria-label="${block.title}"`:''} onerror="this.closest('.reveal').remove()"><source src="${block.src}" type="video/mp4"/></video></div></div>`;
+        break;}
       case 'imageGrid':{
         const imgs=block.images||[];
         galHtml+=`<div class="reveal"><div class="irow" style="--cols:${imgs.length}">`

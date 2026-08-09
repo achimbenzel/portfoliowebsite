@@ -80,6 +80,10 @@ folders.forEach(folder => {
         return { type: 'image', src, li: pushLb(src), alt: { en: loc(block.alt, 'en') || block.alt || '', de: loc(block.alt, 'de') || block.alt || '' } };
       }
 
+      case 'video':
+        /* Not part of the lightbox image list — it plays inline */
+        return { type: 'video', src: img(block.src), poster: img(block.poster), title: block.title || '' };
+
       case 'imageGrid':
         return {
           type: 'imageGrid',
