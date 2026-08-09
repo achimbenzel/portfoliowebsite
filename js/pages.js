@@ -295,22 +295,41 @@ function testiHomeHtml(){
 
 /* ===== Home testimonials carousel =====
    Three cards per view (2 on tablet, 1 on mobile); left/right arrows page
-   through and dots below show how many pages exist. Re-runnable after each
-   home render / language switch (guards on data-htestiReady). */
+   through and dots below show how many pages exist. Loops infinitely: past the
+   last page it slides on into the first (and vice versa), kept seamless by
+   clone buffers on both ends. Re-runnable after each home render / language
+   switch (guards on data-htestiReady). */
 function htestiInit(){
   document.querySelectorAll('[data-htesti]').forEach(car=>{
     if(car.dataset.htestiReady)return;
     car.dataset.htestiReady='1';
     const track=car.querySelector('.htesti-track');
-    const cards=[...track.children];
-    if(!cards.length)return;
+    const originals=[...track.children];
+    const n=originals.length;
+    if(!n)return;
     const prev=car.querySelector('.htesti-prev');
     const next=car.querySelector('.htesti-next');
     const dots=car.querySelector('.htesti-dots');
     const gap=()=>parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||26;
     const perFor=w=>w<=600?1:(w<=960?2:3);
-    let per=3,page=0,pages=1;
+    let per=3,page=0,pages=1,maxStart=0,offset=0,loop=false,locked=false;
 
+    const step=()=>originals[0].getBoundingClientRect().width+gap();
+    const startOf=p=>Math.min(p*per,maxStart);
+    function moveTo(px,anim){
+      if(!anim){track.style.transition='none';}
+      track.style.transform=`translateX(${px}px)`;
+      if(!anim){track.getBoundingClientRect();track.style.transition='';}
+    }
+    const setStart=(s,anim)=>moveTo(-(offset+s)*step(),anim);
+
+    function mkClone(el){
+      const c=el.cloneNode(true);
+      c.classList.add('htesti-clone');
+      c.setAttribute('aria-hidden','true');
+      c.querySelectorAll('a,button').forEach(x=>x.setAttribute('tabindex','-1'));
+      return c;
+    }
     function buildDots(){
       dots.innerHTML='';
       for(let i=0;i<pages;i++){
@@ -318,36 +337,70 @@ function htestiInit(){
         b.type='button';
         b.className='htesti-dot'+(i===page?' active':'');
         b.setAttribute('aria-label',String(i+1));
-        b.addEventListener('click',()=>{page=i;apply();});
+        b.addEventListener('click',()=>goTo(i));
         dots.appendChild(b);
       }
     }
-    function apply(){
-      const w=cards[0].getBoundingClientRect().width;
-      const step=w+gap();
-      const maxStart=Math.max(0,cards.length-per);
-      let start=Math.min(page*per,maxStart);
-      track.style.transform=`translateX(${-start*step}px)`;
-      [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===page));
-      if(prev)prev.disabled=page<=0;
-      if(next)next.disabled=page>=pages-1;
-    }
-    function layout(){
-      per=Math.min(perFor(window.innerWidth),cards.length);
+    const syncDots=()=>[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===page));
+
+    function build(){
+      track.querySelectorAll('.htesti-clone').forEach(c=>c.remove());
+      per=Math.min(perFor(window.innerWidth),n);
       car.style.setProperty('--htesti-per',per);
-      pages=Math.max(1,Math.ceil(cards.length/per));
+      pages=Math.max(1,Math.ceil(n/per));
+      maxStart=Math.max(0,n-per);
+      loop=n>per;
+      offset=loop?per:0;
+      if(loop){
+        /* prepend clones of the last `per` cards (backward wrap) */
+        const a=document.createDocumentFragment();
+        for(let i=n-per;i<n;i++)a.appendChild(mkClone(originals[i]));
+        track.insertBefore(a,track.firstChild);
+        /* append clones of the first `per` cards (forward wrap) */
+        const b=document.createDocumentFragment();
+        for(let i=0;i<per;i++)b.appendChild(mkClone(originals[i]));
+        track.appendChild(b);
+      }
+      car.classList.toggle('htesti-static',!loop);
       if(page>pages-1)page=pages-1;
-      car.classList.toggle('htesti-static',cards.length<=per);
       buildDots();
-      apply();
+      setStart(startOf(page),false);
     }
-    if(prev)prev.addEventListener('click',()=>{if(page>0){page--;apply();}});
-    if(next)next.addEventListener('click',()=>{if(page<pages-1){page++;apply();}});
+
+    function goTo(p){
+      if(locked)return;
+      p=Math.max(0,Math.min(pages-1,p));
+      if(p===page)return;
+      page=p;setStart(startOf(page),true);syncDots();
+    }
+    function wrap(px,landPage){
+      locked=true;
+      page=landPage;syncDots();
+      moveTo(px,true);
+      track.addEventListener('transitionend',function h(){
+        track.removeEventListener('transitionend',h);
+        setStart(startOf(page),false);
+        locked=false;
+      },{once:true});
+    }
+    function goNext(){
+      if(locked)return;
+      if(page<pages-1){page++;setStart(startOf(page),true);syncDots();return;}
+      if(loop)wrap(-(offset+n)*step(),0);              /* into appended clones -> page 0 */
+    }
+    function goPrev(){
+      if(locked)return;
+      if(page>0){page--;setStart(startOf(page),true);syncDots();return;}
+      if(loop)wrap(-(offset-per)*step(),pages-1);      /* into prepended clones -> last page */
+    }
+
+    if(prev)prev.addEventListener('click',goPrev);
+    if(next)next.addEventListener('click',goNext);
     let rt;window.addEventListener('resize',()=>{
       if(!document.body.contains(car))return;
-      clearTimeout(rt);rt=setTimeout(layout,150);
+      clearTimeout(rt);rt=setTimeout(build,150);
     });
-    layout();
+    build();
   });
 }
 if(typeof window!=='undefined')window.htestiInit=htestiInit;

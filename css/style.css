@@ -2566,6 +2566,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .htesti-track>.htesti{
   flex:0 0 calc((100% - (var(--htesti-per,3) - 1) * 1.6rem) / var(--htesti-per,3));
 }
+.htesti-clone{pointer-events:none}
 .htesti-nav{
   flex:0 0 auto;align-self:center;display:inline-flex;align-items:center;justify-content:center;
   width:44px;height:44px;padding:0;border:1px solid var(--color-border);border-radius:99px;
