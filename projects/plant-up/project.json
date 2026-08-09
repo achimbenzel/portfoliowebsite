@@ -1,0 +1,104 @@
+{
+  "title": "PlantUp",
+  "slug": "plantup-logo-animation",
+  "year": "2026",
+  "date": {
+    "month": 10,
+    "year": 2026
+  },
+  "popularity": 77,
+  "client": "Malte Lehmann",
+  "category": "Motion Design / Animation",
+  "software": [
+    {
+      "name": "Adobe Illustrator",
+      "icon": "illustrator"
+    },
+    {
+      "name": "Adobe After Effects",
+      "icon": "after-effects"
+    }
+  ],
+  "tags": [
+    "Logo Design",
+    "Logo Animation",
+    "Icon Design",
+    "Motion Design",
+    "Game Design"
+  ],
+  "thumbnail": "hero.webp",
+  "description": "PlantUp ist ein Spiel von Malte Lehmann, für das ein Logo entwickelt und animiert wurde. Das Projekt war als kompakte Umsetzung angelegt und konzentrierte sich darauf, eine passende visuelle Logoidee für das Spiel zu gestalten und diese anschließend in eine kurze und eine längere Animationsversion zu übertragen.",
+  "meta": {
+    "projectType": "Kundenprojekt",
+    "scope": "Logo Design, Icon Design, Logo Animation",
+    "industry": "Games, Indie Game, Entertainment"
+  },
+  "content": [
+    {
+      "type": "text",
+      "eyebrow": "Projekt",
+      "headline": "Ein animiertes Logo für ein Indie Game",
+      "body": "Für das Spiel PlantUp wurde ein Logo gestaltet und animiert. Da das Projekt eher als kompakte One Shot Umsetzung angelegt war, lag der Fokus darauf, schnell eine klare und passende visuelle Richtung zu entwickeln. Das Logo sollte zum Spiel passen, freundlich wirken und gleichzeitig genug einzelne Elemente bieten, um später in der Animation damit arbeiten zu können."
+    },
+    {
+      "type": "video",
+      "src": "animation.mp4",
+      "title": "Animation",
+      "poster": "animation.webp"
+    },
+    {
+      "type": "text",
+      "eyebrow": "Umsetzung",
+      "headline": "Pflanzen Icons als animierbare Elemente",
+      "body": "Für das Logo wurden mehrere Pflanzen als kleine Icons erstellt. Diese Elemente wurden anschließend sauber in Ebenen vorbereitet, damit sie später in Adobe After Effects getrennt animiert werden konnten. Dadurch ließ sich das Logo nicht nur als statische Grafik verwenden, sondern auch in Bewegung übersetzen."
+    },
+    {
+      "type": "imageGrid",
+      "images": [
+        {
+          "src": "detail-02.webp",
+          "alt": "PlantUp - Pflanzen Icons"
+        },
+        {
+          "src": "detail-03.webp",
+          "alt": "PlantUp - Logo Elemente und Ebenen"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "Animation",
+      "headline": "Kurze und lange Logo Animation in After Effects",
+      "body": "Die vorbereiteten Logo Elemente wurden in Adobe After Effects animiert. Dabei entstand eine kurze Version, die schnell als Logo Intro funktioniert, sowie eine längere Variante mit mehr Aufbau und Bewegung. Ziel war es, das Logo lebendiger zu machen, ohne es zu überladen. Durch die getrennte Ebenenstruktur konnten die Pflanzen und einzelnen Formen gezielt animiert werden."
+    },
+    {
+      "type": "image",
+      "src": "detail-04.webp",
+      "alt": "PlantUp - Logo Animation"
+    },
+    {
+      "type": "imageGrid",
+      "images": [
+        {
+          "src": "detail-06.gif",
+          "alt": "PlantUp - Animationsversion Detail"
+        },
+        {
+          "src": "detail-07.webp",
+          "alt": "PlantUp - Lange Logo Animation"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "eyebrow": "Credits",
+      "headline": "Projekt für PlantUp",
+      "body": "PlantUp wurde von Malte Lehmann entwickelt und erscheint im Oktober auf Steam. Die Soundgestaltung der Logo Animation wurde von Alicia Karatas übernommen. So entstand aus Logo Design, Animation und Sound eine kurze visuelle Einführung für das Spiel."
+    },
+    {
+      "type": "image",
+      "src": "detail-05.webp",
+      "alt": "PlantUp - Finale Anwendung"
+    }
+  ]
+}
