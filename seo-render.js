@@ -288,7 +288,7 @@ function metaTags(lang, routeKey, pageTitle, pathAfterLang, slug) {
   const desc = metaDescription(lang, routeKey, slug);
   const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
   const canonical = `${SITE}/${lang}${pathAfterLang}`;
-  let ogImage = `${SITE}/Assets/og-image.jpg`; // default 1200x630 share image
+  let ogImage = `${SITE}/Assets/images/preview.webp`; // default share image
   let titleText = pageTitle;
   // Project pages: use the project name + its hero image as preview
   if (routeKey === 'work' && slug) {
