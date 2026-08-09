@@ -1070,8 +1070,6 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pmeta{display:flex;gap:2.5rem;flex-wrap:wrap;font-size:1.1rem;color:var(--pdetail-text2,var(--text2))}
 .pmeta dt{font-size:.6rem;text-transform:uppercase;letter-spacing:.14em;color:var(--pdetail-dt,var(--accent));margin-bottom:.2rem;font-weight:700;font-family:var(--font-mono)}
 .pdesc{max-width:900px;font-size:1.5rem;color:var(--pdetail-p,var(--text2));line-height:1.85;font-weight:300;margin-bottom:3.5rem;hyphens:auto}
-.pdesc:has(+ .pdetail-tags){margin-bottom:1.4rem}
-.pdetail-tags{margin-top:0;margin-bottom:3.5rem}
 .pgal{display:flex;flex-direction:column;gap:1.5rem}
 .pgal .pgal-frame{overflow:hidden;border-radius:var(--radius-card);background:transparent;border:none;transition:box-shadow .3s}
 .pgal .pgal-frame:hover{}

@@ -217,7 +217,8 @@ const P = {
     "yr": "2026",
     "cl": "Joeys Picknick",
     "cats": [
-      "brand-identity"
+      "brand-identity",
+      "web-design"
     ],
     "thumb": "/projects/joeys-picknick/hero.webp",
     "c": "#101830",
@@ -239,27 +240,25 @@ const P = {
     "en": {
       "title": "Joeys Picknick Mainz",
       "type": "Client Project",
-      "scope": "Brand Strategy, Visual Identity, Digital Design",
+      "scope": "Brand Strategy, Visual Identity, Digital Design, Website",
       "ind": "Gastronomy",
       "desc": "Joeys Picknick is a modern food truck from Mainz that specializes in renting out thoughtfully curated picnic baskets along the banks of the Rhine. What makes Joeys Picknick unique is the combination of effortless enjoyment, high-quality food, and a relaxed outdoor experience. Instead of classic street food, the focus here is on shared moments, whether with friends, family, or as a couple, right by the water.",
       "tags": [
         "Brand Strategy",
         "Visual Identity",
-        "Digital Design",
-        "Website"
+        "Digital Design"
       ]
     },
     "de": {
       "title": "Joeys Picknick Mainz",
       "type": "Kundenprojekt",
-      "scope": "Markenstrategie, Visuelle Identität, Digital Design",
+      "scope": "Markenstrategie, Visuelle Identität, Digital Design, Website",
       "ind": "Gastronomie",
       "desc": "Joeys Picknick ist ein moderner Foodtruck aus Mainz, der sich auf die Vermietung liebevoll zusammengestellter Picknickkörbe entlang des Rheinufers spezialisiert hat. Das Besondere an Joeys Picknick ist die Verbindung aus unkompliziertem Genuss, hochwertigem Essen und einem entspannten Outdoor-Erlebnis. Statt klassischem Streetfood steht hier das gemeinsame Erleben im Mittelpunkt, ob mit Freunden, Familie oder zu zweit, direkt am Wasser.",
       "tags": [
         "Markenstrategie",
         "Visuelle Identität",
-        "Digital Design",
-        "Website"
+        "Digital Design"
       ]
     },
     "content": [
