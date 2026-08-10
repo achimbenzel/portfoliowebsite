@@ -2663,10 +2663,10 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   transition:border-color var(--transition-fast);
 }
 .pr-card:hover{border-color:rgba(var(--color-accent-rgb),.25)}
-/* Service hero image at the top of the card (the file the service page uses). */
-.pr-card-media{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-small);background:var(--bg2);margin-bottom:.4rem}
-.pr-card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.16,1,.3,1)}
-.pr-card:hover .pr-card-media img{transform:scale(1.04)}
+/* Service hero image at the top of the card (the file the service page uses).
+   Shown at its native ratio (square) — never cropped, no hover zoom. */
+.pr-card-media{width:100%;overflow:hidden;border-radius:var(--radius-small);background:var(--bg2);margin-bottom:.4rem}
+.pr-card-media img{width:100%;height:auto;display:block}
 .pr-card-title{font-size:1.35rem;font-weight:600;color:var(--text);margin:0}
 .pr-card-text{font-size:.92rem;font-weight:300;line-height:1.7;color:var(--text2);margin:0;flex:1 1 auto}
 .pr-card-price{display:flex;align-items:baseline;gap:.5rem;margin-top:.6rem}
