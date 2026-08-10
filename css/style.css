@@ -2996,8 +2996,16 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 
 @media(max-width:1000px){
   .svc-hero{grid-template-columns:1fr;gap:2.5rem}
+<<<<<<< Updated upstream
   /* one column below this: full width, like the gain images */
   .svc-hero-media{width:100%;max-width:none;margin-inline:0}
+=======
+  /* stacked: the hero media moves above the copy so the image sits over the title */
+  .svc-hero-copy{order:2}
+  .svc-bento,.svc-hero-media{order:1}
+  /* one column below this: the bento spans the same rail as every other block */
+  .svc-bento{height:auto;width:100%;aspect-ratio:16/11}
+>>>>>>> Stashed changes
   .svc-gain{grid-template-columns:1fr;gap:2rem}
   .svc-close{grid-template-columns:1fr;gap:1rem}
   .svc-sec-title{max-width:none}
