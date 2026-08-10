@@ -2968,6 +2968,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
    gets and this element would otherwise miss. */
 .svc-plans-band{background:var(--bg);color:var(--text);padding:8.1rem 0}
 .svc-plans-band > .reveal{padding:0 var(--gutter)}
+/* Below 1120px the sections drop to a 1.5rem inset (see .section), so the plans
+   band matches it — otherwise the band's gutter left the cards too narrow. */
+@media(max-width:1120px){.svc-plans-band > .reveal{padding:0 1.5rem}}
 .svc-plans-title{max-width:20ch;margin-bottom:2.6rem}
 
 /* ---- closing CTA ---- */
@@ -3009,7 +3012,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 @media(max-width:600px){
   .svc-cat-page{padding-bottom:5rem}
   .svc-block{margin-top:5rem}
-  .svc-plans-band{padding:5rem 1.5rem}
+  .svc-plans-band{padding:5rem 0}
   .svc-hero-cta{flex-direction:column;align-items:stretch}
   .svc-jump,.svc-hero-alt,.svc-close-btn{justify-content:center}
 }
