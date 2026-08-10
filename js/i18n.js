@@ -165,7 +165,7 @@ const L={en:{
     tester:'Font Tester',themeLabel:'Preview',back:'Back to Fonts',size:'Size',spacing:'Letter Spacing',lineH:'Line Height',align:'Alignment',version:'Version',regular:'Regular',italic:'Italic',preview:'Type something here…',getFont:'Get Font'},
   /* Client quotes on the home page are collected from the projects themselves —
      any project with a testimonial block shows up here automatically. */
-  testi:{title:'What clients <em>say</em>',cta:'View project',prev:'Previous testimonials',next:'Next testimonials'},
+  testi:{title:'What clients <em>say</em>',cta:'View project',prev:'Previous testimonials',next:'Next testimonials',more:'Read more',less:'Show less'},
   /* Placeholder pricing. `from` drives the three home-page cards, `plans` the
      three tiers on each service page (index 1 is flagged as the popular one). */
   pricing:{
@@ -401,7 +401,7 @@ de:{
     /* Wird als Projekt-Karte im Projekte-Raster angezeigt — führt zu /my-fonts */
     card:{title:'Type Library',type:'Eigenprojekt',ind:'Schriftgestaltung',tags:['Schriftgestaltung','Display','Monospace']},
     tester:'Schrift-Tester',themeLabel:'Vorschau',back:'Zurück zu Fonts',size:'Größe',spacing:'Laufweite',lineH:'Zeilenhöhe',align:'Ausrichtung',version:'Version',regular:'Regular',italic:'Kursiv',preview:'Schreiben Sie hier…',getFont:'Font herunterladen'},
-  testi:{title:'Was Kunden <em>sagen</em>',cta:'Projekt ansehen',prev:'Vorherige Kundenstimmen',next:'Nächste Kundenstimmen'},
+  testi:{title:'Was Kunden <em>sagen</em>',cta:'Projekt ansehen',prev:'Vorherige Kundenstimmen',next:'Nächste Kundenstimmen',more:'Mehr lesen',less:'Weniger anzeigen'},
   pricing:{
     title:'<em>Preise</em>',
     text:'Jedes Projekt wird individuell kalkuliert. Die folgenden Beträge sind Einstiegspreise und geben Ihnen eine erste Orientierung, bevor wir über Ihren konkreten Umfang sprechen.',

@@ -634,12 +634,12 @@ const P = {
         "photo": "/projects/plant-up/testimonial.webp",
         "name": "Malte Lehmann",
         "en": {
-          "role": "PlantUp",
-          "quote": "Placeholder text — will be added later."
+          "role": "Developer, PlantUp",
+          "quote": "When developing my game PlantUp, it was important to me from the very beginning to create a visual identity of its own that reflects the cozy, colorful character of the game while at the same time conveying the energy and the chaos of the gameplay. Achim supported me with the design of the logo and additionally developed an animated version from it.\n\nWhat impressed me most was how well he understood my ideas and turned them into a logo design that fits PlantUp perfectly. Thanks to the animation, the logo gains a dynamic all of its own and feels lively and suited to the game.\n\nThe collaboration was super straightforward, creative and reliable right from the start. I was able to contribute my ideas and visions and at the same time always had the feeling that Achim understood exactly what I wanted to get out of the project. The result visually elevated PlantUp considerably for me and gave the game a character of its own.\n\nThank you so much, dear Achim, for your support and the great work! I am very glad that we did this together, and I am already looking forward to more projects where we can work together."
         },
         "de": {
-          "role": "PlantUp",
-          "quote": "Platzhaltertext — wird später hinzugefügt."
+          "role": "Entwickler, PlantUp",
+          "quote": "Bei der Entwicklung meines Spiels PlantUp war mir von Anfang an wichtig, eine eigene visuelle Identität zu schaffen, die den gemütlichen, bunten Charakter des Spiels widerspiegelt, aber gleichzeitig auch die Energie und das Chaos des Gameplays vermittelt. Achim hat mich dabei mit dem Design des Logos unterstützt und daraus zusätzlich eine animierte Version entwickelt.\n\nBesonders begeistert hat mich, wie gut er meine Vorstellungen verstanden und daraus ein Logo Design entwickelt hat, das perfekt zu PlantUp passt. Durch die Animation bekommt das Logo noch einmal eine ganz eigene Dynamik und wirkt dadurch lebendig und passend zum Spiel.\n\nDie Zusammenarbeit war dabei von Anfang an super unkompliziert, kreativ und zuverlässig. Ich konnte meine Ideen und Vorstellungen einbringen und hatte gleichzeitig immer das Gefühl, dass Achim genau versteht, was ich aus dem Projekt herausholen möchte. Das Ergebnis hat PlantUp für mich visuell noch einmal deutlich aufgewertet und dem Spiel einen eigenen Charakter gegeben.\n\nVielen Dank, lieber Achim, für deine Unterstützung und die tolle Arbeit! Ich bin sehr froh, dass wir das gemeinsam umgesetzt haben, und freue mich schon auf weitere Projekte, bei denen wir zusammenarbeiten können."
         }
       }
     ],

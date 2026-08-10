@@ -235,6 +235,31 @@ function toggleFaq(i){
   item.classList.toggle('open');
 }
 
+/* Split a testimonial quote on blank lines into paragraphs. */
+function quoteParas(q){return String(q||'').split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean);}
+/* Wrap the paragraphs in curly quotes: opening on the first, closing on the last. */
+function quoteHtml(q){const a=quoteParas(q);return a.map((p,i)=>`<p>${i===0?'“':''}${p}${i===a.length-1?'”':''}</p>`).join('');}
+
+/* Home testimonials clamp their quote to a few lines; this expands/collapses the
+   full text with the same easing as the FAQ answers. Height is measured so the
+   max-height transition is smooth for any quote length. */
+function toggleTesti(btn){
+  const wrap=btn.closest('.htesti-quote-wrap');if(!wrap)return;
+  const q=wrap.querySelector('.htesti-quote');if(!q)return;
+  const ts=t('testi');
+  const open=wrap.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open?'true':'false');
+  btn.textContent=open?(ts.less||'Show less'):(ts.more||'Read more');
+  if(open){
+    q.style.maxHeight=q.scrollHeight+'px';
+    q.addEventListener('transitionend',function h(e){if(e.propertyName==='max-height'){q.style.maxHeight='none';q.removeEventListener('transitionend',h);}});
+  }else{
+    q.style.maxHeight=q.scrollHeight+'px';
+    void q.offsetHeight;            /* reflow so the following change animates */
+    q.style.maxHeight='';           /* back to the CSS clamp height */
+  }
+}
+
 /* ===== TESTIMONIALS =====
    Collected from the projects themselves: any project carrying a testimonial
    block shows up here, in the same order the work grid uses. Adding one to a
@@ -271,7 +296,10 @@ function testiHomeHtml(){
           +(it.role?`<span class="htesti-role">${it.role}</span>`:'')
         +`</div></div>`
       +`</figcaption>`
-      +`<blockquote class="htesti-quote">“${it.quote}”</blockquote>`
+      +`<div class="htesti-quote-wrap">`
+        +`<blockquote class="htesti-quote">${quoteHtml(it.quote)}</blockquote>`
+        +`<button type="button" class="htesti-more" onclick="toggleTesti(this)" aria-expanded="false">${ts.more||'Read more'}</button>`
+      +`</div>`
       +`<a class="htesti-cta" href="${href}" onclick="event.preventDefault();go('work/${it.slug}')" aria-label="${ts.cta}: ${it.project}">${ts.cta} ${arrow}</a>`
     +`</figure>`;
   }).join('');
@@ -365,6 +393,16 @@ function htestiInit(){
       if(page>pages-1)page=pages-1;
       buildDots();
       setStart(startOf(page),false);
+      clampCheck();
+    }
+    /* Hide the "read more" button for quotes short enough to fit the clamp. */
+    function clampCheck(){
+      car.querySelectorAll('.htesti-quote-wrap').forEach(wrap=>{
+        if(wrap.classList.contains('open'))return;
+        const q=wrap.querySelector('.htesti-quote');
+        if(!q)return;
+        wrap.classList.toggle('htq-fits',q.scrollHeight<=q.clientHeight+2);
+      });
     }
 
     function goTo(p){
@@ -964,7 +1002,7 @@ function projPg(slug){
             +`<div class="ptesti-label">${pt.testimonial}</div>`
             +`<div class="ptesti-name">${block.name||''}</div>`
             +(td.role?`<div class="ptesti-role">${td.role}</div>`:'')
-            +(td.quote?`<p class="ptesti-quote">\u201c${td.quote}\u201d</p>`:'')
+            +(td.quote?`<div class="ptesti-quote">${quoteHtml(td.quote)}</div>`:'')
           +`</div></div></div>`;
         break;}
     }

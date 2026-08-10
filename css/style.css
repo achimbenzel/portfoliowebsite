@@ -1126,7 +1126,9 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .ptesti-label{font-family:var(--font-mono);font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
 .ptesti-name{font-family:var(--font-primary);font-size:1.5rem;font-weight:600;color:var(--pdetail-h1,var(--text));margin-bottom:.15rem}
 .ptesti-role{font-size:1.1rem;color:var(--pdetail-text2,var(--text2));font-weight:400;margin-bottom:1.2rem}
-.ptesti-quote{font-size:1rem;color:var(--pdetail-p,var(--text2));line-height:1.85;font-weight:300;font-style:italic;max-width:700px;hyphens:auto}
+.ptesti-quote{max-width:700px}
+.ptesti-quote p{font-size:1rem;color:var(--pdetail-p,var(--text2));line-height:1.85;font-weight:300;font-style:italic;hyphens:auto;margin:0}
+.ptesti-quote p + p{margin-top:1em}
 /* ===== CONTACT FORM PAGE ===== */
 .contact-page{padding:9rem var(--gutter) 5rem}
 .contact-page .pback{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:2.5rem;background:none;border:none;transition:color var(--transition-fast)}
@@ -2409,7 +2411,7 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   .ft-about-desc,
   .faq-answer-inner,
   .notfound-sub,
-  .ptesti-quote,
+  .ptesti-quote p,
   .hero-rickroll-sub{
     font-size:1.2rem;
   }
@@ -2597,12 +2599,32 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
   transition:border-color var(--transition-fast);
 }
 .htesti:hover{border-color:rgba(var(--color-accent-rgb),.25)}
+.htesti-quote-wrap{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;gap:.8rem;min-width:0}
 .htesti-quote{
-  margin:0;flex:1 1 auto;
+  margin:0;width:100%;
   font-size:1rem;line-height:1.8;font-weight:300;font-style:italic;
   color:var(--text2);hyphens:auto;
-  /* the full quote is shown — no clamp */
+  /* clamp to a few lines; toggleTesti() animates max-height on expand */
+  max-height:9.2em;overflow:hidden;
+  transition:max-height .55s cubic-bezier(.76,0,.24,1);
 }
+.htesti-quote p{margin:0}
+.htesti-quote p + p{margin-top:.75em}
+/* fade the clamped text out at the bottom (bg-independent, via mask) */
+.htesti-quote-wrap:not(.open):not(.htq-fits) .htesti-quote{
+  -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent);
+  mask-image:linear-gradient(to bottom,#000 62%,transparent);
+}
+/* short quotes: no clamp, no button */
+.htq-fits .htesti-quote{max-height:none}
+.htq-fits .htesti-more{display:none}
+.htesti-more{
+  align-self:flex-start;background:none;border:none;padding:0;
+  font-family:var(--font-mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  cursor:pointer;transition:color var(--transition-fast);
+}
+.htesti-more:hover{color:var(--accent2)}
 /* the person sits above the quote, separated by a rule below it */
 .htesti-foot{
   display:flex;flex-direction:column;gap:1.2rem;
