@@ -451,10 +451,10 @@ function pricingHomeHtml(){
   const arrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
   const cards=SVC_CATS.map((k,i)=>{
     const c=cats[k];if(!c||!c.fromPrice)return'';
-    /* Placeholder lucide icons, one file per service in Assets/Icons/services —
-       swapping in the real artwork means replacing the file, nothing else. */
+    /* Each card leads with the service's own hero image (same file the service
+       page uses); it removes itself if the image is missing. */
     return`<div class="pr-card" data-anim="fade" data-anim-delay="${120+i*110}">`
-      +`<img class="pr-card-icon" src="/Assets/Icons/services/${k}.svg" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()"/>`
+      +`<div class="pr-card-media"><img src="/Assets/Icons/services/${k}/hero.webp" alt="" loading="lazy" onerror="this.closest('.pr-card-media').remove()"/></div>`
       +`<h3 class="pr-card-title">${c.label}</h3>`
       +(c.short?`<p class="pr-card-text">${c.short}</p>`:'')
       +`<div class="pr-card-price"><span class="pr-from">${pr.from}</span><span class="pr-amount">${c.fromPrice}</span></div>`
@@ -1125,7 +1125,7 @@ return`<div class="abt-page">
     <span class="abt-name">${a.name}</span>
     <span class="abt-role">${a.role}</span>
     <div class="abt-bio">${bio.map(p=>`<p data-anim="lines" data-anim-delay="100">${p}</p>`).join('')}</div>
-    <a class="hero-cta-primary abt-contact-btn" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${a.contactBtn||(lang==='en'?'Get in touch':'Kontakt aufnehmen')} ${arrowSVG}</a>
+    <a class="svc-close-btn abt-contact-btn" href="${routeToPath('contact')}" onclick="event.preventDefault();go('contact')">${a.contactBtn||(lang==='en'?'Get in touch':'Kontakt aufnehmen')} ${arrowSVG}</a>
   </div></section>
 
 </div>
