@@ -114,49 +114,37 @@ const L={en:{
       ],
       work:'motion-design'
     },
-    'web-design':{
-      hero:'A website is <em>not a brochure</em>.',
-      benefits:'How a website comes together',
-      tiles:['Interface design','Components','Build'],
-      fromPrice:'500 €',
+    'music-visuals':{
+      hero:'A release should <em>look like it sounds</em>.',
+      benefits:'What you get',
+      tiles:['Cover art','Brand kit','Visualizer'],
       plans:[
-        {name:'Website Simple',price:'from 500 €',d:'A clean site for the essentials.',f:['Up to 4 subpages','Imprint and privacy policy included (not counted as subpages)','No contact form','Responsive down to mobile','Basic SEO','2 revision rounds']},
-        {name:'Website',price:'from 1.000 €',d:'The full site, with a contact form.',f:['Everything in Website Simple','Up to 8 pages','Contact form','Content structure and copy layout','Performance and accessibility pass']},
-        {name:'Website Professional',price:'from 1.500 €',d:'A site you can edit yourself, with a CMS.',f:['Everything in Website','CMS so you can edit it yourself','Custom components and interactions','Advanced SEO setup','Support after launch, up to 2 weeks']}
+        {name:'Album Cover',d:'Artwork for a single, EP or album.',f:['Cover artwork designed to your track','Streaming and print resolutions','Optional back cover and booklet','2 revision rounds']},
+        {name:'Music Branding',d:'A complete visual identity for your artist name or label.',f:['Logo and wordmark for your artist name','Colour, type and layout system','Cover and social templates','Guidelines so every release stays consistent']},
+        {name:'Visualizer',d:'Animated visuals that move with the track.',f:['Looping or full-length visualizer','Synced to the music','Formats for YouTube, Reels and stage','Source file on handover']}
       ],
-      compare:[
-        {l:'Subpages',v:[4,8,'8+']},
-        {l:'Imprint &amp; privacy policy',v:[true,true,true]},
-        {l:'Contact form',v:[false,true,true]},
-        {l:'Responsive',v:[true,true,true]},
-        {l:'CMS',v:[false,false,true]},
-        {l:'SEO',v:['Basic','Basic','Advanced']},
-        {l:'Custom components',v:[false,false,true]},
-        {l:'Revision rounds',v:[2,2,3]},
-        {l:'Support after launch',v:['—','—','up to 2 weeks']}
-      ],
-      label:'Web Design',
-      title:'Web <em>Design</em>',
-      short:'Interfaces and websites where the identity actually works in the browser.',
-      text:'It has to make something happen: an enquiry, a booking, a call. I build sites that load fast, work on any device, and guide visitors to the point that matters.',
+      label:'Music & Visuals',
+      title:'Music &amp; <em>Visuals</em>',
+      short:'Cover art, artist branding and motion visuals made to match the sound.',
+      text:'The look of a release should carry the same feeling as the track. I design cover artwork, artist identities and animated visuals that fit the music and hold up from a streaming thumbnail to a stage screen.',
       svcs:[
-        {t:'Structure',d:'Which pages you need, what comes first, and where visitors end up.',tags:['UX/UI','Wireframes','Design Systems']},
-        {t:'Design',d:'Layout, typography and components in the brand\'s style, built for small screens from the start.',tags:['Web Design','Responsive','Art Direction']},
-        {t:'Hand over',d:'Set up, tested and explained, so nothing is left hanging afterwards.',tags:['Prototyping','Front-End','Animation']}
+        {t:'Cover Artwork',d:'Single, EP and album covers built to read at thumbnail size and in print.',tags:['Cover Art','Typography','Art Direction']},
+        {t:'Artist & Label Branding',d:'A visual system for your name or label that stays recognisable across every release.',tags:['Branding','Identity','Templates']},
+        {t:'Motion & Visualizers',d:'Animated visuals and loops that move with the track, for video and live sets.',tags:['Motion','Visualizer','Loops']}
       ],
       process:[
-        {t:'Discovery',d:'We map what the site has to do — who visits, what they need to find, and what counts as success. That decides the pages before it decides the pixels.'},
-        {t:'Structure & Wireframes',d:'Content and hierarchy are settled in low fidelity first. It is far cheaper to argue about the order of things while it still looks like boxes.'},
-        {t:'Design System & Pages',d:'A set of components — type, colour, spacing, states — comes first, then every page is drawn from it. That keeps later pages consistent and quick.'},
-        {t:'Iterations & Handoff',d:'Short rounds on each section at real breakpoints, then a documented file with the specs and assets a developer needs to build it without guessing.'}
+        {t:'Listening',d:'It starts with the track. I listen to what the music feels like and what the release needs before anything is drawn.'},
+        {t:'Direction',d:'A visual direction is set — references, mood, colour and type — so we agree on the feeling before the detail.'},
+        {t:'Design & Motion',d:'Cover art and identity come first, then get translated into motion where a visualizer is part of the release.'},
+        {t:'Delivery',d:'Everything is exported in the formats each platform needs, from streaming thumbnails to full-resolution print and video.'}
       ],
-      deliver:[{t:'The finished site',d:'Live, responsive, and fast.'},{t:'Design system',d:'Components and rules, documented.'},{t:'CMS access',d:'Edit your own content, no developer needed.'},{t:'Performance & accessibility',d:'Loading, contrast and keyboard use checked.'},{t:'Handover',d:'Source files and a walkthrough.'}],
+      deliver:[{t:'Final artwork',d:'In every format you need.'},{t:'Motion files',d:'Visualizers and loops, ready to post.'},{t:'Templates',d:'So future releases stay on brand.'},{t:'Guidelines',d:'Colour, type and usage, documented.'},{t:'Source files',d:'Handed over on completion.'}],
       faq:[
-        {q:'How long does a website take?',a:'A focused site of five to eight pages usually takes four to eight weeks in design. Larger projects are split into phases so you can see and approve work as it lands.'},
-        {q:'Do you build the site as well?',a:'For smaller projects, yes — I hand-build the front-end. For larger ones I hand off to your developers with a documented file and stay available for questions during the build.'},
-        {q:'Is the design mobile-friendly?',a:'Every layout is drawn at mobile, tablet and desktop widths. Small screens are designed, not derived, so nothing important is left to chance in the narrowest view.'}
+        {q:'Do you design for a single release or the whole artist brand?',a:'Both. A single cover is a self-contained project; a full artist identity sets up a system so every future release already has a look to build on.'},
+        {q:'Can you animate the cover into a visualizer?',a:'Yes. The cover and the motion are designed together so the visualizer feels like the same world in movement, ready for YouTube, Reels or a stage screen.'},
+        {q:'What do you need from me to start?',a:'The track or a rough mix, any lyrics or the title, and a sense of the mood you are after. From there I take it into a first visual direction.'}
       ],
-      work:'web-design'
+      work:'music-visuals'
     }
   },
   fonts:{label:'My Fonts',title:'Type <em>Library</em>',text:'A selection of experimental typefaces created by myself.',
@@ -170,11 +158,11 @@ const L={en:{
      three tiers on each service page (index 1 is flagged as the popular one). */
   pricing:{
     title:'<em>Pricing</em>',
-    text:'Every project is quoted individually. The figures below are entry-level prices, meant to give you a first point of reference before we talk through your actual scope.',
-    from:'from',homeCta:'Learn more',popular:'Most popular',
-    planTitle:'Three packages — <em>depending on how far the brand has to carry</em>',planCta:'Enquire',planSubject:'Enquiry',
+    text:'Every project is quoted individually. Here is a first look at what I offer — get in touch and I will put together a quote for your scope.',
+    from:'from',homeCta:'Learn more',popular:'Most popular',onRequest:'On request',
+    planTitle:'Three packages — <em>depending on how far it has to carry</em>',planCta:'Enquire',planSubject:'Enquiry',
     compareTitle:'Compare packages',priceRow:'Price',
-    note:'All figures are indicative. The binding quote is based on scope, timeline and the number of revision rounds.'
+    note:'There are no fixed prices — the exact figure depends on the scope of each individual project. Get in touch and I will put together a quote.'
   },
   /* Ready-made logos sold at a fixed price. Entries live in /logos. */
   logos:{
@@ -352,49 +340,37 @@ de:{
       ],
       work:'motion-design'
     },
-    'web-design':{
-      hero:'Eine Website ist <em>kein Prospekt</em>.',
-      benefits:'Wie eine Website entsteht',
-      tiles:['Interface-Design','Komponenten','Umsetzung'],
-      fromPrice:'500 €',
+    'music-visuals':{
+      hero:'Ein Release sollte <em>aussehen wie es klingt</em>.',
+      benefits:'Was Sie bekommen',
+      tiles:['Cover Art','Brand Kit','Visualizer'],
       plans:[
-        {name:'Website Simple',price:'ab 500 €',d:'Eine schlanke Seite für das Wesentliche.',f:['Bis zu 4 Unterseiten','Impressum und Datenschutz inklusive (zählen nicht als Unterseiten)','Kein Kontaktformular','Responsiv bis Mobile','Basis-SEO','2 Korrekturschleifen']},
-        {name:'Website',price:'ab 1.000 €',d:'Die ganze Seite, mit Kontaktformular.',f:['Alles aus Website Simple','Bis zu 8 Seiten','Kontaktformular','Inhaltsstruktur und Textlayout','Performance- und Accessibility-Durchgang']},
-        {name:'Website Professional',price:'ab 1.500 €',d:'Eine Seite zum selbst Pflegen, mit CMS.',f:['Alles aus Website','CMS zum selbst Pflegen','Eigene Komponenten und Interaktionen','Erweitertes SEO-Setup','Support nach dem Launch, bis 2 Wochen']}
+        {name:'Album Cover',d:'Artwork für eine Single, EP oder ein Album.',f:['Cover Artwork, abgestimmt auf Ihren Track','Auflösungen für Streaming und Print','Optional Back Cover und Booklet','2 Korrekturschleifen']},
+        {name:'Music Branding',d:'Eine komplette visuelle Identität für Ihren Artist-Namen oder Ihr Label.',f:['Logo und Wortmarke für Ihren Artist-Namen','Farb-, Typo- und Layout-System','Cover- und Social-Templates','Guidelines, damit jedes Release stimmig bleibt']},
+        {name:'Visualizer',d:'Animierte Visuals, die sich mit dem Track bewegen.',f:['Loop- oder Full-Length-Visualizer','Auf die Musik abgestimmt','Formate für YouTube, Reels und Bühne','Projektdatei bei der Übergabe']}
       ],
-      compare:[
-        {l:'Unterseiten',v:[4,8,'8+']},
-        {l:'Impressum &amp; Datenschutz',v:[true,true,true]},
-        {l:'Kontaktformular',v:[false,true,true]},
-        {l:'Responsiv',v:[true,true,true]},
-        {l:'CMS',v:[false,false,true]},
-        {l:'SEO',v:['Basis','Basis','Erweitert']},
-        {l:'Eigene Komponenten',v:[false,false,true]},
-        {l:'Korrekturschleifen',v:[2,2,3]},
-        {l:'Support nach Launch',v:['—','—','bis 2 Wochen']}
-      ],
-      label:'Web Design',
-      title:'Web <em>Design</em>',
-      short:'Interfaces und Websites, auf denen die Identität auch im Browser funktioniert.',
-      text:'Sie muss etwas auslösen: eine Anfrage, eine Buchung, einen Anruf. Ich baue Seiten, die schnell laden, auf jedem Gerät funktionieren und Besucher dorthin führen, wo es zählt.',
+      label:'Music & Visuals',
+      title:'Music &amp; <em>Visuals</em>',
+      short:'Cover Art, Artist-Branding und Motion-Visuals, die zum Sound passen.',
+      text:'Der Look eines Releases sollte dasselbe Gefühl tragen wie der Track. Ich gestalte Cover Artwork, Artist-Identitäten und animierte Visuals, die zur Musik passen und vom Streaming-Thumbnail bis zur Bühnenleinwand funktionieren.',
       svcs:[
-        {t:'Struktur',d:'Welche Seiten es braucht, was zuerst kommt und wohin die Besucher am Ende geführt werden.',tags:['UX/UI','Wireframes','Designsysteme']},
-        {t:'Gestalten',d:'Layout, Typografie und Komponenten im Stil der Marke, von Anfang an auch für kleine Bildschirme.',tags:['Web Design','Responsive','Art Direction']},
-        {t:'Übergeben',d:'Fertig eingerichtet, getestet und erklärt, damit danach nichts offen bleibt.',tags:['Prototyping','Front-End','Animation']}
+        {t:'Cover Artwork',d:'Single-, EP- und Album-Cover, die als Thumbnail und im Print funktionieren.',tags:['Cover Art','Typografie','Art Direction']},
+        {t:'Artist- & Label-Branding',d:'Ein visuelles System für Ihren Namen oder Ihr Label, das über jedes Release erkennbar bleibt.',tags:['Branding','Identität','Templates']},
+        {t:'Motion & Visualizer',d:'Animierte Visuals und Loops, die sich mit dem Track bewegen – für Video und Live-Sets.',tags:['Motion','Visualizer','Loops']}
       ],
       process:[
-        {t:'Kennenlernen',d:'Wir halten fest, was die Seite leisten muss: wer sie besucht, was diese Menschen finden wollen und woran sich Erfolg messen lässt. Das entscheidet über die Seiten, bevor es über die Pixel entscheidet.'},
-        {t:'Struktur & Wireframes',d:'Inhalt und Hierarchie werden zuerst grob geklärt. Über die Reihenfolge zu streiten ist deutlich günstiger, solange alles noch nach Kästen aussieht.'},
-        {t:'Designsystem & Seiten',d:'Zuerst entsteht ein Baukasten aus Typografie, Farbe, Abständen und Zuständen, daraus dann jede einzelne Seite. Das hält spätere Seiten konsistent und schnell.'},
-        {t:'Iterationen & Übergabe',d:'Kurze Runden pro Abschnitt an echten Breakpoints, danach eine dokumentierte Datei mit den Angaben und Assets, die eine Umsetzung ohne Raten möglich machen.'}
+        {t:'Zuhören',d:'Es beginnt mit dem Track. Ich höre, wie sich die Musik anfühlt und was das Release braucht, bevor etwas gestaltet wird.'},
+        {t:'Richtung',d:'Eine visuelle Richtung wird festgelegt – Referenzen, Stimmung, Farbe und Typo – damit das Gefühl steht, bevor es ins Detail geht.'},
+        {t:'Design & Motion',d:'Cover und Identität entstehen zuerst und werden dann in Bewegung übersetzt, wenn ein Visualizer Teil des Releases ist.'},
+        {t:'Übergabe',d:'Alles wird in den Formaten exportiert, die jede Plattform braucht – vom Streaming-Thumbnail bis zu Print und Video in voller Auflösung.'}
       ],
-      deliver:[{t:'Die fertige Website',d:'Live, responsiv und schnell.'},{t:'Designsystem',d:'Komponenten und Regeln, dokumentiert.'},{t:'CMS-Zugang',d:'Inhalte selbst pflegen, ohne Entwickler.'},{t:'Performance & Accessibility',d:'Ladezeit, Kontrast und Tastaturbedienung geprüft.'},{t:'Übergabe',d:'Quelldateien und eine Einweisung.'}],
+      deliver:[{t:'Finales Artwork',d:'In jedem Format, das Sie brauchen.'},{t:'Motion-Dateien',d:'Visualizer und Loops, bereit zum Posten.'},{t:'Templates',d:'Damit künftige Releases stimmig bleiben.'},{t:'Guidelines',d:'Farbe, Typo und Anwendung, dokumentiert.'},{t:'Projektdateien',d:'Werden bei Abschluss übergeben.'}],
       faq:[
-        {q:'Wie lange dauert eine Website?',a:'Eine fokussierte Seite mit fünf bis acht Unterseiten braucht im Design meist vier bis acht Wochen. Größere Projekte teile ich in Phasen, damit Sie Zwischenstände sehen und freigeben können.'},
-        {q:'Setzen Sie die Seite auch um?',a:'Bei kleineren Projekten ja, dann baue ich das Frontend selbst. Bei größeren übergebe ich an Ihre Entwicklung — mit dokumentierter Datei und während der Umsetzung erreichbar für Rückfragen.'},
-        {q:'Ist das Design mobiloptimiert?',a:'Jedes Layout wird für Mobil, Tablet und Desktop gezeichnet. Kleine Bildschirme werden gestaltet und nicht abgeleitet, damit in der schmalsten Ansicht nichts dem Zufall überlassen bleibt.'}
+        {q:'Gestalten Sie für ein einzelnes Release oder die ganze Artist-Marke?',a:'Beides. Ein einzelnes Cover ist ein abgeschlossenes Projekt; eine komplette Artist-Identität baut ein System auf, sodass jedes künftige Release schon einen Look hat, auf dem es aufbauen kann.'},
+        {q:'Können Sie das Cover in einen Visualizer animieren?',a:'Ja. Cover und Motion werden zusammen gestaltet, damit sich der Visualizer wie dieselbe Welt in Bewegung anfühlt – bereit für YouTube, Reels oder die Bühnenleinwand.'},
+        {q:'Was brauchen Sie von mir für den Start?',a:'Den Track oder einen groben Mix, eventuelle Lyrics oder den Titel und ein Gefühl für die gewünschte Stimmung. Daraus entwickle ich eine erste visuelle Richtung.'}
       ],
-      work:'web-design'
+      work:'music-visuals'
     }
   },
   fonts:{label:'Meine Schriften',title:'Type <em>Library</em>',text:'Eine Auswahl experimenteller, von mir selbst entwickelter Schriftarten.',
@@ -404,11 +380,11 @@ de:{
   testi:{title:'Was Kunden <em>sagen</em>',cta:'Projekt ansehen',prev:'Vorherige Kundenstimmen',next:'Nächste Kundenstimmen',more:'Mehr lesen',less:'Weniger anzeigen'},
   pricing:{
     title:'<em>Preise</em>',
-    text:'Jedes Projekt wird individuell kalkuliert. Die folgenden Beträge sind Einstiegspreise und geben Ihnen eine erste Orientierung, bevor wir über Ihren konkreten Umfang sprechen.',
-    from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',
+    text:'Jedes Projekt wird individuell kalkuliert. Hier ein erster Überblick über meine Leistungen – melden Sie sich, und ich stelle Ihnen ein passendes Angebot zusammen.',
+    from:'ab',homeCta:'Mehr erfahren',popular:'Beliebteste Wahl',onRequest:'Auf Anfrage',
     planTitle:'Drei Pakete — <em>je nachdem, wie weit es tragen soll</em>',planCta:'Anfragen',planSubject:'Anfrage',
     compareTitle:'Pakete vergleichen',priceRow:'Preis',
-    note:'Alle Angaben sind Richtwerte. Das verbindliche Angebot richtet sich nach Umfang, Zeitrahmen und Anzahl der Korrekturschleifen.'
+    note:'Es gibt keine festen Preise – der genaue Betrag hängt vom Umfang des jeweiligen Projekts ab. Melden Sie sich für ein individuelles Angebot.'
   },
   logos:{
     label:'Shop',

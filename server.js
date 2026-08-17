@@ -123,7 +123,7 @@ app.get('/', (req, res) => {
 
 /* ===== All page routes under /:lang/ ===== */
 /* Service categories — must match SVC_CATS in js/pages.js and svcCat{} in i18n */
-const SVC_CAT_ROUTES = ['branding', 'motion-design', 'web-design'];
+const SVC_CAT_ROUTES = ['branding', 'motion-design', 'music-visuals'];
 
 const PAGE_ROUTES = [
   '',              // home

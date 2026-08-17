@@ -217,8 +217,7 @@ const P = {
     "yr": "2026",
     "cl": "Joeys Picknick",
     "cats": [
-      "brand-identity",
-      "web-design"
+      "brand-identity"
     ],
     "thumb": "/projects/joeys-picknick/hero.webp",
     "c": "#101830",

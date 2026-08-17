@@ -1,6 +1,6 @@
 /* ===== SERVICE CATEGORIES =====
    Route keys, in nav order. Each has an entry in i18n svcCat{}. */
-const SVC_CATS=['branding','motion-design','web-design'];
+const SVC_CATS=['branding','motion-design','music-visuals'];
 
 /* Lucide "sun" (ISC) — mirrors /Assets/Icons/sun.svg. Inlined so `currentColor`
    inherits the button's colour; an <img> tag could not. */
@@ -450,14 +450,14 @@ function pricingHomeHtml(){
   const pr=t('pricing'),cats=t('svcCat')||{};
   const arrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
   const cards=SVC_CATS.map((k,i)=>{
-    const c=cats[k];if(!c||!c.fromPrice)return'';
+    const c=cats[k];if(!c)return'';
     /* Each card leads with the service's own hero image (same file the service
-       page uses); it removes itself if the image is missing. */
+       page uses); it removes itself if the image is missing. The image is a
+       plain link to the service page — same target as the CTA, no hover state. */
     return`<div class="pr-card" data-anim="fade" data-anim-delay="${120+i*110}">`
-      +`<div class="pr-card-media"><img src="/Assets/Icons/services/${k}/hero.webp" alt="" loading="lazy" onerror="this.closest('.pr-card-media').remove()"/></div>`
+      +`<a class="pr-card-media" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')" aria-label="${deEnt(c.label)}"><img src="/Assets/Icons/services/${k}/hero.webp" alt="" loading="lazy" onerror="this.closest('.pr-card-media').remove()"/></a>`
       +`<h3 class="pr-card-title">${c.label}</h3>`
       +(c.short?`<p class="pr-card-text">${c.short}</p>`:'')
-      +`<div class="pr-card-price"><span class="pr-from">${pr.from}</span><span class="pr-amount">${c.fromPrice}</span></div>`
       +`<a class="pr-card-cta" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')">${pr.homeCta} ${arrow}</a>`
     +`</div>`;
   }).join('');
@@ -486,7 +486,7 @@ function pricingPlansHtml(c){
     return`<div class="pr-plan${pop?' pop':''}">`
       +(pop?`<span class="pr-plan-badge">${pr.popular}</span>`:'')
       +`<div class="pr-plan-head"><span class="pr-plan-name">${pl.name}</span></div>`
-      +`<div class="pr-plan-price">${pl.price}</div>`
+      +`<div class="pr-plan-price">${pr.onRequest}</div>`
       +(pl.d?`<p class="pr-plan-text">${pl.d}</p>`:'')
       +`<ul class="pr-plan-list">${(pl.f||[]).map(f=>`<li>${tick}<span>${f}</span></li>`).join('')}</ul>`
       +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();inquirePlan('${c.key}',${i})">${pr.planCta} ${arrow}</a>`
@@ -516,7 +516,7 @@ function pricingPlansHtml(c){
           +`<thead><tr><th scope="col"></th>${plans.map((pl,i)=>`<th scope="col" data-col="${i}"${i===1?' class="pop"':''}>${pl.name}</th>`).join('')}</tr></thead>`
           +`<tbody>`
             +cmp.map(r=>`<tr><th scope="row">${r.l}</th>${(r.v||[]).map((v,i)=>`<td data-col="${i}"${i===1?' class="pop"':''}>${cell(v)}</td>`).join('')}</tr>`).join('')
-            +`<tr class="pr-cmp-price"><th scope="row">${pr.priceRow}</th>${plans.map((pl,i)=>`<td data-col="${i}"${i===1?' class="pop"':''}>${pl.price}</td>`).join('')}</tr>`
+            +`<tr class="pr-cmp-price"><th scope="row">${pr.priceRow}</th>${plans.map((pl,i)=>`<td data-col="${i}"${i===1?' class="pop"':''}>${pr.onRequest}</td>`).join('')}</tr>`
           +`</tbody>`
         +`</table></div>`
       +`</div>`
@@ -691,7 +691,7 @@ function inquireLogo(slug){
 function inquirePlan(cat,i){
   const c=(t('svcCat')||{})[cat],pr=t('pricing');
   const pl=c&&(c.plans||[])[i];
-  inquire(pl?`${pr.planSubject}: ${c.label} — ${pl.name}${pl.price?' ('+pl.price+')':''}`:'');
+  inquire(pl?`${pr.planSubject}: ${c.label} — ${pl.name}`:'');
 }
 
 /* ===== Logo gallery — one stage image plus a scrollable thumbnail strip =====
@@ -1341,7 +1341,7 @@ function ftCselPick(opt,val,label){
 
 
 /* ===== WORK PAGE (filterable) ===== */
-const WRK_CATS=['all','brand-identity','logo-design','motion-design','3d-design','web-design','type-design'];
+const WRK_CATS=['all','brand-identity','logo-design','motion-design','3d-design','type-design'];
 let wrkCat='all';
 
 /* ===== WORK ITEMS THAT LIVE ON THEIR OWN PAGE =====

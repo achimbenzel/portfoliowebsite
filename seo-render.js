@@ -39,7 +39,7 @@ function attr(s) {
 
 /* ---- Service category helpers ---- */
 /* Keys must match SVC_CATS in js/pages.js and SVC_CAT_ROUTES in server.js */
-const SVC_CAT_KEYS = ['branding', 'motion-design', 'web-design'];
+const SVC_CAT_KEYS = ['branding', 'motion-design', 'music-visuals'];
 function svcCat(lang, key) {
   const d = L[lang] || L.en;
   return (d.svcCat || {})[key] || null;
