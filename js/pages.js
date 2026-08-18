@@ -486,7 +486,6 @@ function pricingPlansHtml(c){
     return`<div class="pr-plan${pop?' pop':''}">`
       +(pop?`<span class="pr-plan-badge">${pr.popular}</span>`:'')
       +`<div class="pr-plan-head"><span class="pr-plan-name">${pl.name}</span></div>`
-      +`<div class="pr-plan-price">${pr.onRequest}</div>`
       +(pl.d?`<p class="pr-plan-text">${pl.d}</p>`:'')
       +`<ul class="pr-plan-list">${(pl.f||[]).map(f=>`<li>${tick}<span>${f}</span></li>`).join('')}</ul>`
       +`<a class="pr-plan-cta${pop?' acc':''}" href="${routeToPath('contact')}" onclick="event.preventDefault();inquirePlan('${c.key}',${i})">${pr.planCta} ${arrow}</a>`

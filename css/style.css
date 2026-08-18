@@ -3063,12 +3063,12 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .pr-plan.pop .pr-plan-price,.pr-plan.pop .pr-plan-list li{color:#f4f6f6}
 .pr-plan.pop .pr-plan-text{color:#9fa7a8}
 .pr-plan.pop .pr-plan-list{border-color:rgba(255,255,255,.12)}
-.pr-plan-head{display:flex;align-items:center;min-height:1.7rem}
+.pr-plan-head{display:flex;align-items:center}
+/* The package name now carries the card (no price shown) — same weight the
+   price had, so the tier reads as the headline. */
 .pr-plan-name{
-  font-family:var(--font-mono);font-size:.66rem;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  /* --text3 falls to 2.3:1 on the inverted band — this label has to be read */
-  color:var(--text2);
+  font-family:var(--font-primary);font-size:2rem;font-weight:600;
+  line-height:1.15;letter-spacing:-.01em;color:var(--text);
 }
 .pr-plan-badge{
   /* straddles the card's top edge, as it did before */

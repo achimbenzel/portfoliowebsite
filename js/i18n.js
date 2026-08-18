@@ -115,22 +115,32 @@ const L={en:{
       work:'motion-design'
     },
     'music-visuals':{
-      hero:'A release should <em>look like it sounds</em>.',
-      benefits:'What you get',
+      hero:'A cover is <em>not a picture</em>.',
+      benefits:'How a release comes together',
       tiles:['Cover art','Brand kit','Visualizer'],
       plans:[
         {name:'Album Cover',d:'Artwork for a single, EP or album.',f:['Cover artwork designed to your track','Streaming and print resolutions','Optional back cover and booklet','2 revision rounds']},
         {name:'Music Branding',d:'A complete visual identity for your artist name or label.',f:['Logo and wordmark for your artist name','Colour, type and layout system','Cover and social templates','Guidelines so every release stays consistent']},
         {name:'Visualizer',d:'Animated visuals that move with the track.',f:['Looping or full-length visualizer','Synced to the music','Formats for YouTube, Reels and stage','Source file on handover']}
       ],
+      compare:[
+        {l:'Cover artwork',v:[true,true,false]},
+        {l:'Logo &amp; wordmark',v:[false,true,false]},
+        {l:'Colour &amp; type system',v:[false,true,false]},
+        {l:'Cover &amp; social templates',v:[false,true,false]},
+        {l:'Animated visualizer',v:[false,false,true]},
+        {l:'Print resolution',v:[true,false,false]},
+        {l:'Guidelines',v:[false,true,false]},
+        {l:'Source files',v:[true,true,true]}
+      ],
       label:'Music & Visuals',
       title:'Music &amp; <em>Visuals</em>',
       short:'Cover art, artist branding and motion visuals made to match the sound.',
-      text:'The look of a release should carry the same feeling as the track. I design cover artwork, artist identities and animated visuals that fit the music and hold up from a streaming thumbnail to a stage screen.',
+      text:'It\'s the first thing people keep from a release, usually at the size of a postage stamp. I build the visual side of your music so it stays recognisable at any size.',
       svcs:[
-        {t:'Cover Artwork',d:'Single, EP and album covers built to read at thumbnail size and in print.',tags:['Cover Art','Typography','Art Direction']},
-        {t:'Artist & Label Branding',d:'A visual system for your name or label that stays recognisable across every release.',tags:['Branding','Identity','Templates']},
-        {t:'Motion & Visualizers',d:'Animated visuals and loops that move with the track, for video and live sets.',tags:['Motion','Visualizer','Loops']}
+        {t:'Understand',d:'What the track sets off, where it plays and who it needs to reach. The direction comes out of the music, the references and your own idea of it.'},
+        {t:'Design',d:'Cover, typography and colour as one artwork that everything else can be derived from.'},
+        {t:'Deliver',d:'Every format you need. Streaming, vinyl, canvas and feed, still and in motion.'}
       ],
       process:[
         {t:'Listening',d:'It starts with the track. I listen to what the music feels like and what the release needs before anything is drawn.'},
@@ -341,22 +351,32 @@ de:{
       work:'motion-design'
     },
     'music-visuals':{
-      hero:'Ein Release sollte <em>aussehen wie es klingt</em>.',
-      benefits:'Was Sie bekommen',
+      hero:'Ein Cover ist <em>kein Bild</em>.',
+      benefits:'Wie ein Release entsteht',
       tiles:['Cover Art','Brand Kit','Visualizer'],
       plans:[
         {name:'Album Cover',d:'Artwork für eine Single, EP oder ein Album.',f:['Cover Artwork, abgestimmt auf Ihren Track','Auflösungen für Streaming und Print','Optional Back Cover und Booklet','2 Korrekturschleifen']},
         {name:'Music Branding',d:'Eine komplette visuelle Identität für Ihren Artist-Namen oder Ihr Label.',f:['Logo und Wortmarke für Ihren Artist-Namen','Farb-, Typo- und Layout-System','Cover- und Social-Templates','Guidelines, damit jedes Release stimmig bleibt']},
         {name:'Visualizer',d:'Animierte Visuals, die sich mit dem Track bewegen.',f:['Loop- oder Full-Length-Visualizer','Auf die Musik abgestimmt','Formate für YouTube, Reels und Bühne','Projektdatei bei der Übergabe']}
       ],
+      compare:[
+        {l:'Cover Artwork',v:[true,true,false]},
+        {l:'Logo &amp; Wortmarke',v:[false,true,false]},
+        {l:'Farb- &amp; Typo-System',v:[false,true,false]},
+        {l:'Cover- &amp; Social-Templates',v:[false,true,false]},
+        {l:'Animierter Visualizer',v:[false,false,true]},
+        {l:'Print-Auflösung',v:[true,false,false]},
+        {l:'Guidelines',v:[false,true,false]},
+        {l:'Projektdateien',v:[true,true,true]}
+      ],
       label:'Music & Visuals',
       title:'Music &amp; <em>Visuals</em>',
       short:'Cover Art, Artist-Branding und Motion-Visuals, die zum Sound passen.',
-      text:'Der Look eines Releases sollte dasselbe Gefühl tragen wie der Track. Ich gestalte Cover Artwork, Artist-Identitäten und animierte Visuals, die zur Musik passen und vom Streaming-Thumbnail bis zur Bühnenleinwand funktionieren.',
+      text:'Es ist das Erste, was von einem Release hängen bleibt, oft in der Größe einer Briefmarke. Ich baue die visuelle Seite deiner Musik so, dass sie in jedem Format erkennbar bleibt.',
       svcs:[
-        {t:'Cover Artwork',d:'Single-, EP- und Album-Cover, die als Thumbnail und im Print funktionieren.',tags:['Cover Art','Typografie','Art Direction']},
-        {t:'Artist- & Label-Branding',d:'Ein visuelles System für Ihren Namen oder Ihr Label, das über jedes Release erkennbar bleibt.',tags:['Branding','Identität','Templates']},
-        {t:'Motion & Visualizer',d:'Animierte Visuals und Loops, die sich mit dem Track bewegen – für Video und Live-Sets.',tags:['Motion','Visualizer','Loops']}
+        {t:'Verstehen',d:'Was der Track auslöst, wo er läuft und wen er erreichen soll. Aus Musik, Referenzen und deiner Vorstellung entsteht die Richtung.'},
+        {t:'Gestalten',d:'Cover, Typografie und Farbwelt als ein Motiv, aus dem sich alles Weitere ableiten lässt.'},
+        {t:'Ausspielen',d:'Jedes Format, das gebraucht wird. Streaming, Vinyl, Canvas und Feed, still und in Bewegung.'}
       ],
       process:[
         {t:'Zuhören',d:'Es beginnt mit dem Track. Ich höre, wie sich die Musik anfühlt und was das Release braucht, bevor etwas gestaltet wird.'},
