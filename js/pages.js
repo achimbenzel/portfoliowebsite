@@ -455,7 +455,7 @@ function pricingHomeHtml(){
        page uses); it removes itself if the image is missing. The image is a
        plain link to the service page — same target as the CTA, no hover state. */
     return`<div class="pr-card" data-anim="fade" data-anim-delay="${120+i*110}">`
-      +`<a class="pr-card-media" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')" aria-label="${deEnt(c.label)}"><img src="/Assets/Icons/services/${k}/hero.webp" alt="" loading="lazy" onerror="this.closest('.pr-card-media').remove()"/></a>`
+      +`<a class="pr-card-media" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')" aria-label="${deEnt(c.label)}">${svcThemeImg(`/Assets/Icons/services/${k}/hero.webp`,false)}</a>`
       +`<h3 class="pr-card-title">${c.label}</h3>`
       +(c.short?`<p class="pr-card-text">${c.short}</p>`:'')
       +`<a class="pr-card-cta" href="${routeToPath(k)}" onclick="event.preventDefault();go('${k}')">${pr.homeCta} ${arrow}</a>`

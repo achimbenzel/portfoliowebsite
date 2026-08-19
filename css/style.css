@@ -2986,11 +2986,13 @@ a,button,.witem,.nav-logo,.font-card,.faq-question,.lightbox-zoom-slider,.ft-sli
 .svc-gain-media img{width:100%;height:100%;object-fit:cover;display:block}
 /* Light-mode image variants (<name>w.webp): show the dark file by default and
    the light one whenever the page is in a light theme. */
-.svc-hero-media .timg-light,.svc-gain-media .timg-light{display:none}
+.svc-hero-media .timg-light,.svc-gain-media .timg-light,.pr-card-media .timg-light{display:none}
 [data-theme="light"] .svc-hero-media .timg-dark,[data-theme="lightproject"] .svc-hero-media .timg-dark,
-[data-theme="light"] .svc-gain-media .timg-dark,[data-theme="lightproject"] .svc-gain-media .timg-dark{display:none}
+[data-theme="light"] .svc-gain-media .timg-dark,[data-theme="lightproject"] .svc-gain-media .timg-dark,
+[data-theme="light"] .pr-card-media .timg-dark,[data-theme="lightproject"] .pr-card-media .timg-dark{display:none}
 [data-theme="light"] .svc-hero-media .timg-light,[data-theme="lightproject"] .svc-hero-media .timg-light,
-[data-theme="light"] .svc-gain-media .timg-light,[data-theme="lightproject"] .svc-gain-media .timg-light{display:block}
+[data-theme="light"] .svc-gain-media .timg-light,[data-theme="lightproject"] .svc-gain-media .timg-light,
+[data-theme="light"] .pr-card-media .timg-light,[data-theme="lightproject"] .pr-card-media .timg-light{display:block}
 
 /* ---- packages band — inverted against the page ---- */
 /* The band is full-bleed, but its content must sit on exactly the same rail as
