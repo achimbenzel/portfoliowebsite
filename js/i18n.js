@@ -119,9 +119,9 @@ const L={en:{
       benefits:'How a release comes together',
       tiles:['Cover art','Brand kit','Visualizer'],
       plans:[
-        {name:'Album Cover',d:'Artwork for a single, EP or album.',f:['Cover artwork designed to your track','Streaming and print resolutions','Optional back cover and booklet','2 revision rounds']},
-        {name:'Music Branding',d:'A complete visual identity for your artist name or label.',f:['Logo and wordmark for your artist name','Colour, type and layout system','Cover and social templates','Guidelines so every release stays consistent']},
-        {name:'Visualizer',d:'Animated visuals that move with the track.',f:['Looping or full-length visualizer','Synced to the music','Formats for YouTube, Reels and stage','Source file on handover']}
+        {name:'Album Cover',d:'Artwork for a single, EP or album.',f:['Cover artwork','Streaming and print resolutions','Optional back cover and booklet','2 revision rounds']},
+        {name:'Music Branding',d:'A complete visual identity for your artist name or label.',f:['Logo and wordmark for an artist name or album concept','Colour, type and layout system','Cover and social templates','Animations for social and visualizer']},
+        {name:'Visualizer',d:'Animated visuals that move with the track.',f:['Looping or full-length visualizer','Synced to the music','Formats for YouTube, Reels and stage']}
       ],
       compare:[
         {l:'Cover artwork',v:[true,true,false]},
@@ -130,8 +130,7 @@ const L={en:{
         {l:'Cover &amp; social templates',v:[false,true,false]},
         {l:'Animated visualizer',v:[false,false,true]},
         {l:'Print resolution',v:[true,false,false]},
-        {l:'Guidelines',v:[false,true,false]},
-        {l:'Source files',v:[true,true,true]}
+        {l:'Guidelines',v:[false,true,false]}
       ],
       label:'Music & Visuals',
       title:'Music &amp; <em>Visuals</em>',
@@ -207,7 +206,7 @@ const L={en:{
   cats:{'all':'All','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Type Design'},
   abt:{label:'About',title:'About <em>Me</em>',sub:'The story behind the work.',
     name:'Achim Benzel',role:'Freelance Designer',contactBtn:'Get in touch',
-    bio:['At twelve I started messing around in Photoshop, purely as a hobby. Today it\'s my job, but the curiosity from back then has stayed: when a project needs something that doesn\'t exist yet, it gets made here. Sometimes that\'s a typeface drawn from scratch, sometimes a small tool that takes work off my hands.','I\'ll take you from the first conversation to the finished result, whether that\'s a logo, a complete brand identity, a launch video or a website. It all happens here, so you\'re always talking to the person who actually does the work. A small project gets the same care as a big one. What should be left at the end is something that doesn\'t just look good, but genuinely fits your brand.'],
+    bio:['At twelve I started messing around in Photoshop, purely as a hobby. Today it\'s my job, but the curiosity from back then has stayed: when a project needs something that doesn\'t exist yet, it gets made here. Sometimes that\'s a typeface drawn from scratch, sometimes a small tool that takes work off my hands.','I\'ll take you from the first conversation to the finished result, whether that\'s a logo, a complete brand identity, a launch video, an album cover or a visualizer. It all happens here, so you\'re always talking to the person who actually does the work. A small project gets the same care as a big one. What should be left at the end is something that doesn\'t just look good, but genuinely fits your brand.'],
     timelineTitle:'Journey',
     timeline:[
       {year:'2013',text:'Found Photoshop Elements at 12 and made banners for Minecraft servers.'},
@@ -222,7 +221,7 @@ const L={en:{
       {t:'Own tools',d:'Small scripts that take over the repetitive steps and leave more time for the design.'},
       {t:'Also',d:'Cycling, PS1 and PS2 classics, too much tea.'}
     ]},
-    ftr:{tag:'Brand, Motion & Webdesigner',cta:'Get in touch',copy:'© 2026 Design by Achim Benzel. All rights reserved.',imp:'Imprint',priv:'Privacy Policy',tos:'ToS'},
+    ftr:{tag:'Brand, Motion & 3D Designer',cta:'Get in touch',copy:'© 2026 Design by Achim Benzel. All rights reserved.',imp:'Imprint',priv:'Privacy Policy',tos:'ToS'},
   contact:{title:'Get in touch',intro:'I hope my work has given you a glimpse into my approach and creative thinking. If you are interested in working together, I would like to hear from you.',name:'Your Name',email:'E-Mail',subject:'Subject',subjectPh:'What is this about?',message:'Tell us about your brand',tos:'I agree to the',tosLink:'Terms of Service',submit:'Send Message',altMail:'Alternatively, please send us an email:',success:'Thank you!',successMsg:'Your message has been sent. We\'ll be in touch soon.',errTos:'Please accept the Terms of Service.',errTurnstile:'Please complete the security check.',errSend:'Something went wrong. Please try again.',sending:'Sending…',bio:'Independent brand designer crafting identities with substance.'},
   prj:{back:'Back to Work',cl:'Client',yr:'Year',sc:'Scope',ind:'Industry',cat:'Category',type:'Type',sw:'Software',testimonial:'Testimonial',vPlay:'Play video',vPause:'Pause video',vMute:'Mute',vUnmute:'Unmute',vSeek:'Seek video',vVolume:'Volume'},
   imp:{title:'Imprint',h:'<h2>Information According to § 5 TMG</h2><p>Achim Benzel<br>Design by Achim Benzel<br>Saarstraße 32<br>55768 Hoppstädten-Weiersbach</p><h2>Contact</h2><p>Phone: +49 163 9877331<br>Email: info@achimbenzel.com</p><h2>VAT ID</h2><p>VAT identification number pursuant to § 27 a of the German VAT Act:<br>DE366404174</p><h2>Professional Liability Insurance</h2><p>Name and registered office of the insurer: Markel Insurance SE<br>Sophienstr. 26, 80333 München<br><a href="tel:+4989205094000">Phone: +49 89 205094-000</a> / <a href="mailto:service@markel.de">service@markel.de</a> / <a href="www.markel.de">www.markel.de</a><br>Coverage area: Germany</p><h2>Small Business Regulation</h2><p>In accordance with § 19 UStG, no VAT is charged (small business status).</p><h2>Editorially Responsible</h2><p>Achim Benzel</p><h2>Consumer Dispute Resolution / Universal Arbitration Board</h2><p>We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board.</p>'},
@@ -231,7 +230,7 @@ const L={en:{
   ck:{t:'This website uses cookies to ensure the best experience.',a:'Accept All',d:'Only Essential',l:'Learn more'},
   ext:{title:'External Link',text:'You are about to leave achimbenzel.com and will be redirected to an external website. I am not responsible for the content of external sites.',go:'Continue',cancel:'Stay here'},
   faq:{label:'FAQ',title:'Frequently Asked Questions',items:[
-    {q:'What services do you offer?',a:'The core is logo and brand identity, logo animation, launch video and website. Plus everything else a brand needs along the way: posters, print material, social content. In music, also cover artwork and visualisers. And everything in between.'},
+    {q:'What services do you offer?',a:'The core is logo and brand identity, logo animation, launch video, album cover and visualizer. Plus everything else a brand needs along the way: posters, print material, social content. And everything in between.'},
     {q:'How does a typical project begin?',a:'It starts with a conversation: goals, audience, constraints. Moodboards, sketches and first drafts follow, and from there it grows step by step into the finished work. None of it is set in stone. Even late in the process, earlier decisions can still be revisited.'},
     {q:'How long does a project take?',a:'That depends heavily on scope, usually somewhere between a few weeks and several months. A logo is done faster than a full identity with website and launch video. Once I know what\'s involved, you get a concrete timeline.'},
     {q:'How is pricing structured?',a:'Project-based, as a rule. After our first conversation you get a quote based on scope, complexity and the individual deliverables. A 50% deposit is due before work begins.'},
@@ -355,9 +354,9 @@ de:{
       benefits:'Wie ein Release entsteht',
       tiles:['Cover Art','Brand Kit','Visualizer'],
       plans:[
-        {name:'Album Cover',d:'Artwork für eine Single, EP oder ein Album.',f:['Cover Artwork, abgestimmt auf Ihren Track','Auflösungen für Streaming und Print','Optional Back Cover und Booklet','2 Korrekturschleifen']},
-        {name:'Music Branding',d:'Eine komplette visuelle Identität für Ihren Artist-Namen oder Ihr Label.',f:['Logo und Wortmarke für Ihren Artist-Namen','Farb-, Typo- und Layout-System','Cover- und Social-Templates','Guidelines, damit jedes Release stimmig bleibt']},
-        {name:'Visualizer',d:'Animierte Visuals, die sich mit dem Track bewegen.',f:['Loop- oder Full-Length-Visualizer','Auf die Musik abgestimmt','Formate für YouTube, Reels und Bühne','Projektdatei bei der Übergabe']}
+        {name:'Album Cover',d:'Artwork für eine Single, EP oder ein Album.',f:['Cover Artwork','Auflösungen für Streaming und Print','Optional Back Cover und Booklet','2 Korrekturschleifen']},
+        {name:'Music Branding',d:'Eine komplette visuelle Identität für Ihren Artist-Namen oder Ihr Label.',f:['Logo und Wortmarke für Artist-Namen oder Albumkonzept','Farb-, Typo- und Layout-System','Cover- und Social-Templates','Animationen für Social und Visualizer']},
+        {name:'Visualizer',d:'Animierte Visuals, die sich mit dem Track bewegen.',f:['Loop- oder Full-Length-Visualizer','Auf die Musik abgestimmt','Formate für YouTube, Reels und Bühne']}
       ],
       compare:[
         {l:'Cover Artwork',v:[true,true,false]},
@@ -366,8 +365,7 @@ de:{
         {l:'Cover- &amp; Social-Templates',v:[false,true,false]},
         {l:'Animierter Visualizer',v:[false,false,true]},
         {l:'Print-Auflösung',v:[true,false,false]},
-        {l:'Guidelines',v:[false,true,false]},
-        {l:'Projektdateien',v:[true,true,true]}
+        {l:'Guidelines',v:[false,true,false]}
       ],
       label:'Music & Visuals',
       title:'Music &amp; <em>Visuals</em>',
@@ -438,7 +436,7 @@ de:{
   cats:{'all':'Alle','brand-identity':'Brand Identity','motion-design':'Motion Design / Animation','3d-design':'3D Design','web-design':'Web Design','logo-design':'Logo Design','type-design':'Schriftgestaltung'},
   abt:{label:'Über mich',title:'Über <em>Mich</em>',sub:'Die Geschichte hinter der Arbeit.',
     name:'Achim Benzel',role:'Freiberuflicher Designer',contactBtn:'Kontakt aufnehmen',
-    bio:['Mit zwölf habe ich angefangen, in Photoshop herumzuprobieren, einfach als Hobby. Heute ist das mein Beruf, aber die Neugier von damals ist geblieben: Wenn ein Projekt etwas braucht, das es so noch nicht gibt, entsteht es hier. Manchmal ist das eine eigens gezeichnete Schrift, manchmal ein kleines Tool, das mir Arbeit abnimmt.','Ich begleite dich vom ersten Gespräch bis zum fertigen Ergebnis, egal ob das ein Logo ist, eine komplette Markenidentität, ein Launch Video oder eine Website. Alles entsteht bei mir, du sprichst also immer mit der Person, die es auch umsetzt. Ein kleines Projekt bekommt dabei dieselbe Sorgfalt wie ein großes. Am Ende soll etwas dastehen, das nicht nur gut aussieht, sondern auch wirklich zu deiner Marke passt.'],
+    bio:['Mit zwölf habe ich angefangen, in Photoshop herumzuprobieren, einfach als Hobby. Heute ist das mein Beruf, aber die Neugier von damals ist geblieben: Wenn ein Projekt etwas braucht, das es so noch nicht gibt, entsteht es hier. Manchmal ist das eine eigens gezeichnete Schrift, manchmal ein kleines Tool, das mir Arbeit abnimmt.','Ich begleite dich vom ersten Gespräch bis zum fertigen Ergebnis, egal ob das ein Logo ist, eine komplette Markenidentität, ein Launch Video, ein Album Cover oder ein Visualizer. Alles entsteht bei mir, du sprichst also immer mit der Person, die es auch umsetzt. Ein kleines Projekt bekommt dabei dieselbe Sorgfalt wie ein großes. Am Ende soll etwas dastehen, das nicht nur gut aussieht, sondern auch wirklich zu deiner Marke passt.'],
     timelineTitle:'Werdegang',
     timeline:[
       {year:'2013',text:'Mit 12 Photoshop Elements entdeckt und Banner für Minecraft-Server gestaltet.'},
@@ -453,7 +451,7 @@ de:{
       {t:'Eigene Tools',d:'Kleine Skripte, die wiederkehrende Schritte abnehmen, damit mehr Zeit für die Gestaltung bleibt.'},
       {t:'Außerdem',d:'Rad fahren, PS1- und PS2-Klassiker, zu viel Tee.'}
     ]},
-    ftr:{tag:'Brand, Motion & Webdesigner',cta:'Kontakt aufnehmen',copy:'© 2026 Design by Achim Benzel. Alle Rechte vorbehalten.',imp:'Impressum',priv:'Datenschutzerklärung',tos:'AGB'},
+    ftr:{tag:'Brand, Motion & 3D Designer',cta:'Kontakt aufnehmen',copy:'© 2026 Design by Achim Benzel. Alle Rechte vorbehalten.',imp:'Impressum',priv:'Datenschutzerklärung',tos:'AGB'},
   contact:{title:'Kontakt aufnehmen',intro:'Ich hoffe, meine Arbeit hat Ihnen einen Einblick in meine Denkweise und meinen kreativen Ansatz gegeben. Wenn Sie an einer Zusammenarbeit interessiert sind, freue ich mich darauf, von Ihnen zu hören.',name:'Ihr Name',email:'E-Mail',subject:'Betreff',subjectPh:'Worum geht es?',message:'Erzählen Sie uns von Ihrer Marke',tos:'Ich stimme den',tosLink:'Allgemeine Geschäftsbedingungen',tosAfter:'zu',submit:'Nachricht senden',altMail:'Alternativ senden Sie uns bitte eine Mail:',success:'Vielen Dank!',successMsg:'Ihre Nachricht wurde gesendet. Wir melden uns bald.',errTos:'Bitte akzeptieren Sie die Allgemeine Geschäftsbedingungen.',errTurnstile:'Bitte schließen Sie die Sicherheitsprüfung ab.',errSend:'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',sending:'Wird gesendet…',bio:'Freiberuflicher Markendesigner — Ich kreiere Identitäten mit Substanz.'},
   prj:{back:'Zurück',cl:'Kunde',yr:'Jahr',sc:'Umfang',ind:'Branche',cat:'Kategorie',type:'Typ',sw:'Software',testimonial:'Kundenstimme',vPlay:'Video abspielen',vPause:'Video pausieren',vMute:'Stummschalten',vUnmute:'Ton aktivieren',vSeek:'Video vorspulen',vVolume:'Lautstärke'},
   imp:{title:'Impressum',h:'<h2>Angaben gemäß § 5 TMG</h2><p>Achim Benzel<br>Design by Achim Benzel<br>Saarstraße 32<br>55768 Hoppstädten-Weiersbach</p><h2>Kontakt</h2><p>Tel: +49 163 9877331<br>E-Mail: info@achimbenzel.com</p><h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>DE366404174</p><h2>Angaben zur Berufshaftpflichtversicherung</h2><p>Name und Sitz des Versicherers: Markel Insurance SE<br>Sophienstr. 26, 80333 München<br><a href="tel:+4989205094000">Tel: +49 89 205094-000</a> / <a href="mailto:service@markel.de">service@markel.de</a> / <a href="www.markel.de">www.markel.de</a><br>Geltungsraum der Versicherung: Deutschland</p><h2>Kleinunternehmerregelung</h2><p>Gemäß § 19 UStG wird keine Umsatzsteuer erhoben (Kleinunternehmerstatus).</p><h2>Redaktionell verantwortlich</h2><p>Achim Benzel</p><h2>Verbraucherstreitbeilegung/ Universalschlichtungsstelle</h2><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>'},
@@ -462,7 +460,7 @@ de:{
   ck:{t:'Diese Website verwendet Cookies.',a:'Alle akzeptieren',d:'Nur essenzielle',l:'Mehr erfahren'},
   ext:{title:'Externer Link',text:'Sie verlassen achimbenzel.com und werden auf eine externe Website weitergeleitet. Ich bin nicht verantwortlich für den Inhalt externer Seiten.',go:'Weiter',cancel:'Hier bleiben'},
   faq:{label:'FAQ',title:'Häufig gestellte Fragen',items:[
-    {q:'Welche Leistungen bietest du an?',a:'Der Kern sind Logo und Brand Identity, Logo Animation, Launch Video und Website. Dazu kommt alles, was eine Marke sonst noch braucht: Poster, Printmaterial, Social Content. Im Musikbereich außerdem Cover Artwork und Visualizer. Und alles, was dazwischen liegt.'},
+    {q:'Welche Leistungen bietest du an?',a:'Der Kern sind Logo und Brand Identity, Logo Animation, Launch Video, Album Cover und Visualizer. Dazu kommt alles, was eine Marke sonst noch braucht: Poster, Printmaterial, Social Content. Und alles, was dazwischen liegt.'},
     {q:'Wie beginnt ein typisches Projekt?',a:'Am Anfang steht ein Gespräch: Ziele, Zielgruppe, Rahmenbedingungen. Danach entstehen Moodboards, Skizzen und erste Entwürfe, aus denen sich Schritt für Schritt die Umsetzung entwickelt. Nichts davon ist in Stein gemeißelt. Auch spät im Prozess lässt sich noch an früheren Stellen nachjustieren.'},
     {q:'Wie lange dauert ein Projekt?',a:'Das hängt stark vom Umfang ab, meistens liegt es zwischen ein paar Wochen und mehreren Monaten. Ein Logo ist schneller fertig als eine komplette Identität mit Website und Launch Video. Sobald ich weiß, worum es geht, bekommst du einen konkreten Zeitplan.'},
     {q:'Wie ist die Preisgestaltung?',a:'In der Regel projektbasiert. Nach dem ersten Gespräch bekommst du ein Angebot, das sich an Umfang, Komplexität und den einzelnen Leistungen orientiert. Vor Projektbeginn wird eine Anzahlung von 50% fällig.'},
