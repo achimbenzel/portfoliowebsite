@@ -1161,6 +1161,18 @@ function tosPg(){return legPg('tos')}
    Hero with a bento of placeholder tiles -> what you gain -> what you end up
    with -> real projects -> packages on an inverted band -> closing CTA ->
    (branding only) the logo shop. */
+/* Two variants of a service image: the normal file and its light-mode sibling
+   (<name>w.webp in the same folder), toggled by theme in CSS. If the light file
+   isn't there yet the light <img> falls back to the normal one, so light mode
+   never goes blank. */
+function svcThemeImg(base,eager){
+  const dot=base.lastIndexOf('.');
+  const light=base.slice(0,dot)+'w'+base.slice(dot);
+  const ld=eager?'eager':'lazy';
+  return `<img class="timg timg-dark" src="${base}" alt="" loading="${ld}" onerror="this.remove()"/>`
+    +`<img class="timg timg-light" src="${light}" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f='1';this.src='${base}'}"/>`;
+}
+
 function svcCatPg(key){
   const cats=t('svcCat')||{};const c=cats[key];
   if(!c)return notFoundPg();
@@ -1171,7 +1183,7 @@ function svcCatPg(key){
 
   /* ---- Hero: copy on the left, a single square image on the right (same
          square ratio as the gain-media images; hero.webp per service folder) ---- */
-  const heroMedia=`<div class="svc-hero-media"><img src="/Assets/Icons/services/${key}/hero.webp" alt="" loading="eager" onerror="this.remove()"/></div>`;
+  const heroMedia=`<div class="svc-hero-media">${svcThemeImg(`/Assets/Icons/services/${key}/hero.webp`,true)}</div>`;
   const heroHtml=`<div class="reveal svc-hero">`
     +`<div class="svc-hero-copy">`
       +`<h2 class="svc-hero-title">${c.hero||c.title}</h2>`
@@ -1192,7 +1204,7 @@ function svcCatPg(key){
   const gainHtml=(c.svcs||[]).length?`<div class="reveal svc-block">`
     +`<h3 class="svc-sec-title">${c.benefits||sp.benefits}</h3>`
     +`<div class="svc-gain">${c.svcs.map((v,i)=>`<div class="svc-gain-item">`
-        +`<div class="svc-gain-media"><img src="/Assets/Icons/services/${key}/0${i+1}.webp" alt="" loading="lazy" onerror="this.remove()"/></div>`
+        +`<div class="svc-gain-media">${svcThemeImg(`/Assets/Icons/services/${key}/0${i+1}.webp`,false)}</div>`
         +`<span class="svc-gain-num">${i+1}.</span><div class="svc-gain-body"><h4 class="svc-gain-t">${v.t}</h4><p class="svc-gain-d">${v.d}</p></div>`
       +`</div>`).join('')}</div>`
   +`</div>`:'';
